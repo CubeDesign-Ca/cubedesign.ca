@@ -1,46 +1,27 @@
-# Getting Started with Create React App
+# [Cube Design & Communication]
+This project aims to provide high-quality and reliable Cube Design & Communication website for clients who are looking to establish their online presence. Our company's main goal is to help businesses of all sizes leverage the power of the internet by creating customized and responsive websites that are tailored to meet their unique needs.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Our team of experienced web developers and designers work together to create visually appealing, user-friendly, and engaging websites that not only represent the brand's personality but also attract and retain visitors. We take pride in staying up-to-date with the latest web development trends and technologies to ensure that our clients' websites are optimized for performance, security, and functionality.
 
-## Available Scripts
+In addition to our web development services, we also offer consultation and support to our clients to ensure that they are equipped with the necessary tools and knowledge to maintain their websites and keep them updated with fresh and relevant content.
 
-In the project directory, you can run:
+Our ultimate aim is to help our clients achieve their business objectives by providing them with a professional and effective online platform that serves as an extension of their business. Whether it's a simple business website or a complex e-commerce platform, our team is committed to delivering high-quality web development solutions that exceed our clients' expectations.
 
-### `npm start`
+### Getting Started
+To get started with the project, follow these steps:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Clone the repository: git clone [https://github.com/CubeDesign-Ca/cubedesign.ca.git]
+Install dependencies: npm install
+Start the development server: npm run dev
+Open http://localhost:3000 in your browser to view the website.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Technologies Used
+React.js
+Next.js
 
-### `npm test`
+### Project Overview
+[]
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Contributors
+[]
