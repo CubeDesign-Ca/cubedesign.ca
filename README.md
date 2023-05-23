@@ -2,12 +2,21 @@
 Our project is dedicated to delivering high-quality Cube Design & Communication websites for clients seeking a strong online presence. We specialize in creating customized, responsive websites tailored to meet unique needs. Our experienced team of web developers and designers prioritizes visually appealing, user-friendly sites that effectively represent brands and engage visitors. We stay updated with the latest web development trends to ensure optimized performance, security, and functionality. Our primary objective is to provide professional online platforms that serve as powerful extensions of our clients' businesses. From simple business websites to e-commerce platforms, our commitment is to exceed expectations by delivering exceptional web development solutions.
 
 ### Getting Started
-To get started with the project, follow these steps:
+First, run the development server:
 
-Clone the repository: git clone [https://github.com/CubeDesign-Ca/cubedesign.ca.git]
-Install dependencies: npm install
-Start the development server: npm run dev
-Open http://localhost:3000 in your browser to view the website.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ### Technologies Used
 React.js
