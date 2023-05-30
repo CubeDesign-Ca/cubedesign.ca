@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 import MenuBar from '../components/MenuBar';
+import Contact from '@/components/Contact';
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
           </a>
         </div>
       </div>
+      <Contact />
 
       <div className={styles.center}>
         <Image
