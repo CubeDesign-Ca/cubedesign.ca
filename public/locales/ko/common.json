@@ -1,4 +1,9 @@
 {
+  "company": "Cube Design & Communication",
+  "printing": "Printing",
+  "digital": "Digital",
+  "contactus": "Contact Us",
+  
   "h1": "Ein einfaches Beispiel",
   "change-locale": "Sprache wechseln zu \"{{changeTo}}\"",
   "to-second-page": "Zur zweiten Seite",

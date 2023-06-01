@@ -5,8 +5,8 @@ import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { useTranslation, Trans } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
+import Header from '@/components/Header'
+import { Footer } from '@/components/Footer'
 
 type Props = {
   // Add custom props here
@@ -34,7 +34,7 @@ const Homepage = (
   return (
     <>
       <main>
-        <Header heading={t('h1')} title={t('title')} />
+        <Header companyName={t('company')} printing={t('printing')} digital={t('digital')} contactUs={t('contactus')} />
         <div style={{ display: 'inline-flex', width: '90%' }}>
           <div style={{ width: '33%' }}>
             <h3 style={{ minHeight: 70 }}>
