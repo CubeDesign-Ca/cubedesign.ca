@@ -1,8 +1,7 @@
-import type { AppProps } from 'next/app';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import Head from 'next/head';
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp = ({ Component, pageProps }) => {
   const { t } = useTranslation("common");
 
   return (

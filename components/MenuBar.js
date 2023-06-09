@@ -14,6 +14,9 @@ const MenuBar = () => {
         <li>
           <Link href="/digital">Digital</Link>
         </li>
+        <li>
+          <Link href="/contact">Contact Us</Link>
+        </li>
       </ul>
     </nav>
   );
