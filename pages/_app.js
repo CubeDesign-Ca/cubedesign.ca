@@ -1,5 +1,6 @@
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import Head from 'next/head';
+import '../pages/styles.css';
 
 const MyApp = ({ Component, pageProps }) => {
   const { t } = useTranslation("common");
@@ -10,6 +11,7 @@ const MyApp = ({ Component, pageProps }) => {
         <title>{t('company')}</title>
         <link rel="icon" href="/images/favicon.ico" /> {}
       </Head>
+
       <Component {...pageProps} />
     </>
   );
