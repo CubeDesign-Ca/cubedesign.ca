@@ -2,5 +2,8 @@
   "company": "Cube Design & Communication",
   "printing": "인쇄",
   "digital": "디지털",
-  "contactus": "문의"
+  "dynamic_printing": "인쇄",
+  "dynamic_digital": "디지털",
+  "contactus": "문의",
+  "consultus": "지금 문의하세요!"
 }

@@ -1,30 +1,21 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import Language from "./Language";
-import { useTranslation, Trans } from 'next-i18next'
+import { useTranslation } from 'next-i18next'
 
-const Header = ({ color }) => {
+const Header = ({ title, children, color  }) => {
   const { t } = useTranslation('common')
 
   const bgColor = "bg-" + (color ? color : "transparent");
 
   return (
-    <nav className={`flex items-center justify-between ${bgColor} p-4`}>
+    <nav className={`flex items-center justify-between font-white`}>
       <div className="flex items-center">
-        <Image src="/images/logo.png" alt="Company Logo" width={40} height={40} />
-        <span className="ml-2">{t('company')}</span>
+        <Image src="/images/logo.png" alt="Company Logo" width={47} height={47} />
+        <span className="ml-2">{title}</span>
       </div>
-      <ul className="flex items-center space-x-4">
-        <li>
-          <Link href="/printing">{t('printing')}</Link>
-        </li>
-        <li>
-          <Link href="/digital">{t('digital')}</Link>
-        </li>
-        <li>
-          <Link href="/contact">{t('contactus')}</Link>
-        </li>
-        <li>
+      <ul className="flex items-center">
+        { children }
+        <li className="mr-8">
           <div>
             <Language />
           </div>

@@ -4,10 +4,11 @@ import { useRouter } from 'next/router'
 import { useTranslation, Trans } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-import Footer from '../components/Footer/Static/StaticFooter'
 import DynamicHeader from '../components/Header/Dynamic/DynamicHeader';
 import StaticHeader from '../components/Header/Static/StaticHeader';
 
+import DynamicFooter from '../components/Footer/Dynamic/DynamicFooter';
+import StaticFooter from '../components/Footer/Static/StaticFooter';
 
 const Homepage = (_props) => {
   const router = useRouter()
@@ -18,8 +19,14 @@ const Homepage = (_props) => {
       <main>
         <DynamicHeader />
         <StaticHeader />
-
-        <Footer />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <DynamicFooter />
+        <StaticFooter />
 
       </main>
     </>
