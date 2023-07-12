@@ -1,0 +1,68 @@
+.bgimg {
+    width: 100%;
+    height: 700px;
+    background-image: url('/images/printing-bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: right;
+}
+
+
+.servicelist {
+    position: relative;
+    width: 25%;
+    height: 100%;
+    background-color: rgb(252 165 165);
+    display: flex;
+    align-items: end;
+   
+}
+
+.servicelist1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(252 165 165);
+    z-index: 1;
+}
+
+.serviceText {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+    background-color: grey;
+}
+.serviceText1 {
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    height: 20%;
+    background-color: grey;
+}
+
+.modalExit {
+    opacity: 0;
+}
+.modalExit1 {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    z-index: 10;
+}
+
+
+
+.galleryBackground{
+    width: 100%;
+    height: 30vh;
+    background: #103558;
+    display: flex;
+  }
+
+.slides{
+    background: #103558;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
