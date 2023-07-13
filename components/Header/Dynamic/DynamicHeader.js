@@ -28,7 +28,7 @@ const DynamicHeader = () => {
     <header
       className={`fixed h-[95px] py-[24px] px-[150px] top-0 left-0 right-0 shadow-lg z-10 transition-transform duration-500 bg-cube_blue text-white ${
         visible ? 'transform translateY(0)' : 'transform -translate-y-full'}`}>
-          <Header title={"Cube Design"} >
+          <Header logo={"logo_white"} title={"Cube Design"} >
             <li className="mr-8">
               <Link href="/printing">{t('dynamic_printing')}</Link>
             </li>

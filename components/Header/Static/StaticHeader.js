@@ -7,7 +7,7 @@ const StaticHeader = () => {
 
   return (
     <header className="h-[95px] py-[24px] px-[150px]">
-      <Header title={"Cube Design & Communication"} >
+      <Header logo={"logo"} title={"Cube Design & Communication"} >
         <li className="mr-8">
           <Link href="/printing">{t('printing')}</Link>
         </li>

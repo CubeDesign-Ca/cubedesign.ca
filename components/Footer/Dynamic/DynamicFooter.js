@@ -32,7 +32,7 @@ const DynamicFooter = () => {
         <p className="text-lg">{t('consultus')}</p>
         <div className="flex items-center">
           <p className="text-lg mr-2">123-456-7890 or</p>
-          <Link className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded" href="/contact">{t('contactus')}</Link>
+          <Link className="bg-white text-black font-semibold px-4 py-2" href="/contact">{t('contactus')}</Link>
         </div>
       </div>
     </footer>
