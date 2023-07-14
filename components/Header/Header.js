@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Language from "./Language";
+import Link from 'next/link';
 import { useTranslation } from 'next-i18next'
 
 const Header = ({ logo, title, children  }) => {
@@ -10,7 +11,7 @@ const Header = ({ logo, title, children  }) => {
     <nav className={`flex items-center justify-between font-white`}>
       <div className="flex items-center">
         <Image src={logoImg} alt="Company Logo" width={47} height={47} />
-        <span className="ml-2">{title}</span>
+        <Link className="ml-2" href="/">{title}</Link>
       </div>
       <ul className="flex items-center">
         { children }

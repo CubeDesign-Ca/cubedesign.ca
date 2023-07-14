@@ -1,18 +1,16 @@
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 
-import { useTranslation, Trans } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-import DynamicHeader from '../components/Header/Dynamic/DynamicHeader';
 import StaticHeader from '../components/Header/Static/StaticHeader';
-
-import DynamicFooter from '../components/Footer/Dynamic/DynamicFooter';
 import StaticFooter from '../components/Footer/Static/StaticFooter';
 
-const Homepage = (_props) => {
+const PageNotFound = (_props) => {
   const router = useRouter()
-  const { t, i18n } = useTranslation('common')
+  const { t } = useTranslation('common')
+  
   return (
     <div>
         <StaticHeader />
@@ -20,39 +18,20 @@ const Homepage = (_props) => {
             <div className="text-[#C83832] text-[20px] mb-[10px]">
                 404 Error
             </div>
-            <h1 className="text-4xl font-bold mb-[20px]">Page Not Found</h1>
-            <p className="text-[20px]">We tried but we couldn't find the page you'are looking for.</p>
-            <p className="mb-[10px] text-[20px]">We will do better next time.</p>
-            <p className="mb-[12px] text-[20px]">We want to help you the best we can.</p>
-            <div>
-                <button className="bg-cube_blue text-white p-[10px] w-[225px] text-[20px] mr-[30px]">Back To Home</button>
-                <button className="bg-cube_blue text-white p-[10px] w-[225px] text-[20px]">Contact Us</button>
+            <h1 className="text-4xl font-bold mb-[20px]">{t('pagenotfoundheader')}</h1>
+            <p className="text-[20px]">{t('pagenotfoundmsg1')}</p>
+            <p className="mb-[10px] text-[20px]">{t('pagenotfoundmsg2')}</p>
+            <p className="mb-[20px] text-[20px]">{t('pagenotfoundmsg3')}</p>
+            <div className="mb-[10px]">
+              <Link className="bg-cube_blue text-white px-[30px] py-[10px] w-[225px] text-[20px] mr-[30px]" href="/">{t('backtohome')}</Link>
+              <Link className="bg-cube_blue text-white px-[30px] py-[10px] w-[225px] text-[20px]" href="/contact">{t('contactus')}</Link>
+            </div>
+            <div className="flex items-center justify-end">
+              <img src="/images/404.jpg" alt="Company Logo" className="h-auto" />
             </div>
         </div>
-        {/* <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-        <h1 className="text-4xl font-bold mb-4">404 - Page Not Found</h1>
-        <p className="text-gray-600">
-            Sorry, the page you are looking for does not exist.
-        </p>
-        </div> */}
     </div>
   );
-
-//   return (
-//     <>
-//       <main>
-//         <StaticHeader />
-//         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-//         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-//         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-//         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-//         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-//         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-//         <StaticFooter />
-
-//       </main>
-//     </>
-//   )
 }
 
 export const getStaticProps = async ({ locale }) => ({
@@ -62,5 +41,4 @@ export const getStaticProps = async ({ locale }) => ({
     ])),
   },
 })
-
-export default Homepage
+export default PageNotFound

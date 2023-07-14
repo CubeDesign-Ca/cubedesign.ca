@@ -1,9 +1,15 @@
 {
   "company": "Cube Design & Communication",
+  "company_shorthand": "Cube Design",
   "printing": "인쇄",
   "digital": "디지털",
   "dynamic_printing": "인쇄",
   "dynamic_digital": "디지털",
   "contactus": "문의",
-  "consultus": "지금 문의하세요!"
+  "consultus": "지금 문의하세요!",
+  "pagenotfoundheader": "Page Not Found", 
+  "pagenotfoundmsg1": "We tried but we couldn't find the page you'are looking for.", 
+  "pagenotfoundmsg2": "We will do better next time.",
+  "pagenotfoundmsg3": "We want to help you the best we can.",
+  "pagenotfoundbtn1": "Back To Home"
 }

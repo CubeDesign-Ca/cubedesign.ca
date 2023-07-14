@@ -1,9 +1,15 @@
 {
   "company": "Cube Design & Communication",
+  "company_shorthand": "Cube Design",
   "printing": "Printing",
   "digital": "Digital",
   "dynamic_printing": "Printing Solution",
   "dynamic_digital": "Digital Solutions",
   "contactus": "Contact Us",
-  "consultus": "Get a free consulting!"
+  "consultus": "Get a free consulting!",
+  "pagenotfoundheader": "Page Not Found", 
+  "pagenotfoundmsg1": "We tried but we couldn't find the page you'are looking for.", 
+  "pagenotfoundmsg2": "We will do better next time.",
+  "pagenotfoundmsg3": "We want to help you the best we can.",
+  "backtohome": "Back To Home"
 }
