@@ -70,6 +70,21 @@ const Printing = () => {
 
       e.target.lastElementChild.classList.remove(printing.modalExit);
       e.target.lastElementChild.classList.add(printing.modalExit1);
+
+      e.target.firstElementChild.firstElementChild.classList.remove(printing.serviceTitle);
+      e.target.firstElementChild.firstElementChild.classList.add(printing.serviceTitle1);
+
+      e.target.firstElementChild.lastElementChild.classList.remove(printing.serviceDesc);
+      e.target.firstElementChild.lastElementChild.classList.add(printing.serviceDesc1);
+
+      if(e.target.firstElementChild.firstElementChild.textContent == "Large Format Printing"){
+        e.target.style.backgroundImage="url('/images/offline-service-large-click.jpg')";
+      }else if(e.target.firstElementChild.firstElementChild.textContent == "Digital Printing Service"){
+        e.target.style.backgroundImage="url('/images/offline-service-digital-click.jpg')";
+      }else{
+        e.target.style.backgroundImage="url('/images/offline-service-installation-click.jpg')";
+      }
+
       setclick(true)
     }
   };
@@ -85,8 +100,27 @@ const Printing = () => {
     );
     e.target.parentNode.classList.remove(printing.modalExit1);
     e.target.parentNode.classList.add(printing.modalExit);
+
+    e.target.parentNode.parentNode.firstElementChild.firstElementChild.classList.remove(printing.serviceTitle1);
+    e.target.parentNode.parentNode.firstElementChild.firstElementChild.classList.add(printing.serviceTitle);
+
+    e.target.parentNode.parentNode.firstElementChild.lastElementChild.classList.remove(printing.serviceDesc1);
+    e.target.parentNode.parentNode.firstElementChild.lastElementChild.classList.add(printing.serviceDesc);
+
+    if(e.target.parentNode.parentNode.firstElementChild.firstElementChild.textContent == "Large Format Printing"){
+      e.target.parentNode.parentNode.style.backgroundImage="url('/images/offline-service-large.jpg')";
+    }else if(e.target.parentNode.parentNode.firstElementChild.firstElementChild.textContent == "Digital Printing Service"){
+      e.target.parentNode.parentNode.style.backgroundImage="url('/images/offline-service-digital.jpg')";
+    }else{
+      e.target.parentNode.parentNode.style.backgroundImage="url('/images/offline-service-installation.jpg')";
+    }
+
     setclick(false)
   };
+
+  const clickMove = (e) => {
+    e.target.parentNode.parentNode.click();
+  }
   //slide
 
   const rightSlide = () => {
@@ -113,9 +147,9 @@ const Printing = () => {
         </div>
       </div>
       {/* our service */}
-      <div>
-        <div className="flex flex-col items-center">
-          <div className="h-12">
+      <div className={printing.serviceBg}>
+        <div className="flex flex-col items-center h-full">
+          <div className="h-12 mt-5">
             <h2>Our Service</h2>
           </div>
           <div className="w-7/12 flex justify-between border-solid border-b-8 border-red-600 mb-10">
@@ -129,17 +163,21 @@ const Printing = () => {
               <p>Promotional Product</p>
             </div>
           </div>
-          <div className="w-7/12 h-96">
+          <div className="w-7/12 h-3/4 mt-5">
             {print ? (
               <div className="w-full h-full flex justify-between relative">
                 <div
                   id="container"
                   className={printing.servicelist}
+                  style={{ 
+                    backgroundImage: `url('/images/offline-service-large.jpg')` 
+                  }}
                   onClick={isModal}
                 >
-                  <div className={printing.serviceText}>
+                  <div className={printing.serviceText} onClick={clickMove} >
                     {" "}
-                    <p className="ml-5">Large Format Printing</p>
+                    <h1 className={printing.serviceTitle}>Large Format Printing</h1>
+                    <p className={printing.serviceDesc}>Reliable printing services offering excellent prints and a seamless <br /> customer experience.</p>
                   </div>
                   <div
                     id="exit"
@@ -153,11 +191,15 @@ const Printing = () => {
                 <div
                   id="container"
                   className={printing.servicelist}
+                  style={{ 
+                    backgroundImage: `url('/images/offline-service-digital.jpg')` 
+                  }}
                   onClick={isModal}
                 >
-                  <div className={printing.serviceText}>
+                  <div className={printing.serviceText}  onClick={clickMove}>
                     {" "}
-                    <p className="ml-5">Digital Printing Service</p>
+                    <h1 className={printing.serviceTitle}>Digital Printing Service</h1>
+                    <p className={printing.serviceDesc}>Trusted printing services for top-notch prints and a hassle-free, <br /> reliables experience.</p>
                   </div>
                   <div
                     id="exit"
@@ -171,11 +213,15 @@ const Printing = () => {
                 <div
                   id="container"
                   className={printing.servicelist}
+                  style={{ 
+                    backgroundImage: `url('/images/offline-service-installation.jpg')` 
+                  }}
                   onClick={isModal}
                 >
-                  <div className={printing.serviceText}>
+                  <div className={printing.serviceText} onClick={clickMove}>
                     {" "}
-                    <p className="ml-5">Installation Service</p>
+                    <h1 className={printing.serviceTitle}>Installation Service</h1>
+                    <p className={printing.serviceDesc}>Professional and reliable installation service for a hassle-free <br /> experience you can trust.</p>
                   </div>
                   <div
                     id="exit"
@@ -192,11 +238,14 @@ const Printing = () => {
                 <div
                   id="container"
                   className={printing.servicelist}
+                  style={{ 
+                    backgroundColor: `rgb(252 165 165)`
+                  }}
                   onClick={isModal}
                 >
                   <div className={printing.serviceText}>
                     {" "}
-                    <p className="ml-5">Large Format Printing</p>
+                    <p className="ml-5">Large Format Printing123</p>
                   </div>
                   <div
                     id="exit"
@@ -234,23 +283,29 @@ const Printing = () => {
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
     >
-      <SwiperSlide className={printing.slides}>Take a look our Gallery</SwiperSlide>
+      <SwiperSlide className={printing.slides}>Take a look <br /> our Gallery</SwiperSlide>
       <SwiperSlide className="bg-emerald-600">Slide 2</SwiperSlide>
       <SwiperSlide className="bg-emerald-600">Slide 3</SwiperSlide>
       <SwiperSlide className="bg-emerald-600">Slide 4</SwiperSlide>
       <SwiperSlide className="bg-emerald-600">Slide 5</SwiperSlide>
       <SwiperSlide className="bg-emerald-600">Slide 6</SwiperSlide>
       <SwiperSlide className="bg-emerald-600">Slide 7</SwiperSlide>
-      <SwiperSlide className="bg-emerald-600">Slide 8</SwiperSlide>
       ...
     </Swiper>
       </div>
       {/* reference */}
-      <div className="flex h-60 w-full items-center justify-center bg-red-300">
-        {" "}
-        <p>reference</p>
+      <div className={printing.referenceBox}>
+        <div></div>
+        <div></div>
+      </div>
+      <div className={printing.referenceBox}>
+        <div></div>
+        <div></div>
+      </div>
+      <div className={printing.referenceBox}>
+        <div></div>
+        <div></div>
       </div>
     </div>
   );
