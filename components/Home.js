@@ -17,7 +17,7 @@ const Home = () => {
         <section className={styles.section}>
           <div className={styles.container}>
             <figure className={styles.card}>
-              <div className={img-div}>
+              <div>
               <Image class={styles.img} src="/images/main-service-printing.jpg" alt="Printing Image"/>
               <Image class={styles.imgHover} src="/images/main-service-printing-click.jpg" alt="Printing Image Clicked"/>
               </div>
