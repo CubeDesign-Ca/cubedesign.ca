@@ -6,8 +6,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import Footer from '../components/Footer/Static/StaticFooter'
 import DynamicHeader from '../components/Header/Dynamic/DynamicHeader';
-import StaticHeader from '../components/Header/Static/StaticHeader';
-
+// import StaticHeader from '../components/Header/Static/StaticHeader';
+import Home from '../components/Home';
 
 const Homepage = (_props) => {
   const router = useRouter()
@@ -17,8 +17,8 @@ const Homepage = (_props) => {
     <>
       <main>
         <DynamicHeader />
-        <StaticHeader />
-
+        {/* <StaticHeader /> */}
+        <Home />
         <Footer />
 
       </main>

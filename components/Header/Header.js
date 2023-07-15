@@ -16,6 +16,9 @@ const Header = ({ color }) => {
       </div>
       <ul className="flex items-center space-x-4">
         <li>
+          <Link href="/">{t('home')}</Link>
+        </li>
+        <li>
           <Link href="/printing">{t('printing')}</Link>
         </li>
         <li>
