@@ -24,9 +24,12 @@
 
     background-repeat: no-repeat;
     background-size: cover;
-   
 }
 
+
+.servicelist:hover {
+    border-bottom: 4px solid #C83832;
+}
 .servicelist1 {
     position: absolute;
     width: 100%;
@@ -114,5 +117,19 @@
 
 .referenceBox{
     height: 70vh;
-    width: 100vw;
+    width: 80%;
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-around;
+    
+
+}
+
+.referenceImg{
+    height: 60vh;
+    width: 30%;
+}
+
+.referenceText{
+    margin-left: 0px;
 }
