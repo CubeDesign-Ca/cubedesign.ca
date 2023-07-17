@@ -258,10 +258,28 @@ const Printing = () => {
                 </div>
               </div>
             ) : (
-              <div className="w-full h-full flex justify-between">
-                <div className="h-full w-1/4 bg-emerald-600"></div>
-                <div className="h-full w-1/4 bg-emerald-600"></div>
-                <div className="h-full w-1/4 bg-emerald-600"></div>
+              <div className="w-full h-full flex justify-between relative">
+                <div
+                  id="container"
+                  className={printing.servicelist}
+                  style={{ 
+                    backgroundColor: `rgb(252 165 165)`
+                  }}
+                  onClick={isModal}
+                >
+                  <div className={printing.serviceText}>
+                    {" "}
+                    <p className="ml-5">Large Format Printing123</p>
+                  </div>
+                  <div
+                    id="exit"
+                    className={printing.modalExit}
+                    onClick={exitModal}
+                  >
+                    {" "}
+                    <button>x</button>
+                  </div>
+                </div>
               </div>
             )}
           </div>
@@ -295,17 +313,41 @@ const Printing = () => {
     </Swiper>
       </div>
       {/* reference */}
+      <div className="w-full h-full">
       <div className={printing.referenceBox}>
-        <div></div>
-        <div></div>
+        <div className={printing.referenceImg}
+         style={{ 
+          backgroundImage: `url('/images/Offline-Insight-BrandRecall.jpg')` 
+        }}></div>
+        <div className={printing.referenceText}>
+          <h1></h1>
+          <p>lorem:4qweoihasfiuhasfdipuhasilfuhbasifuhb
+          </p>
+        </div>
       </div>
       <div className={printing.referenceBox}>
-        <div></div>
-        <div></div>
+      <div className={printing.referenceText}>
+          <h1></h1>
+          <p>lorem:4qweoihasfiuhasfdipuhasilfuhbasifuhb
+          </p>
+        </div>
+        <div className={printing.referenceImg}
+         style={{ 
+          backgroundImage: `url('/images/Offline-Insight-Decision.jpg')` 
+        }}></div>
+        
       </div>
       <div className={printing.referenceBox}>
-        <div></div>
-        <div></div>
+        <div className={printing.referenceImg}
+         style={{ 
+          backgroundImage: `url('/images/Offline-Insight-Combination.jpg')` 
+        }}></div>
+        <div className={printing.referenceText}>
+          <h1></h1>
+          <p>lorem:4qweoihasfiuhasfdipuhasilfuhbasifuhb
+          </p>
+        </div>
+      </div>
       </div>
     </div>
   );
