@@ -1,12 +1,20 @@
 import styles from "../app/homePage.module.css";
 import ChatbotIcon from "./Chatbot/ChatbotIcon";
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Autoplay,
+} from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { React, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import Image from "next/image";
+import AnimatedBannerText from "./3D/AnimatedBannerText";
 
 const Home = () => {
   const [isCard1Hovered, setIsCard1Hovered] = useState(false);
@@ -21,6 +29,7 @@ const Home = () => {
         <div className={styles.mainTitle}>
           <figcaption>Cube Design & Communication</figcaption>
           <figcaption>makes Poster Design</figcaption>
+          <AnimatedBannerText />
         </div>
       </div>
       <div className={styles.container}>
@@ -30,30 +39,41 @@ const Home = () => {
             {/* printing */}
             <div
               className={`${styles.card} ${styles.card1}`}
-              style={{ backgroundImage: isCard1Hovered ? "url('/images/main-service-printing.jpg')" : "url('/images/main-service-printing-click.jpg')" }}
+              style={{
+                backgroundImage: isCard1Hovered
+                  ? "url('/images/main-service-printing.jpg')"
+                  : "url('/images/main-service-printing-click.jpg')",
+              }}
               onMouseEnter={() => setIsCard1Hovered(true)}
               onMouseLeave={() => setIsCard1Hovered(false)}
             >
               <div className={styles.serviceContent}>
                 <h3 className={styles.serviceTitle}>Printing</h3>
                 <p className={styles.serviceDesc}>
-                  Maximize your visual impact with our professional printing and installation services, including way finding and promotional products.
+                  Maximize your visual impact with our professional printing and
+                  installation services, including way finding and promotional
+                  products.
                 </p>
               </div>
-            </div> 
+            </div>
 
             <div
               className={`${styles.card} ${styles.card2}`}
-              style={{ backgroundImage: isCard2Hovered ? "url('/images/main-service-digital.jpg')" : "url('/images/main-service-digital-click.jpg')" }}
+              style={{
+                backgroundImage: isCard2Hovered
+                  ? "url('/images/main-service-digital.jpg')"
+                  : "url('/images/main-service-digital-click.jpg')",
+              }}
               onMouseEnter={() => setIsCard2Hovered(true)}
               onMouseLeave={() => setIsCard2Hovered(false)}
             >
               <div className={styles.serviceContent}>
                 <h3 className={styles.serviceTitle}>Digital</h3>
                 <p className={styles.serviceDesc}>
-                  Establish your online presence with our full-service solutions tailored to enhance your business.
+                  Establish your online presence with our full-service solutions
+                  tailored to enhance your business.
                 </p>
-              </div> 
+              </div>
             </div>
           </div>
           <div className={styles.section}>
@@ -62,25 +82,29 @@ const Home = () => {
               <div className={styles.bvCard}>
                 <h4 className={styles.bvTitle}>One-Stop Solution</h4>
                 <p className={styles.bvDesc}>
-                  One place for all your needs full-service offerings spanning offline and online realms.
+                  One place for all your needs full-service offerings spanning
+                  offline and online realms.
                 </p>
               </div>
               <div className={styles.bvCard}>
-                <h4 className={styles.bvTitle}>Trustworthy &<br /> Professional Service</h4>
+                <h4 className={styles.bvTitle}>
+                  Trustworthy &<br /> Professional Service
+                </h4>
                 <p className={styles.bvDesc}>
-                  Reliable, professional services tailored to your needs, delivered promptly to elevate your business.
+                  Reliable, professional services tailored to your needs,
+                  delivered promptly to elevate your business.
                 </p>
               </div>
               <div className={styles.bvCard}>
                 <h4 className={styles.bvTitle}>After-Sales Supports</h4>
                 <p className={styles.bvDesc}>
-                  Robust after-sales support, ensuring our commitment to standing by services post-delivery.
+                  Robust after-sales support, ensuring our commitment to
+                  standing by services post-delivery.
                 </p>
               </div>
             </div>
           </div>
         </div>
-
       </div>
       <div className={styles.client}>
         <div className={styles.clientList}>
@@ -99,8 +123,8 @@ const Home = () => {
               prevEl: ".swiper-button-prev", // 이전 버튼 클래스명
             }}
             autoplay={{
-              "delay": 0,
-              "disableOnInteraction": false
+              delay: 0,
+              disableOnInteraction: false,
             }}
             onSlideNextTransitionStart={toggleSwitch}
             onSlidePrevTransitionStart={toggleSwitch}
