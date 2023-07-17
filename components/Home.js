@@ -1,6 +1,8 @@
 import styles from "../app/homePage.module.css"
 import ChatbotIcon from "./Chatbot/ChatbotIcon";
 import { React, useState } from "react";
+import Image from 'next/image';
+import AnimatedBannerText from './3D/AnimatedBannerText'
 
 const Home = () => {
   const [isCard1Hovered, setIsCard1Hovered] = useState(false);
@@ -13,6 +15,7 @@ const Home = () => {
         <div className={styles.mainTitle}>
           <figcaption>Cube Design & Communication</figcaption>
           <figcaption>makes Poster Design</figcaption>
+          <AnimatedBannerText />
         </div>
       </div>
       <div className={styles.container}>
