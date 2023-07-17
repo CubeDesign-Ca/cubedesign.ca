@@ -331,15 +331,17 @@ const Printing = () => {
           backgroundImage: `url('/images/Offline-Insight-BrandRecall.jpg')` 
         }}></div>
         <div className={printing.referenceText}>
-          <h1></h1>
-          <p>lorem:4qweoihasfiuhasfdipuhasilfuhbasifuhb
+          <h1>Driving Higher Brand Recall</h1>
+          <p>Did you know that print advertising achieves a remarkable 77% brand recall rate, surpassing digital platforms (Newsworks, 2020)?
+          <br /><br />Maximize your brand's impact through print advertising, creating a lasting impression that resonates with your audience.
           </p>
         </div>
       </div>
       <div className={printing.referenceBox}>
       <div className={printing.referenceText}>
-          <h1></h1>
-          <p>lorem:4qweoihasfiuhasfdipuhasilfuhbasifuhb
+          <h1>Making Informed Decisions</h1>
+          <p>Did you know that 82% of consumers trust print ads the most when making important purchase decisions? (Marketing Shepa survey)
+            <br /><br />Explore how print advertising builds trust, empowers decision-making, and enables confident choices.
           </p>
         </div>
         <div className={printing.referenceImg}
@@ -354,8 +356,9 @@ const Printing = () => {
           backgroundImage: `url('/images/Offline-Insight-Combination.jpg')` 
         }}></div>
         <div className={printing.referenceText}>
-          <h1></h1>
-          <p>lorem:4qweoihasfiuhasfdipuhasilfuhbasifuhb
+          <h1>An Unbeatable Combination</h1>
+          <p>Did you know that combining print and digital advertising can lead to a 400% increase in effectiveness (Top Media Advertising)?
+          <br /><br />Unleash the synergy of print and digital ads, reaching a wider audience for unprecedented online campaign success.
           </p>
         </div>
       </div>
