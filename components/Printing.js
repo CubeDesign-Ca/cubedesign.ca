@@ -81,9 +81,14 @@ const Printing = () => {
         e.target.style.backgroundImage="url('/images/offline-service-large-click.jpg')";
       }else if(e.target.firstElementChild.firstElementChild.textContent == "Digital Printing Service"){
         e.target.style.backgroundImage="url('/images/offline-service-digital-click.jpg')";
-      }else{
+      }else if(e.target.firstElementChild.firstElementChild.textContent == "Installation Service" ){
         e.target.style.backgroundImage="url('/images/offline-service-installation-click.jpg')";
+      }else if(e.target.firstElementChild.firstElementChild.textContent == "Directional Signage Design"){
+        e.target.style.backgroundImage="url('/images/offline-service-wayfinding-click.jpg')";
+      }else {
+        e.target.style.backgroundImage="url('/images/offline-service-promotional-click.jpg')";
       }
+
 
       setclick(true)
     }
@@ -111,8 +116,12 @@ const Printing = () => {
       e.target.parentNode.parentNode.style.backgroundImage="url('/images/offline-service-large.jpg')";
     }else if(e.target.parentNode.parentNode.firstElementChild.firstElementChild.textContent == "Digital Printing Service"){
       e.target.parentNode.parentNode.style.backgroundImage="url('/images/offline-service-digital.jpg')";
-    }else{
+    }else if(e.target.parentNode.parentNode.firstElementChild.firstElementChild.textContent == "Installation Service"){
       e.target.parentNode.parentNode.style.backgroundImage="url('/images/offline-service-installation.jpg')";
+    }else if( e.target.parentNode.parentNode.firstElementChild.firstElementChild.textContent == "Directional Signage Design"){
+      e.target.parentNode.parentNode.style.backgroundImage="url('/images/offline-service-wayfinding.jpg')";
+    }else{
+      e.target.parentNode.parentNode.style.backgroundImage="url('/images/offline-service-promotional.jpg')";
     }
 
     setclick(false)
@@ -239,13 +248,14 @@ const Printing = () => {
                   id="container"
                   className={printing.servicelist}
                   style={{ 
-                    backgroundColor: `rgb(252 165 165)`
+                    backgroundImage: `url('/images/offline-service-wayfinding.jpg')` 
                   }}
                   onClick={isModal}
                 >
-                  <div className={printing.serviceText}>
+                  <div className={printing.serviceText} onClick={clickMove} >
                     {" "}
-                    <p className="ml-5">Large Format Printing123</p>
+                    <h1 className={printing.serviceTitle}>Directional Signage Design</h1>
+                    <p className={printing.serviceDesc}>Streamline navagation effortlessly with out proven and reliable <br /> wayfinding design solutions.</p>
                   </div>
                   <div
                     id="exit"
@@ -263,13 +273,14 @@ const Printing = () => {
                   id="container"
                   className={printing.servicelist}
                   style={{ 
-                    backgroundColor: `rgb(252 165 165)`
+                    backgroundImage: `url('/images/offline-service-promotional.jpg')` 
                   }}
                   onClick={isModal}
                 >
-                  <div className={printing.serviceText}>
+                  <div className={printing.serviceText} onClick={clickMove} >
                     {" "}
-                    <p className="ml-5">Large Format Printing123</p>
+                    <h1 className={printing.serviceTitle}>Promotional Product & Merchandise</h1>
+                    <p className={printing.serviceDesc}>Bring your branding to life with our expertise, personalized <br /> approach, and creativity.</p>
                   </div>
                   <div
                     id="exit"
