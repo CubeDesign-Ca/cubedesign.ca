@@ -1,6 +1,6 @@
 .bgimg {
     width: 100%;
-    height: 700px;
+    height: 600px;
     background-image: url('/images/printing-bg.jpg');
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -8,37 +8,110 @@
     background-size: cover;
 }
 
+.mainHead {
+    font-size: 2.25rem;
+    /* 36px */
+    line-height: 2.5rem;
+    /* 40px */
+    font-weight: 600;
+}
+
+.mainText {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
 
 /* our service */
 
-.serviceBg{
+.serviceBg {
     height: 100vh;
+}
+
+.serviceHeadBox{
+    height: 50px;
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+.serviceHead{
+    font-size: 25px;
+    /* 36px */
+    line-height: 2.5rem;
+    /* 40px */
+    font-weight: 600;
+}
+
+
+
+.serviceComponentBox{
+    width: 33.333333%;
+    background-color: #C83832;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    transition: linear 0.25s;
+
+}
+.serviceComponentBox1{
+    width: 33.333333%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+}
+
+.serviceTitleBox{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+   
+    border-bottom: 7px solid #C83832;
+    margin-bottom: 5px;
+}
+
+
+.servicelistBoxContainer{
+    width: 70%;
+    height: 75%;
+    margin-top:20px; /* 20px */
+}
+
+
+.servicelistBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
 }
 
 .servicelist {
     position: relative;
-    width: 25%;
-    height: 100%;
+    width: 27%;
+    height: 90%;
     display: flex;
     align-items: end;
-
     background-repeat: no-repeat;
     background-size: cover;
+    transition: 0.2s ease-out;
 }
 
 
 .servicelist:hover {
-    border-bottom: 4px solid #C83832;
+    border-bottom: 8px solid #C83832;
 }
+
 .servicelist1 {
     position: absolute;
     width: 100%;
-    height: 100%;
-    z-index: 1;
-
+    height: 90%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    z-index: 1;
+    transition: 0.2s ease-out;
 }
 
 .serviceText {
@@ -46,90 +119,182 @@
     bottom: 0;
     width: 100%;
     height: 20%;
-    background-color: gainsboro;
+    background-color: #EFF2F9;
     padding-left: 20px;
     padding-top: 20px;
-    opacity: 0.8;
+    opacity: 0.7;
 
 }
+
 .serviceText1 {
     position: absolute;
     bottom: 0;
-    width: 80%;
-    height: 25%;
-    background-color: gainsboro;
-    padding-left: 20px;
-    padding-top: 20px;
+    width: 70%;
+    height: 35%;
+    background-color: #EFF2F9;
+    padding-left: 50px;
+    padding-top: 40px;
     opacity: 0.8;
 }
 
 
-.serviceTitle{
+.serviceTitle {
     font-size: 15px;
     font-weight: 500;
+    
+    width: 100%;
+    height: 100%;
 }
 
-.serviceTitle1{
+.serviceTitle1 {
     font-size: 25px;
     font-weight: 700;
+    margin-bottom: 20px;
 }
 
-.serviceDesc{
+.serviceDesc {
+    visibility: hidden;
     opacity: 0;
 }
 
-.serviceDesc1{
+.serviceDesc1 {
+    visibility: visible;
     opacity: 1;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 500;
 }
+
 
 .modalExit {
     opacity: 0;
 }
+
 .modalExit1 {
     position: absolute;
-    top: 20px;
-    right: 50px;
+    top: 40px;
+    right: 60px;
     z-index: 10;
 }
 
+.serviceExitBtn{
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    font-size: 22px;
+    background-color: white;
+    opacity: 0.8;
+}
+.serviceExitBtn:hover{
+opacity: 1;
+}
 
 
-.galleryBackground{
+.galleryBackground {
     width: 100%;
-    height: 30vh;
+    height: 40vh;
     background: #103558;
     display: flex;
-  }
+    align-items: center;
+    margin-top: 40px;
+}
 
-.slides{
+.slides {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #103558;
-    text-align: center;
-    padding-top: 100px;
     font-size: 25px;
     font-weight: 600;
     color: white;
 }
 
+.slide1{
+    width: 100%;
+    background-image: url('/images/Offline_Gallery-1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.slide2{
+    width: 100%;
+    background-image: url('/images/Offline_Gallery-2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.slide3{
+    width: 100%;
+    background-image: url('/images/Offline_Gallery-3.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.slide4{
+    width: 100%;
+    background-image: url('/images/Offline_Gallery-4.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.slide5{
+    width: 100%;
+    background-image: url('/images/Offline_Gallery-5.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 
 /* reference */
 
-.referenceBox{
+.referenceBox {
     height: 70vh;
     width: 80%;
     margin-top: 100px;
     display: flex;
     justify-content: space-around;
-    
+
 
 }
 
-.referenceImg{
+.referenceImg {
     height: 60vh;
     width: 30%;
 }
 
-.referenceText{
+.referenceText {
     margin-left: 0px;
+}
+
+.swiper .swiper-button-prev.swiper-button-disabled {
+    opacity: 0;
+}
+
+
+
+
+
+
+/* tablet */
+
+
+@media (max-width: 1100px) {
+
+    /* main background */
+    .mainHead {
+        font-size: 2.25rem;
+        /* 36px */
+        line-height: 2.5rem;
+        /* 40px */
+        font-weight: 600;
+    }
+
+    .mainText {
+        font-size: 1rem;
+        /* 18px */
+        line-height: 1.75rem;
+        /* 28px */
+    }
+
+
+
 }
