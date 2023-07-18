@@ -6,6 +6,7 @@ import "swiper/css/scrollbar";
 import { React, useState, useEffect, useRef } from "react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { motion } from "framer-motion";
 import printing from "../app/printing.module.css";
 import "../app/printing.module.css";
 
@@ -213,6 +214,17 @@ const Printing = () => {
     setSlide(true);
   };
 
+
+  const [isOn, setIsOn] = useState(false);
+
+  const toggleSwitch = () => {
+    setIsOn(!isOn)};
+  
+    const spring = {
+      ease: "linear",
+      duration: 2,
+    };
+
   return (
     <div>
       {/* bacground photo */}
@@ -413,7 +425,7 @@ const Printing = () => {
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           style={{ height: "260px" }}
           spaceBetween={50}
-          speed={1800}
+          speed={700}
           slidesPerView={4}
           slidesPerGroup={4}
           navigation={{
@@ -421,12 +433,8 @@ const Printing = () => {
             nextEl: ".swiper-button-next", // 다음 버튼 클래스명
             prevEl: ".swiper-button-prev", // 이전 버튼 클래스명
           }}
-          onSlideNextTransitionStart={() => {
-            console.log("change go");
-          }}
-          onSlidePrevTransitionStart={() => {
-            console.log("change back");
-          }}
+          onSlideNextTransitionStart={toggleSwitch}
+          onSlidePrevTransitionStart={toggleSwitch}
           slidesOffsetBefore={150}
           slidesOffsetAfter={250}
         >
@@ -441,6 +449,11 @@ const Printing = () => {
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
         </Swiper>
+        
+        <div className={printing.switch} data-on={isOn}>
+            <motion.div className={printing.switch1} layout transition={spring} >1</motion.div>
+            <motion.div className={printing.switch1} layout transition={spring}>2</motion.div>
+          </div>
       </div>
       {/* reference */}
       <div className="w-full h-full">
@@ -505,5 +518,7 @@ const Printing = () => {
     </div>
   );
 };
+
+
 
 export default Printing;
