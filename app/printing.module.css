@@ -27,12 +27,13 @@
     height: 100vh;
 }
 
-.serviceHeadBox{
+.serviceHeadBox {
     height: 50px;
     margin-top: 70px;
     margin-bottom: 30px;
 }
-.serviceHead{
+
+.serviceHead {
     font-size: 25px;
     /* 36px */
     line-height: 2.5rem;
@@ -42,7 +43,7 @@
 
 
 
-.serviceComponentBox{
+.serviceComponentBox {
     width: 33.333333%;
     background-color: #C83832;
     display: flex;
@@ -54,7 +55,8 @@
     transition: linear 0.25s;
 
 }
-.serviceComponentBox1{
+
+.serviceComponentBox1 {
     width: 33.333333%;
     display: flex;
     align-items: center;
@@ -62,24 +64,25 @@
     font-size: 17px;
 }
 
-.serviceTitleBox{
+.serviceTitleBox {
     width: 70%;
     display: flex;
     justify-content: space-between;
-   
+
     border-bottom: 7px solid #C83832;
     margin-bottom: 5px;
 }
 
 
-.servicelistBoxContainer{
+.servicelistBoxContainer {
     width: 70%;
     height: 75%;
-    margin-top:20px; /* 20px */
+    margin-top: 20px;
+    /* 20px */
 }
 
 
-.servicelistBox{
+.servicelistBox {
     width: 100%;
     height: 100%;
     display: flex;
@@ -141,7 +144,7 @@
 .serviceTitle {
     font-size: 15px;
     font-weight: 500;
-    
+
     width: 100%;
     height: 100%;
 }
@@ -176,7 +179,7 @@
     z-index: 10;
 }
 
-.serviceExitBtn{
+.serviceExitBtn {
     width: 35px;
     height: 35px;
     text-align: center;
@@ -184,8 +187,9 @@
     background-color: white;
     opacity: 0.8;
 }
-.serviceExitBtn:hover{
-opacity: 1;
+
+.serviceExitBtn:hover {
+    opacity: 1;
 }
 
 
@@ -209,35 +213,39 @@ opacity: 1;
     color: white;
 }
 
-.slide1{
+.slide1 {
     width: 100%;
     background-image: url('/images/Offline_Gallery-1.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
-.slide2{
+
+.slide2 {
     width: 100%;
     background-image: url('/images/Offline_Gallery-2.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
-.slide3{
+
+.slide3 {
     width: 100%;
     background-image: url('/images/Offline_Gallery-3.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
-.slide4{
+
+.slide4 {
     width: 100%;
     background-image: url('/images/Offline_Gallery-4.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
-.slide5{
+
+.slide5 {
     width: 100%;
     background-image: url('/images/Offline_Gallery-5.png');
     background-repeat: no-repeat;
@@ -247,21 +255,33 @@ opacity: 1;
 
 
 
-.switch{
+.switch {
     position: absolute;
-    width: 20px;
-    height: 30px;
+    height: 20px;
     left: 50%;
-    bottom: 0;
+    bottom: 10px;
     display: flex;
     flex-direction: row-reverse;
 }
+
 .switch[data-on="true"] {
     flex-direction: row;
-  }
-.switch1{
-background-color: #C83832;
-margin-right: 30px;
+}
+
+.switch1 {
+    width: 40px;
+    height: 17px;
+    border-radius: 15%;
+    background-color: #FFFFFF;
+    margin-right: 15px;
+}
+
+.switch2 {
+    width: 15px;
+    height: 17px;
+    background-color: #727272;
+    border-radius: 30%;
+    margin-right: 20px;
 }
 
 /* reference */

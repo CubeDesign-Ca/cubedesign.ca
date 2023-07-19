@@ -222,7 +222,7 @@ const Printing = () => {
   
     const spring = {
       ease: "linear",
-      duration: 2,
+      duration: 0.8,
     };
 
   return (
@@ -423,7 +423,7 @@ const Printing = () => {
         <Swiper
           // install Swiper modules
           modules={[Navigation, Pagination, Scrollbar, A11y]}
-          style={{ height: "260px" }}
+          style={{ height: "240px" }}
           spaceBetween={50}
           speed={700}
           slidesPerView={4}
@@ -451,8 +451,8 @@ const Printing = () => {
         </Swiper>
         
         <div className={printing.switch} data-on={isOn}>
-            <motion.div className={printing.switch1} layout transition={spring} >1</motion.div>
-            <motion.div className={printing.switch1} layout transition={spring}>2</motion.div>
+            <motion.div className={printing.switch1} layout transition={spring} ></motion.div>
+            <motion.div className={printing.switch2} layout transition={spring}></motion.div>
           </div>
       </div>
       {/* reference */}
