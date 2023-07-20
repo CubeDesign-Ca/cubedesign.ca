@@ -4,17 +4,13 @@ import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-import StaticHeader from '../components/Header/Static/StaticHeader';
-import StaticFooter from '../components/Footer/Static/StaticFooter';
-
 const PageNotFound = (_props) => {
   const router = useRouter()
   const { t } = useTranslation('common')
   
   return (
     <div>
-        <StaticHeader />
-        <div className="flex flex-col pt-[30px] pl-[150px]">
+        <div className="flex flex-col pt-[30px] px-[150px]">
             <div className="text-[#C83832] text-[20px] mb-[10px]">
                 404 Error
             </div>
@@ -26,8 +22,8 @@ const PageNotFound = (_props) => {
               <Link className="bg-cube_blue text-white px-[30px] py-[10px] w-[225px] text-[20px] mr-[30px]" href="/">{t('backtohome')}</Link>
               <Link className="bg-cube_blue text-white px-[30px] py-[10px] w-[225px] text-[20px]" href="/contact">{t('contactus')}</Link>
             </div>
-            <div className="flex items-center justify-end">
-              <img src="/images/404.jpg" alt="Company Logo" className="h-auto" />
+            <div className="flex items-center justify-end my-[150px]">
+              <img src="/images/404.png" alt="Company Logo" className="h-auto" />
             </div>
         </div>
     </div>
@@ -41,4 +37,5 @@ export const getStaticProps = async ({ locale }) => ({
     ])),
   },
 })
+
 export default PageNotFound
