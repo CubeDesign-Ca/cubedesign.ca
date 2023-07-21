@@ -4,15 +4,31 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-     "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        cube_blue: '#103558', // Replace with your desired color code
-        cube_red: '#C83832', // Replace with your desired color code
-        cube_gray: '#103558', // Replace with your desired color code
+        cube_blue: '#103558',
+        cube_red: '#C83832',
+        cube_gray: '#103558',
       },
+      spacing: {
+        footer_lmargin: "150px",
+        footer_tmargin: "100px",
+        footer_h: "398px",
+        footer_logo_w: "68px",
+        footer_logo_h: "68px",
+        footer_h_gap: "34px",
+        footer_v_gap: "72px",
+        footer_v_gap2: "30px",
+        footer_linespace: "17px",
+        footer_det_icon: "42px",
+        footer_sns_icon: "42px",
+      },
+    },
+    fontFamily: {
+      'footer_font': ['Courier New'],
     },
   },
   plugins: [],

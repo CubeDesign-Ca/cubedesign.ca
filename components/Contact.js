@@ -113,6 +113,7 @@ const ContactUs = () => {
       }
     }
   }
+
   return (
     <div className="w-screen h-screen max-w-full bg-white">
       <div className="flex flex-col">
@@ -234,4 +235,5 @@ const ContactUs = () => {
     </div>
   );
 };
+
 export default ContactUs;
