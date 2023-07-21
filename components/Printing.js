@@ -6,7 +6,7 @@ import "swiper/css/scrollbar";
 import { React, useState, useEffect, useRef } from "react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { motion } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
 import printing from "../app/printing.module.css";
 import "../app/printing.module.css";
 
@@ -214,17 +214,60 @@ const Printing = () => {
     setSlide(true);
   };
 
-
   const [isOn, setIsOn] = useState(false);
 
   const toggleSwitch = () => {
-    setIsOn(!isOn)};
-  
-    const spring = {
-      ease: "linear",
-      duration: 0.8,
-    };
+    setIsOn(!isOn);
+  };
 
+  const spring = {
+    ease: "linear",
+    duration: 0.8,
+  };
+  const control = useAnimation();
+  const control1 = useAnimation();
+  const control2 = useAnimation();
+  const boxVariant = {
+    hidden: { opacity: 0 },
+    visible: {
+      ease: [0.17, 0.67, 0.83, 0.67],
+      opacity: 1,
+      transition: {
+        duration: 1.5,
+        delay:0.3,
+        staggerChildren: 0.8,
+      }
+    }
+  };
+
+  const ref = useRef(null)
+  const ref1 = useRef(null)
+  const ref2 = useRef(null)
+  const inView = useInView(ref)
+  const inView1 = useInView(ref1)
+  const inView2 = useInView(ref2)
+  
+  // useEffect(() => {
+  //   if (inView) {
+  //     control.start("visible");
+  //   }
+  // }, [control, inView]);
+
+  useEffect(() => {
+    if (inView1) {
+      control1.start("visible");
+    }
+  }, [control1, inView1]);
+
+  useEffect(() => {
+    if (inView2) {
+      control2.start("visible");
+    }
+  }, [control2, inView2]);
+  const item = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 }
+  }
   return (
     <div>
       {/* bacground photo */}
@@ -449,24 +492,41 @@ const Printing = () => {
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
         </Swiper>
-        
+
         <div className={printing.switch} data-on={isOn}>
-            <motion.div className={printing.switch1} layout transition={spring} ></motion.div>
-            <motion.div className={printing.switch2} layout transition={spring}></motion.div>
-          </div>
+          <motion.div
+            className={printing.switch1}
+            layout
+            transition={spring}
+          ></motion.div>
+          <motion.div
+            className={printing.switch2}
+            layout
+            transition={spring}
+          ></motion.div>
+        </div>
       </div>
       {/* reference */}
-      <div className="w-full h-full">
-        <div className={printing.referenceBox}>
-          <div
-            className={printing.referenceImg}
-            style={{
-              backgroundImage: `url('/images/Offline-Insight-BrandRecall.jpg')`,
-            }}
-          ></div>
-          <div className={printing.referenceText}>
-            <h1>Driving Higher Brand Recall</h1>
-            <p>
+      <div className={printing.referenceBg}>
+        <motion.div
+          ref={ref}
+          variants={boxVariant}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          exit="hidden"
+          className={printing.referenceBox}>
+          <motion.div variants={item} className={printing.referenceImgBox}>
+            <img
+              src="/images/Offline-Insight-BrandRecall.jpg"
+              alt="react logo"
+              className={printing.referenceImg}
+            />
+          </motion.div>
+          <motion.div variants={item} className={printing.referenceText}>
+            <h1 className={printing.referenceTextTitle}>
+              Driving Higher Brand Recall <br /> <br />
+            </h1>
+            <p className={printing.referenceTextStyle}>
               Did you know that print advertising achieves a remarkable 77%
               brand recall rate, surpassing digital platforms (Newsworks, 2020)?
               <br />
@@ -474,37 +534,67 @@ const Printing = () => {
               Maximize your brand's impact through print advertising, creating a
               lasting impression that resonates with your audience.
             </p>
-          </div>
-        </div>
-        <div className={printing.referenceBox}>
-          <div className={printing.referenceText}>
-            <h1>Making Informed Decisions</h1>
-            <p>
-              Did you know that 82% of consumers trust print ads the most when
-              making important purchase decisions? (Marketing Shepa survey)
+          </motion.div>
+        </motion.div>
+      </div>
+      <div className={printing.referenceBg}>
+        <motion.div
+          ref={ref1}
+          variants={boxVariant}
+          initial="hidden"
+          animate={control1}
+          className={printing.referenceBox}>
+          <motion.div variants={item} className={printing.referenceText1}>
+            <div className={printing.referenceText2}>
+              <h1 className={printing.referenceTextTitle}>
+                Making Informed Decisions
+                <br /> <br />
+              </h1>
+              <p className={printing.referenceTextStyle}>
+                Did you know that 82% of consumers trust print ads the most when
+                making important purchase decisions? (Marketing Shepa survey)
+                <br />
+                <br />
+                Explore how print advertising builds trust, empowers
+                decision-making, and enables confident choices.
+              </p>
+            </div>
+          </motion.div>
+          <motion.div variants={item} className={printing.referenceImgBox1}>
+            <img
+              src="/images/Offline-Insight-Decision.jpg"
+              alt="react logo"
+              className={printing.referenceImg1}
+            />
+          </motion.div>
+        </motion.div>
+      </div>
+      <div
+        className={printing.referenceBg}
+        style={{
+          marginBottom: `100px`,
+        }}
+      >
+        <motion.div
+          ref={ref2}
+          variants={boxVariant}
+          initial="hidden"
+          animate={control2}
+          className={printing.referenceBox}
+        >
+          <motion.div variants={item} className={printing.referenceImgBox}>
+            <img
+              src="/images/Offline-Insight-Combination.jpg"
+              alt="react logo"
+              className={printing.referenceImg}
+            />
+          </motion.div>
+          <motion.div variants={item} className={printing.referenceText}>
+            <h1 className={printing.referenceTextTitle}>
+              An Unbeatable Combination <br />
               <br />
-              <br />
-              Explore how print advertising builds trust, empowers
-              decision-making, and enables confident choices.
-            </p>
-          </div>
-          <div
-            className={printing.referenceImg}
-            style={{
-              backgroundImage: `url('/images/Offline-Insight-Decision.jpg')`,
-            }}
-          ></div>
-        </div>
-        <div className={printing.referenceBox}>
-          <div
-            className={printing.referenceImg}
-            style={{
-              backgroundImage: `url('/images/Offline-Insight-Combination.jpg')`,
-            }}
-          ></div>
-          <div className={printing.referenceText}>
-            <h1>An Unbeatable Combination</h1>
-            <p>
+            </h1>
+            <p className={printing.referenceTextStyle}>
               Did you know that combining print and digital advertising can lead
               to a 400% increase in effectiveness (Top Media Advertising)?
               <br />
@@ -512,13 +602,11 @@ const Printing = () => {
               Unleash the synergy of print and digital ads, reaching a wider
               audience for unprecedented online campaign success.
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );
 };
-
-
 
 export default Printing;

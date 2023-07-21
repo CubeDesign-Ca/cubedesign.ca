@@ -285,29 +285,72 @@
 }
 
 /* reference */
+.referenceBg {
+    width: 100%;
+    height: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .referenceBox {
-    height: 70vh;
+    height: 100%;
     width: 80%;
-    margin-top: 100px;
+    margin-top: 120px;
     display: flex;
-    justify-content: space-around;
 
 
+}
+
+.referenceImgBox {
+    width: 70%;
+    height: 100%;
+}
+
+.referenceImgBox1 {
+    width: 51%;
+    height: 100%;
 }
 
 .referenceImg {
-    height: 60vh;
-    width: 30%;
+    width: 72%;
+    max-height: 85%;
+}
+
+.referenceImg1 {
+    width: 100%;
+    max-height: 85%;
 }
 
 .referenceText {
-    margin-left: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 47%;
 }
 
-.swiper .swiper-button-prev.swiper-button-disabled {
-    opacity: 0;
+.referenceTextTitle {
+    font-size: 35px;
+    font-weight: 700;
 }
+
+.referenceTextStyle {
+    font-size: 22px;
+}
+
+.referenceText1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 68%;
+}
+
+.referenceText2 {
+    
+    width: 70%;
+}
+
 
 
 
