@@ -4,10 +4,13 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router';
 
+import ArrowIcon from '../../Icons/Arrow';
+
 const DynamicHeader = () => {
   const { t } = useTranslation('common')
   const [prev, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,8 +28,6 @@ const DynamicHeader = () => {
     };
   }, [prev]);
 
-  const router = useRouter();
-  const isPrintingPage = router.pathname === '/printing';
 
   return (
     <header
@@ -35,17 +36,15 @@ const DynamicHeader = () => {
           <Header logo={"logo_white"} title={t('company_shorthand')} >
             <li className="flex item-center mr-8">
               <Link href="/printing">{t('dynamic_printing')}</Link>
-              <div className="ml-[2px] w-[10px] h-[10px] bg-cube_red"></div>
+              <div className={`w-[10px] h-[10px] ml-[2px] ${router.pathname === '/printing' ? 'bg-cube_red' : ''}`}></div>
             </li>
             <li className="flex item-center mr-8">
               <Link href="/digital">{t('dynamic_digital')}</Link>
-              <div className="ml-[2px] w-[10px] h-[10px] bg-cube_red"></div>
+              <div className={`w-[10px] h-[10px] ml-[2px] ${router.pathname === '/digital' ? 'bg-cube_red' : ''}`}></div>
             </li>
             <li className="flex items-center mr-8">
               <Link href="/contact">{t('contactus')}</Link>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-[15px] h-[15px] ml-[2px] text-cube_red">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-              </svg>
+              <ArrowIcon className={`w-[15px] h-[15px] ml-[2px] ${router.pathname === '/contact' ? 'text-cube_red' : ''}`} />
             </li>
           </Header>
     </header>

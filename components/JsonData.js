@@ -1,11 +1,10 @@
 import React from 'react';
 
-const JsonData = ({ key }) => {
-  const data = require('../public/global.json');
+const JsonData = ({ jsonKey }) => {
+  const data = require('../public/data.json');
+  const value = data[jsonKey] || 'Missing Key';
 
-  const value = data[key] || 'Key not found';
-
-  return <div className="w-[240px]">{value}</div>;
+  return <>{value}</>;
 };
 
 export default JsonData;
