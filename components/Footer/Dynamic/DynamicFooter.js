@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link';
+import JsonData from '../../JsonData';
+import PhoneIcon from '../../Icons/Phone';
 
 const DynamicFooter = () => {
   const { t } = useTranslation('common')
@@ -31,8 +33,9 @@ const DynamicFooter = () => {
       <div className="container mx-auto flex justify-between items-center text-white">
         <p className="text-lg">{t('consultus')}</p>
         <div className="flex items-center">
-          <p className="text-lg mr-2">123-456-7890 or</p>
-          <Link className="bg-white text-black font-semibold px-4 py-2" href="/contact">{t('contactus')}</Link>
+          <PhoneIcon class="w-6 h-6 mr-[5px]" />
+          <JsonData jsonKey="phone" /><p className="text-lg mx-[40px]"> or</p>
+          <Link className="bg-white text-cube_blue font-semibold px-[30px] py-[8px] text-[20px]" href="/contact">{t('contactus')}</Link>
         </div>
       </div>
     </footer>

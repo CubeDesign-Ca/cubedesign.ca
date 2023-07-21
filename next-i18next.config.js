@@ -17,4 +17,10 @@ module.exports = {
       : '/locales',
 
   reloadOnPrerender: process.env.NODE_ENV === 'development',
+  fallback: {
+    "fs": false,
+    "os": false,
+    "path": false,
+  }
+
 }
