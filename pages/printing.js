@@ -1,5 +1,6 @@
 import React from 'react';
 import Printing from '../components/Printing';
+import '../app/globals.css';
 import DynamicHeader from '../components/Header/Dynamic/DynamicHeader';
 import DynamicFooter from '../components/Footer/Dynamic/DynamicFooter';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'

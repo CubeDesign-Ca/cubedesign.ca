@@ -87,12 +87,6 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 a {
@@ -103,5 +97,40 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+.swiper .swiper-button-prev.swiper-button-disabled,.swiper .swiper-button-next.swiper-button-disabled{
+  opacity: 0;
+}
+
+.swiper-button-next{
+  background-image: url('/images/Offline-Gallery-Next button.png');
+  background-size: cover;
+  background-position: center;
+  margin-right: 150px;
+  opacity: 0.8;
+  width: 40px;
+}
+
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none;
+}
+
+.swiper-button-prev{
+  color: white;
+  background-image: url('/images/Offline-Gallery-Prev button.png');
+  background-size: cover;
+  background-position: center;
+  margin-left: 100px;
+  visibility: hidden;
+  opacity: 0.8;
+  width: 40px;
+}
+
+.swiper:hover{
+  .swiper-button-prev{
+    visibility:visible;
   }
 }
