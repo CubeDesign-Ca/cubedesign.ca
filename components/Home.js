@@ -2,11 +2,13 @@ import React from 'react';
 import styles from '../styles/Homepage.module.css';
 import Image from 'next/image';
 
+import ChatbotIcon from './Chatbot/ChatbotIcon';
+
 const Home = () => {
   return (
     <>
       <figure className={styles.imgContainer}>
-        <Image className={styles.img} src="/images/Home-main_banner(2000x1090_CFE2EB).jpg" alt="Main Banner" width="100" height="100"/>
+        <Image className={styles.img} src="/images/Home-main_banner(2000x1090_CFE2EB).jpg" alt="Main Banner" width="2000" height="1090"/>
         <div className={styles.mainTitle}>
           <figcaption>Cube Design & Communication</figcaption>
           <figcaption>makes Poster Design</figcaption>
@@ -18,8 +20,8 @@ const Home = () => {
           <div className={styles.container}>
             <figure className={styles.card}>
               <div>
-              <Image class={styles.img} src="/images/main-service-printing.jpg" alt="Printing Image" width="100" height="100"/>
-              <Image class={styles.imgHover} src="/images/main-service-printing-click.jpg" alt="Printing Image Clicked" width="100" height="100"/>
+              <Image class={styles.img} src="/images/main-service-printing.jpg" alt="Printing Image" width="555" height="600"/>
+              <Image class={styles.imgHover} src="/images/main-service-printing-click.jpg" alt="Printing Image Clicked" width="555" height="600"/>
               </div>
               <div className={styles.textOverlay}>
                 <h3 className={styles.divTitle}>Printing</h3>
@@ -27,8 +29,8 @@ const Home = () => {
               </div>
             </figure>
             <figure className={styles.card}>
-              <Image class={styles.img} src="/images/main-service-digital.jpg" alt="Digital Image" width="100" height="100"/>
-              <Image class={styles.imgHover} src="/images/main-service-digital-click.jpg" alt="Digital Image Clicked" width="100" height="100"/>
+              <Image class={styles.img} src="/images/main-service-digital.jpg" alt="Digital Image" width="555" height="600"/>
+              <Image class={styles.imgHover} src="/images/main-service-digital-click.jpg" alt="Digital Image Clicked" width="555" height="600"/>
               <div className={styles.textOverlay}>
                 <h3 className={styles.divTitle}>Digital</h3>
                 <p>Establish your online presence with our full-service solutions tailored to enhance your business.</p>
@@ -61,6 +63,8 @@ const Home = () => {
           </div>
         </section>
       </div>
+
+      <ChatbotIcon />
     </>
   );
 };
