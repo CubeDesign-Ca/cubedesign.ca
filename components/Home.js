@@ -15,7 +15,6 @@ const Home = () => {
         <div className={styles.mainTitle}>
           <figcaption>Cube Design & Communication</figcaption>
           <figcaption>makes Poster Design</figcaption>
-          <AnimatedBannerText />
         </div>
       </div>
       <div className={styles.container}>
