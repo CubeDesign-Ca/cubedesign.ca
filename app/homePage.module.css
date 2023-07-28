@@ -1,5 +1,6 @@
 
 /* homePage.module.css */
+
 /* main img */
 .imgContainer {
   width: 100%;
@@ -9,6 +10,7 @@
   background-attachment: scroll;
   background-position: center;
   background-size: cover;
+  margin-bottom: 200px;
 }
 @media (min-width: 2000px) and (min-height: 1090px) {
   .imgContainer {
@@ -19,40 +21,45 @@
   font-size: 1.8em;
   font-weight: bold;
   position: absolute;
+  /* 고쳐야됨! */
   top: 30%;
   left: 8rem;
 }
 
 /* printing & digital */
+.container {
+  display: flex;
+  justify-content: center;
+}
 .mainContainer {
-  padding: 8rem 8rem;
+  /* padding: 8rem 8rem; */
+  width: 1140px;
 }
 .service {
   display: flex;
   justify-content: space-between;
-  position: relative;
-  gap: 30px;
+  /* position: relative; */
   margin-bottom: 200px;
-  /* flex: 1; */
+  gap: 30px;
 }
 .card {
-  display: flex;
-  flex: 1;
-  align-items: stretch;
+  /* display: flex; */
+  /* flex: 1; */
+  /* align-items: stretch; */
   position: relative;
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 0;
-  padding-top: 66.64%;
+  /* background-size: contain;
+  background-repeat: no-repeat; */
+  width: 555px;
+  height: 600px;
   border-bottom: 8px solid transparent;
-}
+} 
 .serviceContent { 
   padding: 40px 50px 40px 50px;
   background-color: #EFF2F9;
   opacity: 0.8;
   position: absolute;
   bottom: 0%;
+  width: 555px;
   height: 210px;
 }
 .serviceTitle{
@@ -65,28 +72,18 @@
   font-family: "Noto Sans", sans-serif;
   color: #103558;
   font-size: 18px;
-  /* position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 20%; */
 }
 .card:hover {
   border-bottom-color: #C83832;
 }
-/* 
-.card1:hover {
-  background-image: url('/images/main-service-printing-click.jpg'); 
-}
-
-.card2:hover {
-  background-image: url('/images/main-service-digital-click.jpg'); 
-} */
 
 /* brand value */
+
 .section {
-  margin: 0 0 120px 0;
+  /* margin: 0 0 120px 0;
   width: 100%;
-  height: 70%;
+  height: 70%; */
+  margin-bottom: 200px;
 }
 .bvContainer {
   position: relative;
@@ -119,17 +116,4 @@
 .bvDesc {
   font-family: "Noto Sans", sans-serif;
   font-size: 18px;
-}
-.imgHover {
-  display: none;
-  opacity: 0;
-  transition: opacity 10s ease;
-}
-.card:hover .imgHover {
-  display: block;
-  opacity: 1;
-}
-.card:hover .img {
-  display: none;
-  opacity: 0;
 }
