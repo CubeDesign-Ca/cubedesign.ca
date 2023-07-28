@@ -34,7 +34,7 @@ export default class SceneInit {
       1,
       1000
     );
-    this.camera.position.z = 48;
+    this.camera.position.z = 80;
 
     // NOTE: Specify a canvas which is already created in the HTML.
     const canvas = document.getElementById(this.canvasId);

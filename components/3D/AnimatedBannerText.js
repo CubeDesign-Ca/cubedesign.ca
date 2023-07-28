@@ -21,13 +21,16 @@ function AnimatedBannerText() {
 
     let loadedModel;
     const glftLoader = new GLTFLoader();
-    glftLoader.load('/images/main-banner-3d.gltf', (gltfScene) => {
+    // const center = gltfScene.getCenter( new THREE.Vector3() );
+    glftLoader.load('/images/mainbanner.gltf', (gltfScene) => {
       loadedModel = gltfScene;
-      // console.log(loadedModel);
+      console.log(loadedModel);
 
     //   gltfScene.scene.rotation.y = Math.PI / 8;
-    //   gltfScene.scene.position.y = 3;
-    //   gltfScene.scene.scale.set(10, 10, 10);
+      gltfScene.scene.position.x = 0;
+      gltfScene.scene.position.y = 0;
+      gltfScene.scene.position.z = -1000;
+      gltfScene.scene.scale.set(0.6, 0.6, 0.6);
       test.scene.add(gltfScene.scene);
     });
 
