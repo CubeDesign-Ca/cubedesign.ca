@@ -1,0 +1,373 @@
+.emailFormBox{
+    display: flex;
+    flex-direction: column;
+}
+
+.mainBox{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.firstBox{
+    
+    width: 1140px;
+    height: 154px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.firstBoxText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 405px;
+    height: 74px;
+    font-size: 40px;
+    font-weight: 600;
+    border: 2px solid #D9D9D9;
+
+}
+.secondBox{
+ display: flex;
+ width: 1140px;
+ height: 731px;
+ justify-content: space-between;
+}
+
+.secondLeftBox{
+display: flex;
+flex-direction: column;
+width: 390px;
+height: 731px;
+}
+
+.secondLeftBoxText{
+font-size: 24px;
+font-weight: 500;
+}
+
+.secondLeftBoxText1{
+font-size: 18px;
+font-weight: 400;
+}
+
+/* error */
+
+.errorHidden{
+    visibility: hidden;
+}
+.errorVisible{
+    font-size: 16px;
+    color: #C83832;
+}
+.errorLogo{
+    width: 22px;
+    height: 21px;
+    position: absolute;
+    top: 25%;
+    right: 2%;
+    visibility: hidden;
+}
+
+.errorLogo1{
+    width: 22px;
+    height: 21px;
+    position: absolute;
+    top: 25%;
+    right: 2%;
+    visibility: visible;
+}
+
+.serviceError{
+    margin-left: 10px;
+    width: 22px;
+    height: 21px;
+    visibility: hidden;
+}
+
+.serviceError1{
+    margin-left: 10px;
+    width: 22px;
+    height: 21px;
+    visibility: visible;
+}
+
+/* emailTitle */
+.emailText{
+    font-size: 24px;
+    font-weight: 500;
+
+    margin-bottom: 30px;
+    }
+
+
+
+/* service */
+
+.servicelogoBox{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.serviceText{
+    font-size: 20px;
+    font-weight: 400;
+    
+}
+
+.serviceBox{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.serviceImg{
+    max-width: 165px;
+    height: 145px;
+}
+
+/* name */
+
+
+.nameText{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+
+.nameBox{
+    display: flex;
+    width: 750px;
+    justify-content: space-between;
+    height: 112px;
+}
+
+.nameInputBox{
+    position: relative;
+}
+.nameInput{
+    width: 360px;
+    height: 55px;
+    background-color: #F9F9F9;
+    border-bottom: 5px solid #D9D9D9;
+    outline: none;
+}
+
+.nameInputType{
+    width: 360px;
+    height: 55px;
+    background-color: #F9F9F9;
+    border-bottom: 5px solid #ABBEDB;
+    outline: none;
+}
+
+.nameInputSuccess{
+    width: 360px;
+    height: 55px;
+    background-color: #F9F9F9;
+    border-bottom: 5px solid #213453;
+    outline: none;
+}
+
+.nameInputFail{
+    width: 360px;
+    height: 55px;
+    background-color: #F9F9F9;
+    border-bottom: 5px solid #C83832;
+    outline: none;
+}
+
+.lastnameBox{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+/* email */
+
+
+
+
+
+
+
+.emailbox{
+    display: flex;
+    flex-direction: column;
+    height: 110px;
+}
+
+.emailInput{
+    width: 750px;
+    height: 55px;
+    outline: none;
+    background-color: #F9F9F9;
+    border-bottom: 5px solid #D9D9D9;
+}
+
+.emailInputType{
+    width: 750px;
+    height: 55px;
+    background-color: #F9F9F9;
+    border-bottom: 5px solid #ABBEDB;
+    outline: none;
+}
+
+.emailInputSuccess{
+    width: 750px;
+    height: 55px;
+    background-color: #F9F9F9;
+    border-bottom: 5px solid #213453;
+    outline: none;
+}
+
+.emailInputFail{
+    width: 750px;
+    height: 55px;
+    background-color: #F9F9F9;
+    border-bottom: 5px solid #C83832;
+    outline: none;
+}
+
+
+
+
+/* text */
+
+
+
+
+.textBox{
+    display: flex;
+    flex-direction: column;
+}
+
+.textInput{
+    width: 750px;
+    height: 100px;
+    background-color: #F9F9F9;
+    outline: none;
+    padding-left: 10px;
+    padding-top: 15px;
+    margin-bottom: 7px;
+}
+
+.textLabel{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+.submitBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.submitBtn{
+    width: 360px;
+    height: 55px;
+    font-size: 24px;
+    font-weight: 500;
+    background-color: #D9D9D9;
+}
+.submitBtn1{
+    width: 360px;
+    height: 55px;
+    font-size: 24px;
+    font-weight: 500;
+    background-color: #103558;
+    color: #FFFFFF;
+}
+
+.submitIcon{
+    width: 69px;
+    height: 69px;
+    margin-bottom: 20px;
+    visibility: hidden;
+}
+.submitIcon1{
+    width: 69px;
+    height: 69px;
+    margin-bottom: 20px;
+    visibility: visible;
+}
+.submitScreenBox{
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    height:100vh;
+    width:100%;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.submitScreenBox1{
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    height:146vh;
+    width:100%;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: visible;
+}
+
+.submitScreen{
+    width: 670px;
+    height: 208px;
+    background-color: rgba(217,217,217, 1);
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    margin-bottom: 48vh;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.submitScreen1{
+    width: 670px;
+    height: 208px;
+    background-color: rgba(217,217,217, 1);
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    margin-bottom: 48vh;
+    justify-content: center;
+    align-items: center;
+    visibility: visible;
+}
+.submitText{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    visibility: hidden;
+}
+.submitText1{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    visibility: visible;
+}

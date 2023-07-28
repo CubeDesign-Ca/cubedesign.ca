@@ -20,6 +20,7 @@ const Printing = () => {
   //oursercie
 
   const isPrint = (e) => {
+    e.preventDefault();
     if (!print && !isclick) {
       e.target.parentNode.classList.remove(printing.serviceComponentBox1);
       e.target.parentNode.classList.add(printing.serviceComponentBox);
@@ -40,6 +41,7 @@ const Printing = () => {
     }
   };
   const isDesign = (e) => {
+    e.preventDefault();
     if (!design && !isclick) {
       e.target.parentNode.classList.remove(printing.serviceComponentBox1);
       e.target.parentNode.classList.add(printing.serviceComponentBox);
@@ -61,6 +63,7 @@ const Printing = () => {
     }
   };
   const isProduct = (e) => {
+    e.preventDefault();
     if (!product && !isclick) {
       e.target.parentNode.classList.remove(printing.serviceComponentBox1);
       e.target.parentNode.classList.add(printing.serviceComponentBox);
@@ -85,6 +88,7 @@ const Printing = () => {
   // service list
 
   const isModal = (e) => {
+    e.preventDefault();
     if (e.target.id == "container") {
       e.target.classList.remove(printing.servicelist);
       e.target.classList.add(printing.servicelist1);
@@ -143,6 +147,7 @@ const Printing = () => {
   };
 
   const exitModal = (e) => {
+    e.preventDefault();
     e.target.parentNode.parentNode.classList.remove(printing.servicelist1);
     e.target.parentNode.parentNode.classList.add(printing.servicelist);
     e.target.parentNode.parentNode.firstElementChild.classList.remove(
@@ -201,6 +206,7 @@ const Printing = () => {
   };
 
   const clickMove = (e) => {
+     e.preventDefault();
     e.target.parentNode.parentNode.click();
     e.target.parentNode.click();
   };
