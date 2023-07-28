@@ -1,6 +1,3 @@
-
-import styles from "../app/homePage.module.css"
-
 import { React, useState } from "react";
 
 const Home = () => {
