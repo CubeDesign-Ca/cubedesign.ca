@@ -31,7 +31,7 @@ const DynamicHeader = () => {
 
   return (
     <header
-      className={`fixed h-[95px] py-[24px] px-[150px] top-0 left-0 right-0 shadow-lg z-10 transition-transform duration-500 bg-cube_blue text-white ${
+      className={`fixed h-[95px] py-[24px] px-[150px] top-0 left-0 right-0 flex justify-center items-center shadow-lg z-10 transition-transform duration-500 bg-cube_blue text-white ${
         visible ? 'transform translateY(0)' : 'transform -translate-y-full'}`}>
           <Header logo={"logo_white"} title={t('company_shorthand')} >
             <li className="flex item-center mr-8">

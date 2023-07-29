@@ -10,7 +10,9 @@ const StaticHeader = () => {
   const router = useRouter();
 
   return (
-    <header className="h-[95px] py-[24px] px-[150px]">
+    // <header className="h-[95px] py-[24px] px-[150px]">
+    <header className="h-[95px] py-[24px] px-[150px] absolute top-0 left-0 w-full z-10 flex justify-center items-center">
+
       <Header logo={"logo"} title={t('company')} >
       <li className="flex item-center mr-8">
           <Link href="/printing">{t('printing')}</Link>
