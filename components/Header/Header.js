@@ -7,7 +7,7 @@ const Header = ({ logo, title, children  }) => {
 
   const logoImg = '/images/' + logo + ".png";
   return (
-    <nav className={'flex items-center justify-between font-white'}>
+    <nav className={'flex items-center justify-between font-white min-w-[1140px] max-w-[1140px]'}>
       <div className="flex items-center">
         <Link href="/">
           <img src={logoImg} alt="Company Logo" width={47} height={47} />
@@ -16,7 +16,7 @@ const Header = ({ logo, title, children  }) => {
       </div>
       <ul className="flex items-center">
         { children }
-        <li className="mr-8">
+        <li>
           <div>
             <Language />
           </div>
