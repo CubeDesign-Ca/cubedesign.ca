@@ -11,8 +11,8 @@ const Footer = () => {
   const { t } = useTranslation('common')
 
   return (
-    <footer className="bg-cube_blue py-4 h-footer_h">
-      <div className="mt-footer_tmargin ml-footer_lmargin mr-footer_lmargin text-white">
+    <footer className="bg-cube_blue h-footer_h flex justify-center items-center">
+      <div className="text-white min-w-[1140px] max-w-[1140px]">
         <div className="container mx-auto">
           <div className="flex justify-start">
             <div className="flex items-center mr-6">
@@ -20,22 +20,22 @@ const Footer = () => {
             </div>
             <div className="mr-8">
               <div className="flex justify-start mb-4 w-60">
-                <div>
-                  <EmailIcon className="h-6 w-6 mr-1" />
+                <div className="flex-none">
+                  <img src="/images/footer_email_icon.png" className="h-[24px] w-[24px] mr-1" />
                 </div>
                 <JsonData jsonKey="email" />
               </div>
               <div className="flex justify-start w-60">
-                <div>
-                  <PhoneIcon className="h-5 w-5 mr-1" />
+               <div className="flex-none">
+                  <img src="/images/footer_phone_icon.png" className="h-[24px] w-[24px] mr-1" />
                 </div>
                 <JsonData jsonKey="phone" />
               </div>
             </div>
             <div className="ml-4">
               <div className="flex justify-start w-60">
-                <div>
-                  <AddressIcon className="h-6 w-6 mr-1" />
+                <div className="flex-none">
+                  <img src="/images/footer_location_icon.png" className="h-[24px] w-[24px] mr-1" />
                 </div>
                 <JsonData jsonKey="address" />
               </div>
@@ -51,13 +51,13 @@ const Footer = () => {
             <div className="mr-6">
               {/* Facebook icon */}
               <a href="https://www.facebook.com">
-                <FacebookIcon className="h-6 w-6" />
+                <img src="/images/footer_facebook_icon.png" className="h-[42px] w-[42px]" />
               </a>
             </div>
             <div>
               {/* Instagram icon */}
               <a href="https://www.instagram.com">
-                <InstagramIcon className="h-6 w-6" />
+                <img src="/images/footer_insta_icon.png" className="h-[42px] w-[42px]" />
               </a>
             </div>
           </div>

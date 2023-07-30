@@ -3,6 +3,7 @@ import Head from 'next/head';
 import '../pages/styles.css';
 import StaticHeader from '../components/Header/Static/StaticHeader';
 import StaticFooter from '../components/Footer/Static/StaticFooter';
+import ChatbotButton from '../components/Chatbot/ChatbotIcon';
 
 const MyApp = ({ Component, pageProps }) => {
   const { t } = useTranslation("common");
@@ -20,6 +21,7 @@ const MyApp = ({ Component, pageProps }) => {
       <StaticHeader />
       <Component {...pageProps} />
       <StaticFooter />
+      <ChatbotButton />
     </>
   );
 };
