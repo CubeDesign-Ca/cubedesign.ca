@@ -1,4 +1,4 @@
-import styles from "../app/homePage.module.css"
+import styles from "../app/homePage.module.css";
 import ChatbotIcon from "./Chatbot/ChatbotIcon";
 import { React, useState } from "react";
 
