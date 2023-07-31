@@ -152,6 +152,15 @@ const ChatbotButton = () => {
       <button onClick={toggleChatbot} className="h-[70px] w-[70px] fixed bottom-[130px] right-20 cursor-pointer flex items-center justify-center">
         <img src={imgSrc} alt="chatbot icon" />
       </button>
+
+      <div className="hidden" alt="load chatbot icons and this should be hidden">
+        <img src={icon_idle} alt="chatbot icon" />
+        <img src={icon_anim} alt="chatbot icon" />
+        <img src={icon_opening} alt="chatbot icon" />
+        <img src={icon_close} alt="chatbot icon" />
+        <img src={icon_closing} alt="chatbot icon" />
+      </div>
+
     </div>
   );
 };
