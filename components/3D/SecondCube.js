@@ -8,7 +8,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 import SceneInit from './SceneInit';
 
-function AnimatedBannerText() {
+function SecondCube() {
   useEffect(() => {
     const test = new SceneInit('myThreeJsCanvas');
     test.initialize();
@@ -22,7 +22,7 @@ function AnimatedBannerText() {
     let loadedModel;
     const glftLoader = new GLTFLoader();
     // const center = gltfScene.getCenter( new THREE.Vector3() );
-    glftLoader.load('/images/main_banner_final.gltf', (gltfScene) => {
+    glftLoader.load('/images/trust.gltf', (gltfScene) => {
       loadedModel = gltfScene;
       console.log(loadedModel);
 
@@ -30,7 +30,7 @@ function AnimatedBannerText() {
       gltfScene.scene.position.x = 0;
       gltfScene.scene.position.y = 0;
       gltfScene.scene.position.z = -1000;
-      gltfScene.scene.scale.set(0.5, 0.5, 0.5);
+      gltfScene.scene.scale.set(0.6, 0.6, 0.6);
       test.scene.add(gltfScene.scene);
     });
 
@@ -52,4 +52,4 @@ function AnimatedBannerText() {
   );
 }
 
-export default AnimatedBannerText;
+export default SecondCube;

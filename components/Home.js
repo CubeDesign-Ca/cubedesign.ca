@@ -9,12 +9,11 @@ import {
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { React, useState } from "react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 import Image from "next/image";
 import AnimatedBannerText from "./3D/AnimatedBannerText";
+import FirstCube from "./3D/FirstCube";
+import SecondCube from "./3D/SecondCube";
+import ThirdCube from "./3D/ThirdCube";
 
 const Home = () => {
   const [isCard1Hovered, setIsCard1Hovered] = useState(false);
@@ -29,6 +28,7 @@ const Home = () => {
         <div className={styles.mainTitle}>
           <figcaption>Cube Design & Communication</figcaption>
           <figcaption>makes Poster Design</figcaption>
+          {/* <AnimatedBannerText /> */}
         </div>
       </div>
       <div className={styles.container}>
@@ -79,6 +79,9 @@ const Home = () => {
             <h3 className={styles.bvContainerTitle}>Brand Value</h3>
             <div className={styles.bvContainer}>
               <div className={styles.bvCard}>
+                <div>
+                  <FirstCube />
+                </div>
                 <h4 className={styles.bvTitle}>One-Stop Solution</h4>
                 <p className={styles.bvDesc}>
                   One place for all your needs full-service offerings spanning
@@ -86,6 +89,9 @@ const Home = () => {
                 </p>
               </div>
               <div className={styles.bvCard}>
+                <div>
+                  <SecondCube />
+                </div>
                 <h4 className={styles.bvTitle}>
                   Trustworthy &<br /> Professional Service
                 </h4>
@@ -95,6 +101,9 @@ const Home = () => {
                 </p>
               </div>
               <div className={styles.bvCard}>
+                <div>
+                  <ThirdCube />
+                </div>
                 <h4 className={styles.bvTitle}>After-Sales Supports</h4>
                 <p className={styles.bvDesc}>
                   Robust after-sales support, ensuring our commitment to
