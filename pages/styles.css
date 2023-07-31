@@ -6,3 +6,22 @@ body {
     font-family: 'Noto Sans', sans-serif;
 }
   
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .enlargable-image {
+    width: 200px; /* Initial width */
+    height: 300px;
+    cursor: pointer;
+    transition: width 1.5s ease;
+  }
+  
+  .enlarged {
+    width: 300px; /* Enlarged width */
+  }
+  
