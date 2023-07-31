@@ -9,82 +9,114 @@ import MessageParser from "./MessageParser";
 import 'react-chatbot-kit/build/main.css'
 
 const ChatbotButton = () => {
-  // const [isAnimating, setIsAnimating] = useState(false);
+  const icon_idle = "/images/Chatbot_idle.png";
+  const icon_anim = "../../images/Chatbot_anim.gif";
+  const icon_opening = "/images/Chatbot_opening.gif";
+  const icon_close = "/images/Chatbot_close.png";
+  const icon_closing = "/images/Chatbot_closing.gif";
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setIsAnimating((prev) => !prev);
-  //   }, 8000);
-
-  //   return () => clearInterval(interval);
-  // }, []);
-
-  // const imageUrl = isAnimating ? '/images/Chatbot_idle.gif' : '/images/Chatbot_static.png'; 
-
-  // const handleClick = () => {
-  //   alert('Button clicked!');
-  //   // You can put any logic or actions you want here
-  // };
-
-  const icon_static = "../../images/Chatbot_static.png";
-  const icon_idle = "/images/Chatbot_idle.gif";
-  const icon_open = "/images/Chatbot_open.gif";
-  const icon_closable = "/images/Chatbot_closable.png";
-  const icon_close = "/images/Chatbot_close.gif";
-
+  const [isIdle, setIsIdle] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const [imgSrc, setImgSrc] = useState(icon_static);
+  const [isOpening, setIsOpening] = useState(false);
+  const [isOpened, setIsOpened] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  const [imgSrc, setImgSrc] = useState(icon_idle);
+
+  const defaultTime = 8000;
+  const animTime = 2000;
+  const [time, setTime] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setImgSrc(isAnimating ? icon_static : icon_idle);
-      setIsAnimating((prev) => !prev);
-    }, 4000);
+    let idleInterval = null;
+    const toggleTime = () => {
+      clearInterval(idleInterval);
+      setTime(isIdle ? defaultTime : animTime);
+      startIdleInterval();
+    };
 
-    return () => clearInterval(interval);
-  }, []);
+    const startIdleInterval = () => {
+      idleInterval = setInterval(() => {
+        
+        // Idle time interval
+        if (!isOpened) {
+          setIsAnimating((prev) => !prev);
+          setIsIdle((prev) => !prev);
+          toggleTime();
 
-  // const handleImageLoad = () => {
-  //   // Prevent further animation after the first load
-  //   setIsAnimating(false);
-  // };
+          if (isIdle) {
+            setImgSrc(icon_idle);
+          }
 
-  // Modal.setAppElement('body');
+          if (isAnimating) {
+            setImgSrc(icon_anim)
+          }
+          if ((isIdle || isAnimating) && isOpening) {
+            // while animating the opening image ..
+            setIsIdle(false);
+            setIsAnimating(false);
 
-  const toggleModal = () => {
-    console.log("HELLOWORLD");
-    console.log(isOpen);
-    if (!isOpen) {
-      setImgSrc(icon_open);
+          }
+        } else {
+          // while chatbot is opened ..
+          clearInterval(idleInterval);
+          setTime(1000);
+          startIdleInterval();
+        }
+      }, time);
+    };
+
+    startIdleInterval();
+
+    return () => clearInterval(idleInterval);  
+  }, [imgSrc, time, isIdle, isAnimating, isOpening, isOpened]);
+
+  const toggleChatbot = () => {
+    // Check if chatbot is display the box opening or closing ..
+    let animating = isOpening || isClosing;
+    if (!animating && !isOpened) {
+      // Opening chatbot
+      setIsOpening(true);
+      setImgSrc(icon_opening)
+      let openingInterval = null;
+      const startOpeningInterval = () => {
+        openingInterval = setTimeout(() => {
+          setImgSrc(icon_close);
+          setIsOpening(false);
+          setIsOpened(true);
+          clearInterval(openingInterval);
+        }, 2500);
+      }
+      startOpeningInterval();
+    } else if (!animating && isOpened) {
+      // Closing chatbot
+      setIsClosing(true);
+      setImgSrc(icon_closing);
+      let closingInterval = null;
+      const startClosingInterval = () => {
+        closingInterval = setTimeout(() => {
+          initChatbot();
+          clearInterval(closingInterval);
+        }, 2500);
+      }
+      startClosingInterval();
     }
-    setIsOpen((prevIsOpen) => !prevIsOpen);
-    // if (!isModalOpen) {
-    //   // Reset the animation if the modal is not open
-    //   setIsAnimating(false);
-    // }
   };
 
-  const closeChatbot = () => {
-    // setIsModalOpen((prev) => !prev);
-    // if (!isModalOpen) {
-    //   // Reset the animation if the modal is not open
-    //   setIsAnimating(false);
-    // }
-  };
-  const chatwindowconfig ={
-    width: "550px",
-    height: "500px",
-    floating: true,
-};
+  const initChatbot = () => {
+    setImgSrc(icon_idle);
+    setIsOpened(false);
+    setIsAnimating(false);
+    setIsOpening(false);
+    setIsClosing(false);
+    setIsIdle(true);
+  }
 
   return (
     <div>      
-      {isOpen && (<Modal
-        // isOpen={isModalOpen}
-        // onRequestClose={closeChatbot}
-        isOpen={isOpen}
-        onRequestClose={toggleModal}
+      {isOpened && (<Modal
+        isOpen={isOpened}
+        onRequestClose={toggleChatbot}
         contentLabel="Modal"
         ariaHideApp={false} // This is important for Next.js to prevent a warning
         className="modal" // Add a custom class for the modal
@@ -117,30 +149,20 @@ const ChatbotButton = () => {
           
       </Modal>)} 
 
-      <button onClick={toggleModal} className="h-[70px] w-[70px] fixed bottom-[130px] right-20 cursor-pointer">
-
-      {isOpen ? 
-        <img src={icon_open} alt="open icon" /> : 
-        (isAnimating ?
-          (<img src={icon_idle} alt="idle icon" />) :
-          (<img src={icon_static} alt="static icon" />))
-      }
-
-        {/* <img
-          // src={isAnimating ? '/images/Chatbot_idle.gif' : '/images/Chatbot_static.png'}
-          src={imgSrc}
-          alt="Animated Button"
-          // onLoad={handleImageLoad}
-        /> */}
+      <button onClick={toggleChatbot} className="h-[70px] w-[70px] fixed bottom-[130px] right-20 cursor-pointer flex items-center justify-center">
+        <img src={imgSrc} alt="chatbot icon" />
       </button>
+
+      <div className="hidden" alt="load chatbot icons and this should be hidden">
+        <img src={icon_idle} alt="chatbot icon" />
+        <img src={icon_anim} alt="chatbot icon" />
+        <img src={icon_opening} alt="chatbot icon" />
+        <img src={icon_close} alt="chatbot icon" />
+        <img src={icon_closing} alt="chatbot icon" />
+      </div>
+
     </div>
   );
-
-  // return (
-  //   <button onClick={handleClick} className="h-[75px] w-[75px] fixed bottom-[150px] right-20">
-  //     <img src={imageUrl} alt="Chatbot Button" />
-  //   </button>
-  // );
 };
 
 export default ChatbotButton;
