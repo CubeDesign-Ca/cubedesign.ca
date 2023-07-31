@@ -1,82 +1,111 @@
 .bgimg {
     width: 100%;
-    height: 600px;
+    height: 690px;
     background-image: url('/images/printing-bg.jpg');
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: right;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+.bgTextBox{
+    height: 100%;
+    width: 1140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-bottom: 150px;
+
 }
 
 .mainHead {
-    font-size: 2.25rem;
-    /* 36px */
-    line-height: 2.5rem;
-    /* 40px */
+    font-size: 40px;
     font-weight: 600;
+    margin-bottom: 10px;
 }
 
 .mainText {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
+    width: 680px;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 /* our service */
 
 .serviceBg {
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.serviceBgBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1140px;
+    height: 1156px;
+    margin-top: 200px;
 }
 
 .serviceHeadBox {
-    height: 50px;
-    margin-top: 70px;
-    margin-bottom: 30px;
+    height: 264px;
 }
 
 .serviceHead {
-    font-size: 25px;
-    /* 36px */
-    line-height: 2.5rem;
-    /* 40px */
+    font-size: 32px;
     font-weight: 600;
 }
 
 
+.serviceBox{
+    width: 1140px;
+    height: 892px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.serviceTitleBox {
+    width: 1140px;
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 8px solid #C83832;
+}
 
 .serviceComponentBox {
-    width: 33.333333%;
+    width: 380px;
+    height: 65px;
     background-color: #C83832;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 25px;
+    font-weight: 400;
     transition: linear 0.25s;
 
 }
 
 .serviceComponentBox1 {
-    width: 33.333333%;
+    width: 380px;
+    height: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 17px;
+    font-size: 24px;
 }
 
-.serviceTitleBox {
-    width: 70%;
-    display: flex;
-    justify-content: space-between;
-
-    border-bottom: 7px solid #C83832;
-    margin-bottom: 5px;
-}
 
 
 .servicelistBoxContainer {
-    width: 70%;
-    height: 75%;
+    width: 1140px;
+    height: 800px;
     margin-top: 20px;
     /* 20px */
 }
@@ -92,11 +121,17 @@
 
 .servicelist {
     position: relative;
-    width: 27%;
-    height: 90%;
+    width: 360px;
+    height: 800px;
     display: flex;
-    align-items: end;
-    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 0.2s ease-out;
+}
+.servicelist1 {
+    position: relative;
+    width: 360px;
+    height: 800px;
+    display: flex;
     background-size: cover;
     transition: 0.2s ease-out;
 }
@@ -106,52 +141,47 @@
     border-bottom: 8px solid #C83832;
 }
 
-.servicelist1 {
-    position: absolute;
-    width: 100%;
-    height: 90%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    z-index: 1;
-    transition: 0.2s ease-out;
+
+
+.servicelistVisile{
+    visibility: hidden;
+    width: 0px !important;
 }
 
 .serviceText {
     position: absolute;
     bottom: 0;
-    width: 100%;
-    height: 20%;
+    width: 360px;
+    height: 180px;
     background-color: #EFF2F9;
-    padding-left: 20px;
-    padding-top: 20px;
-    opacity: 0.7;
+    opacity: 0.8;
 
 }
 
 .serviceText1 {
     position: absolute;
     bottom: 0;
-    width: 70%;
-    height: 35%;
+    width: 750px;
+    height: 250px;
     background-color: #EFF2F9;
-    padding-left: 50px;
-    padding-top: 40px;
+    padding-left: 75px;
+    padding-top: 60px;
     opacity: 0.8;
 }
 
 
 .serviceTitle {
-    font-size: 15px;
+    color: black;
+    font-size: 20px;
     font-weight: 500;
-
-    width: 100%;
-    height: 100%;
+    padding-top: 50px;
+    padding-left: 40px;
+    width: 60%;
 }
 
 .serviceTitle1 {
-    font-size: 25px;
-    font-weight: 700;
+    font-size: 28px;
+    font-weight: 600;
     margin-bottom: 20px;
 }
 
@@ -163,7 +193,7 @@
 .serviceDesc1 {
     visibility: visible;
     opacity: 1;
-    font-size: 13px;
+    font-size: 18px;
     font-weight: 500;
 }
 
@@ -195,11 +225,11 @@
 
 .galleryBackground {
     width: 100%;
-    height: 40vh;
+    height: 411px;
     background: #103558;
     display: flex;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 200px;
     position: relative;
 }
 
@@ -210,47 +240,61 @@
     background: #103558;
     font-size: 25px;
     font-weight: 600;
+    width: 360px;
+    height: 250px;
     color: white;
+    margin-bottom: 40px;
 }
 
 .slide1 {
-    width: 100%;
+    
+    width: 360px;
+    height: 250px;
     background-image: url('/images/Offline_Gallery-1.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    margin-bottom: 40px;
 }
 
 .slide2 {
-    width: 100%;
+    width: 360px;
+    height: 250px;
     background-image: url('/images/Offline_Gallery-2.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    margin-bottom: 40px;
 }
 
 .slide3 {
-    width: 100%;
+    width: 360px;
+    height: 250px;
     background-image: url('/images/Offline_Gallery-3.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    margin-bottom: 40px;
 }
 
 .slide4 {
-    width: 100%;
+    width: 360px;
+    height: 250px;
     background-image: url('/images/Offline_Gallery-4.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    margin-bottom: 40px;
 }
 
 .slide5 {
-    width: 100%;
+    width: 360px;
+    height: 250px;
     background-image: url('/images/Offline_Gallery-5.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    margin-bottom: 40px;
 }
 
 
@@ -259,7 +303,7 @@
     position: absolute;
     height: 20px;
     left: 50%;
-    bottom: 10px;
+    bottom: 58px;
     display: flex;
     flex-direction: row-reverse;
 }
@@ -288,67 +332,79 @@
 .referenceBg {
     width: 100%;
     height: 100%;
-    margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .referenceBox {
-    height: 100%;
-    width: 80%;
-    margin-top: 120px;
+    height: 600px;
+    width: 1140px;
+    margin-top: 200px;
     display: flex;
 
 
 }
+.referenceBox1 {
+    height: 600px;
+    width: 1140px;
+    margin-top: 150px;
+    display: flex;
+    justify-content: space-between;
+
+}
 
 .referenceImgBox {
-    width: 70%;
+    width: 100%;
     height: 100%;
 }
 
 .referenceImgBox1 {
-    width: 51%;
+    width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: end;
 }
 
 .referenceImg {
-    width: 72%;
-    max-height: 85%;
+    width: 555px;
+    height: 600px;
 }
 
 .referenceImg1 {
-    width: 100%;
-    max-height: 85%;
+    width: 555px;
+    height: 600px;
 }
 
 .referenceText {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 47%;
+    width: 100%;
+    padding-left: 98px;
 }
 
 .referenceTextTitle {
-    font-size: 35px;
-    font-weight: 700;
+    font-size: 32px;
+    font-weight: 600;
+    padding-bottom: 40px;
 }
 
 .referenceTextStyle {
-    font-size: 22px;
+    font-size: 20px;
+    padding-bottom: 40px;
 }
 
 .referenceText1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 68%;
+    width: 100%;
 }
 
 .referenceText2 {
     
-    width: 70%;
+    width: 100%;
 }
 
 

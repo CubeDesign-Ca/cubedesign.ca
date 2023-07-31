@@ -223,9 +223,7 @@ const ContactUs = () => {
 
         e.target.nextSibling.className = "";
         e.target.nextSibling.classList.add(contact.errorLogo);
-      }
-      if (!regEmail.test(e.target.value)) {
-        console.log(e.target.value);
+      }else if (!regEmail.test(e.target.value)) {
         e.target.parentNode.nextSibling.textContent =
           "Invalid address. Please check your email address.";
         e.target.parentNode.nextSibling.className = "";
@@ -236,6 +234,7 @@ const ContactUs = () => {
 
         e.target.className = "";
         e.target.classList.add(contact.emailInputFail);
+        console.log("hererererre")
       } else {
         if (e.target.name == "email") {
           email = true;
@@ -356,7 +355,7 @@ const ContactUs = () => {
   return (
     <div>
       <DynamicHeader />
-      <div className="w-screen h-screen max-w-full bg-white relative">
+      <div className="w-screen h-full max-w-full mb-28 bg-white relative">
         <div className={contact.mainBox}>
           {/* lets get in touch */}
           <div className={contact.firstBox}>
@@ -376,7 +375,7 @@ const ContactUs = () => {
               <p className={contact.emailText}>Ready to take your business to the next level?</p>
               <form ref={form} onSubmit={sendEmail}>
                 <div className={contact.servicelogoBox}>
-                  <p className={contact.serviceText}>please select service you need *</p>
+                  <p className={contact.serviceText}>Please select service you need *</p>
                   <img
                     src="/images/contact-error.png"
                     alt="error logo"
@@ -539,7 +538,7 @@ const ContactUs = () => {
       <div id="submitBox" className={contact.submitScreenBox}>
         <div id="submitScreen" className={contact.submitScreen}>
           <img
-            src="/images/Contact-Submit icon.png"
+            src="/images/Contact-Submit icon-blue.png"
             alt="error logo"
             className={contact.submitIcon}
             id="submitImg"
