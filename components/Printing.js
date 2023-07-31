@@ -8,7 +8,6 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import printing from "../app/printing.module.css";
-import "../app/printing.module.css";
 
 const Printing = () => {
   const [print, setPrint] = useState(true);

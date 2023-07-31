@@ -355,7 +355,7 @@ const ContactUs = () => {
   return (
     <div>
       <DynamicHeader />
-      <div className="w-screen h-full max-w-full mb-28 bg-white relative">
+      <div  className={contact.contactBox}>
         <div className={contact.mainBox}>
           {/* lets get in touch */}
           <div className={contact.firstBox}>

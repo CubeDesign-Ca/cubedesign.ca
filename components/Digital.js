@@ -7,8 +7,7 @@ import { React, useState, useEffect, useRef } from "react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { motion, useAnimation, useInView } from "framer-motion";
-import printing from "../app/printing.module.css";
-import "../app/printing.module.css";
+import printing from "../app/digital.module.css";
 
 const Digital = () => {
   const [print, setPrint] = useState(true);
@@ -372,11 +371,9 @@ const Digital = () => {
       {/* bacground photo */}
       <div className={printing.bgimg}>
         <div className={printing.bgTextBox}>
-          <h1 className={printing.mainHead}>Printing</h1>
+          <h1 className={printing.mainHead}>Digital</h1>
           <p className={printing.mainText}>
-            Maximize your visual impact with our professional printing and
-            installation services, including wayfinding and promotional
-            products.
+          Design, develop, and launch custom websites and web applications with a focus on user experience to help businesses thrive online. 
           </p>
         </div>
       </div>
@@ -577,48 +574,9 @@ const Digital = () => {
       </div>
       {/* gallery */}
       <div className={printing.galleryBackground}>
-        <Swiper
-          // install Swiper modules
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          style={{ height: "411px" }}
-          spaceBetween={50}
-          speed={700}
-          slidesPerView={4}
-          slidesPerGroup={4}
-          navigation={{
-            // 네비게이션 적용, < >
-            nextEl: ".swiper-button-next", // 다음 버튼 클래스명
-            prevEl: ".swiper-button-prev", // 이전 버튼 클래스명
-          }}
-          onSlideNextTransitionStart={toggleSwitch}
-          onSlidePrevTransitionStart={toggleSwitch}
-          slidesOffsetBefore={150}
-          slidesOffsetAfter={250}
-        >
-          <SwiperSlide className={printing.slides}>
-            Take a look <br /> our Gallery
-          </SwiperSlide>
-          <SwiperSlide className={printing.slide1}></SwiperSlide>
-          <SwiperSlide className={printing.slide2}></SwiperSlide>
-          <SwiperSlide className={printing.slide3}></SwiperSlide>
-          <SwiperSlide className={printing.slide4}></SwiperSlide>
-          <SwiperSlide className={printing.slide5}></SwiperSlide>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </Swiper>
-
-        <div className={printing.switch} data-on={isOn}>
-          <motion.div
-            className={printing.switch1}
-            layout
-            transition={spring}
-          ></motion.div>
-          <motion.div
-            className={printing.switch2}
-            layout
-            transition={spring}
-          ></motion.div>
-        </div>
+        
+                    <h1 className={printing.galleryBackgroundText}>Our Gallery <br/> (coming soon)</h1>
+       
       </div>
       {/* reference */}
       <div className={printing.referenceBg}>
@@ -632,22 +590,20 @@ const Digital = () => {
         >
           <motion.div variants={item} className={printing.referenceImgBox}>
             <img
-              src="/images/Offline-Insight-BrandRecall.jpg"
+              src="/images/Online-Insight-Elevating.jpg"
               alt="react logo"
               className={printing.referenceImg}
             />
           </motion.div>
           <motion.div variants={item} className={printing.referenceText}>
             <h1 className={printing.referenceTextTitle}>
-              Driving Higher Brand Recall
+            Elevating Conversions through Superior User Experience
             </h1>
             <p className={printing.referenceTextStyle}>
-              Did you know that print advertising achieves a remarkable 77%
-              brand recall rate, surpassing digital platforms (Newsworks, 2020)?
+            Did you know that a superior user experience has the potential to generate a 400% higher conversion rate (Forrester)?
             </p>
             <p className={printing.referenceTextStyle}>
-              Maximize your brand's impact through print advertising, creating a
-              lasting impression that resonates with your audience.
+            Boost conversions with a user-centric website that delivers optimized functionality, guiding visitors towards desired actions.
             </p>
           </motion.div>
         </motion.div>
@@ -663,21 +619,19 @@ const Digital = () => {
           <motion.div variants={item} className={printing.referenceText1}>
             <div className={printing.referenceText2}>
               <h1 className={printing.referenceTextTitle}>
-                Making Informed Decisions
+              Building Trust through Website Design
               </h1>
               <p className={printing.referenceTextStyle}>
-                Did you know that 82% of consumers trust print ads the most when
-                making important purchase decisions? (Marketing Shepa survey)
+              Did you know that 75% of consumers judge a company's credibility based on its website design? (Kinesis)
               </p>
               <p className={printing.referenceTextStyle}>
-                Explore how print advertising builds trust, empowers
-                decision-making, and enables confident choices.
+              Create a visually appealing and credible website, making a positive and lasting impression with professionalism and authenticity.
               </p>
             </div>
           </motion.div>
           <motion.div variants={item} className={printing.referenceImgBox1}>
             <img
-              src="/images/Offline-Insight-Decision.jpg"
+              src="/images/Online-Insight-Building.jpg"
               alt="react logo"
               className={printing.referenceImg1}
             />
@@ -699,22 +653,20 @@ const Digital = () => {
         >
           <motion.div variants={item} className={printing.referenceImgBox}>
             <img
-              src="/images/Offline-Insight-Combination.jpg"
+              src="/images/Online-Insight-Fueling.jpg"
               alt="react logo"
               className={printing.referenceImg}
             />
           </motion.div>
           <motion.div variants={item} className={printing.referenceText}>
             <h1 className={printing.referenceTextTitle}>
-              An Unbeatable Combination
+            Fueling Growth through Strategic Branding
             </h1>
             <p className={printing.referenceTextStyle}>
-              Did you know that combining print and digital advertising can lead
-              to a 400% increase in effectiveness (Top Media Advertising)?
+            Did you know that branding is considered critical for driving growth by 77% of marketing leaders (B2B Marketing Leaders Report)?
             </p>
             <p className={printing.referenceTextStyle}>
-              Unleash the synergy of print and digital ads, reaching a wider
-              audience for unprecedented online campaign success.
+            Differentiate and grow your business with our strategic branding solutions that define a unique value proposition, fostering long-term loyalty.
             </p>
           </motion.div>
         </motion.div>
