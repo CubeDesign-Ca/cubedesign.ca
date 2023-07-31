@@ -19,7 +19,7 @@ class MyDocument extends Document {
             href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
             rel="stylesheet"
           />
-          <link href="/app.css" rel="stylesheet" />
+          {/* <link href="/app.css" rel="stylesheet" /> */}
           <link
             href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.9/typicons.min.css"
             rel="stylesheet"
