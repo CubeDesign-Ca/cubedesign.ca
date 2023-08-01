@@ -51,16 +51,21 @@
   background-repeat: no-repeat; */
   width: 555px;
   height: 600px;
-  border-bottom: 8px solid transparent;
+  border-bottom: 8px solid white;
+  transition: background-image 0.4s ease; 
 } 
 .serviceContent { 
   padding: 40px 50px 40px 50px;
-  background-color: #EFF2F9;
-  opacity: 0.8;
+  /* background-color: #EFF2F9; */
+  /* opacity: 0.5; */
+  /* backdrop-filter: blur(20px); */
+  z-index: 1;
   position: absolute;
   bottom: 0%;
   width: 555px;
   height: 210px;
+  background-color: rgba(239, 242, 249, 0.8);
+  backdrop-filter: blur(10px);
 }
 .serviceTitle{
   font-family: "Noto Sans", sans-serif;
@@ -78,7 +83,6 @@
 }
 
 /* brand value */
-
 .section {
   /* margin: 0 0 120px 0;
   width: 100%;
@@ -116,4 +120,25 @@
 .bvDesc {
   font-family: "Noto Sans", sans-serif;
   font-size: 18px;
+}
+.client {
+  height: 140px; 
+  background-color: #CCD4E0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.clientList {
+  width: 1140px;
+  height: 60px;
+}
+
+.swiper-wrapper {
+  transition-timing-function: linear;
+}
+.slide {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
