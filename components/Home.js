@@ -1,11 +1,19 @@
 import styles from "../app/homePage.module.css";
 import ChatbotIcon from "./Chatbot/ChatbotIcon";
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { React, useState } from "react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 const Home = () => {
   const [isCard1Hovered, setIsCard1Hovered] = useState(false);
   const [isCard2Hovered, setIsCard2Hovered] = useState(false);
-
+  const toggleSwitch = () => {
+    setIsOn(!isOn);
+  };
   return (
     <>
       {/* main img */}
@@ -71,6 +79,57 @@ const Home = () => {
               </div>
             </div>
           </div>
+        </div>
+
+      </div>
+      <div className={styles.client}>
+        <div className={styles.clientList}>
+          <Swiper
+            // install Swiper modules
+            modules={[Navigation, Pagination, A11y, Autoplay]}
+            style={{ height: "60px" }}
+            spaceBetween={50}
+            speed={2000}
+            loop={true}
+            slidesPerView={3}
+            slidesPerGroup={1}
+            navigation={{
+              // 네비게이션 적용, < >
+              nextEl: ".swiper-button-next", // 다음 버튼 클래스명
+              prevEl: ".swiper-button-prev", // 이전 버튼 클래스명
+            }}
+            autoplay={{
+              "delay": 0,
+              "disableOnInteraction": false
+            }}
+            onSlideNextTransitionStart={toggleSwitch}
+            onSlidePrevTransitionStart={toggleSwitch}
+            slidesOffsetBefore={150}
+            slidesOffsetAfter={250}
+          >
+            {[
+              "/images/client-2.png",
+              "/images/client-3.png",
+              "/images/client-4.png",
+              "/images/client-5.png",
+              "/images/client-6.png",
+              "/images/client-8.png",
+              "/images/client-9.png",
+              "/images/client-10.png",
+              "/images/client-11.png",
+              "/images/client-12.png",
+              "/images/client-13.png",
+              "/images/client-14.png",
+              "/images/client-15.png",
+              "/images/client-16.png",
+            ].map((image, index) => (
+              <SwiperSlide
+                key={index}
+                className={styles.slide}
+                style={{ backgroundImage: `url('${image}')` }}
+              ></SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </>
