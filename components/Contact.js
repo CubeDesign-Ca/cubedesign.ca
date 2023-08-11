@@ -123,7 +123,7 @@ const ContactUs = () => {
             submitScreen.classList.add(contact.submitScreen);
             submitImg.classList.add(contact.submitIcon);
             submitText.classList.add(contact.submitText);
-            window.location.reload();
+            window.location.replace("/");
           }, 2000);
         },
         (error) => {
@@ -266,6 +266,18 @@ const ContactUs = () => {
       submit.className = "";
       submit.classList.add(contact.submitBtn);
     }
+  };
+
+  const wordCount = () => {
+    let text = document.getElementById("txtarea").value;
+    let count = 0;
+    let split = text.split(' ');
+    for (let i = 0; i < split.length; i++) {
+     if (split[i] != "") {
+      count ++;
+     }
+    }
+    document.getElementById("showCount").innerHTML = count;
   };
 
   const printClick = (e) => {
@@ -510,12 +522,17 @@ const ContactUs = () => {
                   </div>
 
                   <div className={contact.textBox}>
+                    <div className={contact.textWordsBox}>
                     <label className={contact.nameText}>Message</label>
+                    <div className={contact.textWordsCountBox}><p id="showCount">0</p><p>/1000 Words</p></div>
+                    </div>
                     <textarea
                       name="message"
                       className={contact.textInput}
                       placeholder="Tell us about your project."
                       autoComplete="off"
+                      id="txtarea"
+                      onInput={wordCount}
                     />
                     <label className={contact.textLabel}>*is required</label>
                   </div>

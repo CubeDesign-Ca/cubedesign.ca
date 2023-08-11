@@ -10,9 +10,10 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import printing from "../app/digital.module.css";
 
 const Digital = () => {
-  const [print, setPrint] = useState(true);
-  const [design, setDesign] = useState(false);
-  const [product, setProduct] = useState(false);
+  const [web, setWeb] = useState(true);
+  const [admin, setAdmin] = useState(false);
+  const [branding, setBranding] = useState(false);
+  const [graphic, setGraphic] = useState(false);
   const [slide, setSlide] = useState(true);
   const [isclick, setclick] = useState(false);
   const [slide1, setSlide1] = useState(true);
@@ -24,7 +25,7 @@ const Digital = () => {
 
   //oursercie
 
-  const isPrint = (e) => {
+  const isWeb = (e) => {
     e.preventDefault();
     let target;
     if (e.target instanceof HTMLDivElement) {
@@ -32,7 +33,7 @@ const Digital = () => {
     } else {
       target = e.target;
     }
-    if (!print && !isclick) {
+    if (!web && !isclick) {
       target.parentNode.classList.remove(printing.serviceComponentBox1);
       target.parentNode.classList.add(printing.serviceComponentBox);
       target.parentNode.nextElementSibling.classList.remove(
@@ -46,12 +47,18 @@ const Digital = () => {
       target.parentNode.nextElementSibling.nextElementSibling.classList.add(
         printing.serviceComponentBox1
       );
-      setPrint(true);
-      setDesign(false);
-      setProduct(false);
+      target.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.classList.value =
+        "";
+      target.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.classList.add(
+        printing.serviceComponentBox1
+      );
+      setWeb(true);
+      setAdmin(false);
+      setBranding(false);
+      setGraphic(false);
     }
   };
-  const isDesign = (e) => {
+  const isAdmin = (e) => {
     e.preventDefault();
 
     let target;
@@ -61,7 +68,7 @@ const Digital = () => {
       target = e.target;
     }
 
-    if (!design && !isclick) {
+    if (!admin && !isclick) {
       target.parentNode.classList.remove(printing.serviceComponentBox1);
       target.parentNode.classList.add(printing.serviceComponentBox);
       target.parentNode.nextElementSibling.classList.remove(
@@ -76,12 +83,18 @@ const Digital = () => {
       target.parentNode.previousElementSibling.classList.add(
         printing.serviceComponentBox1
       );
-      setPrint(false);
-      setDesign(true);
-      setProduct(false);
+      target.parentNode.nextElementSibling.nextElementSibling.classList.value =
+        "";
+      target.parentNode.nextElementSibling.nextElementSibling.classList.add(
+        printing.serviceComponentBox1
+      );
+      setWeb(false);
+      setAdmin(true);
+      setBranding(false);
+      setGraphic(false);
     }
   };
-  const isProduct = (e) => {
+  const isBranding = (e) => {
     e.preventDefault();
 
     let target;
@@ -91,7 +104,7 @@ const Digital = () => {
       target = e.target;
     }
 
-    if (!product && !isclick) {
+    if (!branding && !isclick) {
       target.parentNode.classList.remove(printing.serviceComponentBox1);
       target.parentNode.classList.add(printing.serviceComponentBox);
 
@@ -106,9 +119,53 @@ const Digital = () => {
         printing.serviceComponentBox1
       );
 
-      setPrint(false);
-      setDesign(false);
-      setProduct(true);
+      target.parentNode.nextElementSibling.classList.value = "";
+      target.parentNode.nextElementSibling.classList.add(
+        printing.serviceComponentBox1
+      );
+
+      setWeb(false);
+      setAdmin(false);
+      setBranding(true);
+      setGraphic(false);
+    }
+  };
+
+  const isGraphic = (e) => {
+    e.preventDefault();
+
+    let target;
+    if (e.target instanceof HTMLDivElement) {
+      target = e.target.firstElementChild;
+    } else {
+      target = e.target;
+    }
+
+    if (!graphic && !isclick) {
+      target.parentNode.classList.remove(printing.serviceComponentBox1);
+      target.parentNode.classList.add(printing.serviceComponentBox);
+
+      target.parentNode.previousElementSibling.classList.value = "";
+      target.parentNode.previousElementSibling.classList.add(
+        printing.serviceComponentBox1
+      );
+
+      target.parentNode.previousElementSibling.previousElementSibling.classList.value =
+        "";
+      target.parentNode.previousElementSibling.previousElementSibling.classList.add(
+        printing.serviceComponentBox1
+      );
+
+      target.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.classList.value =
+        "";
+      target.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.classList.add(
+        printing.serviceComponentBox1
+      );
+
+      setWeb(false);
+      setAdmin(false);
+      setBranding(false);
+      setGraphic(true);
     }
   };
 
@@ -302,26 +359,6 @@ const Digital = () => {
     e.target.parentNode.parentNode.click();
     e.target.parentNode.click();
   };
-  //slide
-
-  const rightSlide = () => {
-    setSlide(false);
-  };
-
-  const leftSlide = () => {
-    setSlide(true);
-  };
-
-  const [isOn, setIsOn] = useState(false);
-
-  const toggleSwitch = () => {
-    setIsOn(!isOn);
-  };
-
-  const spring = {
-    ease: "linear",
-    duration: 0.5,
-  };
   const control = useAnimation();
   const control1 = useAnimation();
   const control2 = useAnimation();
@@ -366,6 +403,7 @@ const Digital = () => {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
   };
+ 
   return (
     <div>
       {/* bacground photo */}
@@ -386,29 +424,36 @@ const Digital = () => {
           <div className={printing.serviceBox}>
             <div className={printing.serviceTitleBox}>
               <div
-                id="printing"
+                id="web"
                 className={printing.serviceComponentBox}
-                onClick={isPrint}
+                onClick={isWeb}
               >
-                <p>Printing & Installation</p>
+                <p>Website Design<br/>& Development</p>
               </div>
               <div
-                id="design"
+                id="admin"
                 className={printing.serviceComponentBox1}
-                onClick={isDesign}
+                onClick={isAdmin}
               >
-                <p> Wayfinding Design</p>
+                <p>Admin Dashboard<br/>Implementation</p>
               </div>
               <div
-                id="product"
+                id="branding"
                 className={printing.serviceComponentBox1}
-                onClick={isProduct}
+                onClick={isBranding}
               >
-                <p>Promotional Product</p>
+                <p>Branding Design</p>
+              </div>
+              <div
+                id="graphic"
+                className={printing.serviceComponentBox1}
+                onClick={isGraphic}
+              >
+                <p>Graphic Design</p>
               </div>
             </div>
             <div className={printing.servicelistBoxContainer}>
-              {print ? (
+              {web ? (
                 <div className={printing.servicelistBox}>
                   <motion.div
                     id="container"
@@ -417,7 +462,7 @@ const Digital = () => {
                       backgroundImage: `url('/images/offline-service-large.jpg')`,
                     }}
                     animate={{
-                      width: slide1 ? 360 : 1140,
+                      width: slide1 ? 263 : 1140,
                     }}
                     onClick={isModal}
                   >
@@ -447,7 +492,7 @@ const Digital = () => {
                       backgroundImage: `url('/images/offline-service-digital.jpg')`,
                     }}
                     animate={{
-                      width: slide2 ? 360 : 1140,
+                      width: slide2 ? 263 : 1140,
                     }}
                     onClick={isModal}
                   >
@@ -477,7 +522,7 @@ const Digital = () => {
                       backgroundImage: `url('/images/offline-service-installation.jpg')`,
                     }}
                     animate={{
-                      width: slide3 ? 360 : 1140,
+                      width: slide3 ? 263 : 1140,
                     }}
                     onClick={isModal}
                   >
@@ -500,8 +545,38 @@ const Digital = () => {
                       <button className={printing.serviceExitBtn}>x</button>
                     </div>
                   </motion.div>
+                  <motion.div
+                    id="container"
+                    className={printing.servicelist}
+                    style={{
+                      backgroundImage: `url('/images/offline-service-digital.jpg')`,
+                    }}
+                    animate={{
+                      width: slide2 ? 263 : 1140,
+                    }}
+                    onClick={isModal}
+                  >
+                    <div className={printing.serviceText} onClick={clickMove}>
+                      {" "}
+                      <h1 className={printing.serviceTitle}>
+                        Digital Printing Service
+                      </h1>
+                      <p className={printing.serviceDesc}>
+                        Trusted printing services for top-notch prints and a
+                        hassle-free, <br /> reliables experience.
+                      </p>
+                    </div>
+                    <div
+                      id="exit"
+                      className={printing.modalExit}
+                      onClick={exitModal}
+                    >
+                      {" "}
+                      <button className={printing.serviceExitBtn}>x</button>
+                    </div>
+                  </motion.div>
                 </div>
-              ) : design ? (
+              ) : admin ? (
                 <div className="w-full h-full flex justify-between relative">
                   <motion.div
                     id="container"
@@ -510,7 +585,40 @@ const Digital = () => {
                       backgroundImage: `url('/images/offline-service-wayfinding.jpg')`,
                     }}
                     animate={{
-                      width: slide4 ? 360 : 1140,
+                      width: slide4 ? 263 : 1140,
+                    }}
+                    onClick={isModal}
+                  >
+                    <div className={printing.serviceText} onClick={clickMove}>
+                      {" "}
+                      <h1 className={printing.serviceTitle}>
+                        Directional Signage Design
+                      </h1>
+                      <p className={printing.serviceDesc}>
+                        Streamline navagation effortlessly with out proven and
+                        reliable <br /> wayfinding design solutions.
+                      </p>
+                    </div>
+                    <div
+                      id="exit"
+                      className={printing.modalExit}
+                      onClick={exitModal}
+                    >
+                      {" "}
+                      <button className={printing.serviceExitBtn}>x</button>
+                    </div>
+                  </motion.div>
+                </div>
+              ) : branding ? (
+                <div className="w-full h-full flex justify-between relative">
+                  <motion.div
+                    id="container"
+                    className={printing.servicelist}
+                    style={{
+                      backgroundImage: `url('/images/offline-service-wayfinding.jpg')`,
+                    }}
+                    animate={{
+                      width: slide4 ? 263 : 1140,
                     }}
                     onClick={isModal}
                   >
@@ -543,7 +651,7 @@ const Digital = () => {
                       backgroundImage: `url('/images/offline-service-promotional.jpg')`,
                     }}
                     animate={{
-                      width: slide5 ? 360 : 1140,
+                      width: slide5 ? 263 : 1140,
                     }}
                     onClick={isModal}
                   >
