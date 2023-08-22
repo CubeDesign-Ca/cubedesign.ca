@@ -13,6 +13,7 @@ import '../app/globals.css';
 const Home = () => {
   const [isCard1Hovered, setIsCard1Hovered] = useState(false);
   const [isCard2Hovered, setIsCard2Hovered] = useState(false);
+  const [isOn, setIsOn] = useState(false);
   const toggleSwitch = () => {
     setIsOn(!isOn);
   };
