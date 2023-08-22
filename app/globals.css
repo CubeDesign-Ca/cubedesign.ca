@@ -106,6 +106,7 @@ a {
 .swiper-wrapper{
   display: flex;
   align-items: center;
+  transition-timing-function: linear;
 }
 .swiper-button-next{
   background-image: url('/images/Offline-Gallery-Next button.png');
