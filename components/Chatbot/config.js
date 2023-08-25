@@ -16,11 +16,11 @@ const config = {
     // botChatMessage: (props) => <div />,
   },
   initialMessages: [
-    // createChatBotMessage(`Hi, there! Having a hard time to find what you need? Let me help you!`, {
-    // }),
-    // createChatBotMessage(`Please select you are interested!`, {
-    //   widget: "options",
-    // }),
+    createChatBotMessage(`Hi, there! Having a hard time to find what you need? Let me help you!`, {
+    }),
+    createChatBotMessage(`Please select you are interested!`, {
+      widget: "options",
+    }),
   ],
   customStyles: {
     // Overrides the chatbot message styles

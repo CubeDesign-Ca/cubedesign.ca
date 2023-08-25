@@ -6,10 +6,10 @@ class ActionProvider {
     this.createClientMessage = createClientMessage;
   }
 
-  greet = () => {
-    const message = this.createChatBotMessage("Hello, dear customer. How may I help you today?");
-    this.addMessageToState(message);
-  };
+  // greet = () => {
+  //   const message = this.createChatBotMessage("Hello, dear customer. How may I help you today?");
+  //   this.addMessageToState(message);
+  // };
 
   answer = (id) => {
     const message = this.createChatBotMessage("You have selected the wrong options. Please contact the administrator.");

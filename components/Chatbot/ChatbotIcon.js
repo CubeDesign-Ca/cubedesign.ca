@@ -124,7 +124,7 @@ const ChatbotButton = () => {
           content: {
             width: '400px',
             height: '600px',
-            position: 'absolute',
+            position: 'fixed',
             top: 'auto',
             bottom: '230px',
             left: 'auto',
@@ -134,6 +134,7 @@ const ChatbotButton = () => {
             borderRadius: '0px',
             background: 'rgba(204, 212, 224, 0.6)',
             backdropFilter: 'blur(10px)',
+            
           },
           overlay: {
             background: 'transparent',
