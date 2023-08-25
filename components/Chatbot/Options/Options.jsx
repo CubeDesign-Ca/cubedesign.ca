@@ -5,17 +5,30 @@ import "./Options.css";
 const Options = (props) => {
   const options = [
     {
-      imageSrc: "/images/logo.png",
+      imgFlag: true,
+      imgSrc: "/images/chatbot/service_printing.svg",
+      text: "Printing",
       handler: props.actionProvider.answer,
       id: 1,
     },
     { 
-      text: "What do you specialize in?", 
+      imgFlag: true,
+      imgSrc: "/images/chatbot/service_digital.svg",
+      text: "Digital",
       handler: props.actionProvider.answer,
       id: 2 
     },
     { 
-      text: "What are the rates of your services?", 
+      imgFlag: true,
+      imgSrc: "/images/chatbot/service_digital.svg",
+      text: "Complex",
+      handler: props.actionProvider.answer,
+      id: 3 
+    },
+    { 
+      imgFlag: true,
+      imgSrc: "/images/chatbot/service_idk.svg",
+      text: "I don't know",
       handler: props.actionProvider.answer,
       id: 3 
     },
@@ -40,10 +53,28 @@ const Options = (props) => {
     //   id: 7 
     // },
   ];
+  const handleOptionClick = (optionId) => {
+    setClickedOption(optionId);
+    const selectedOption = options.find((option) => option.id === optionId);
+    selectedOption.handler(optionId);
+  };
 
   const buttonsMarkup = options.map((option) => (
-    <button key={option.id} onClick={() => option.handler(option.id)} className="option-button">
-      {option.text}
+    <button key={option.id} 
+      onClick={() => option.handler(option.id)} 
+      className={`${(option.imgFlag ? 'image-button' : 'option-button')}`}
+    >
+      {option.imgFlag && (
+        <>
+          <img
+            src={option.imgSrc}
+            alt="Logo"
+            className="option-image"
+          />
+          {option.text != null && <span>{option.label}</span>}
+        </>
+      )}
+      {!option.imgFlag && <span>{option.text}</span>}
     </button>
   ));
 

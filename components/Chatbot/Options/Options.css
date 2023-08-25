@@ -7,6 +7,14 @@
   overflow-wrap: break-word;
 }
 
+.react-chatbot-kit-chat-bot-message-container {
+  margin: 20px 0 !important;
+}
+
+.react-chatbot-kit-chat-bot-message {
+  width: 100% !important;
+}
+
 .option-button {
   margin: 5px;
   border-radius: 5px;
@@ -17,4 +25,9 @@
   cursor: pointer;
   background: #4E698A;
   color: white;
+}
+
+.image-button {
+  margin-bottom: 15px;
+  margin-right: 20px;
 }
