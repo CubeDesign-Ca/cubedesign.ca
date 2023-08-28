@@ -114,6 +114,7 @@ const ContactUs = () => {
           submitText.classList.add(contact.submitText1);
 
           setTimeout(() => {
+            window.location.replace("/");
             submitBox.className = "";
             submitScreen.className = "";
             submitImg.className = "";

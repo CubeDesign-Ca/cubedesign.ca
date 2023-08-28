@@ -4,8 +4,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { React, useState, useEffect, useRef } from "react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import printing from "../app/digital.module.css";
 
@@ -21,9 +19,14 @@ const Digital = () => {
   const [slide3, setSlide3] = useState(true);
   const [slide4, setSlide4] = useState(true);
   const [slide5, setSlide5] = useState(true);
+  const [slide6, setSlide6] = useState(true);
+  const [slide7, setSlide7] = useState(true);
+  const [slide8, setSlide8] = useState(true);
   const [isSlide, setIsSlide] = useState(false);
 
   //oursercie
+
+
 
   const isWeb = (e) => {
     e.preventDefault();
@@ -180,54 +183,95 @@ const Digital = () => {
         if(!isSlide){
           if (
             e.target.firstElementChild.firstElementChild.textContent ==
-            "Large Format Printing"
+            "Search Engine Optimization"
           ) {
             e.target.nextElementSibling.className = "";
           e.target.nextElementSibling.classList.add(printing.servicelistVisile);
       
           e.target.nextElementSibling.nextElementSibling.className = "";
           e.target.nextElementSibling.nextElementSibling.classList.add(printing.servicelistVisile);
+
+          e.target.nextElementSibling.nextElementSibling.nextElementSibling.className = "";
+          e.target.nextElementSibling.nextElementSibling.nextElementSibling.classList.add(printing.servicelistVisile);
     
           e.target.style.backgroundImage =
-          "url('/images/offline-service-large-click.jpg')";
+          "url('/images/Online-Service-SEO.jpg')";
       
             setSlide1(!slide1)
           } else if (
             e.target.firstElementChild.firstElementChild.textContent ==
-            "Digital Printing Service"
+            "Content Management System"
           ) {
             e.target.nextElementSibling.className = "";
             e.target.nextElementSibling.classList.add(printing.servicelistVisile);
+
+            e.target.nextElementSibling.nextElementSibling.className = "";
+            e.target.nextElementSibling.nextElementSibling.classList.add(printing.servicelistVisile);
       
             e.target.previousElementSibling.className = "";
           e.target.previousElementSibling.classList.add(printing.servicelistVisile);
+
+          
     
-          e.target.style.backgroundImage = "url('/images/offline-service-digital-click.jpg')";
+          e.target.style.backgroundImage = "url('/images/Online-Service-CMS.jpg')";
       
             setSlide2(!slide2)
           } else if (
             e.target.firstElementChild.firstElementChild.textContent ==
-            "Installation Service"
+            "Third-Party Authentication"
           ) {
             e.target.previousElementSibling.className = "";
           e.target.previousElementSibling.classList.add(printing.servicelistVisile);
       
           e.target.previousElementSibling.previousElementSibling.className = "";
           e.target.previousElementSibling.previousElementSibling.classList.add(printing.servicelistVisile);
+
+          e.target.nextElementSibling.className = "";
+            e.target.nextElementSibling.classList.add(printing.servicelistVisile);
     
           e.target.style.backgroundImage =
-                "url('/images/offline-service-installation-click.jpg')";
+                "url('/images/Online-Service-OAuth.jpg')";
             setSlide3(!slide3)
           }else if( e.target.firstElementChild.firstElementChild.textContent ==
-            "Directional Signage Design"){
+            "E-commerce Intergration"){
+              e.target.previousElementSibling.className = "";
+              e.target.previousElementSibling.classList.add(printing.servicelistVisile);
+          
+              e.target.previousElementSibling.previousElementSibling.className = "";
+              e.target.previousElementSibling.previousElementSibling.classList.add(printing.servicelistVisile);
+
+              e.target.previousElementSibling.previousElementSibling.previousElementSibling.className = "";
+              e.target.previousElementSibling.previousElementSibling.previousElementSibling.classList.add(printing.servicelistVisile);
+
+
               e.target.style.backgroundImage =
-              "url('/images/offline-service-wayfinding-click.jpg')";
+              "url('/images/Online-Service-Ecommerce.jpg')";
               setSlide4(!slide4)
     
-          }else{
+          }else if (
+            e.target.firstElementChild.firstElementChild.textContent == "Admin Dashboard Implementation"
+          ){
             e.target.style.backgroundImage =
-            "url('/images/offline-service-promotional-click.jpg')";
+            "url('/images/Online-Service-Admin.jpg')";
             setSlide5(!slide5)
+          }else if (
+            e.target.firstElementChild.firstElementChild.textContent == "Visual Identity Design"
+          ){
+            setSlide6(!slide6)
+          }else if (
+            e.target.firstElementChild.firstElementChild.textContent == "Poster Design"
+          ){
+            setSlide7(!slide7)
+            e.target.nextElementSibling.className = "";
+            e.target.nextElementSibling.classList.add(printing.servicelistVisile);
+            
+          }else if (
+            e.target.firstElementChild.firstElementChild.textContent == "Menu Design"
+          ){
+            setSlide8(!slide8)
+            e.target.previousElementSibling.className = "";
+          e.target.previousElementSibling.classList.add(printing.servicelistVisile);
+            
           }
   
           e.target.className = "";
@@ -270,7 +314,7 @@ const Digital = () => {
 
     if (
       e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Large Format Printing"
+        .textContent == "Search Engine Optimization"
     ) {
       e.target.parentNode.parentNode.nextElementSibling.className = "";
       e.target.parentNode.parentNode.nextElementSibling.classList.add(printing.servicelist);
@@ -278,27 +322,36 @@ const Digital = () => {
       e.target.parentNode.parentNode.nextElementSibling.nextElementSibling.className = "";
       e.target.parentNode.parentNode.nextElementSibling.nextElementSibling.classList.add(printing.servicelist);
 
+      e.target.parentNode.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.className = "";
+      e.target.parentNode.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.classList.add(printing.servicelist);
+
       e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/offline-service-large.jpg')";
+        "url('/images/Online-Service-SEO.jpg')";
 
         setSlide1(!slide1);
     } else if (
       e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Digital Printing Service"
+        .textContent == "Content Management System"
     ) {
        e.target.parentNode.parentNode.nextElementSibling.className = "";
        e.target.parentNode.parentNode.nextElementSibling.classList.add(printing.servicelist);
+
+       e.target.parentNode.parentNode.nextElementSibling.nextElementSibling.className = "";
+       e.target.parentNode.parentNode.nextElementSibling.nextElementSibling.classList.add(printing.servicelist);
 
        e.target.parentNode.parentNode.previousElementSibling.className = "";
      e.target.parentNode.parentNode.previousElementSibling.classList.add(printing.servicelist);
 
       e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/offline-service-digital.jpg')";
+        "url('/images/Online-Service-CMS.jpg')";
         setSlide2(!slide2);
     } else if (
       e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Installation Service"
+        .textContent == "Third-Party Authentication"
     ) {
+
+      e.target.parentNode.parentNode.nextElementSibling.className = "";
+      e.target.parentNode.parentNode.nextElementSibling.classList.add(printing.servicelist);
 
        e.target.parentNode.parentNode.previousElementSibling.className = "";
        e.target.parentNode.parentNode.previousElementSibling.classList.add(printing.servicelist);
@@ -307,19 +360,53 @@ const Digital = () => {
        e.target.parentNode.parentNode.previousElementSibling.previousElementSibling.classList.add(printing.servicelist);
 
       e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/offline-service-installation.jpg')";
+        "url('/images/Online-Service-OAuth.jpg')";
         setSlide3(!slide3);
     } else if (
       e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Directional Signage Design"
+        .textContent == "E-commerce Intergration"
+    ) {
+
+       e.target.parentNode.parentNode.previousElementSibling.className = "";
+       e.target.parentNode.parentNode.previousElementSibling.classList.add(printing.servicelist);
+  
+       e.target.parentNode.parentNode.previousElementSibling.previousElementSibling.className = "";
+       e.target.parentNode.parentNode.previousElementSibling.previousElementSibling.classList.add(printing.servicelist);
+
+       e.target.parentNode.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.className = "";
+       e.target.parentNode.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.classList.add(printing.servicelist);
+
+      e.target.parentNode.parentNode.style.backgroundImage =
+        "url('/images/Online-Service-Ecommerce.jpg')";
+        setSlide4(!slide4);
+    } else if (
+      e.target.parentNode.parentNode.firstElementChild.firstElementChild
+        .textContent == "Admin Dashboard Implementation"
     ) {
       e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/offline-service-wayfinding.jpg')";
-        setSlide4(!slide4);
-    } else {
-      e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/offline-service-promotional.jpg')";
+        "url('/images/Online-Service-Admin.jpg')";
         setSlide5(!slide5);
+    } else if (
+      e.target.parentNode.parentNode.firstElementChild.firstElementChild
+        .textContent == "Visual Identity Design"
+    ) {
+        setSlide6(!slide6);
+    } else if (
+      e.target.parentNode.parentNode.firstElementChild.firstElementChild
+        .textContent == "Poster Design"
+    ) {
+      setSlide7(!slide7);
+      e.target.parentNode.parentNode.nextElementSibling.className = "";
+      e.target.parentNode.parentNode.nextElementSibling.classList.add(printing.servicelist);
+        
+    } else if (
+      e.target.parentNode.parentNode.firstElementChild.firstElementChild
+        .textContent == "Menu Design"
+    ) {
+      setSlide8(!slide8);
+      e.target.parentNode.parentNode.previousElementSibling.className = "";
+      e.target.parentNode.parentNode.previousElementSibling.classList.add(printing.servicelist);
+        
     }
 
     e.target.parentNode.parentNode.className = "";
@@ -459,7 +546,7 @@ const Digital = () => {
                     id="container"
                     className={printing.servicelist}
                     style={{
-                      backgroundImage: `url('/images/offline-service-large.jpg')`,
+                      backgroundImage: `url('/images/Online-Service-SEO.jpg')`,
                     }}
                     animate={{
                       width: slide1 ? 263 : 1140,
@@ -469,11 +556,10 @@ const Digital = () => {
                     <div className={printing.serviceText} onClick={clickMove}>
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Large Format Printing
+                      Search Engine Optimization
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Reliable printing services offering excellent prints and
-                        a seamless <br /> customer experience.
+                      Enhance your website's visibility and increase traffic by improving its ranking in search results, including keyword research.
                       </p>
                     </div>
                     <div
@@ -489,7 +575,7 @@ const Digital = () => {
                     id="container"
                     className={printing.servicelist}
                     style={{
-                      backgroundImage: `url('/images/offline-service-digital.jpg')`,
+                      backgroundImage: `url('/images/Online-Service-CMS.jpg')`,
                     }}
                     animate={{
                       width: slide2 ? 263 : 1140,
@@ -499,11 +585,12 @@ const Digital = () => {
                     <div className={printing.serviceText} onClick={clickMove}>
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Digital Printing Service
+                      Content Management System
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Trusted printing services for top-notch prints and a
-                        hassle-free, <br /> reliables experience.
+                      Easily manage your website's content with integrated Content Management System, designed to empower non-technical users.
+                      <br /><br />
+                      *Wix. Shopify, WordPress, Webflow, etc.
                       </p>
                     </div>
                     <div
@@ -519,7 +606,7 @@ const Digital = () => {
                     id="container"
                     className={printing.servicelist}
                     style={{
-                      backgroundImage: `url('/images/offline-service-installation.jpg')`,
+                      backgroundImage: `url('/images/Online-Service-OAuth.jpg')`,
                     }}
                     animate={{
                       width: slide3 ? 263 : 1140,
@@ -529,11 +616,10 @@ const Digital = () => {
                     <div className={printing.serviceText} onClick={clickMove}>
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Installation Service
+                      Third-Party Authentication
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Professional and reliable installation service for a
-                        hassle-free <br /> experience you can trust.
+                      Make logging in easier and secure by using third-party authentication(OAuth) to verify user identity.
                       </p>
                     </div>
                     <div
@@ -549,21 +635,20 @@ const Digital = () => {
                     id="container"
                     className={printing.servicelist}
                     style={{
-                      backgroundImage: `url('/images/offline-service-digital.jpg')`,
+                      backgroundImage: `url('/images/Online-Service-Ecommerce.jpg')`,
                     }}
                     animate={{
-                      width: slide2 ? 263 : 1140,
+                      width: slide4 ? 263 : 1140,
                     }}
                     onClick={isModal}
                   >
                     <div className={printing.serviceText} onClick={clickMove}>
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Digital Printing Service
+                      E-commerce Intergration
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Trusted printing services for top-notch prints and a
-                        hassle-free, <br /> reliables experience.
+                      Add online shopping capabilities to your website, streamlining online transactions and generating revenue through features such as payment gateways and shopping carts.
                       </p>
                     </div>
                     <div
@@ -582,23 +667,28 @@ const Digital = () => {
                     id="container"
                     className={printing.servicelist}
                     style={{
-                      backgroundImage: `url('/images/offline-service-wayfinding.jpg')`,
+                      backgroundImage: `url('/images/Online-Service-Admin.jpg')`,
                     }}
                     animate={{
-                      width: slide4 ? 263 : 1140,
+                      width: slide5 ? 263 : 1140,
                     }}
                     onClick={isModal}
                   >
-                    <div className={printing.serviceText} onClick={clickMove}>
+                    <motion.div className={printing.serviceText} onClick={clickMove}
+                    animate={{
+                      width: slide5 ? 263 : 750,
+                    }}
+                    transition={{ ease: "linear",
+                    duration: 0.4, }}>
+                      
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Directional Signage Design
+                      Admin Dashboard Implementation
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Streamline navagation effortlessly with out proven and
-                        reliable <br /> wayfinding design solutions.
+                      Improve website management with a centralized Admin Dashboard, allowing easy management of user accounts, content, and analytics for better workflow and decision-making.
                       </p>
-                    </div>
+                    </motion.div>
                     <div
                       id="exit"
                       className={printing.modalExit}
@@ -615,21 +705,20 @@ const Digital = () => {
                     id="container"
                     className={printing.servicelist}
                     style={{
-                      backgroundImage: `url('/images/offline-service-wayfinding.jpg')`,
+                      backgroundImage: `url('/images/Online-Service-Branding.jpg')`,
                     }}
                     animate={{
-                      width: slide4 ? 263 : 1140,
+                      width: slide6 ? 263 : 1140,
                     }}
                     onClick={isModal}
                   >
                     <div className={printing.serviceText} onClick={clickMove}>
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Directional Signage Design
+                      Visual Identity Design
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Streamline navagation effortlessly with out proven and
-                        reliable <br /> wayfinding design solutions.
+                      Build recognition and credibility for your business by creating a unique visual identity through branding design.
                       </p>
                     </div>
                     <div
@@ -643,26 +732,55 @@ const Digital = () => {
                   </motion.div>
                 </div>
               ) : (
-                <div className="w-full h-full flex justify-between relative">
+                <div className="w-full h-full flex justify-start relative">
                   <motion.div
                     id="container"
                     className={printing.servicelist}
                     style={{
-                      backgroundImage: `url('/images/offline-service-promotional.jpg')`,
+                      backgroundImage: `url('/images/Online-Service-Poster.jpg')`,
                     }}
                     animate={{
-                      width: slide5 ? 263 : 1140,
+                      width: slide7 ? 263 : 1140,
                     }}
                     onClick={isModal}
                   >
                     <div className={printing.serviceText} onClick={clickMove}>
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Promotional Product & Merchandise
+                        Poster Design
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Bring your branding to life with our expertise,
-                        personalized <br /> approach, and creativity.
+                      Capture attention and convey your message with our visually stunning poster design services, tailored to meet your unique needs and objectives.
+                      </p>
+                    </div>
+                    <div
+                      id="exit"
+                      className={printing.modalExit}
+                      onClick={exitModal}
+                    >
+                      {" "}
+                      <button className={printing.serviceExitBtn}>x</button>
+                    </div>
+                  </motion.div>
+                  <motion.div
+                    id="container"
+                    className={printing.servicelist}
+                    style={{
+                      backgroundImage: `url('/images/Online-Service-Menu.jpg')`,
+                      marginLeft: '20px'
+                    }}
+                    animate={{
+                      width: slide8 ? 263 : 1140,
+                    }}
+                    onClick={isModal}
+                  >
+                    <div className={printing.serviceText} onClick={clickMove}>
+                      {" "}
+                      <h1 className={printing.serviceTitle}>
+                      Menu Design
+                      </h1>
+                      <p className={printing.serviceDesc}>
+                      Design an attractive and user-friendly menu that highlights your offerings, making it easy for customers to select and order their desired products or services.
                       </p>
                     </div>
                     <div

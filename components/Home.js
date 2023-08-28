@@ -12,7 +12,6 @@ const Home = () => {
   const [isCard1Hovered, setIsCard1Hovered] = useState(false);
   const [isCard2Hovered, setIsCard2Hovered] = useState(false);
   const toggleSwitch = () => {
-    setIsOn(!isOn);
   };
   return (
     <>
@@ -86,7 +85,7 @@ const Home = () => {
         <div className={styles.clientList}>
           <Swiper
             // install Swiper modules
-            modules={[Navigation, Pagination, A11y, Autoplay]}
+            modules={[Navigation, A11y, Autoplay]}
             style={{ height: "60px" }}
             spaceBetween={50}
             speed={2000}

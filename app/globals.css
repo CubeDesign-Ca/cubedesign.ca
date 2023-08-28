@@ -99,6 +99,13 @@ a {
     color-scheme: dark;
   }
 }
+
+
+.swiper .swiper-wrapper {
+  transition-timing-function: linear;
+}
+
+
 .swiper .swiper-button-prev.swiper-button-disabled,.swiper .swiper-button-next.swiper-button-disabled{
   opacity: 0;
 }
