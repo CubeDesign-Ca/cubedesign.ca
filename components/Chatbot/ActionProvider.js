@@ -12,18 +12,36 @@ class ActionProvider {
   // };
 
   answer = (id) => {
-    const message = this.createChatBotMessage("You have selected the wrong options. Please contact the administrator.");
+    let message = null;
     // this.addClientMessage("oiqjwoefijoiqwjefiojqwoiejfoiqwjeoijfoqe");
     if (id === 1) {
-      message.message = "We have offline & online services. abcdefgabcdefgabcdefgabcdefgabcdefgabcdefg";
+      message = this.createChatBotMessage("Great! Cube Design offers 3 services that provide years of expertise and knowledge.",
+      {
+        widget: "options2",
+        delay: 500,
+      });
+      // this.addClientMessage("Printing");
     } else if (id === 2) {
-      message.message = "We can build specialized website for you. abcdefgabcdefgabcdefgabcdefgabcdefg";
+      message = this.createChatBotMessage("We have offline & online services. abcdefgabcdefgabcdefgabcdefgabcdefgabcdefg",
+      {
+        widget: "options3",
+        delay: 500,
+      });
+      // this.addClientMessage("Digital");
     } else if (id === 3) {
-      message.message = "For website, you will have to pay $10,000. abcdefgabcdefgabcdefgabcdefgabcdefg";
+      message = this.createChatBotMessage("We have offline & online services. abcdefgabcdefgabcdefgabcdefgabcdefgabcdefg",
+      {
+        widget: "options3",
+        delay: 500,
+      });
     } else if (id === 4) {
-      message.message = "These are the warranties that we provide. abcdefgabcdefgabcdefgabcdefgabcdefg";
+      message = this.createChatBotMessage("We have offline & online services. abcdefgabcdefgabcdefgabcdefgabcdefgabcdefg",
+      {
+        widget: "options2",
+        delay: 500,
+      });
     } else if (id === 5) {
-      message.message = "Our service is licensed and insured. abcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefg";
+      message = this.createChatBotMessage("Our service is licensed and insured. abcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefg");
     } else if (id === 6) {
       message.message = "Terms & Conditions abcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefg";
     } else if (id === 7) {
