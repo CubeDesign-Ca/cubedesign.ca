@@ -1,7 +1,7 @@
 import React from "react";
 import { createChatBotMessage } from "react-chatbot-kit";
 
-import Options from "./Options/Options";
+import InitOptions from "./Options/InitOptions";
 import BotAvatar from "./BotAvatar";
 
 import CustomMessage from './CustomMessage';
@@ -40,7 +40,15 @@ const config = {
   widgets: [
     {
       widgetName: "options",
-      widgetFunc: (props) => <Options {...props} />,
+      widgetFunc: (props) => <InitOptions {...props} />,
+    },
+    {
+      widgetName: "options2",
+      widgetFunc: (props) => <InitOptions {...props} />,
+    },
+    {
+      widgetName: "options3",
+      widgetFunc: (props) => <InitOptions {...props} />,
     },
   ],
 };
