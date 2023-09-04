@@ -15,27 +15,27 @@ class ActionProvider {
     let message = null;
     // this.addClientMessage("oiqjwoefijoiqwjefiojqwoiejfoiqwjeoijfoqe");
     if (id === 1) {
-      message = this.createChatBotMessage("Great! Cube Design offers 3 services that provide years of expertise and knowledge.",
+      message = this.createChatBotMessage("id is 1",
       {
-        widget: "options2",
+        widget: "printing1",
         delay: 500,
       });
       // this.addClientMessage("Printing");
     } else if (id === 2) {
-      message = this.createChatBotMessage("We have offline & online services. abcdefgabcdefgabcdefgabcdefgabcdefgabcdefg",
+      message = this.createChatBotMessage("id is 2",
       {
         widget: "options3",
         delay: 500,
       });
       // this.addClientMessage("Digital");
     } else if (id === 3) {
-      message = this.createChatBotMessage("We have offline & online services. abcdefgabcdefgabcdefgabcdefgabcdefgabcdefg",
+      message = this.createChatBotMessage("id is 3",
       {
         widget: "options3",
         delay: 500,
       });
     } else if (id === 4) {
-      message = this.createChatBotMessage("We have offline & online services. abcdefgabcdefgabcdefgabcdefgabcdefgabcdefg",
+      message = this.createChatBotMessage("id is 4",
       {
         widget: "options2",
         delay: 500,
