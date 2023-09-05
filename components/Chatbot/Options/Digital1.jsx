@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./InitOptions.css";
+import "./ChatbotOpts.css";
 
 const Options = (props) => {
   const options = [

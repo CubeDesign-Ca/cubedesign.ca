@@ -13,28 +13,26 @@ class ActionProvider {
 
   answer = (id) => {
     let message = null;
-    // this.addClientMessage("oiqjwoefijoiqwjefiojqwoiejfoiqwjeoijfoqe");
-    if (id === 1) {
+    if (id === "i1") {
       message = this.createChatBotMessage("id is 1",
       {
         widget: "printing1",
         delay: 500,
       });
-      // this.addClientMessage("Printing");
-    } else if (id === 2) {
+    } else if (id === "i2") {
       message = this.createChatBotMessage("id is 2",
       {
         widget: "options3",
         delay: 500,
       });
       // this.addClientMessage("Digital");
-    } else if (id === 3) {
+    } else if (id === "i3") {
       message = this.createChatBotMessage("id is 3",
       {
         widget: "options3",
         delay: 500,
       });
-    } else if (id === 4) {
+    } else if (id === "i4") {
       message = this.createChatBotMessage("id is 4",
       {
         widget: "options2",
@@ -43,9 +41,20 @@ class ActionProvider {
     } else if (id === 5) {
       message = this.createChatBotMessage("Our service is licensed and insured. abcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefg");
     } else if (id === 6) {
-      message.message = "Terms & Conditions abcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefg";
+      message = this.createChatBotMessage("id is 4",
+      {
+        widget: "options2",
+        delay: 500,
+      });
     } else if (id === 7) {
-      message.message = "We will redirect you to the contact page. ";
+      message = this.createChatBotMessage("id is 4",
+      {
+        widget: "options2",
+        delay: 500,
+      });
+    } else {
+      message = this.createChatBotMessage("You selected the wrong option.");
+
     }
 
     this.addMessageToState(message);
