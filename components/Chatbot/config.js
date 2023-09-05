@@ -29,6 +29,8 @@ import BotAvatar from "./BotAvatar";
 
 import CustomMessage from './CustomMessage';
 
+import OptData from './Options/OptData';
+
 const config = {
   botName: "Chatbot",
   customComponents: {
@@ -44,12 +46,12 @@ const config = {
     createChatBotMessage(`Please select you are interested!`, {
       widget: "options",
     }),
-    createChatBotMessage(`Great! Cube Design offers 3 services that provide years of expertise and knowledge.`, {
-      widget: "printing1",
-    }),
-    createChatBotMessage(`We can help you to find out what you need for your business! Please select one of services in the below.`, {
-      widget: "printing1a",
-    }),
+    // createChatBotMessage(`Great! Cube Design offers 3 services that provide years of expertise and knowledge.`, {
+    //   widget: "printing1",
+    // }),
+    // createChatBotMessage(`We can help you to find out what you need for your business! Please select one of services in the below.`, {
+    //   widget: "printing1a",
+    // }),
     // NEED TO ADD MORE HERE
     // NEED TO ADD MORE HERE
     // NEED TO ADD MORE HERE
@@ -77,11 +79,12 @@ const config = {
   widgets: [
     {
       widgetName: "options",
-      widgetFunc: (props) => <InitOptions {...props} />,
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.initOptions}/>,
     },
     {
       widgetName: "printing1",
-      widgetFunc: (props) => <Printing1 {...props} />,
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.printing1}/>,
+      // widgetFunc: (props) => <Printing1 {...props} />,
     },
     {
       widgetName: "printing1a",
