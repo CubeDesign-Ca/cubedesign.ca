@@ -88,11 +88,11 @@ const config = {
     },
     {
       widgetName: "printing1a",
-      widgetFunc: (props) => <Printing1a {...props} />,
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.printing1a}/>,
     },
     {
       widgetName: "printing1a1",
-      widgetFunc: (props) => <Printing1a1 {...props} />,
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.printing1a1}/>,
     },
     {
       widgetName: "printing1a2",

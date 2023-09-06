@@ -14,11 +14,18 @@ class ActionProvider {
   answer = (id) => {
     let message = null;
     if (id === "i1") {
-      message = this.createChatBotMessage("id is 1",
+      message = this.createChatBotMessage("Printing",
       {
         widget: "printing1",
         delay: 500,
       });
+    } else if (id === "p1") {
+      message = this.createChatBotMessage("Printing & Installation",
+      {
+        widget: "printing1a",
+        delay: 500,
+      });
+      // this.addClientMessage("Digital");
     } else if (id === "i2") {
       message = this.createChatBotMessage("id is 2",
       {
