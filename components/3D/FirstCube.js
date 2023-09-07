@@ -1,53 +1,140 @@
 import { useEffect } from 'react';
 
 import * as THREE from 'three';
-// import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
-// import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
-// import { VOXLoader } from 'three/examples/jsm/loaders/VOXLoader';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-
 import SceneInit from './SceneInit';
 
 function FirstCube() {
+  let scene, camera, renderer, cube;
+  let auto = true;
+  let fixAnim = true;
+  const RAD = 6.28319;
+  const NINTY = 1.5708;
   useEffect(() => {
-    const test = new SceneInit('myThreeJsCanvas');
-    test.initialize();
-    test.animate();
 
-    // const boxGeometry = new THREE.BoxGeometry(8, 8, 8);
-    // const boxMaterial = new THREE.MeshNormalMaterial();
-    // const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
-    // test.scene.add(boxMesh);
+    function init() {
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
+        renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+        renderer.setClearColor( 0x000000, 0 ); // the default
 
-    let loadedModel;
-    const glftLoader = new GLTFLoader();
-    // const center = gltfScene.getCenter( new THREE.Vector3() );
-    glftLoader.load('/images/onestop.gltf', (gltfScene) => {
-      loadedModel = gltfScene;
-      console.log(loadedModel);
+        renderer.setSize(200, 200);
+    
+        // create shape
+        const geometry = new THREE.BoxGeometry(3, 3, 3);
+        const loader = new THREE.TextureLoader();
+        const cubeMaterials = [
+            new THREE.MeshBasicMaterial({ map: loader.load('images/404.png') }), //right side
+            new THREE.MeshBasicMaterial({ color : 0xDDDDDD }), //left side
+            new THREE.MeshBasicMaterial({ map: loader.load('images/logo.png')}), //top side
+            new THREE.MeshBasicMaterial({ color : 0xDDDDDD }), //bottom side
+            new THREE.MeshBasicMaterial({ color : 0xDDDDDD }), //front side
+            new THREE.MeshBasicMaterial({ color : 0xDDDDDD }), //back side
+        ];
 
-    //   gltfScene.scene.rotation.y = Math.PI / 8;
-      gltfScene.scene.position.x = 0;
-      gltfScene.scene.position.y = 0;
-      gltfScene.scene.position.z = -1000;
-      gltfScene.scene.scale.set(0.6, 0.6, 0.6);
-      test.scene.add(gltfScene.scene);
-    });
+        //create material, color, or image texture
+        cube = new THREE.Mesh(geometry, cubeMaterials);
+    
+        // const edgesGeometry = new LineSegmentsGeometry().fromEdgesGeometry(
+        //   new THREE.EdgesGeometry(cube.geometry, 40)
+        // );
+        // const colors = [];
+        // for (let i = 0; i < edgesGeometry.attributes.instanceStart.count; i++) {
+        //   colors.push(0, 0, 0, 0, 0, 0);
+        // }
+        // edgesGeometry.setColors(colors);
+        
+        // // create a fat line material with white color so the vertex colors show
+        // const edgesMaterial = new LineMaterial({
+        //   color: "white",
+        //   vertexColors: true,
+        //   linewidth: 5
+        // });
+        // const line = new LineSegments2(edgesGeometry, edgesMaterial);
+        
+        // cube.add(line);
 
-    const animate = () => {
-      if (loadedModel) {
-        // loadedModel.scene.rotation.x += 0.01;
-        loadedModel.scene.rotation.y -= 0.015;
-        // loadedModel.scene.rotation.z += 0.01;
+        camera.position.z = 5;
+
+        scene.add(cube);
+        document.getElementById('myCube22').appendChild(renderer.domElement);
+        document.getElementById('myCube22').addEventListener("mousedown", function () { fix(); }, false);
+    }
+    
+    function fix() {
+      if (auto) {
+        auto = false;
+        fixAnim = true;
+        // if (cube.rotation.x < NINTY) {
+        //   cube.rotation.x += RAD;
+        // } 
+        
+        // if (cube.rotation.y < NINTY) {
+        //   cube.rotation.y += RAD;
+        // } 
+        rotateAnim();
+        // cube.rotation.x = 0;
+        // cube.rotation.y = 0;  
+        // renderer.render(scene, camera);
+      } else {
+        auto = true;
+        animate();
       }
-      requestAnimationFrame(animate);
-    };
-    animate();
+    }
+
+    function rotateAnim() {
+      if (fixAnim) {
+        requestAnimationFrame(rotateAnim);
+        cube.rotation.x += 0.02;
+        cube.rotation.y -= 0.02;
+        renderer.render(scene, camera);
+      }
+
+      if (cube.rotation.x > NINTY && cube.rotation.y < 0) {
+        cube.rotation.x = NINTY;
+        cube.rotation.y = 0;
+        fixAnim = false;
+        renderer.render(scene, camera);
+      }
+    }
+
+    //animation
+    function animate() {
+      if (auto) {
+        requestAnimationFrame(animate);
+        console.log("X " + cube.rotation.x + " Y " + cube.rotation.y);
+        // if (cube.rotation.x > RAD) {
+        //   cube.rotation.x = cube.rotation.x - RAD;
+        // }
+
+        // if (cube.rotation.y > RAD) {
+        //   cube.rotation.y = cube.rotation.y - RAD;
+        // }
+        // cube.rotation.x += 0.005;
+        // cube.rotation.y += 0.005;
+        cube.rotation.x = NINTY / 2;
+        cube.rotation.y = NINTY / 2;
+        renderer.render(scene, camera);
+      }
+    }
+    
+    //resized shape based on windows
+    function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+    
+    // window.addEventListener('resize', onWindowResize, false);
+    if (cube == null) {
+      init();
+      animate();  
+    }
   }, []);
 
   return (
-    <div>
-      <canvas id="myThreeJsCanvas" width="200" height="200" />
+    <div className="flex justify-center items-center">
+      <div id='myCube22' className="w-[200px] h-[200px]"></div>
+      {/* <canvas id="myThreeJsCanvas2" width="200" height="200" /> */}
     </div>
   );
 }
