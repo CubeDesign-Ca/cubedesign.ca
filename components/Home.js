@@ -94,11 +94,13 @@ const Home = () => {
           <Swiper
             // install Swiper modules
             modules={[Navigation, Pagination, A11y, Autoplay]}
-            style={{ height: "60px" }}
+            style={{ 
+              height: "60px",
+            }}
             spaceBetween={0}
             speed={2000} // 속도 조절
             loop={true}
-            slidesPerView={3}
+            slidesPerView={"auto"}
             slidesPerGroup={1}
             navigation={{
               // 네비게이션 적용, < >
@@ -133,13 +135,11 @@ const Home = () => {
             ].map((image, index) => (
               <SwiperSlide
                 key={index}
-                className={styles.slide}
                 style={{
-                  backgroundImage: `url('${image}')`,
-                  // backgroundSize: 'auto 60px',
-                  // margin: '0 5px',
+                  width: "auto",
+                  margin: '0 70px'
                 }}
-              ></SwiperSlide>
+              ><img style={{height:"60px"}} src={image}/></SwiperSlide>
             ))}
           </Swiper>
         </div>
