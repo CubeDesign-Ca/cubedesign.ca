@@ -1,16 +1,17 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
+import styles from "../../app/homePage.module.css";
 
-import * as THREE from 'three';
+import * as THREE from "three";
 // import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 // import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 // import { VOXLoader } from 'three/examples/jsm/loaders/VOXLoader';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-import SceneInit from './SceneInit';
+import SceneInit from "./SceneInit";
 
 function AnimatedBannerText() {
   useEffect(() => {
-    const test = new SceneInit('myThreeJsCanvas');
+    const test = new SceneInit("myThreeJsCanvas");
     test.initialize();
     test.animate();
 
@@ -21,17 +22,20 @@ function AnimatedBannerText() {
 
     let loadedModel;
     const glftLoader = new GLTFLoader();
+    // const axes = new THREE.AxesHelper(3);
     // const center = gltfScene.getCenter( new THREE.Vector3() );
-    glftLoader.load('/images/main_banner_final.gltf', (gltfScene) => {
+    glftLoader.load("/images/untitled.glb", (gltfScene) => {
       loadedModel = gltfScene;
       console.log(loadedModel);
 
-    //   gltfScene.scene.rotation.y = Math.PI / 8;
+      //   gltfScene.scene.rotation.y = Math.PI / 8;
       gltfScene.scene.position.x = 0;
       gltfScene.scene.position.y = 0;
-      gltfScene.scene.position.z = -1000;
-      gltfScene.scene.scale.set(0.5, 0.5, 0.5);
+      gltfScene.scene.position.z = -850;
+      gltfScene.scene.scale.set(0.6, 0.6, 0.6);
+      // test.scene.add(axes);
       test.scene.add(gltfScene.scene);
+      // test.scene.position.y = 0;
     });
 
     const animate = () => {
@@ -47,7 +51,12 @@ function AnimatedBannerText() {
 
   return (
     <div>
-      <canvas id="myThreeJsCanvas" width="200" height="200" />
+      <canvas
+        id="myThreeJsCanvas"
+        className={styles.canvasContainer}
+        width="200"
+        height="200"
+      />
     </div>
   );
 }

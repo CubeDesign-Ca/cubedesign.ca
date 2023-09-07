@@ -14,12 +14,13 @@ import AnimatedBannerText from "./3D/AnimatedBannerText";
 import FirstCube from "./3D/FirstCube";
 import SecondCube from "./3D/SecondCube";
 import ThirdCube from "./3D/ThirdCube";
+import ThreeJSGltfRotation from "./3D/Test";
 
 const Home = () => {
   const [isCard1Hovered, setIsCard1Hovered] = useState(false);
   const [isCard2Hovered, setIsCard2Hovered] = useState(false);
   const toggleSwitch = () => {
-    setIsOn(!isOn);
+    // setIsOn(!isOn);
   };
   return (
     <>
@@ -28,9 +29,10 @@ const Home = () => {
         <div className={styles.mainTitle}>
           <figcaption>Cube Design & Communication</figcaption>
           <figcaption>makes Poster Design</figcaption>
-          {/* <AnimatedBannerText /> */}
         </div>
       </div>
+      {/* <ThreeJSGltfRotation /> */}
+      <AnimatedBannerText />
       <div className={styles.container}>
         {/* printing & digital */}
         <div className={`${styles.mainContainer}`}>

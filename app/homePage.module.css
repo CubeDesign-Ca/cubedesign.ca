@@ -1,11 +1,10 @@
-
 /* homePage.module.css */
 
 /* main img */
 .imgContainer {
   width: 100%;
   height: 1090px;
-  background-image: url('/images/Home-main_banner(2000x1090_CFE2EB).jpg');
+  background-image: url("/images/Home-main_banner(2000x1090_CFE2EB).jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
@@ -52,9 +51,9 @@
   width: 555px;
   height: 600px;
   border-bottom: 8px solid white;
-  transition: background-image 0.4s ease; 
-} 
-.serviceContent { 
+  transition: background-image 0.4s ease;
+}
+.serviceContent {
   padding: 40px 50px 40px 50px;
   /* background-color: #EFF2F9; */
   /* opacity: 0.5; */
@@ -67,19 +66,19 @@
   background-color: rgba(239, 242, 249, 0.8);
   backdrop-filter: blur(10px);
 }
-.serviceTitle{
+.serviceTitle {
   font-family: "Noto Sans", sans-serif;
   color: #103558;
   font-size: 24px;
   margin-bottom: 20px;
 }
-.serviceDesc{
+.serviceDesc {
   font-family: "Noto Sans", sans-serif;
   color: #103558;
   font-size: 18px;
 }
 .card:hover {
-  border-bottom-color: #C83832;
+  border-bottom-color: #c83832;
 }
 
 /* brand value */
@@ -100,7 +99,6 @@
   text-align: center;
   display: grid;
   grid-auto-rows: minmax(100px, auto);
-
 }
 .bvContainerTitle {
   font-size: 32px;
@@ -110,7 +108,7 @@
   font-family: "Noto Sans", sans-serif;
 }
 .bvTitle {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Noto Sans", sans-serif;
@@ -122,8 +120,8 @@
   font-size: 18px;
 }
 .client {
-  height: 140px; 
-  background-color: #CCD4E0;
+  height: 140px;
+  background-color: #ccd4e0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -141,4 +139,15 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+/* 3D */
+.canvasContainer {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  height: 700px !important;
+  width: 1000px !important;
+  margin-top: 5px;
+  margin-left: 250px;
 }
