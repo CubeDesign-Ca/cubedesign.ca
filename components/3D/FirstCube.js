@@ -3,10 +3,14 @@ import { useEffect } from 'react';
 import * as THREE from 'three';
 import SceneInit from './SceneInit';
 
-function FirstCube() {
+function FirstCube(props) {
   let scene, camera, renderer, cube;
   let auto = true;
   let fixAnim = true;
+
+  let ID = "Main_Cube_" + props.prop_id;
+  const DIR = props.direction;
+
   const RAD = 6.28319;
   const NINTY = 1.5708;
   useEffect(() => {
@@ -23,9 +27,9 @@ function FirstCube() {
         const geometry = new THREE.BoxGeometry(3, 3, 3);
         const loader = new THREE.TextureLoader();
         const cubeMaterials = [
-            new THREE.MeshBasicMaterial({ map: loader.load('images/404.png') }), //right side
+            new THREE.MeshBasicMaterial({ color : 0xDDDDDD }), //right side
             new THREE.MeshBasicMaterial({ color : 0xDDDDDD }), //left side
-            new THREE.MeshBasicMaterial({ map: loader.load('images/logo.png')}), //top side
+            new THREE.MeshBasicMaterial({ map: loader.load(props.img_src)}), //top side
             new THREE.MeshBasicMaterial({ color : 0xDDDDDD }), //bottom side
             new THREE.MeshBasicMaterial({ color : 0xDDDDDD }), //front side
             new THREE.MeshBasicMaterial({ color : 0xDDDDDD }), //back side
@@ -56,8 +60,8 @@ function FirstCube() {
         camera.position.z = 5;
 
         scene.add(cube);
-        document.getElementById('myCube22').appendChild(renderer.domElement);
-        document.getElementById('myCube22').addEventListener("mousedown", function () { fix(); }, false);
+        document.getElementById(ID).appendChild(renderer.domElement);
+        document.getElementById(ID).addEventListener("mousedown", function () { fix(); }, false);
     }
     
     function fix() {
@@ -101,7 +105,7 @@ function FirstCube() {
     function animate() {
       if (auto) {
         requestAnimationFrame(animate);
-        console.log("X " + cube.rotation.x + " Y " + cube.rotation.y);
+        // console.log("X " + cube.rotation.x + " Y " + cube.rotation.y);
         // if (cube.rotation.x > RAD) {
         //   cube.rotation.x = cube.rotation.x - RAD;
         // }
@@ -111,8 +115,18 @@ function FirstCube() {
         // }
         // cube.rotation.x += 0.005;
         // cube.rotation.y += 0.005;
-        cube.rotation.x = NINTY / 2;
-        cube.rotation.y = NINTY / 2;
+        if (DIR == "left") {
+          cube.rotation.x = NINTY / 2 * 0.7;
+          cube.rotation.y = NINTY / 2;
+          cube.rotation.z = NINTY;  
+        } else if (DIR == "right") {
+          cube.rotation.x = NINTY / 2 * 0.7;
+          cube.rotation.y = NINTY / 2 * 3;
+          cube.rotation.z = NINTY;  
+        } else {
+          cube.rotation.x = NINTY / 2;
+          cube.rotation.y = NINTY / 2;  
+        }
         renderer.render(scene, camera);
       }
     }
@@ -133,7 +147,7 @@ function FirstCube() {
 
   return (
     <div className="flex justify-center items-center">
-      <div id='myCube22' className="w-[200px] h-[200px]"></div>
+      <div id={ID} className="w-[200px] h-[200px]"></div>
       {/* <canvas id="myThreeJsCanvas2" width="200" height="200" /> */}
     </div>
   );

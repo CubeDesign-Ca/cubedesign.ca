@@ -58,21 +58,21 @@ const Home = () => {
             <h3 className={styles.bvContainerTitle}>Brand Value</h3>
             <div className={styles.bvContainer}>
               <div className={styles.bvCard}>
-                <div><FirstCube /></div>
+                <div><FirstCube prop_id="1" direction="top" img_src="images/logo.png"/></div>
                 <h4 className={styles.bvTitle}>One-Stop Solution</h4>
                 <p className={styles.bvDesc}>
                   One place for all your needs full-service offerings spanning offline and online realms.
                 </p>
               </div>
               <div className={styles.bvCard}>
-                <div><SecondCube /></div>
+                <div><FirstCube prop_id="2" direction="left" img_src="images/logo.png"/></div>
                 <h4 className={styles.bvTitle}>Trustworthy &<br /> Professional Service</h4>
                 <p className={styles.bvDesc}>
                   Reliable, professional services tailored to your needs, delivered promptly to elevate your business.
                 </p>
               </div>
               <div className={styles.bvCard}>
-                <div><ThirdCube /></div>
+                <div><FirstCube prop_id="3" direction="right" img_src="images/logo.png"/></div>
                 <h4 className={styles.bvTitle}>After-Sales Supports</h4>
                 <p className={styles.bvDesc}>
                   Robust after-sales support, ensuring our commitment to standing by services post-delivery.
