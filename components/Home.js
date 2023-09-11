@@ -28,7 +28,7 @@ const Home = () => {
       <div className={styles.imgContainer}>
         <div className={styles.mainTitle}>
           <figcaption>Cube Design & Communication</figcaption>
-          <figcaption>makes Poster Design</figcaption>
+          <figcaption>makes </figcaption>
         </div>
       </div>
       {/* <ThreeJSGltfRotation /> */}
