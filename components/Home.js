@@ -15,10 +15,17 @@ import FirstCube from "./3D/FirstCube";
 import SecondCube from "./3D/SecondCube";
 import ThirdCube from "./3D/ThirdCube";
 import ThreeJSGltfRotation from "./3D/Test";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import Link from "next/link";
+import '../app/globals.css';
 
 const Home = () => {
   const [isCard1Hovered, setIsCard1Hovered] = useState(false);
   const [isCard2Hovered, setIsCard2Hovered] = useState(false);
+  const [isOn, setIsOn] = useState(false);
   const toggleSwitch = () => {
     // setIsOn(!isOn);
   };
@@ -38,44 +45,37 @@ const Home = () => {
         <div className={`${styles.mainContainer}`}>
           <div className={`${styles.service}`}>
             {/* printing */}
-            <div
-              className={`${styles.card} ${styles.card1}`}
-              style={{
-                backgroundImage: isCard1Hovered
-                  ? "url('/images/main-service-printing.jpg')"
-                  : "url('/images/main-service-printing-click.jpg')",
-              }}
-              onMouseEnter={() => setIsCard1Hovered(true)}
-              onMouseLeave={() => setIsCard1Hovered(false)}
-            >
-              <div className={styles.serviceContent}>
-                <h3 className={styles.serviceTitle}>Printing</h3>
-                <p className={styles.serviceDesc}>
-                  Maximize your visual impact with our professional printing and
-                  installation services, including way finding and promotional
-                  products.
-                </p>
+                        <Link href='/printing' legacyBehavior passHref>
+              <div
+                className={`${styles.card} ${styles.card1}`}
+                style={{ backgroundImage: isCard1Hovered ? "url('/images/main-service-printing.jpg')" : "url('/images/main-service-printing-click.jpg')" }}
+                onMouseEnter={() => setIsCard1Hovered(true)}
+                onMouseLeave={() => setIsCard1Hovered(false)}
+              >
+            
+                <div className={styles.serviceContent}>
+                  <h3 className={styles.serviceTitle}>Printing</h3>
+                  <p className={styles.serviceDesc}>
+                    Maximize your visual impact with our professional printing and installation services, including way finding and promotional products.
+                  </p>
+                </div>
               </div>
-            </div>
-
-            <div
-              className={`${styles.card} ${styles.card2}`}
-              style={{
-                backgroundImage: isCard2Hovered
-                  ? "url('/images/main-service-digital.jpg')"
-                  : "url('/images/main-service-digital-click.jpg')",
-              }}
-              onMouseEnter={() => setIsCard2Hovered(true)}
-              onMouseLeave={() => setIsCard2Hovered(false)}
-            >
-              <div className={styles.serviceContent}>
-                <h3 className={styles.serviceTitle}>Digital</h3>
-                <p className={styles.serviceDesc}>
-                  Establish your online presence with our full-service solutions
-                  tailored to enhance your business.
-                </p>
+            </Link>
+            <Link href='/digital' legacyBehavior passHref>
+              <div
+                className={`${styles.card} ${styles.card2}`}
+                style={{ backgroundImage: isCard2Hovered ? "url('/images/main-service-digital.jpg')" : "url('/images/main-service-digital-click.jpg')" }}
+                onMouseEnter={() => setIsCard2Hovered(true)}
+                onMouseLeave={() => setIsCard2Hovered(false)}
+              >
+                <div className={styles.serviceContent}>
+                  <h3 className={styles.serviceTitle}>Digital</h3>
+                  <p className={styles.serviceDesc}>
+                    Establish your online presence with our full-service solutions tailored to enhance your business.
+                  </p>
+                </div> 
               </div>
-            </div>
+            </Link>
           </div>
           <div className={styles.section}>
             <h3 className={styles.bvContainerTitle}>Brand Value</h3>
@@ -122,8 +122,8 @@ const Home = () => {
             // install Swiper modules
             modules={[Navigation, Pagination, A11y, Autoplay]}
             style={{ height: "60px" }}
-            spaceBetween={50}
-            speed={2000}
+            spaceBetween={0}
+            speed={2000} // 속도 조절
             loop={true}
             slidesPerView={3}
             slidesPerGroup={1}
@@ -142,6 +142,7 @@ const Home = () => {
             slidesOffsetAfter={250}
           >
             {[
+              "/images/client-1.png",
               "/images/client-2.png",
               "/images/client-3.png",
               "/images/client-4.png",
@@ -160,7 +161,11 @@ const Home = () => {
               <SwiperSlide
                 key={index}
                 className={styles.slide}
-                style={{ backgroundImage: `url('${image}')` }}
+                style={{
+                  backgroundImage: `url('${image}')`,
+                  // backgroundSize: 'auto 60px',
+                  // margin: '0 5px',
+                }}
               ></SwiperSlide>
             ))}
           </Swiper>
