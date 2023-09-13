@@ -95,84 +95,88 @@ const config = {
       widgetFunc: (props) => <InitOptions {...props} options={OptData.printing1a1}/>,
     },
     {
-      widgetName: "printing1a2",
-      widgetFunc: (props) => <Printing1a2 {...props} />,
+      widgetName: "printing1b1",
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.printing1b1}/>,
     },
     {
-      widgetName: "printing1a3",
-      widgetFunc: (props) => <Printing1a3 {...props} />,
+      widgetName: "printing1c1",
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.printing1c1}/>,
     },
     {
-      widgetName: "printing1a4",
-      widgetFunc: (props) => <Printing1a4 {...props} />,
+      widgetName: "printing1d1",
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.printing1d1}/>,
     },
     {
-      widgetName: "printing1b",
-      widgetFunc: (props) => <Printing1b {...props} />,
+      widgetName: "printing1e1",
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.printing1e1}/>,
     },
     {
-      widgetName: "printing1c",
-      widgetFunc: (props) => <Printing1c {...props} />,
+      widgetName: "printing2a",
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.printing2a}/>,
     },
     {
-      widgetName: "printing1a",
-      widgetFunc: (props) => <Printing1d {...props} />,
+      widgetName: "printing3a",
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.printing3a}/>,
+    },
+    {
+      widgetName: "printing4a",
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.printing4a}/>,
     },
     {
       widgetName: "digital1",
-      widgetFunc: (props) => <Digital1 {...props} />,
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.digital1}/>,
     },
     {
       widgetName: "digital1a",
-      widgetFunc: (props) => <Digital1a {...props} />,
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.digital1a}/>,
     },
     {
       widgetName: "digital1a1",
-      widgetFunc: (props) => <Digital1a1 {...props} />,
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.digital1a1}/>,
     },
     {
-      widgetName: "digital1a2",
-      widgetFunc: (props) => <Digital1a2 {...props} />,
+      widgetName: "digital1b1",
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.digital1b1}/>,
     },
     {
-      widgetName: "digital1a3",
-      widgetFunc: (props) => <Digital1a3 {...props} />,
-    },
-    {
-      widgetName: "digital1a4",
-      widgetFunc: (props) => <Digital1a4 {...props} />,
-    },
-    {
-      widgetName: "digital1a5",
-      widgetFunc: (props) => <Digital1a5 {...props} />,
-    },
-    {
-      widgetName: "digital1b",
-      widgetFunc: (props) => <Digital1b {...props} />,
-    },
-    {
-      widgetName: "digital1c",
-      widgetFunc: (props) => <Digital1c {...props} />,
-    },
-    {
-      widgetName: "digital1d",
-      widgetFunc: (props) => <Digital1d {...props} />,
+      widgetName: "digital1c1",
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.digital1c1}/>,
     },
     {
       widgetName: "digital1d1",
-      widgetFunc: (props) => <Digital1d1 {...props} />,
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.digital1d1}/>,
     },
     {
-      widgetName: "digital1e",
-      widgetFunc: (props) => <Digital1e {...props} />,
+      widgetName: "digital1e1",
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.digital1e1}/>,
+    },
+    {
+      widgetName: "digital2a",
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.digital2a}/>,
+    },
+    {
+      widgetName: "digital3a",
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.digital3a}/>,
+    },
+    {
+      widgetName: "digital4a",
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.digital4a}/>,
+    },
+    {
+      widgetName: "digital4c1",
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.digital4c1}/>,
+    },
+    {
+      widgetName: "digital5a",
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.digital5a}/>,
     },
     {
       widgetName: "complex1",
-      widgetFunc: (props) => <Complex1 {...props} />,
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.complex1}/>,
     },
     {
       widgetName: "idontknow1",
-      widgetFunc: (props) => <Idontknow1 {...props} />,
+      widgetFunc: (props) => <InitOptions {...props} options={OptData.idontknow1}/>,
     },
   ],
 };
