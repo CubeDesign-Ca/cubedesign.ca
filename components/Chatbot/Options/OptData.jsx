@@ -24,7 +24,8 @@ const OptData = {
       imgSrc: "/images/chatbot/service_idk.svg",
       text: "I don't know",
       id: "i4"
-    }],
+    }
+  ],
   printing1 : [
     {
       text: "Printing & Installation",
@@ -45,7 +46,8 @@ const OptData = {
     { 
       text: "Back to previous menu", 
       id: "p5" 
-    }],
+    }
+  ],
   printing1a : [
     {
       text: "Large Format Printing",
@@ -138,7 +140,187 @@ const OptData = {
       id: "p1d2" 
     },
   ],
-    
+  digital1 : [
+    {
+      text: "Website Design & Development",
+      id: "d1"
+    },
+    { 
+      text: "Admin Dashboard Implementation",
+      id: "d2" 
+    },
+    { 
+      text: "Branding Design",
+      id: "d3" 
+    },
+    { 
+      text: "Graphic Design",
+      id: "d4"
+    },
+    { 
+      text: "All of the above", 
+      id: "d5" 
+    },
+    { 
+      text: "Back to previous menu", 
+      id: "d6" 
+    }
+  ],
+  digital1a : [
+    {
+      text: "Search Engine Optimization",
+      id: "d1a"
+    },
+    { 
+      text: "Content Management System",
+      id: "d1b" 
+    },
+    { 
+      text: "Third-Party Authentication",
+      id: "d1c" 
+    },
+    { 
+      text: "E-commerce Integration",
+      id: "d1d"
+    },
+    { 
+      text: "All of the above", 
+      id: "d1e" 
+    },
+    { 
+      text: "Back to previous menu", 
+      id: "d1f" 
+    }
+  ],
+  digital1a1 : [
+    {
+      text: "Yes",
+      id: "d1a1"
+    },
+    { 
+      text: "No",
+      id: "d1a2" 
+    },
+  ],
+  digital1b1 : [
+    {
+      text: "Yes",
+      id: "d1b1"
+    },
+    { 
+      text: "No",
+      id: "d1b2" 
+    },
+  ],
+  digital1c1 : [
+    {
+      text: "Yes",
+      id: "d1c1"
+    },
+    { 
+      text: "No",
+      id: "d1c2" 
+    },
+  ],
+  digital1d1 : [
+    {
+      text: "Yes",
+      id: "d1d1"
+    },
+    { 
+      text: "No",
+      id: "d1d2" 
+    },
+  ],
+  digital1e1 : [
+    {
+      text: "Yes",
+      id: "d1e1"
+    },
+    { 
+      text: "No",
+      id: "d1e2" 
+    },
+  ],
+  digital2a : [
+    {
+      text: "Admin Dashboard Implementation",
+      id: "d2a"
+    },
+    { 
+      text: "Back to previous menu", 
+      id: "d2b" 
+    }
+  ],
+  digital3a : [
+    {
+      text: "Visual Identity Design",
+      id: "d3a"
+    },
+    { 
+      text: "Back to previous menu", 
+      id: "d3b" 
+    }
+  ],
+  digital4a : [
+    {
+      text: "Poster Design",
+      id: "d4a"
+    },
+    {
+      text: "Menu Design",
+      id: "d4b"
+    },
+    {
+      text: "All of the above",
+      id: "d4c"
+    },
+    { 
+      text: "Back to previous menu", 
+      id: "d4e" 
+    }
+  ],
+  digital4c1 : [
+    {
+      text: "Yes",
+      id: "d4c1"
+    },
+    { 
+      text: "No",
+      id: "d4c2" 
+    },
+  ],
+  digital5a : [
+    {
+      text: "Yes",
+      id: "d5a"
+    },
+    { 
+      text: "No",
+      id: "d5b" 
+    },
+  ],
+  complex1 : [
+    {
+      text: "Yes",
+      id: "c1"
+    },
+    { 
+      text: "No",
+      id: "c2" 
+    },
+  ],
+  idontknow1 : [
+    {
+      text: "Yes",
+      id: "k1"
+    },
+    { 
+      text: "No",
+      id: "k2" 
+    },
+  ],
+
 };
 
 export default OptData;
