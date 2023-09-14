@@ -133,12 +133,11 @@
   height: 60px;
 }
 
-.swiper-wrapper {
-  transition-timing-function: linear;
-}
 .slide {
-  width: 100%;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  /* background-size: cover; */
+  background-size: auto 60px;
+  margin: 0 5px;
+  /* background-size */
 }
