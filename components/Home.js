@@ -13,7 +13,10 @@ import '../app/globals.css';
 const Home = () => {
   const [isCard1Hovered, setIsCard1Hovered] = useState(false);
   const [isCard2Hovered, setIsCard2Hovered] = useState(false);
+<<<<<<< HEAD
 
+=======
+>>>>>>> stage
   const [isOn, setIsOn] = useState(false);
   const toggleSwitch = () => {
     setIsOn(!isOn);
@@ -94,7 +97,10 @@ const Home = () => {
         <div className={styles.clientList}>
           <Swiper
             // install Swiper modules
+<<<<<<< HEAD
 
+=======
+>>>>>>> stage
             modules={[Navigation, Pagination, A11y, Autoplay]}
             style={{ height: "60px" }}
             spaceBetween={0}
@@ -136,7 +142,10 @@ const Home = () => {
               <SwiperSlide
                 key={index}
                 className={styles.slide}
+<<<<<<< HEAD
 
+=======
+>>>>>>> stage
                 style={{
                   backgroundImage: `url('${image}')`,
                   // backgroundSize: 'auto 60px',
