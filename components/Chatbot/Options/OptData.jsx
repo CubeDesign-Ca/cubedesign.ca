@@ -15,7 +15,7 @@ const OptData = {
     },
     { 
       imgFlag: true,
-      imgSrc: "/images/chatbot/service_digital.svg",
+      imgSrc: "/images/chatbot/service_complex.svg",
       text: "Complex",
       id: "i3" 
     },
@@ -97,7 +97,7 @@ const OptData = {
     },
     { 
       text: "No",
-      id: "p4b"
+      id: "no"
     },
   ],
   printing1a1 : [
@@ -107,7 +107,7 @@ const OptData = {
     },
     { 
       text: "No",
-      id: "p1a2" 
+      id: "no" 
     },
   ],
   printing1b1 : [
@@ -117,7 +117,7 @@ const OptData = {
     },
     { 
       text: "No",
-      id: "p1b2" 
+      id: "no" 
     },
   ],
   printing1c1 : [
@@ -127,7 +127,7 @@ const OptData = {
     },
     { 
       text: "No",
-      id: "p1c2" 
+      id: "no" 
     },
   ],
   printing1d1 : [
@@ -137,7 +137,7 @@ const OptData = {
     },
     { 
       text: "No",
-      id: "p1d2" 
+      id: "no" 
     },
   ],
   digital1 : [
@@ -199,7 +199,7 @@ const OptData = {
     },
     { 
       text: "No",
-      id: "d1a2" 
+      id: "no" 
     },
   ],
   digital1b1 : [
@@ -209,7 +209,7 @@ const OptData = {
     },
     { 
       text: "No",
-      id: "d1b2" 
+      id: "no" 
     },
   ],
   digital1c1 : [
@@ -219,7 +219,7 @@ const OptData = {
     },
     { 
       text: "No",
-      id: "d1c2" 
+      id: "no" 
     },
   ],
   digital1d1 : [
@@ -229,7 +229,7 @@ const OptData = {
     },
     { 
       text: "No",
-      id: "d1d2" 
+      id: "no" 
     },
   ],
   digital1e1 : [
@@ -239,7 +239,7 @@ const OptData = {
     },
     { 
       text: "No",
-      id: "d1e2" 
+      id: "no" 
     },
   ],
   digital2a : [
@@ -287,7 +287,7 @@ const OptData = {
     },
     { 
       text: "No",
-      id: "d4c2" 
+      id: "no" 
     },
   ],
   digital5a : [
@@ -297,7 +297,7 @@ const OptData = {
     },
     { 
       text: "No",
-      id: "d5b" 
+      id: "no" 
     },
   ],
   complex1 : [
@@ -307,7 +307,7 @@ const OptData = {
     },
     { 
       text: "No",
-      id: "c2" 
+      id: "no" 
     },
   ],
   idontknow1 : [
@@ -317,7 +317,7 @@ const OptData = {
     },
     { 
       text: "No",
-      id: "k2" 
+      id: "no" 
     },
   ],
 

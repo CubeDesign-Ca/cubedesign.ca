@@ -14,50 +14,76 @@ class ActionProvider {
   answer = (id) => {
     let message = null;
     if (id === "i1") {
-      message = this.createChatBotMessage("Printing",
+      message = this.createChatBotMessage("Printing");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Great! Cube Design offers 3 services that provide years of expertise and knowledge.",
       {
         widget: "printing1",
         delay: 500,
       });
     } else if (id === "p1") {
-      message = this.createChatBotMessage("Printing & Installation",
+      message = this.createChatBotMessage("Printing & Installation");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("We can help you to find out what you need for your business! Please select one of services in the below.",
       {
         widget: "printing1a",
         delay: 500,
       });
     } else if (id === "p1a") {
-      message = this.createChatBotMessage("Large Format Printing",
+      message = this.createChatBotMessage("Large Format Printing");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Awesome! You can easily submit free consulting for your project through our contact page.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Do you want to go to contact page?",
       {
         widget: "printing1a1",
         delay: 500,
       });
     } else if (id === "p1b") {
-      message = this.createChatBotMessage("Digital Printing Service",
+      message = this.createChatBotMessage("Digital Printing Service");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Awesome! You can easily submit free consulting for your project through our contact page.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Do you want to go to contact page?",
       {
         widget: "printing1a1",
         delay: 500,
       });
     } else if (id === "p1c") {
-      message = this.createChatBotMessage("Installation Service",
+      message = this.createChatBotMessage("Installation Service");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Awesome! You can easily submit free consulting for your project through our contact page.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Do you want to go to contact page?",
       {
         widget: "printing1a1",
         delay: 500,
       });
     } else if (id === "p1d") {
-      message = this.createChatBotMessage("All of the above",
+      message = this.createChatBotMessage("All of the above");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Awesome! You can easily submit free consulting for your project through our contact page.");
+      this.addMessageToState(message);
+      // need to update
+      message = this.createChatBotMessage("Do you want to go to contact page?",
       {
-        // need to update
         widget: "printing1a1",
         delay: 500,
       });
     } else if (id === "p1e") {
-      message = this.createChatBotMessage("Back to the previous menu",
+      message = this.createChatBotMessage("Back to the previous menu");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("No problem! Let me bring you to the previous menu.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Great! Cube Design offers 3 services that provide years of expertise and knowledge.",
       {
-        // need to update
-        widget: "printing1a1",
+        widget: "printing1",
         delay: 500,
       });
     } else if (id === "p2") {
+      //need to update  
+      message = this.createChatBotMessage("Wayfinding Design");
+      this.addMessageToState(message);
       message = this.createChatBotMessage("Wayfinding Design",
       {
         widget: "printing2a",
@@ -71,13 +97,17 @@ class ActionProvider {
         delay: 500,
       });
     } else if (id === "p2b") {
-      message = this.createChatBotMessage("Back to the previous menu",
+      message = this.createChatBotMessage("Back to the previous menu");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("No problem! Let me bring you to the previous menu.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Great! Cube Design offers 3 services that provide years of expertise and knowledge.",
       {
-        // need to update
-        widget: "printing2a",
+        widget: "printing1",
         delay: 500,
       });
     } else if (id === "p3") {
+      // need to update
       message = this.createChatBotMessage("Promotional Products",
       {
         widget: "printing3a",
@@ -91,73 +121,109 @@ class ActionProvider {
         delay: 500,
       });
     } else if (id === "p3b") {
-      message = this.createChatBotMessage("Back to the previous menu",
+      message = this.createChatBotMessage("Back to the previous menu");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("No problem! Let me bring you to the previous menu.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Great! Cube Design offers 3 services that provide years of expertise and knowledge.",
       {
-        // need to update
-        widget: "printing3a",
+        widget: "printing1",
         delay: 500,
       });
     } else if (id === "p4") {
-      message = this.createChatBotMessage("All of the above",
+      message = this.createChatBotMessage("All of the above");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Awesome! You can easily submit free consulting for your project through our contact page.");
+      this.addMessageToState(message);
+      // need to update
+      message = this.createChatBotMessage("Do you want to go to contact page?",
       {
         widget: "printing4a",
         delay: 500,
       });
     } else if (id === "p5") {
-      message = this.createChatBotMessage("Back to the previous menu",
-      {
-        // need to update
-        widget: "initOptions",
+      message = this.createChatBotMessage("Back to the previous menu");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("No problem! Let me bring you to the first chat.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Please select you are interested!", {
+        widget: "options",
         delay: 500,
       });
-      // this.addClientMessage("Digital");
     } else if (id === "i2") {
-      message = this.createChatBotMessage("Digital",
+      message = this.createChatBotMessage("Digital");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Great! Cube Design offers 4 services that provide years of expertise and knowledge.",
       {
         widget: "digital1",
         delay: 500,
       });
     } else if (id === "d1") {
-      message = this.createChatBotMessage("Website Design & Development",
+      message = this.createChatBotMessage("Website Design & Development");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("We can help you to find out what you need for your business! Please select one of services in the below.",
       {
         widget: "digital1a",
         delay: 500,
       });
     } else if (id === "d1a") {
-      message = this.createChatBotMessage("Search Engine Optimization",
+      message = this.createChatBotMessage("Search Engine Optimization");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Awesome! You can easily submit free consulting for your project through our contact page.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Do you want to go to contact page?",
       {
         widget: "digital1a1",
         delay: 500,
       });
     } else if (id === "d1b") {
-      message = this.createChatBotMessage("Content Management System",
+      message = this.createChatBotMessage("Content Management System");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Awesome! You can easily submit free consulting for your project through our contact page.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Do you want to go to contact page?",
       {
         widget: "digital1b1",
         delay: 500,
       });
     } else if (id === "d1c") {
-      message = this.createChatBotMessage("Third-Party Authentication",
+      message = this.createChatBotMessage("Third-Party Authentication");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Awesome! You can easily submit free consulting for your project through our contact page.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Do you want to go to contact page?",
       {
         widget: "digital1c1",
         delay: 500,
       });
     } else if (id === "d1d") {
-      message = this.createChatBotMessage("E-commerce Integration",
+      message = this.createChatBotMessage("E-commerce Integration");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Awesome! You can easily submit free consulting for your project through our contact page.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Do you want to go to contact page?",
       {
         widget: "digital1d1",
         delay: 500,
       });
     } else if (id === "d1e") {
-      message = this.createChatBotMessage("All of the above",
+      message = this.createChatBotMessage("All of the above");
+      message = this.createChatBotMessage("Awesome! You can easily submit free consulting for your project through our contact page.");
+      this.addMessageToState(message);
+      // need to update
+      message = this.createChatBotMessage("Do you want to go to contact page?",
       {
         widget: "digital1e1",
         delay: 500,
       });
     } else if (id === "d1f") {
-      message = this.createChatBotMessage("Back to previous menu",
+      message = this.createChatBotMessage("Back to previous menu");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("No problem! Let me bring you to the previous menu.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Great! Cube Design offers 4 services that provide years of expertise and knowledge.",
       {
-        // need to update
-        widget: "initOptions",
+        widget: "digital1",
         delay: 500,
       });
     } else if (id === "d2") {
@@ -167,17 +233,22 @@ class ActionProvider {
         delay: 500,
       });
     } else if (id === "d2a") {
-      message = this.createChatBotMessage("Admin Dashboard Implementation",
+      message = this.createChatBotMessage("Admin Dashboard Implementation");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Awesome! You can easily submit free consulting for your project through our contact page.",
       {
-        // need to update
-        widget: "digital2a",
+        // need to update??
+        widget: "digital1e1",
         delay: 500,
       });
     } else if (id === "d2b") {
-      message = this.createChatBotMessage("Back to previous menu",
+      message = this.createChatBotMessage("Back to previous menu");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("No problem! Let me bring you to the previous menu.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Great! Cube Design offers 4 services that provide years of expertise and knowledge.",
       {
-        // need to update
-        widget: "digital2a",
+        widget: "digital1",
         delay: 500,
       });
     } else if (id === "d3") {
@@ -187,17 +258,22 @@ class ActionProvider {
         delay: 500,
       });
     } else if (id === "d3a") {
-      message = this.createChatBotMessage("Visual Identity Design",
+      message = this.createChatBotMessage("Visual Identity Design");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Awesome! You can easily submit free consulting for your project through our contact page.",
       {
-        // need to update
-        widget: "digital3a",
+        // need to update??
+        widget: "digital1e1",
         delay: 500,
       });
     } else if (id === "d3b") {
-      message = this.createChatBotMessage("Back to previous menu",
+      message = this.createChatBotMessage("Back to previous menu");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("No problem! Let me bring you to the previous menu.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Great! Cube Design offers 4 services that provide years of expertise and knowledge.",
       {
-        // need to update
-        widget: "digital3a",
+        widget: "digital1",
         delay: 500,
       });
     } else if (id === "d4") {
@@ -207,56 +283,101 @@ class ActionProvider {
         delay: 500,
       });
     } else if (id === "d4a") {
-      message = this.createChatBotMessage("Poster Design",
+      message = this.createChatBotMessage("Poster Design");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Awesome! You can easily submit free consulting for your project through our contact page.",
       {
-        // need to update
-        widget: "digital4a",
+        // need to update??
+        widget: "digital1e1",
         delay: 500,
       });
     } else if (id === "d4b") {
-      message = this.createChatBotMessage("Menu Design",
+      message = this.createChatBotMessage("Menu Design");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Awesome! You can easily submit free consulting for your project through our contact page.",
       {
-        // need to update
-        widget: "digital4a",
+        // need to update??
+        widget: "digital1e1",
         delay: 500,
       });
     } else if (id === "d4c") {
-      message = this.createChatBotMessage("All of the above",
+      message = this.createChatBotMessage("All of the above");
+      message = this.createChatBotMessage("Awesome! You can easily submit free consulting for your project through our contact page.");
+      this.addMessageToState(message);
+      // need to update
+      message = this.createChatBotMessage("Do you want to go to contact page?",
       {
         widget: "digital4c1",
         delay: 500,
       });
     } else if (id === "d4d") {
-      message = this.createChatBotMessage("Back to previous menu",
+      message = this.createChatBotMessage("Back to previous menu");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("No problem! Let me bring you to the previous menu.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Great! Cube Design offers 4 services that provide years of expertise and knowledge.",
       {
-        // need to update
-        widget: "digital4a",
+        widget: "digital1",
         delay: 500,
       });
     } else if (id === "d5") {
-      message = this.createChatBotMessage("All of the above",
+      message = this.createChatBotMessage("All of the above");
+      message = this.createChatBotMessage("Awesome! You can easily submit free consulting for your project through our contact page.");
+      this.addMessageToState(message);
+      // need to update
+      message = this.createChatBotMessage("Do you want to go to contact page?",
       {
         widget: "digital5a",
         delay: 500,
       });
     } else if (id === "d6") {
-      message = this.createChatBotMessage("Back to previous menu",
-      {
-        // need to update
-        widget: "digital5a",
+      message = this.createChatBotMessage("Back to previous menu");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("No problem! Let me bring you to the previous menu.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Please select you are interested!", {
+        widget: "options",
         delay: 500,
       });
-      // this.addClientMessage("Digital");
     } else if (id === "i3") {
-      message = this.createChatBotMessage("Complex",
+      message = this.createChatBotMessage("Complex");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Awesome! You can easily submit free consulting for your project through our contact page.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Do you want to go to contact page?",
       {
         widget: "complex1",
         delay: 500,
       });
+    } else if (id === "c1") {
+      // need to update
+      message = this.createChatBotMessage("ddd",
+      {
+        widget: "complex1",
+        delay: 500,
+      }); 
     } else if (id === "i4") {
-      message = this.createChatBotMessage("I don't know",
+      message = this.createChatBotMessage("I don't know");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Awesome! You can easily submit free consulting for your project through our contact page.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Do you want to go to contact page?",
       {
         widget: "idontknow1",
+        delay: 500,
+      });
+    } else if (id === "k1") {
+      // need to update
+      message = this.createChatBotMessage("ddd",
+      {
+        widget: "idontknow1",
+        delay: 500,
+      }); 
+    } else if (id === "no") {
+      message = this.createChatBotMessage("No problem! Let me bring you to the first chat.");
+      this.addMessageToState(message);
+      message = this.createChatBotMessage("Please select you are interested!", {
+        widget: "options",
         delay: 500,
       });
     } else {
