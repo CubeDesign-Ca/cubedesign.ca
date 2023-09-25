@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import Modal from 'react-modal';
 import Chatbot from 'react-chatbot-kit';
 import config from "./config";
