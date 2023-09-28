@@ -98,14 +98,13 @@ const Home = () => {
               height: "60px",
             }}
             spaceBetween={0}
-            speed={2000} // 속도 조절
+            speed={50000}
             loop={true}
             slidesPerView={"auto"}
             slidesPerGroup={1}
             navigation={{
-              // 네비게이션 적용, < >
-              nextEl: ".swiper-button-next", // 다음 버튼 클래스명
-              prevEl: ".swiper-button-prev", // 이전 버튼 클래스명
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
             }}
             autoplay={{
               "delay": 0,
@@ -117,21 +116,9 @@ const Home = () => {
             slidesOffsetAfter={250}
           >
             {[
-              "/images/client-1.png",
-              "/images/client-2.png",
-              "/images/client-3.png",
-              "/images/client-4.png",
-              "/images/client-5.png",
-              "/images/client-6.png",
-              "/images/client-8.png",
-              "/images/client-9.png",
-              "/images/client-10.png",
-              "/images/client-11.png",
-              "/images/client-12.png",
-              "/images/client-13.png",
-              "/images/client-14.png",
-              "/images/client-15.png",
-              "/images/client-16.png",
+              "/images/client_all.png",
+              "/images/client_all.png",
+              "/images/client_all.png",
             ].map((image, index) => (
               <SwiperSlide
                 key={index}
