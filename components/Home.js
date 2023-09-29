@@ -11,12 +11,14 @@ import ReactDOM from 'react-dom/client';
 
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import Link from "next/link";
 import '../app/globals.css';
+import { motion, useAnimation } from 'framer-motion';
 
 const Home = () => {
   const CUBE_CONTAINER_ID = "cube_container_";
@@ -70,6 +72,38 @@ const Home = () => {
   const toggleSwitch = () => {
     setIsOn(!isOn);
   };
+
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [hideScrollButton, setHideScrollButton] = useState(false);
+  const bouncingImageHandleScroll = () => {
+    if (window.scrollY == 0) {
+      setIsScrolled(false);
+      setHideScrollButton(false);
+      control.start("visible");
+    } else {
+      setHideScrollButton(true);
+      setIsScrolled(true);
+      control.start("hidden");
+    }
+  };
+
+  useEffect(() => {  
+    window.addEventListener('scroll', bouncingImageHandleScroll);
+    return () => {
+      window.removeEventListener('scroll', bouncingImageHandleScroll);
+    };
+  }, [isScrolled, hideScrollButton]);
+
+  const control = useAnimation();
+  const variant = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  }
+
+  const handleAnimationComplete = () => {
+    setHideScrollButton(true);
+  }
+
   return (
     <>
       {/* main img */}
@@ -79,6 +113,19 @@ const Home = () => {
           <figcaption>makes Poster Design</figcaption>
           {/* <AnimatedBannerText /> */}
         </div>
+        
+        <motion.div
+          animate={control}
+          initial="visible"
+          variants={variant}
+          onAnimationComplete={handleAnimationComplete}
+          >
+    
+          <div className="w-[60px] h-[60px] absolute bottom-[50px] left-1/2 ml-[-30px] rounded-md	bg-[#CCD4E0] opacity-50 pl-[13px] pt-[7px]">
+            <img className="h-[46px]" src="/images/arrow.png"></img>
+          </div>
+        </motion.div>
+
       </div>
       <div className={styles.container}>
         {/* printing & digital */}
@@ -154,16 +201,17 @@ const Home = () => {
           <Swiper
             // install Swiper modules
             modules={[Navigation, Pagination, A11y, Autoplay]}
-            style={{ height: "60px" }}
+            style={{ 
+              height: "60px",
+            }}
             spaceBetween={0}
-            speed={2000} // 속도 조절
+            speed={50000}
             loop={true}
-            slidesPerView={3}
+            slidesPerView={"auto"}
             slidesPerGroup={1}
             navigation={{
-              // 네비게이션 적용, < >
-              nextEl: ".swiper-button-next", // 다음 버튼 클래스명
-              prevEl: ".swiper-button-prev", // 이전 버튼 클래스명
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
             }}
             autoplay={{
               "delay": 0,
@@ -175,31 +223,17 @@ const Home = () => {
             slidesOffsetAfter={250}
           >
             {[
-              "/images/client-1.png",
-              "/images/client-2.png",
-              "/images/client-3.png",
-              "/images/client-4.png",
-              "/images/client-5.png",
-              "/images/client-6.png",
-              "/images/client-8.png",
-              "/images/client-9.png",
-              "/images/client-10.png",
-              "/images/client-11.png",
-              "/images/client-12.png",
-              "/images/client-13.png",
-              "/images/client-14.png",
-              "/images/client-15.png",
-              "/images/client-16.png",
+              "/images/client_all.png",
+              "/images/client_all.png",
+              "/images/client_all.png",
             ].map((image, index) => (
               <SwiperSlide
                 key={index}
-                className={styles.slide}
                 style={{
-                  backgroundImage: `url('${image}')`,
-                  // backgroundSize: 'auto 60px',
-                  // margin: '0 5px',
+                  width: "auto",
+                  margin: '0 70px'
                 }}
-              ></SwiperSlide>
+              ><img style={{height:"60px"}} src={image}/></SwiperSlide>
             ))}
           </Swiper>
         </div>
