@@ -7,7 +7,7 @@ import BrandValueCube from './3D/BrandValueCube';
 import SecondCube from './3D/SecondCube'
 import ThirdCube from './3D/ThirdCube'
 import ReactDOM from 'react-dom/client';
-import * as Constants from './3D/cons';
+// import * as Constants from './3D/cons';
 
 
 const Home = () => {
