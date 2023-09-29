@@ -2,13 +2,14 @@ import styles from "../app/homePage.module.css";
 import ChatbotIcon from "./Chatbot/ChatbotIcon";
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { React, useState } from "react";
+import { useEffect, React, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import Link from "next/link";
 import '../app/globals.css';
+import { motion, useAnimation } from 'framer-motion';
 
 const Home = () => {
   const [isCard1Hovered, setIsCard1Hovered] = useState(false);
@@ -17,6 +18,38 @@ const Home = () => {
   const toggleSwitch = () => {
     setIsOn(!isOn);
   };
+
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [hideScrollButton, setHideScrollButton] = useState(false);
+  const bouncingImageHandleScroll = () => {
+    if (window.scrollY == 0) {
+      setIsScrolled(false);
+      setHideScrollButton(false);
+      control.start("visible");
+    } else {
+      setHideScrollButton(true);
+      setIsScrolled(true);
+      control.start("hidden");
+    }
+  };
+
+  useEffect(() => {  
+    window.addEventListener('scroll', bouncingImageHandleScroll);
+    return () => {
+      window.removeEventListener('scroll', bouncingImageHandleScroll);
+    };
+  }, [isScrolled, hideScrollButton]);
+
+  const control = useAnimation();
+  const variant = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  }
+
+  const handleAnimationComplete = () => {
+    setHideScrollButton(true);
+  }
+
   return (
     <>
       {/* main img */}
@@ -25,6 +58,19 @@ const Home = () => {
           <figcaption>Cube Design & Communication</figcaption>
           <figcaption>makes Poster Design</figcaption>
         </div>
+        
+        <motion.div
+          animate={control}
+          initial="visible"
+          variants={variant}
+          onAnimationComplete={handleAnimationComplete}
+          >
+    
+          <div className="w-[60px] h-[60px] absolute bottom-[50px] left-1/2 ml-[-30px] rounded-md	bg-[#CCD4E0] opacity-50 pl-[13px] pt-[7px]">
+            <img className="h-[46px]" src="/images/arrow.png"></img>
+          </div>
+        </motion.div>
+
       </div>
       <div className={styles.container}>
         {/* printing & digital */}
