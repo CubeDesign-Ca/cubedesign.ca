@@ -22,6 +22,24 @@ const Printing = () => {
   const [slide5, setSlide5] = useState(true);
   const [isSlide, setIsSlide] = useState(false);
 
+
+  let smallPhoto;
+  let bigPhoto;
+  let smallTextBox;
+  let bigTextBox;
+  let w
+
+  if (typeof window !== "undefined") {
+    w = window.innerWidth;
+
+    if (w > 1050) {
+      smallPhoto = 360;
+      bigPhoto = 1140;
+      smallTextBox = 263;
+      bigTextBox = 750;
+    }
+  }
+
   //oursercie
 
   const isPrint = (e) => {
@@ -131,8 +149,7 @@ const Printing = () => {
           e.target.nextElementSibling.nextElementSibling.className = "";
           e.target.nextElementSibling.nextElementSibling.classList.add(printing.servicelistVisile);
     
-          e.target.style.backgroundImage =
-          "url('/images/offline-service-large-click.jpg')";
+      
       
             setSlide1(!slide1)
           } else if (
@@ -145,7 +162,7 @@ const Printing = () => {
             e.target.previousElementSibling.className = "";
           e.target.previousElementSibling.classList.add(printing.servicelistVisile);
     
-          e.target.style.backgroundImage = "url('/images/offline-service-digital-click.jpg')";
+          
       
             setSlide2(!slide2)
           } else if (
@@ -158,18 +175,15 @@ const Printing = () => {
           e.target.previousElementSibling.previousElementSibling.className = "";
           e.target.previousElementSibling.previousElementSibling.classList.add(printing.servicelistVisile);
     
-          e.target.style.backgroundImage =
-                "url('/images/offline-service-installation-click.jpg')";
+          
             setSlide3(!slide3)
           }else if( e.target.firstElementChild.firstElementChild.textContent ==
             "Directional Signage Design"){
-              e.target.style.backgroundImage =
-              "url('/images/offline-service-wayfinding-click.jpg')";
+              
               setSlide4(!slide4)
     
           }else{
-            e.target.style.backgroundImage =
-            "url('/images/offline-service-promotional-click.jpg')";
+            
             setSlide5(!slide5)
           }
   
@@ -221,8 +235,7 @@ const Printing = () => {
       e.target.parentNode.parentNode.nextElementSibling.nextElementSibling.className = "";
       e.target.parentNode.parentNode.nextElementSibling.nextElementSibling.classList.add(printing.servicelist);
 
-      e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/offline-service-large.jpg')";
+      
 
         setSlide1(!slide1);
     } else if (
@@ -235,8 +248,7 @@ const Printing = () => {
        e.target.parentNode.parentNode.previousElementSibling.className = "";
      e.target.parentNode.parentNode.previousElementSibling.classList.add(printing.servicelist);
 
-      e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/offline-service-digital.jpg')";
+      
         setSlide2(!slide2);
     } else if (
       e.target.parentNode.parentNode.firstElementChild.firstElementChild
@@ -249,19 +261,16 @@ const Printing = () => {
        e.target.parentNode.parentNode.previousElementSibling.previousElementSibling.className = "";
        e.target.parentNode.parentNode.previousElementSibling.previousElementSibling.classList.add(printing.servicelist);
 
-      e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/offline-service-installation.jpg')";
+      
         setSlide3(!slide3);
     } else if (
       e.target.parentNode.parentNode.firstElementChild.firstElementChild
         .textContent == "Directional Signage Design"
     ) {
-      e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/offline-service-wayfinding.jpg')";
+      
         setSlide4(!slide4);
     } else {
-      e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/offline-service-promotional.jpg')";
+      
         setSlide5(!slide5);
     }
 
@@ -411,15 +420,24 @@ const Printing = () => {
             </div>
             <div className={printing.servicelistBoxContainer}>
               {print ? (
-                <div className={printing.servicelistBox}>
+                <motion.div className={printing.servicelistBox}
+                animate={{
+                  justifyContent: !slide1
+                    ? "center"
+                    : !slide2
+                    ? "center"
+                    : !slide3
+                    ? "center"
+                    : "space-between",
+                }}>
                   <motion.div
                     id="container"
                     className={printing.servicelist}
                     style={{
-                      backgroundImage: `url('/images/offline-service-large.jpg')`,
+                      backgroundImage: `url('/images/offline-service-large-click.jpg')`,
                     }}
                     animate={{
-                      width: slide1 ? 360 : 1140,
+                      width: slide1 ? smallPhoto : bigPhoto,
                     }}
                     onClick={isModal}
                   >
@@ -446,10 +464,10 @@ const Printing = () => {
                     id="container"
                     className={printing.servicelist}
                     style={{
-                      backgroundImage: `url('/images/offline-service-digital.jpg')`,
+                      backgroundImage: `url('/images/offline-service-digital-click.jpg')`,
                     }}
                     animate={{
-                      width: slide2 ? 360 : 1140,
+                      width: slide2 ? smallPhoto : bigPhoto,
                     }}
                     onClick={isModal}
                   >
@@ -476,10 +494,10 @@ const Printing = () => {
                     id="container"
                     className={printing.servicelist}
                     style={{
-                      backgroundImage: `url('/images/offline-service-installation.jpg')`,
+                      backgroundImage: `url('/images/offline-service-installation-click.jpg')`,
                     }}
                     animate={{
-                      width: slide3 ? 360 : 1140,
+                      width: slide3 ? smallPhoto : bigPhoto,
                     }}
                     onClick={isModal}
                   >
@@ -502,17 +520,23 @@ const Printing = () => {
                       <button className={printing.serviceExitBtn}>x</button>
                     </div>
                   </motion.div>
-                </div>
+                </motion.div>
               ) : design ? (
-                <div className="w-full h-full flex justify-between relative">
+                <motion.div
+                className={printing.servicelistBox}
+                animate={{
+                  justifyContent: !slide4
+                    ? "center"
+                    : "start"
+                }}>
                   <motion.div
                     id="container"
                     className={printing.servicelist}
                     style={{
-                      backgroundImage: `url('/images/offline-service-wayfinding.jpg')`,
+                      backgroundImage: `url('/images/offline-service-wayfinding-click.jpg')`,
                     }}
                     animate={{
-                      width: slide4 ? 360 : 1140,
+                      width: slide4 ? smallPhoto : bigPhoto,
                     }}
                     onClick={isModal}
                   >
@@ -535,17 +559,23 @@ const Printing = () => {
                       <button className={printing.serviceExitBtn}>x</button>
                     </div>
                   </motion.div>
-                </div>
+                </motion.div>
               ) : (
-                <div className="w-full h-full flex justify-between relative">
+                <motion.div
+                className={printing.servicelistBox}
+                animate={{
+                  justifyContent: !slide5
+                    ? "center"
+                    : "start"
+                }}>
                   <motion.div
                     id="container"
                     className={printing.servicelist}
                     style={{
-                      backgroundImage: `url('/images/offline-service-promotional.jpg')`,
+                      backgroundImage: `url('/images/offline-service-promotional-click.jpg')`,
                     }}
                     animate={{
-                      width: slide5 ? 360 : 1140,
+                      width: slide5 ? smallPhoto : bigPhoto,
                     }}
                     onClick={isModal}
                   >
@@ -568,7 +598,7 @@ const Printing = () => {
                       <button className={printing.serviceExitBtn}>x</button>
                     </div>
                   </motion.div>
-                </div>
+                </motion.div>
               )}
             </div>
           </div>
