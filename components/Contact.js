@@ -2,11 +2,14 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import contact from "../app/contact.module.css";
-
+import { useRouter } from 'next/router';
 import DynamicHeader from "../components/Header/Dynamic/DynamicHeader";
 import DynamicFooter from "../components/Footer/Dynamic/DynamicFooter";
 
+
+
 const ContactUs = () => {
+  const router = useRouter();
   const form = useRef();
 
   let firstname = false;
@@ -95,13 +98,11 @@ const ContactUs = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
 
           const submitBox = document.getElementById("submitBox");
           const submitScreen = document.getElementById("submitScreen");
           const submitImg = document.getElementById("submitImg");
           const submitText = document.getElementById("submitText");
-          console.log(submitBox);
 
           submitBox.className = "";
           submitScreen.className = "";
@@ -112,19 +113,6 @@ const ContactUs = () => {
           submitScreen.classList.add(contact.submitScreen1);
           submitImg.classList.add(contact.submitIcon1);
           submitText.classList.add(contact.submitText1);
-
-          setTimeout(() => {
-            submitBox.className = "";
-            submitScreen.className = "";
-            submitImg.className = "";
-            submitText.className = "";
-
-            submitBox.classList.add(contact.submitScreenBox);
-            submitScreen.classList.add(contact.submitScreen);
-            submitImg.classList.add(contact.submitIcon);
-            submitText.classList.add(contact.submitText);
-            window.location.reload();
-          }, 2000);
         },
         (error) => {
           console.log(error.text);
@@ -134,6 +122,58 @@ const ContactUs = () => {
   };
   const regName = /^[a-zA-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]+$/;
   const regEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+
+  const submitConfirm = (e) =>{
+    e.preventDefault();
+
+    if(e.target.id === "submitConfirm" || e.target.id === "submitBox"){
+      
+
+      location.reload();
+      const submitBox = document.getElementById("submitBox");
+      const submitScreen = document.getElementById("submitScreen");
+      const submitImg = document.getElementById("submitImg");
+      const submitText = document.getElementById("submitText");
+
+
+        submitBox.className = "";
+        submitScreen.className = "";
+        submitImg.className = "";
+        submitText.className = "";
+
+        submitBox.classList.add(contact.submitScreenBox);
+        submitScreen.classList.add(contact.submitScreen);
+        submitImg.classList.add(contact.submitIcon);
+        submitText.classList.add(contact.submitText);
+    }
+         
+
+            
+
+  };
+
+  const submitHome = () =>{
+    
+
+    const submitBox = document.getElementById("submitBox");
+    const submitScreen = document.getElementById("submitScreen");
+    const submitImg = document.getElementById("submitImg");
+    const submitText = document.getElementById("submitText");
+
+    
+      submitBox.className = "";
+      submitScreen.className = "";
+      submitImg.className = "";
+      submitText.className = "";
+
+      submitBox.classList.add(contact.submitScreenBox);
+      submitScreen.classList.add(contact.submitScreen);
+      submitImg.classList.add(contact.submitIcon);
+      submitText.classList.add(contact.submitText);
+      router.push('/');
+      
+
+  };
 
   const handleFocusInput = (e) => {
     e.preventDefault();
@@ -268,6 +308,18 @@ const ContactUs = () => {
     }
   };
 
+  const wordCount = () => {
+    let text = document.getElementById("txtarea").value;
+    let count = 0;
+    let split = text.split(' ');
+    for (let i = 0; i < split.length; i++) {
+     if (split[i] != "") {
+      count ++;
+     }
+    }
+    document.getElementById("showCount").innerHTML = count;
+  };
+
   const printClick = (e) => {
     const cb1 = document.getElementById("cb1");
     const cb2 = document.getElementById("cb2");
@@ -373,7 +425,7 @@ const ContactUs = () => {
             {/* email */}
             <div className="email">
               <p className={contact.emailText}>Ready to take your business to the next level?</p>
-              <form ref={form} onSubmit={sendEmail}>
+              <form ref={form} onSubmit={sendEmail} id="myForm">
                 <div className={contact.servicelogoBox}>
                   <p className={contact.serviceText}>Please select service you need *</p>
                   <img
@@ -395,7 +447,7 @@ const ContactUs = () => {
                       value={`printing`}
                       className="hidden"
                     />
-                    <label for="cb1" onClick={printClick}>
+                    <label htmlFor="cb1" onClick={printClick}>
                       <img className={contact.serviceImg} src="/images/Contact-Service-Printing.svg" />
                     </label>
                   </div>
@@ -407,7 +459,7 @@ const ContactUs = () => {
                       value={`Digital`}
                       className="hidden"
                     />
-                    <label for="cb2" onClick={printClick}>
+                    <label htmlFor="cb2" onClick={printClick}>
                       <img className={contact.serviceImg} src="/images/Contact-Service-Digital.svg" />
                     </label>
                   </div>
@@ -419,7 +471,7 @@ const ContactUs = () => {
                       value={`Complex`}
                       className="hidden"
                     />
-                    <label for="cb3" onClick={printClick}>
+                    <label htmlFor="cb3" onClick={printClick}>
                       <img className={contact.serviceImg} src="/images/Contact-Service-Complex.svg" />
                     </label>
                   </div>
@@ -431,7 +483,7 @@ const ContactUs = () => {
                       value={`I don't know`}
                       className="hidden"
                     />
-                    <label for="cb4" onClick={printClick}>
+                    <label htmlFor="cb4" onClick={printClick}>
                       <img className={contact.serviceImg} src="/images/Contact-Service-Idk.svg" />
                     </label>
                   </div>
@@ -510,22 +562,27 @@ const ContactUs = () => {
                   </div>
 
                   <div className={contact.textBox}>
+                    <div className={contact.textWordsBox}>
                     <label className={contact.nameText}>Message</label>
+                    <div className={contact.textWordsCountBox}><p id="showCount">0</p><p>/1000 Words</p></div>
+                    </div>
                     <textarea
                       name="message"
                       className={contact.textInput}
                       placeholder="Tell us about your project."
                       autoComplete="off"
+                      id="txtarea"
+                      onInput={wordCount}
                     />
                     <label className={contact.textLabel}>*is required</label>
                   </div>
                   <div className={contact.submitBox}>
-                    <input
+                    <button
                       className={contact.submitBtn}
                       id="submit"
                       type="submit"
                       value="Submit"
-                    />
+                    >Submit</button>
                   </div>
                 </div>
               </form>
@@ -535,10 +592,10 @@ const ContactUs = () => {
       </div>
 
       <DynamicFooter />
-      <div id="submitBox" className={contact.submitScreenBox}>
+      <div id="submitBox" onClick={submitConfirm} className={contact.submitScreenBox}>
         <div id="submitScreen" className={contact.submitScreen}>
           <img
-            src="/images/Contact-Submit icon-blue.png"
+            src="/images/Contact-Submit icon.png"
             alt="error logo"
             className={contact.submitIcon}
             id="submitImg"
@@ -547,6 +604,10 @@ const ContactUs = () => {
             Your request has been successfully submitted!
             <br /> We will contact you as soon as possible.
           </p>
+          <div className={contact.confirmBtnBox}>
+            <button id="submitConfirm" onClick={submitConfirm} className={contact.confirmBtn}>Confirm</button>
+            <button id="submitHome" onClick={submitHome} className={contact.confirmBtn}>Back to Home</button>
+          </div>
         </div>
       </div>
     </div>
