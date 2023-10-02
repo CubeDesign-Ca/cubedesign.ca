@@ -1,12 +1,6 @@
 import { useTranslation } from 'next-i18next'
 import JsonData from '../../JsonData';
 
-import EmailIcon from '../../Icons/Email';
-import PhoneIcon from '../../Icons/Phone';
-import AddressIcon from '../../Icons/Address';
-import FacebookIcon from '../../Icons/Facebook';
-import InstagramIcon from '../../Icons/Instagram';
-
 const Footer = () => {
   const { t } = useTranslation('common')
 
@@ -26,7 +20,7 @@ const Footer = () => {
                 <JsonData jsonKey="email" />
               </div>
               <div className="flex justify-start w-60">
-               <div className="flex-none">
+                <div className="flex-none">
                   <img src="/images/footer_phone_icon.png" className="h-[24px] w-[24px] mr-1" />
                 </div>
                 <JsonData jsonKey="phone" />

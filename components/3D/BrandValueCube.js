@@ -54,8 +54,10 @@ function BrandValueCube(props) {
         edges = new THREE.LineSegments(edgeMesh, new THREE.LineBasicMaterial({ color:0x000000 }))
         scene.add(edges);
 
-        document.getElementById(ID).appendChild(renderer.domElement);
-        document.getElementById(ID).addEventListener("click", function () { fix(); }, false);
+        if (document.getElementById(ID) != null) {
+          document.getElementById(ID).appendChild(renderer.domElement);
+          document.getElementById(ID).addEventListener("click", function () { fix(); }, false);
+        }
     }
     
     function fix() {
@@ -181,14 +183,16 @@ function BrandValueCube(props) {
   }
 
   const handleAnimationComplete = () => {
-    setTimeout(function() {
-      document.getElementById(ID)
-        .dispatchEvent(new MouseEvent('click', {
-          bubbles: true,
-          cancelable: true,
-          view: window,
-        }));
-    }, 500);
+      setTimeout(function() {
+        if (document.getElementById(ID) != null) {
+          document.getElementById(ID)
+          .dispatchEvent(new MouseEvent('click', {
+            bubbles: true,
+            cancelable: true,
+            view: window,
+          }));
+        }
+      }, 500);
   };
 
   return (
