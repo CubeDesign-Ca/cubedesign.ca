@@ -6,11 +6,6 @@ class ActionProvider {
     this.createClientMessage = createClientMessage;
   }
 
-  // greet = () => {
-  //   const message = this.createChatBotMessage("Hello, dear customer. How may I help you today?");
-  //   this.addMessageToState(message);
-  // };
-
   answer = (id) => {
     let message = null;
     if (id === "i1") {
@@ -373,6 +368,9 @@ class ActionProvider {
         widget: "idontknow1",
         delay: 500,
       }); 
+    } else if (id === "yes") {
+      message = this.createChatBotMessage(" ");
+      window.location.href = window.location.href.includes("ko") ? '/ko/contact' : '/contact';
     } else if (id === "no") {
       message = this.createChatBotMessage("No problem! Let me bring you to the first chat.");
       this.addMessageToState(message);

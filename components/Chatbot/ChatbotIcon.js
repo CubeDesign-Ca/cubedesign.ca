@@ -5,9 +5,14 @@ import config from "./config";
 import ActionProvider from "./ActionProvider";
 import MessageParser from "./MessageParser";
 
-import 'react-chatbot-kit/build/main.css'
+import 'react-chatbot-kit/build/main.css';
+
+import { useTranslation } from 'next-i18next'
+import { createChatBotMessage } from "react-chatbot-kit";
 
 const ChatbotButton = () => {
+  const { t } = useTranslation('common');
+
   const icon_idle = "/images/Chatbot_idle.png";
   const icon_anim = "../../images/Chatbot_anim.gif";
   const icon_opening = "/images/Chatbot_opening.gif";
@@ -111,6 +116,26 @@ const ChatbotButton = () => {
     setIsIdle(true);
   }
 
+  config["initialMessages"] = [
+    createChatBotMessage(t('chatbot.init1'), {}),
+    createChatBotMessage(t('chatbot.init2'), { widget: "options" }),
+    //   // createChatBotMessage(`Great! Cube Design offers 3 services that provide years of expertise and knowledge.`, {
+    //   //   widget: "printing1",
+    //   // }),
+    //   // createChatBotMessage(`We can help you to find out what you need for your business! Please select one of services in the below.`, {
+    //   //   widget: "printing1a",
+    //   // }),
+    //   // NEED TO ADD MORE HERE
+    //   // NEED TO ADD MORE HERE
+    //   // NEED TO ADD MORE HERE
+    //   // NEED TO ADD MORE HERE
+    //   // NEED TO ADD MORE HERE
+    //   // NEED TO ADD MORE HERE
+    //   // NEED TO ADD MORE HERE
+    //   // NEED TO ADD MORE HERE
+  ];
+
+
   return (
     <div>      
       {isOpened && (<Modal
@@ -134,7 +159,7 @@ const ChatbotButton = () => {
             borderRadius: '0px',
             background: 'rgba(204, 212, 224, 0.6)',
             backdropFilter: 'blur(10px)',
-            
+            zIndex: '10'
           },
           overlay: {
             background: 'transparent',
@@ -149,7 +174,7 @@ const ChatbotButton = () => {
           
       </Modal>)} 
 
-      <button onClick={toggleChatbot} className="h-[70px] w-[70px] fixed bottom-[130px] right-20 cursor-pointer flex items-center justify-center">
+      <button onClick={toggleChatbot} className="h-[70px] w-[70px] fixed bottom-[130px] right-20 cursor-pointer flex items-center justify-center z-10">
         <img src={imgSrc} alt="chatbot icon" />
       </button>
 

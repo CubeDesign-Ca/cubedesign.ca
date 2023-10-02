@@ -93,7 +93,7 @@ const OptData = {
   printing4a : [
     {
       text: "Yes",
-      id: "p4a"
+      id: "yes"
     },
     { 
       text: "No",
@@ -103,7 +103,7 @@ const OptData = {
   printing1a1 : [
     {
       text: "Yes",
-      id: "p1a1"
+      id: "yes"
     },
     { 
       text: "No",
@@ -113,7 +113,7 @@ const OptData = {
   printing1b1 : [
     {
       text: "Yes",
-      id: "p1b1"
+      id: "yes"
     },
     { 
       text: "No",
@@ -123,7 +123,7 @@ const OptData = {
   printing1c1 : [
     {
       text: "Yes",
-      id: "p1c1"
+      id: "yes"
     },
     { 
       text: "No",
@@ -133,7 +133,7 @@ const OptData = {
   printing1d1 : [
     {
       text: "Yes",
-      id: "p1d1"
+      id: "yes"
     },
     { 
       text: "No",
@@ -195,7 +195,7 @@ const OptData = {
   digital1a1 : [
     {
       text: "Yes",
-      id: "d1a1"
+      id: "yes"
     },
     { 
       text: "No",
@@ -205,7 +205,7 @@ const OptData = {
   digital1b1 : [
     {
       text: "Yes",
-      id: "d1b1"
+      id: "yes"
     },
     { 
       text: "No",
@@ -215,7 +215,7 @@ const OptData = {
   digital1c1 : [
     {
       text: "Yes",
-      id: "d1c1"
+      id: "yes"
     },
     { 
       text: "No",
@@ -225,7 +225,7 @@ const OptData = {
   digital1d1 : [
     {
       text: "Yes",
-      id: "d1d1"
+      id: "yes"
     },
     { 
       text: "No",
@@ -235,7 +235,7 @@ const OptData = {
   digital1e1 : [
     {
       text: "Yes",
-      id: "d1e1"
+      id: "yes"
     },
     { 
       text: "No",
@@ -283,7 +283,7 @@ const OptData = {
   digital4c1 : [
     {
       text: "Yes",
-      id: "d4c1"
+      id: "yes"
     },
     { 
       text: "No",
@@ -293,7 +293,7 @@ const OptData = {
   digital5a : [
     {
       text: "Yes",
-      id: "d5a"
+      id: "yes"
     },
     { 
       text: "No",
@@ -303,7 +303,7 @@ const OptData = {
   complex1 : [
     {
       text: "Yes",
-      id: "c1"
+      id: "yes"
     },
     { 
       text: "No",
@@ -313,7 +313,7 @@ const OptData = {
   idontknow1 : [
     {
       text: "Yes",
-      id: "k1"
+      id: "yes"
     },
     { 
       text: "No",
