@@ -34,7 +34,7 @@
 }
 
 .react-chatbot-kit-chat-bot-message {
-  margin-left: 15px !important;
+  /* margin-left: 15px !important; */
   color: black !important;
   border-radius: 5px !important;
   padding: 15px 20px !important;
