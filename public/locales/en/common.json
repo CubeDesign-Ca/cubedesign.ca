@@ -12,5 +12,9 @@
   "pagenotfoundmsg2": "We will do better next time.",
   "pagenotfoundmsg3": "We want to help you the best we can.",
   "backtohome": "Back To Home",
-  "language": "ENG"
+  "language": "ENG",
+  "chatbot" : {
+    "init1" : "Hi, there! Having a hard time to find what you need? Let me help you!",
+    "init2" : "Please select you are interested!"
+  }
 }

@@ -12,5 +12,9 @@
   "pagenotfoundmsg2": "We will do better next time.",
   "pagenotfoundmsg3": "We want to help you the best we can.",
   "backtohome": "Back To Home",
-  "language": "한국어"
+  "language": "한국어",
+  "chatbot" : {
+    "init1" : "안녕하세요, 저는 큐브 챗봇입니다. 필요한 서비스 찾으시는 것을 도와드릴께요!",
+    "init2" : "원하시는 서비스를 선택해주세요."
+  }
 }
