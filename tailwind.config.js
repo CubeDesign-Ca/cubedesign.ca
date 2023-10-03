@@ -12,6 +12,7 @@ module.exports = {
         cube_blue: '#103558',
         cube_red: '#C83832',
         cube_gray: '#103558',
+        chatbot_bar: '#244781',
       },
       spacing: {
         footer_lmargin: "150px",

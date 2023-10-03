@@ -8,7 +8,7 @@ import MessageParser from "./MessageParser";
 import 'react-chatbot-kit/build/main.css';
 
 import { useTranslation } from 'next-i18next'
-import { createChatBotMessage } from "react-chatbot-kit";
+import { createChatBotMessage, createCustomMessage } from "react-chatbot-kit";
 
 import OptDataClass from './Options/OptData';
 import InitOptions from "./Options/InitOptions";
@@ -122,6 +122,7 @@ const ChatbotButton = () => {
   config["initialMessages"] = [
     createChatBotMessage(t('chatbot.init1'), {}),
     createChatBotMessage(t('chatbot.init2'), { widget: "options" }),
+    createCustomMessage('Test', "custom"),
   ];
 
   const optDataClass = new OptDataClass(t);
@@ -266,7 +267,7 @@ const ChatbotButton = () => {
           
       </Modal>)} 
 
-      <button onClick={toggleChatbot} className="h-[70px] w-[70px] fixed bottom-[130px] right-20 cursor-pointer flex items-center justify-center z-10">
+      <button id="chatbot_icon" onClick={toggleChatbot} className="h-[70px] w-[70px] fixed bottom-[130px] right-20 cursor-pointer flex items-center justify-center z-10">
         <img src={imgSrc} alt="chatbot icon" />
       </button>
 
