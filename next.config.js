@@ -4,7 +4,7 @@ const { i18n } = require('./next-i18next.config.js')
 const nextConfig = {
   trailingSlash: true,
   i18n,
-  reactStrictMode: true,
+  reactStrictMode: false,
 }
 
-module.exports = nextConfig
+module.exports = nextConfig;
