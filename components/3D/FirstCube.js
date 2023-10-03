@@ -43,7 +43,7 @@ function FirstCube() {
       }
       requestAnimationFrame(animate);
     };
-    animate();
+    // animate();
   }, []);
 
   return (

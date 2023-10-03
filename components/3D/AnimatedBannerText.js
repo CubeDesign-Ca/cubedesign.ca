@@ -38,15 +38,92 @@ function AnimatedBannerText() {
       // test.scene.position.y = 0;
     });
 
+    const firstStop = () => {
+      if (loadedModel) {
+        loadedModel.scene.rotation.y = -1.575;
+        setInterval(() => {
+          secondAnimate();
+        }, 5000);
+      }
+      requestAnimationFrame(firstStop);
+    };
+
+    const secondStop = () => {
+      if (loadedModel) {
+        loadedModel.scene.rotation.y = -3.165;
+        // setInterval(() => animate(), 5000);
+      }
+      requestAnimationFrame(secondStop);
+    };
+
+    let secondInterval;
+    let thirdInterval;
+
     const animate = () => {
       if (loadedModel) {
         // loadedModel.scene.rotation.x += 0.01;
         loadedModel.scene.rotation.y -= 0.015;
         // loadedModel.scene.rotation.z += 0.01;
+        // console.log(loadedModel.scene.rotation.y);
+        if (
+          loadedModel.scene.rotation.y <= -1.575 &&
+          loadedModel.scene.rotation.y > -3.165
+        ) {
+          // console.log("test");
+          loadedModel.scene.rotation.y = -1.575;
+          // firstStop();
+          secondInterval = setInterval(() => {
+            clearInterval(firstInterval);
+            secondAnimate();
+          }, 3000);
+        }
       }
       requestAnimationFrame(animate);
     };
-    animate();
+
+    const secondAnimate = () => {
+      if (loadedModel) {
+        // loadedModel.scene.rotation.x += 0.01;
+        loadedModel.scene.rotation.y -= 0.015;
+        // loadedModel.scene.rotation.z += 0.01;
+        // console.log(loadedModel.scene.rotation.y);
+        if (
+          loadedModel.scene.rotation.y <= -3.165 &&
+          loadedModel.scene.rotation.y > -4.74
+        ) {
+          // console.log("test");
+          loadedModel.scene.rotation.y = -3.165;
+          // secondStop();
+          thirdInterval = setInterval(() => {
+            clearInterval(secondInterval);
+            thirdAnimate();
+          }, 3000);
+        }
+      }
+      requestAnimationFrame(secondAnimate);
+    };
+
+    const thirdAnimate = () => {
+      if (loadedModel) {
+        // loadedModel.scene.rotation.x += 0.01;
+        loadedModel.scene.rotation.y -= 0.015;
+        // loadedModel.scene.rotation.z += 0.01;
+        // console.log(loadedModel.scene.rotation.y);
+        if (
+          loadedModel.scene.rotation.y <= -4.74 &&
+          loadedModel.scene.rotation.y > -6.315
+        ) {
+          // console.log("test");
+          loadedModel.scene.rotation.y = -4.74;
+          // secondStop();
+          clearInterval(thirdInterval);
+        }
+      }
+      requestAnimationFrame(thirdAnimate);
+    };
+    // const firstInterval = setInterval(() => {
+    //   animate();
+    // }, 3000);
   }, []);
 
   return (

@@ -39,7 +39,7 @@ const Home = () => {
         </div>
       </div>
       {/* <ThreeJSGltfRotation /> */}
-      <AnimatedBannerText />
+      {/* <AnimatedBannerText /> */}
       <div className={styles.container}>
         {/* printing & digital */}
         <div className={`${styles.mainContainer}`}>
@@ -81,9 +81,7 @@ const Home = () => {
             <h3 className={styles.bvContainerTitle}>Brand Value</h3>
             <div className={styles.bvContainer}>
               <div className={styles.bvCard}>
-                <div>
-                  <FirstCube />
-                </div>
+                <div>{/* <FirstCube /> */}</div>
                 <h4 className={styles.bvTitle}>One-Stop Solution</h4>
                 <p className={styles.bvDesc}>
                   One place for all your needs full-service offerings spanning
