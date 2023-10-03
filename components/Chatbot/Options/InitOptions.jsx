@@ -2,19 +2,15 @@ import React from "react";
 
 import "./ChatbotOpts.css";
 
+import { useTranslation } from 'next-i18next'
+
 const Options = (props) => {
   const options = props.options;
-  
-  const handleOptionClick = (optionId) => {
-    setClickedOption(optionId);
-    const selectedOption = options.find((option) => option.id === optionId);
-    selectedOption.handler(optionId);
-  };
+  const { t } = useTranslation('common');
 
   const buttonsMarkup = options.map((option) => (
     <button key={option.id} 
-      // onClick={() => option.handler(option.id)} 
-      onClick={() => props.actionProvider.answer(option.id)} 
+      onClick={() => props.actionProvider.answer(option.id, t)} 
       className={`${(option.imgFlag ? 'image-button' : 'option-button')}`}
     >
       {option.imgFlag && (

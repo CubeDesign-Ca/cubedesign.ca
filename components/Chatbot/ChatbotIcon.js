@@ -10,6 +10,9 @@ import 'react-chatbot-kit/build/main.css';
 import { useTranslation } from 'next-i18next'
 import { createChatBotMessage } from "react-chatbot-kit";
 
+import OptDataClass from './Options/OptData';
+import InitOptions from "./Options/InitOptions";
+
 const ChatbotButton = () => {
   const { t } = useTranslation('common');
 
@@ -119,22 +122,111 @@ const ChatbotButton = () => {
   config["initialMessages"] = [
     createChatBotMessage(t('chatbot.init1'), {}),
     createChatBotMessage(t('chatbot.init2'), { widget: "options" }),
-    //   // createChatBotMessage(`Great! Cube Design offers 3 services that provide years of expertise and knowledge.`, {
-    //   //   widget: "printing1",
-    //   // }),
-    //   // createChatBotMessage(`We can help you to find out what you need for your business! Please select one of services in the below.`, {
-    //   //   widget: "printing1a",
-    //   // }),
-    //   // NEED TO ADD MORE HERE
-    //   // NEED TO ADD MORE HERE
-    //   // NEED TO ADD MORE HERE
-    //   // NEED TO ADD MORE HERE
-    //   // NEED TO ADD MORE HERE
-    //   // NEED TO ADD MORE HERE
-    //   // NEED TO ADD MORE HERE
-    //   // NEED TO ADD MORE HERE
   ];
 
+  const optDataClass = new OptDataClass(t);
+  config["widgets"] = [
+    {
+      widgetName: "options",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("initOptions")}/>,
+    },
+    {
+      widgetName: "printing1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("printing1")}/>,
+    },
+    {
+      widgetName: "printing1a",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("printing1a")}/>,
+    },
+    {
+      widgetName: "printing1a1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "printing1b1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "printing1c1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "printing1d1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "printing1e1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("printing1e1")}/>,
+    },
+    {
+      widgetName: "printing2a",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("printing2a")}/>,
+    },
+    {
+      widgetName: "printing3a",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("printing3a")}/>,
+    },
+    {
+      widgetName: "printing4a",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "digital1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("digital1")}/>,
+    },
+    {
+      widgetName: "digital1a",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("digital1a")}/>,
+    },
+    {
+      widgetName: "digital1a1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "digital1b1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "digital1c1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "digital1d1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "digital1e1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "digital2a",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("digital2a")}/>,
+    },
+    {
+      widgetName: "digital3a",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("digital3a")}/>,
+    },
+    {
+      widgetName: "digital4a",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("digital4a")}/>,
+    },
+    {
+      widgetName: "digital4c1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "digital5a",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "complex1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "idontknow1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+  ]
 
   return (
     <div>      
