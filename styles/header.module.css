@@ -1,0 +1,39 @@
+/* header.module.css */
+
+.header {
+    height: 95px;
+    padding: 24px 150px;
+  }
+  
+  .header li {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+  }
+  
+  .header li .indicator {
+    width: 10px;
+    height: 10px;
+    margin-left: 2px;
+  }
+  
+  .header li .active-indicator {
+    background-color: cube_red;
+  }
+  
+  .header li .active-link {
+    color: cube_red;
+  }
+  
+  .header li svg {
+    width: 15px;
+    height: 15px;
+    margin-left: 2px;
+    stroke-width: 3;
+    stroke: currentColor;
+  }
+  
+  .header li .active-svg {
+    color: cube_red;
+  }
+  

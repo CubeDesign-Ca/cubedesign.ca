@@ -1,0 +1,16 @@
+.options-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.react-chatbot-kit-chat-bot-message {
+  overflow-wrap: break-word;
+}
+
+.react-chatbot-kit-chat-bot-message-container {
+  margin: 20px 0 !important;
+}
+
+.react-chatbot-kit-chat-bot-message {
+  width: 100% !important;
+}
