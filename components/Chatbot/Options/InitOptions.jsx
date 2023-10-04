@@ -31,8 +31,15 @@ const Options = (props) => {
       variants={variant}
     >
       <button key={option.id} 
-        onClick={() => props.actionProvider.answer(option.id, t)} 
-        className={`${(option.imgFlag ? 'image-button' : 'option-button')}`}
+        onClick={(e) => {
+          if (e.target.classList.contains('image-button') || e.target.classList.contains('option-button')) {
+            e.target.classList.add('clicked-button');
+          } else {
+            e.target.parentNode.classList.add('clicked-button');
+          }
+          props.actionProvider.answer(option.id, t);
+        }} 
+        className={`${(option.imgFlag ? 'image-button' : 'option-button')} ${(!option.imgFlag && option.id != "yes" ? "text-button" : "")}`}
       >
         {option.imgFlag && (
           <>
@@ -49,7 +56,14 @@ const Options = (props) => {
     </motion.div>
   ));
 
-  return <div className="options-container">{buttonsMarkup}</div>;
+  let isYesNo = false;
+  options.map((option) => {
+    if (option.id == "yes") {
+      isYesNo = true;
+    }
+  });
+
+  return <div className={`options-container ${isYesNo ? "" : ""}`}>{buttonsMarkup}</div>;
 };
 
 export default Options;

@@ -1,10 +1,10 @@
 import React from "react";
 import BotAvatar from "./BotAvatar";
 
-import CustomMessage from './CustomMessage';
-
 const toggleChatbot = () => {
-  document.getElementById("chatbot_icon").click();
+  if (document.getElementById("chatbot_icon") != null) {
+    document.getElementById("chatbot_icon").click();
+  }
 }
 
 const config = {
@@ -26,10 +26,6 @@ const config = {
     chatButton: {
       backgroundColor: "black",
     },
-  },
-  // botChatMessage: (props) => <div className="bg-black" {...props} />,
-  customMessages: {
-    custom: (props) => <CustomMessage {...props} />,
   },
 };
 

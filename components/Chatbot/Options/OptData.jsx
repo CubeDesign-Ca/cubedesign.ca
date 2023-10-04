@@ -13,19 +13,19 @@ class OptDataClass {
           imgFlag: true,
           imgSrc: "/images/chatbot/service_digital.svg",
           text: t('chatbot.i2'),
-          id: "i2"
+          id: "i2",
         },
         { 
           imgFlag: true,
           imgSrc: "/images/chatbot/service_complex.svg",
           text: t('chatbot.i3'),
-          id: "i3" 
+          id: "i3",
         },
         { 
           imgFlag: true,
           imgSrc: "/images/chatbot/service_idk.svg",
           text: t('chatbot.i4'),
-          id: "i4"
+          id: "i4",
         }
       ],
       printing1 : [

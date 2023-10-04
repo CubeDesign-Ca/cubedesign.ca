@@ -2,6 +2,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { React, useEffect } from "react";
 
 const CustomMessage = (props) => {
+  console.log(props.actionProvider.createChatBotMessage);
   const control = useAnimation();
   const variant = {
     hidden: { opacity: 0 },

@@ -13,6 +13,9 @@ const Language = () => {
 
   const handleClick = () => {
     setLanguage(!language);
+    if (document.getElementById("chatbot_icon") != null && document.getElementById("chatbot_modal") != null) {
+      document.getElementById("chatbot_icon").click();
+    }
   };
 
   const changeTo = router.locale === en ? ko : en

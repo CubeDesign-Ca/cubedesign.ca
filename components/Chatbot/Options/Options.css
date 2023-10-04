@@ -14,20 +14,3 @@
 .react-chatbot-kit-chat-bot-message {
   width: 100% !important;
 }
-
-.option-button {
-  margin: 5px;
-  border-radius: 5px;
-  padding: 10px 25px;
-  /* border-color: #0ABAB5; */
-  background: transparent;
-  text-align: left;
-  cursor: pointer;
-  background: #4E698A;
-  color: white;
-}
-
-.image-button {
-  margin-bottom: 15px;
-  margin-right: 20px;
-}

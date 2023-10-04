@@ -97,6 +97,8 @@ const ChatbotButton = () => {
       startOpeningInterval();
     } else if (!animating && isOpened) {
       // Closing chatbot
+      setIsOpened(false);
+
       setIsClosing(true);
       setImgSrc(icon_closing);
       let closingInterval = null;
@@ -120,9 +122,8 @@ const ChatbotButton = () => {
   }
 
   config["initialMessages"] = [
-    createChatBotMessage(t('chatbot.init1'), {}),
+    createChatBotMessage(t('chatbot.init1'), { }),
     createChatBotMessage(t('chatbot.init2'), { widget: "options" }),
-    createCustomMessage('Test', "custom"),
   ];
 
   const optDataClass = new OptDataClass(t);
@@ -232,6 +233,7 @@ const ChatbotButton = () => {
   return (
     <div>      
       {isOpened && (<Modal
+        id="chatbot_modal"
         isOpen={isOpened}
         onRequestClose={toggleChatbot}
         contentLabel="Modal"
