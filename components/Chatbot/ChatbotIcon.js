@@ -5,9 +5,17 @@ import config from "./config";
 import ActionProvider from "./ActionProvider";
 import MessageParser from "./MessageParser";
 
-import 'react-chatbot-kit/build/main.css'
+import 'react-chatbot-kit/build/main.css';
+
+import { useTranslation } from 'next-i18next'
+import { createChatBotMessage, createCustomMessage } from "react-chatbot-kit";
+
+import OptDataClass from './Options/OptData';
+import InitOptions from "./Options/InitOptions";
 
 const ChatbotButton = () => {
+  const { t } = useTranslation('common');
+
   const icon_idle = "/images/Chatbot_idle.png";
   const icon_anim = "../../images/Chatbot_anim.gif";
   const icon_opening = "/images/Chatbot_opening.gif";
@@ -89,6 +97,8 @@ const ChatbotButton = () => {
       startOpeningInterval();
     } else if (!animating && isOpened) {
       // Closing chatbot
+      setIsOpened(false);
+
       setIsClosing(true);
       setImgSrc(icon_closing);
       let closingInterval = null;
@@ -111,9 +121,119 @@ const ChatbotButton = () => {
     setIsIdle(true);
   }
 
+  config["initialMessages"] = [
+    createChatBotMessage(t('chatbot.init1'), { }),
+    createChatBotMessage(t('chatbot.init2'), { widget: "options" }),
+  ];
+
+  const optDataClass = new OptDataClass(t);
+  config["widgets"] = [
+    {
+      widgetName: "options",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("initOptions")}/>,
+    },
+    {
+      widgetName: "printing1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("printing1")}/>,
+    },
+    {
+      widgetName: "printing1a",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("printing1a")}/>,
+    },
+    {
+      widgetName: "printing1a1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "printing1b1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "printing1c1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "printing1d1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "printing1e1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("printing1e1")}/>,
+    },
+    {
+      widgetName: "printing2a",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("printing2a")}/>,
+    },
+    {
+      widgetName: "printing3a",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("printing3a")}/>,
+    },
+    {
+      widgetName: "printing4a",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "digital1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("digital1")}/>,
+    },
+    {
+      widgetName: "digital1a",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("digital1a")}/>,
+    },
+    {
+      widgetName: "digital1a1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "digital1b1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "digital1c1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "digital1d1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "digital1e1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "digital2a",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("digital2a")}/>,
+    },
+    {
+      widgetName: "digital3a",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("digital3a")}/>,
+    },
+    {
+      widgetName: "digital4a",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("digital4a")}/>,
+    },
+    {
+      widgetName: "digital4c1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "digital5a",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "complex1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+    {
+      widgetName: "idontknow1",
+      widgetFunc: (props) => <InitOptions {...props} options={optDataClass.getOptData("yesno")}/>,
+    },
+  ]
+
   return (
     <div>      
       {isOpened && (<Modal
+        id="chatbot_modal"
         isOpen={isOpened}
         onRequestClose={toggleChatbot}
         contentLabel="Modal"
@@ -124,7 +244,7 @@ const ChatbotButton = () => {
           content: {
             width: '400px',
             height: '600px',
-            position: 'absolute',
+            position: 'fixed',
             top: 'auto',
             bottom: '230px',
             left: 'auto',
@@ -134,6 +254,7 @@ const ChatbotButton = () => {
             borderRadius: '0px',
             background: 'rgba(204, 212, 224, 0.6)',
             backdropFilter: 'blur(10px)',
+            zIndex: '10'
           },
           overlay: {
             background: 'transparent',
@@ -148,7 +269,7 @@ const ChatbotButton = () => {
           
       </Modal>)} 
 
-      <button onClick={toggleChatbot} className="h-[70px] w-[70px] fixed bottom-[130px] right-20 cursor-pointer flex items-center justify-center">
+      <button id="chatbot_icon" onClick={toggleChatbot} className="h-[70px] w-[70px] fixed bottom-[130px] right-20 cursor-pointer flex items-center justify-center z-10">
         <img src={imgSrc} alt="chatbot icon" />
       </button>
 
