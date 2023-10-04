@@ -9,10 +9,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        cube_blue: '#103558',
-        cube_red: '#C83832',
-        cube_gray: '#103558',
-        chatbot_bar: '#244781',
+        cube_blue: "#103558",
+        cube_red: "#C83832",
+        cube_gray: "#103558",
       },
       spacing: {
         footer_lmargin: "150px",
@@ -54,5 +53,4 @@ module.exports = {
     "./pages/**/*.{js,jsx,ts,tsx}",
     "./components/**/*.{js,jsx,ts,tsx}",
   ],
-}
-
+};
