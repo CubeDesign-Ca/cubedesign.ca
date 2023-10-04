@@ -59,7 +59,6 @@ const Home = () => {
   }, []);
 
   const updateCurStage = (newValue) => {
-    console.log(newValue == LEFT);
     if (newValue == LEFT) {
       let container = document.getElementById(CUBE_CONTAINER_ID + "2")
       if (container != null && container.childElementCount == 0) {
