@@ -20,13 +20,22 @@ import Link from "next/link";
 import '../app/globals.css';
 import { motion, useAnimation } from 'framer-motion';
 
+import { useTranslation } from 'next-i18next'
+
 const Home = () => {
+  const { t } = useTranslation('common')
   const CUBE_CONTAINER_ID = "cube_container_";
   const ADD_CUBE_SCROLL_Y = 1600;
 
   const TOP = "top";
   const LEFT = "left";
   const RIGHT = "right";
+
+  const CUBE1_IMG = "../images/3d_one_stop.png";
+  const CUBE2_IMG = "../images/3d_trust.png";
+  const CUBE3_IMG = "../images/3d_after_sales.png";
+
+  const BANNER_IMG = "/images/client_all.png";
 
   const [isCard1Hovered, setIsCard1Hovered] = useState(false);
   const [isCard2Hovered, setIsCard2Hovered] = useState(false);
@@ -36,7 +45,7 @@ const Home = () => {
     let container = document.getElementById(CUBE_CONTAINER_ID + "1")
     if (window.scrollY >= ADD_CUBE_SCROLL_Y && container.childElementCount == 0) {
       ReactDOM.createRoot(container).render(
-        <BrandValueCube prop_id="1" direction={TOP} img_src="images/3d_one_stop.png" updateCurStage={updateCurStage}/>
+        <BrandValueCube prop_id="1" direction={TOP} img_src={CUBE1_IMG} updateCurStage={updateCurStage}/>
       );
     }
   };
@@ -53,16 +62,16 @@ const Home = () => {
     console.log(newValue == LEFT);
     if (newValue == LEFT) {
       let container = document.getElementById(CUBE_CONTAINER_ID + "2")
-      if (container.childElementCount == 0) {
+      if (container != null && container.childElementCount == 0) {
         ReactDOM.createRoot(container).render(
-          <BrandValueCube prop_id="2" direction={LEFT} img_src="images/3d_trust.png" updateCurStage={updateCurStage}/>
+          <BrandValueCube prop_id="2" direction={LEFT} img_src={CUBE2_IMG} updateCurStage={updateCurStage}/>
         );
       }
     } else if (newValue == RIGHT) {
       let container = document.getElementById(CUBE_CONTAINER_ID + "3")
-      if (container.childElementCount == 0) {
+      if (container != null && container.childElementCount == 0) {
         ReactDOM.createRoot(container).render(
-          <BrandValueCube prop_id="3" direction={RIGHT} img_src="images/3d_after_sales.png" updateCurStage={updateCurStage}/>
+          <BrandValueCube prop_id="3" direction={RIGHT} img_src={CUBE3_IMG} updateCurStage={updateCurStage}/>
         );
       }
     }
@@ -109,8 +118,8 @@ const Home = () => {
       {/* main img */}
       <div className={styles.imgContainer}>
         <div className={styles.mainTitle}>
-          <figcaption>Cube Design & Communication</figcaption>
-          <figcaption>makes Poster Design</figcaption>
+          <figcaption>{t('home.banner1')}</figcaption>
+          <figcaption>{t('home.banner2')}</figcaption>
           {/* <AnimatedBannerText /> */}
         </div>
         
@@ -141,9 +150,9 @@ const Home = () => {
               >
             
                 <div className={styles.serviceContent}>
-                  <h3 className={styles.serviceTitle}>Printing</h3>
+                  <h3 className={styles.serviceTitle}>{t('home.printing')}</h3>
                   <p className={styles.serviceDesc}>
-                    Maximize your visual impact with our professional printing and installation services, including way finding and promotional products.
+                    {t('home.printing_desc')}
                   </p>
                 </div>
               </div>
@@ -156,40 +165,33 @@ const Home = () => {
                 onMouseLeave={() => setIsCard2Hovered(false)}
               >
                 <div className={styles.serviceContent}>
-                  <h3 className={styles.serviceTitle}>Digital</h3>
+                  <h3 className={styles.serviceTitle}>{t('home.digital')}</h3>
                   <p className={styles.serviceDesc}>
-                    Establish your online presence with our full-service solutions tailored to enhance your business.
+                    {t('home.digital_desc')}
                   </p>
                 </div> 
               </div>
             </Link>
           </div>
           <div className={styles.section}>
-            <h3 className={styles.bvContainerTitle}>Brand Value</h3>
+            <h3 className={styles.bvContainerTitle}>{t('home.brand_value')}</h3>
             <div className={styles.bvContainer}>
               <div className={styles.bvCard}>
                 <div id="cube_container_1" className="h-[200px]">
                 </div>
-                <h4 className={styles.bvTitle}>One-Stop Solution</h4>
-                <p className={styles.bvDesc}>
-                  One place for all your needs full-service offerings spanning offline and online realms.
-                </p>
+                <h4 className={styles.bvTitle}>{t('home.onestop_solution')}</h4>
+                <p className={styles.bvDesc}>{t('home.onestop_solution_desc')}</p>
               </div>
               <div className={styles.bvCard}>
                 <div id="cube_container_2" className="h-[200px]">
                 </div>
-                <h4 className={styles.bvTitle}>Trustworthy &<br /> Professional Service</h4>
-                <p className={styles.bvDesc}>
-                  Reliable, professional services tailored to your needs, delivered promptly to elevate your business.
-                </p>
+                <h4 className={styles.bvTitle}>{t('home.trustworthy')}<br /> {t('home.trustworthy2')}</h4>
+                <p className={styles.bvDesc}>{t('home.trustworthy_desc')}</p>
               </div>
               <div className={styles.bvCard}>
-                <div id="cube_container_3" className="h-[200px]">
-                </div>
-                <h4 className={styles.bvTitle}>After-Sales Supports</h4>
-                <p className={styles.bvDesc}>
-                  Robust after-sales support, ensuring our commitment to standing by services post-delivery.
-                </p>
+                <div id="cube_container_3" className="h-[200px]"></div>
+                <h4 className={styles.bvTitle}>{t('home.aftersales_support')}</h4>
+                <p className={styles.bvDesc}>{t('home.aftersales_support_desc')}</p>
               </div>
             </div>
           </div>
@@ -223,9 +225,9 @@ const Home = () => {
             slidesOffsetAfter={250}
           >
             {[
-              "/images/client_all.png",
-              "/images/client_all.png",
-              "/images/client_all.png",
+              BANNER_IMG,
+              BANNER_IMG,
+              BANNER_IMG,
             ].map((image, index) => (
               <SwiperSlide
                 key={index}

@@ -10,7 +10,7 @@ const PageNotFound = (_props) => {
   
   return (
     <div>
-        <div className="flex flex-col pt-[30px] px-[150px]">
+        <div className="mt-[100px] flex flex-col pt-[30px] px-[150px]">
             <div className="text-[#C83832] text-[20px] mb-[10px]">
                 404 Error
             </div>

@@ -6,9 +6,12 @@ import { useRouter } from 'next/router';
 import DynamicHeader from "../components/Header/Dynamic/DynamicHeader";
 import DynamicFooter from "../components/Footer/Dynamic/DynamicFooter";
 
-
+import { useTranslation } from 'next-i18next'
+import JsonData from './JsonData';
 
 const ContactUs = () => {
+  const { t } = useTranslation('common')
+
   const router = useRouter();
   const form = useRef();
 
@@ -411,23 +414,27 @@ const ContactUs = () => {
         <div className={contact.mainBox}>
           {/* lets get in touch */}
           <div className={contact.firstBox}>
-            <p className={contact.firstBoxText}>Let's get in touch!</p>
+            <p className={contact.firstBoxText}>{t('contact_page.banner')}</p>
           </div>
           <div className={contact.secondBox}>
             {/* general information */}
             <div className={contact.secondLeftBox}>
               <div>
-                <p className={contact.secondLeftBoxText}>Genaral Inquiries</p>
-                <p className={contact.secondLeftBoxText1}>info@cubedesign.ca</p>
-                <p className={contact.secondLeftBoxText1}>647-453-3205</p>
+                <p className={contact.secondLeftBoxText}>{t('contact_page.information')}</p>
+                <p className={contact.secondLeftBoxText1}>
+                  <JsonData jsonKey="email" />
+                </p>
+                <p className={contact.secondLeftBoxText1}>
+                  <JsonData jsonKey="phone" />
+                </p>
               </div>
             </div>
             {/* email */}
             <div className="email">
-              <p className={contact.emailText}>Ready to take your business to the next level?</p>
+              <p className={contact.emailText}>{t('contact_page.question')}</p>
               <form ref={form} onSubmit={sendEmail} id="myForm">
                 <div className={contact.servicelogoBox}>
-                  <p className={contact.serviceText}>Please select service you need *</p>
+                  <p className={contact.serviceText}>{t('contact_page.selection')}</p>
                   <img
                     src="/images/contact-error.png"
                     alt="error logo"
@@ -435,7 +442,7 @@ const ContactUs = () => {
                     id="serviceError"
                   />
                   <p className={contact.errorHidden}>
-                    Please select one of below services.
+                    {t('contact_page.selection2')}
                   </p>
                 </div>
                 <div className={contact.serviceBox} required>
@@ -492,7 +499,7 @@ const ContactUs = () => {
                 <div className={contact.emailFormBox}>
                   <div className={contact.nameBox}>
                     <div>
-                      <label className={contact.nameText}>First Name*</label>
+                      <label className={contact.nameText}>{t('contact_page.first_name')}</label>
                       <div className={contact.nameInputBox}>
                         <input
                           type="text"
@@ -515,7 +522,7 @@ const ContactUs = () => {
                     </div>
 
                     <div className={contact.lastnameBox}>
-                      <label className={contact.nameText}>Last Name*</label>
+                      <label className={contact.nameText}>{t('contact_page.last_name')}</label>
                       <div className={contact.nameInputBox}>
                         <input
                           type="text"
@@ -539,7 +546,7 @@ const ContactUs = () => {
                   </div>
 
                   <div className={contact.emailbox}>
-                    <label className={contact.nameText}>Email address*</label>
+                    <label className={contact.nameText}>{t('contact_page.email')}</label>
                     <div className={contact.nameInputBox}>
                       <input
                         type="email"
@@ -563,8 +570,8 @@ const ContactUs = () => {
 
                   <div className={contact.textBox}>
                     <div className={contact.textWordsBox}>
-                    <label className={contact.nameText}>Message</label>
-                    <div className={contact.textWordsCountBox}><p id="showCount">0</p><p>/1000 Words</p></div>
+                    <label className={contact.nameText}>{t('contact_page.message')}</label>
+                    <div className={contact.textWordsCountBox}><p id="showCount">0</p><p>{t('contact_page.words')}</p></div>
                     </div>
                     <textarea
                       name="message"
@@ -574,7 +581,7 @@ const ContactUs = () => {
                       id="txtarea"
                       onInput={wordCount}
                     />
-                    <label className={contact.textLabel}>*is required</label>
+                    <label className={contact.textLabel}>{t('contact_page.require')}</label>
                   </div>
                   <div className={contact.submitBox}>
                     <button
@@ -582,7 +589,7 @@ const ContactUs = () => {
                       id="submit"
                       type="submit"
                       value="Submit"
-                    >Submit</button>
+                    >{t('contact_page.submit')}</button>
                   </div>
                 </div>
               </form>
@@ -601,12 +608,12 @@ const ContactUs = () => {
             id="submitImg"
           />
           <p className={contact.submitText} id="submitText">
-            Your request has been successfully submitted!
-            <br /> We will contact you as soon as possible.
+          {t('contact_page.success')}
+            <br /> {t('contact_page.success2')}
           </p>
           <div className={contact.confirmBtnBox}>
-            <button id="submitConfirm" onClick={submitConfirm} className={contact.confirmBtn}>Confirm</button>
-            <button id="submitHome" onClick={submitHome} className={contact.confirmBtn}>Back to Home</button>
+            <button id="submitConfirm" onClick={submitConfirm} className={contact.confirmBtn}>{t('contact_page.confirm')}</button>
+            <button id="submitHome" onClick={submitHome} className={contact.confirmBtn}>{t('contact_page.home')}</button>
           </div>
         </div>
       </div>
