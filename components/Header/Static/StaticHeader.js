@@ -15,15 +15,15 @@ const StaticHeader = () => {
 
       <Header logo={"logo"} title={t('company')} >
       <li className="flex item-center mr-8">
-          <Link href="/printing">{t('printing')}</Link>
+          <Link href="/printing" className={`${router.pathname === '/printing' ? 'font-bold' : ''}`}>{t('printing')}</Link>
           <div className={`w-[10px] h-[10px] ml-[2px] ${router.pathname === '/printing' ? 'bg-cube_red' : ''}`}></div>
         </li>
         <li className="flex item-center mr-8">
-          <Link href="/digital">{t('digital')}</Link>
+          <Link href="/digital" className={`${router.pathname === '/digital' ? 'font-bold' : ''}`}>{t('digital')}</Link>
           <div className={`w-[10px] h-[10px] ml-[2px] ${router.pathname === '/digital' ? 'bg-cube_red' : ''}`}></div>
         </li>
         <li className="flex items-center mr-8">
-          <Link href="/contact">{t('contactus')}</Link>
+          <Link href="/contact" className={`${router.pathname === '/contact' ? 'font-bold' : ''}`}>{t('contactus')}</Link>
           <ArrowIcon className={`w-[15px] h-[15px] ml-[2px] ${router.pathname === '/contact' ? 'text-cube_red' : ''}`} />
         </li>
       </Header>

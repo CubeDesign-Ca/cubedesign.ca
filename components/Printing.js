@@ -9,7 +9,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import printing from "../app/printing.module.css";
 
+import { useTranslation } from 'next-i18next'
+
 const Printing = () => {
+  const { t } = useTranslation('common')
+
   const [print, setPrint] = useState(true);
   const [design, setDesign] = useState(false);
   const [product, setProduct] = useState(false);
@@ -50,20 +54,18 @@ const Printing = () => {
     } else {
       target = e.target;
     }
+
     if (!print && !isclick) {
-      target.parentNode.classList.remove(printing.serviceComponentBox1);
-      target.parentNode.classList.add(printing.serviceComponentBox);
-      target.parentNode.nextElementSibling.classList.remove(
-        printing.serviceComponentBox
-      );
-      target.parentNode.nextElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
-      target.parentNode.nextElementSibling.nextElementSibling.classList.value =
-        "";
-      target.parentNode.nextElementSibling.nextElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
+      let pNode = target.parentNode;
+      pNode.classList.remove(printing.serviceComponentBox1);
+      pNode.classList.add(printing.serviceComponentBox);
+
+      let nes = pNode.nextElementSibling;
+      nes.classList.remove(printing.serviceComponentBox);
+      nes.classList.add(printing.serviceComponentBox1);
+      nes.nextElementSibling.classList.value = "";
+      nes.nextElementSibling.classList.add(printing.serviceComponentBox1);
+
       setPrint(true);
       setDesign(false);
       setProduct(false);
@@ -80,20 +82,14 @@ const Printing = () => {
     }
 
     if (!design && !isclick) {
-      target.parentNode.classList.remove(printing.serviceComponentBox1);
-      target.parentNode.classList.add(printing.serviceComponentBox);
-      target.parentNode.nextElementSibling.classList.remove(
-        printing.serviceComponentBox
-      );
-      target.parentNode.nextElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
-      target.parentNode.previousElementSibling.classList.remove(
-        printing.serviceComponentBox
-      );
-      target.parentNode.previousElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
+      let pNode = target.parentNode;
+      pNode.classList.remove(printing.serviceComponentBox1);
+      pNode.classList.add(printing.serviceComponentBox);
+      pNode.nextElementSibling.classList.remove(printing.serviceComponentBox);
+      pNode.nextElementSibling.classList.add(printing.serviceComponentBox1);
+      pNode.previousElementSibling.classList.remove(printing.serviceComponentBox);
+      pNode.previousElementSibling.classList.add(printing.serviceComponentBox1);
+
       setPrint(false);
       setDesign(true);
       setProduct(false);
@@ -110,19 +106,15 @@ const Printing = () => {
     }
 
     if (!product && !isclick) {
-      target.parentNode.classList.remove(printing.serviceComponentBox1);
-      target.parentNode.classList.add(printing.serviceComponentBox);
+      let pNode = target.parentNode;
+      pNode.classList.remove(printing.serviceComponentBox1);
+      pNode.classList.add(printing.serviceComponentBox);
 
-      target.parentNode.previousElementSibling.classList.value = "";
-      target.parentNode.previousElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
+      pNode.previousElementSibling.classList.value = "";
+      pNode.previousElementSibling.classList.add(printing.serviceComponentBox1);
 
-      target.parentNode.previousElementSibling.previousElementSibling.classList.value =
-        "";
-      target.parentNode.previousElementSibling.previousElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
+      pNode.previousElementSibling.previousElementSibling.classList.value ="";
+      pNode.previousElementSibling.previousElementSibling.classList.add(printing.serviceComponentBox1);
 
       setPrint(false);
       setDesign(false);
@@ -134,173 +126,113 @@ const Printing = () => {
 
   const isModal = (e) => {
     e.preventDefault();
-    
+    if (e.target.id == "container") {
+      if (!isSlide) {
+        let target = e.target;
+        let fec = target.firstElementChild;
+        let nes = target.nextElementSibling;
+        let pes = target.previousElementSibling
+        if (fec.firstElementChild.textContent == t('printing_page.img_icon_lfp')) {
+          nes.className = "";
+          nes.classList.add(printing.servicelistVisile);
 
-      if (e.target.id == "container") {
+          nes.nextElementSibling.className = "";
+          nes.nextElementSibling.classList.add(printing.servicelistVisile);
 
-        if(!isSlide){
-          if (
-            e.target.firstElementChild.firstElementChild.textContent ==
-            "Large Format Printing"
-          ) {
-            e.target.nextElementSibling.className = "";
-          e.target.nextElementSibling.classList.add(printing.servicelistVisile);
-      
-          e.target.nextElementSibling.nextElementSibling.className = "";
-          e.target.nextElementSibling.nextElementSibling.classList.add(printing.servicelistVisile);
+          setSlide1(!slide1)
+        } else if (fec.firstElementChild.textContent == t('printing_page.img_icon_dps')) {
+          nes.className = "";
+          nes.classList.add(printing.servicelistVisile);
     
-      
-      
-            setSlide1(!slide1)
-          } else if (
-            e.target.firstElementChild.firstElementChild.textContent ==
-            "Digital Printing Service"
-          ) {
-            e.target.nextElementSibling.className = "";
-            e.target.nextElementSibling.classList.add(printing.servicelistVisile);
-      
-            e.target.previousElementSibling.className = "";
-          e.target.previousElementSibling.classList.add(printing.servicelistVisile);
-    
-          
-      
-            setSlide2(!slide2)
-          } else if (
-            e.target.firstElementChild.firstElementChild.textContent ==
-            "Installation Service"
-          ) {
-            e.target.previousElementSibling.className = "";
-          e.target.previousElementSibling.classList.add(printing.servicelistVisile);
-      
-          e.target.previousElementSibling.previousElementSibling.className = "";
-          e.target.previousElementSibling.previousElementSibling.classList.add(printing.servicelistVisile);
-    
-          
-            setSlide3(!slide3)
-          }else if( e.target.firstElementChild.firstElementChild.textContent ==
-            "Directional Signage Design"){
-              
-              setSlide4(!slide4)
-    
-          }else{
-            
-            setSlide5(!slide5)
-          }
-  
-          e.target.className = "";
-        e.target.classList.add(printing.servicelist1);
+          pes.className = "";
+          pes.classList.add(printing.servicelistVisile);
 
-        e.target.firstElementChild.classList.remove(printing.serviceText);
-        e.target.firstElementChild.classList.add(printing.serviceText1);
-  
-        e.target.lastElementChild.classList.remove(printing.modalExit);
-        e.target.lastElementChild.classList.add(printing.modalExit1);
-  
-        e.target.firstElementChild.firstElementChild.classList.remove(
-          printing.serviceTitle
-        );
-        e.target.firstElementChild.firstElementChild.classList.add(
-          printing.serviceTitle1
-        );
-  
-        e.target.firstElementChild.lastElementChild.classList.remove(
-          printing.serviceDesc
-        );
-        e.target.firstElementChild.lastElementChild.classList.add(
-          printing.serviceDesc1
-        );
-  
-      setclick(true);
-      setIsSlide(!isSlide);
-      }
-        
-
+          setSlide2(!slide2)
+        } else if (fec.firstElementChild.textContent == t('printing_page.img_icon_is')) {
+          pes.className = "";
+          pes.classList.add(printing.servicelistVisile);
       
+          pes.previousElementSibling.className = "";
+          pes.previousElementSibling.classList.add(printing.servicelistVisile);
+
+          setSlide3(!slide3)
+        } else if (fec.firstElementChild.textContent == t('printing_page.img_icon_dsd')) {
+            setSlide4(!slide4)    
+        } else {
+          setSlide5(!slide5)
+        }
+
+        target.className = "";
+        target.classList.add(printing.servicelist1);
+
+        fec.classList.remove(printing.serviceText);
+        fec.classList.add(printing.serviceText1);
+
+        target.lastElementChild.classList.remove(printing.modalExit);
+        target.lastElementChild.classList.add(printing.modalExit1);
+
+        fec.firstElementChild.classList.remove(printing.serviceTitle);
+        fec.firstElementChild.classList.add(printing.serviceTitle1);
+
+        fec.lastElementChild.classList.remove(printing.serviceDesc);
+        fec.lastElementChild.classList.add(printing.serviceDesc1);
+
+        setclick(true);
+        setIsSlide(!isSlide);
+      }    
     }
-    
-
-   
   };
 
   const exitModal = (e) => {
     e.preventDefault();
 
-    if (
-      e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Large Format Printing"
-    ) {
-      e.target.parentNode.parentNode.nextElementSibling.className = "";
-      e.target.parentNode.parentNode.nextElementSibling.classList.add(printing.servicelist);
+    let ppNode = e.target.parentNode.parentNode;
+    let ffec = ppNode.firstElementChild.firstElementChild;
+    let nes = ppNode.nextElementSibling;
+    let pes = ppNode.previousElementSibling;
+    if (ffec.textContent == t('printing_page.img_icon_lfp')) {
+      nes.className = "";
+      nes.classList.add(printing.servicelist);
   
-      e.target.parentNode.parentNode.nextElementSibling.nextElementSibling.className = "";
-      e.target.parentNode.parentNode.nextElementSibling.nextElementSibling.classList.add(printing.servicelist);
+      nes.nextElementSibling.className = "";
+      nes.nextElementSibling.classList.add(printing.servicelist);
 
-      
+      setSlide1(!slide1);
+    } else if (ffec.textContent == t('printing_page.img_icon_dps')) {
+      nes.className = "";
+      nes.classList.add(printing.servicelist);
 
-        setSlide1(!slide1);
-    } else if (
-      e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Digital Printing Service"
-    ) {
-       e.target.parentNode.parentNode.nextElementSibling.className = "";
-       e.target.parentNode.parentNode.nextElementSibling.classList.add(printing.servicelist);
+      pes.className = "";
+      pes.classList.add(printing.servicelist);
 
-       e.target.parentNode.parentNode.previousElementSibling.className = "";
-     e.target.parentNode.parentNode.previousElementSibling.classList.add(printing.servicelist);
+      setSlide2(!slide2);
+    } else if (ffec.textContent == t('printing_page.img_icon_is')) {
+      pes.className = "";
+      pes.classList.add(printing.servicelist);
 
-      
-        setSlide2(!slide2);
-    } else if (
-      e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Installation Service"
-    ) {
+      pes.previousElementSibling.className = "";
+      pes.previousElementSibling.classList.add(printing.servicelist);
 
-       e.target.parentNode.parentNode.previousElementSibling.className = "";
-       e.target.parentNode.parentNode.previousElementSibling.classList.add(printing.servicelist);
-  
-       e.target.parentNode.parentNode.previousElementSibling.previousElementSibling.className = "";
-       e.target.parentNode.parentNode.previousElementSibling.previousElementSibling.classList.add(printing.servicelist);
-
-      
-        setSlide3(!slide3);
-    } else if (
-      e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Directional Signage Design"
-    ) {
-      
-        setSlide4(!slide4);
+      setSlide3(!slide3);
+    } else if (ffec.textContent == t('printing_page.img_icon_dsd')) {
+      setSlide4(!slide4);
     } else {
-      
-        setSlide5(!slide5);
+      setSlide5(!slide5);
     }
 
-    e.target.parentNode.parentNode.className = "";
-        e.target.parentNode.parentNode.classList.add(printing.servicelist);
+    ppNode.className = "";
+    ppNode.classList.add(printing.servicelist);
 
-
-    e.target.parentNode.parentNode.firstElementChild.classList.remove(
-      printing.serviceText1
-    );
-    e.target.parentNode.parentNode.firstElementChild.classList.add(
-      printing.serviceText
-    );
+    ppNode.firstElementChild.classList.remove(printing.serviceText1);
+    ppNode.firstElementChild.classList.add(printing.serviceText);
     e.target.parentNode.classList.remove(printing.modalExit1);
     e.target.parentNode.classList.add(printing.modalExit);
 
-    e.target.parentNode.parentNode.firstElementChild.firstElementChild.classList.remove(
-      printing.serviceTitle1
-    );
-    e.target.parentNode.parentNode.firstElementChild.firstElementChild.classList.add(
-      printing.serviceTitle
-    );
+    ffec.classList.remove(printing.serviceTitle1);
+    ffec.classList.add(printing.serviceTitle);
 
-    e.target.parentNode.parentNode.firstElementChild.lastElementChild.classList.remove(
-      printing.serviceDesc1
-    );
-    e.target.parentNode.parentNode.firstElementChild.lastElementChild.classList.add(
-      printing.serviceDesc
-    );
-
+    ppNode.firstElementChild.lastElementChild.classList.remove(printing.serviceDesc1);
+    ppNode.firstElementChild.lastElementChild.classList.add(printing.serviceDesc);
 
     setIsSlide(!isSlide);
     setclick(false);
@@ -380,11 +312,9 @@ const Printing = () => {
       {/* bacground photo */}
       <div className={printing.bgimg}>
         <div className={printing.bgTextBox}>
-          <h1 className={printing.mainHead}>Printing</h1>
+          <h1 className={printing.mainHead}>{t('printing_page.banner1')}</h1>
           <p className={printing.mainText}>
-            Maximize your visual impact with our professional printing and
-            installation services, including wayfinding and promotional
-            products.
+            {t('printing_page.banner2')}
           </p>
         </div>
       </div>
@@ -392,7 +322,7 @@ const Printing = () => {
       <div className={printing.serviceBg}>
         <div className={printing.serviceBgBox}>
           <div className={printing.serviceHeadBox}>
-            <h2 className={printing.serviceHead}>Our Service</h2>
+            <h2 className={printing.serviceHead}>{t('printing_page.ourservice')}</h2>
           </div>
           <div className={printing.serviceBox}>
             <div className={printing.serviceTitleBox}>
@@ -401,21 +331,21 @@ const Printing = () => {
                 className={printing.serviceComponentBox}
                 onClick={isPrint}
               >
-                <p>Printing & Installation</p>
+                <p>{t('printing_page.os_printing_installation')}</p>
               </div>
               <div
                 id="design"
                 className={printing.serviceComponentBox1}
                 onClick={isDesign}
               >
-                <p> Wayfinding Design</p>
+                <p>{t('printing_page.os_wayfinding')}</p>
               </div>
               <div
                 id="product"
                 className={printing.serviceComponentBox1}
                 onClick={isProduct}
               >
-                <p>Promotional Product</p>
+                <p>{t('printing_page.os_promotional')}</p>
               </div>
             </div>
             <div className={printing.servicelistBoxContainer}>
@@ -444,11 +374,10 @@ const Printing = () => {
                     <div className={printing.serviceText} onClick={clickMove}>
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Large Format Printing
+                      {t('printing_page.img_icon_lfp')}
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Reliable printing services offering excellent prints and
-                        a seamless <br /> customer experience.
+                        {t('printing_page.img_icon_lfp_desc')} <br /> {t('printing_page.img_icon_lfp_desc2')}
                       </p>
                     </div>
                     <div
@@ -474,11 +403,10 @@ const Printing = () => {
                     <div className={printing.serviceText} onClick={clickMove}>
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Digital Printing Service
+                      {t('printing_page.img_icon_dps')}
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Trusted printing services for top-notch prints and a
-                        hassle-free, <br /> reliables experience.
+                        {t('printing_page.img_icon_dps_desc')} <br /> {t('printing_page.img_icon_dps_desc2')}
                       </p>
                     </div>
                     <div
@@ -504,11 +432,10 @@ const Printing = () => {
                     <div className={printing.serviceText} onClick={clickMove}>
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Installation Service
+                      {t('printing_page.img_icon_is')}
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Professional and reliable installation service for a
-                        hassle-free <br /> experience you can trust.
+                      {t('printing_page.img_icon_is_desc')} <br /> {t('printing_page.img_icon_is_desc2')}
                       </p>
                     </div>
                     <div
@@ -543,11 +470,10 @@ const Printing = () => {
                     <div className={printing.serviceText} onClick={clickMove}>
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Directional Signage Design
+                      {t('printing_page.img_icon_dsd')}
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Streamline navagation effortlessly with out proven and
-                        reliable <br /> wayfinding design solutions.
+                      {t('printing_page.img_icon_dsd_desc')} <br /> {t('printing_page.img_icon_dsd_desc2')}
                       </p>
                     </div>
                     <div
@@ -582,11 +508,10 @@ const Printing = () => {
                     <div className={printing.serviceText} onClick={clickMove}>
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Promotional Product & Merchandise
+                       {t('printing_page.img_icon_ppm')}
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Bring your branding to life with our expertise,
-                        personalized <br /> approach, and creativity.
+                       {t('printing_page.img_icon_ppm_desc')} <br /> {t('printing_page.img_icon_ppm_desc2')}
                       </p>
                     </div>
                     <div
@@ -668,15 +593,13 @@ const Printing = () => {
           </motion.div>
           <motion.div variants={item} className={printing.referenceText}>
             <h1 className={printing.referenceTextTitle}>
-              Driving Higher Brand Recall
+              {t('printing_page.printing_page_option1')}
             </h1>
             <p className={printing.referenceTextStyle}>
-              Did you know that print advertising achieves a remarkable 77%
-              brand recall rate, surpassing digital platforms (Newsworks, 2020)?
+              {t('printing_page.printing_page_option1_desc')}
             </p>
             <p className={printing.referenceTextStyle}>
-              Maximize your brand's impact through print advertising, creating a
-              lasting impression that resonates with your audience.
+              {t('printing_page.printing_page_option1_desc2')}
             </p>
           </motion.div>
         </motion.div>
@@ -692,15 +615,13 @@ const Printing = () => {
           <motion.div variants={item} className={printing.referenceText1}>
             <div className={printing.referenceText2}>
               <h1 className={printing.referenceTextTitle}>
-                Making Informed Decisions
+                {t('printing_page.printing_page_option2')}
               </h1>
               <p className={printing.referenceTextStyle}>
-                Did you know that 82% of consumers trust print ads the most when
-                making important purchase decisions? (Marketing Shepa survey)
+                {t('printing_page.printing_page_option2_desc')}
               </p>
               <p className={printing.referenceTextStyle}>
-                Explore how print advertising builds trust, empowers
-                decision-making, and enables confident choices.
+                {t('printing_page.printing_page_option2_desc2')}
               </p>
             </div>
           </motion.div>
@@ -735,15 +656,13 @@ const Printing = () => {
           </motion.div>
           <motion.div variants={item} className={printing.referenceText}>
             <h1 className={printing.referenceTextTitle}>
-              An Unbeatable Combination
+              {t('printing_page.printing_page_option3')}
             </h1>
             <p className={printing.referenceTextStyle}>
-              Did you know that combining print and digital advertising can lead
-              to a 400% increase in effectiveness (Top Media Advertising)?
+              {t('printing_page.printing_page_option3_desc')}
             </p>
             <p className={printing.referenceTextStyle}>
-              Unleash the synergy of print and digital ads, reaching a wider
-              audience for unprecedented online campaign success.
+              {t('printing_page.printing_page_option3_desc')}
             </p>
           </motion.div>
         </motion.div>
