@@ -9,10 +9,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import printing from "../app/printing.module.css";
 
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from "next-i18next";
 
 const Printing = () => {
-  const { t } = useTranslation('common')
+  const { t } = useTranslation("common");
 
   const [print, setPrint] = useState(true);
   const [design, setDesign] = useState(false);
@@ -26,12 +26,11 @@ const Printing = () => {
   const [slide5, setSlide5] = useState(true);
   const [isSlide, setIsSlide] = useState(false);
 
-
   let smallPhoto;
   let bigPhoto;
   let smallTextBox;
   let bigTextBox;
-  let w
+  let w;
 
   if (typeof window !== "undefined") {
     w = window.innerWidth;
@@ -87,7 +86,9 @@ const Printing = () => {
       pNode.classList.add(printing.serviceComponentBox);
       pNode.nextElementSibling.classList.remove(printing.serviceComponentBox);
       pNode.nextElementSibling.classList.add(printing.serviceComponentBox1);
-      pNode.previousElementSibling.classList.remove(printing.serviceComponentBox);
+      pNode.previousElementSibling.classList.remove(
+        printing.serviceComponentBox
+      );
       pNode.previousElementSibling.classList.add(printing.serviceComponentBox1);
 
       setPrint(false);
@@ -113,8 +114,10 @@ const Printing = () => {
       pNode.previousElementSibling.classList.value = "";
       pNode.previousElementSibling.classList.add(printing.serviceComponentBox1);
 
-      pNode.previousElementSibling.previousElementSibling.classList.value ="";
-      pNode.previousElementSibling.previousElementSibling.classList.add(printing.serviceComponentBox1);
+      pNode.previousElementSibling.previousElementSibling.classList.value = "";
+      pNode.previousElementSibling.previousElementSibling.classList.add(
+        printing.serviceComponentBox1
+      );
 
       setPrint(false);
       setDesign(false);
@@ -131,35 +134,43 @@ const Printing = () => {
         let target = e.target;
         let fec = target.firstElementChild;
         let nes = target.nextElementSibling;
-        let pes = target.previousElementSibling
-        if (fec.firstElementChild.textContent == t('printing_page.img_icon_lfp')) {
+        let pes = target.previousElementSibling;
+        if (
+          fec.firstElementChild.textContent == t("printing_page.img_icon_lfp")
+        ) {
           nes.className = "";
           nes.classList.add(printing.servicelistVisile);
 
           nes.nextElementSibling.className = "";
           nes.nextElementSibling.classList.add(printing.servicelistVisile);
 
-          setSlide1(!slide1)
-        } else if (fec.firstElementChild.textContent == t('printing_page.img_icon_dps')) {
+          setSlide1(!slide1);
+        } else if (
+          fec.firstElementChild.textContent == t("printing_page.img_icon_dps")
+        ) {
           nes.className = "";
           nes.classList.add(printing.servicelistVisile);
-    
+
           pes.className = "";
           pes.classList.add(printing.servicelistVisile);
 
-          setSlide2(!slide2)
-        } else if (fec.firstElementChild.textContent == t('printing_page.img_icon_is')) {
+          setSlide2(!slide2);
+        } else if (
+          fec.firstElementChild.textContent == t("printing_page.img_icon_is")
+        ) {
           pes.className = "";
           pes.classList.add(printing.servicelistVisile);
-      
+
           pes.previousElementSibling.className = "";
           pes.previousElementSibling.classList.add(printing.servicelistVisile);
 
-          setSlide3(!slide3)
-        } else if (fec.firstElementChild.textContent == t('printing_page.img_icon_dsd')) {
-            setSlide4(!slide4)    
+          setSlide3(!slide3);
+        } else if (
+          fec.firstElementChild.textContent == t("printing_page.img_icon_dsd")
+        ) {
+          setSlide4(!slide4);
         } else {
-          setSlide5(!slide5)
+          setSlide5(!slide5);
         }
 
         target.className = "";
@@ -179,7 +190,7 @@ const Printing = () => {
 
         setclick(true);
         setIsSlide(!isSlide);
-      }    
+      }
     }
   };
 
@@ -190,15 +201,15 @@ const Printing = () => {
     let ffec = ppNode.firstElementChild.firstElementChild;
     let nes = ppNode.nextElementSibling;
     let pes = ppNode.previousElementSibling;
-    if (ffec.textContent == t('printing_page.img_icon_lfp')) {
+    if (ffec.textContent == t("printing_page.img_icon_lfp")) {
       nes.className = "";
       nes.classList.add(printing.servicelist);
-  
+
       nes.nextElementSibling.className = "";
       nes.nextElementSibling.classList.add(printing.servicelist);
 
       setSlide1(!slide1);
-    } else if (ffec.textContent == t('printing_page.img_icon_dps')) {
+    } else if (ffec.textContent == t("printing_page.img_icon_dps")) {
       nes.className = "";
       nes.classList.add(printing.servicelist);
 
@@ -206,7 +217,7 @@ const Printing = () => {
       pes.classList.add(printing.servicelist);
 
       setSlide2(!slide2);
-    } else if (ffec.textContent == t('printing_page.img_icon_is')) {
+    } else if (ffec.textContent == t("printing_page.img_icon_is")) {
       pes.className = "";
       pes.classList.add(printing.servicelist);
 
@@ -214,7 +225,7 @@ const Printing = () => {
       pes.previousElementSibling.classList.add(printing.servicelist);
 
       setSlide3(!slide3);
-    } else if (ffec.textContent == t('printing_page.img_icon_dsd')) {
+    } else if (ffec.textContent == t("printing_page.img_icon_dsd")) {
       setSlide4(!slide4);
     } else {
       setSlide5(!slide5);
@@ -231,8 +242,12 @@ const Printing = () => {
     ffec.classList.remove(printing.serviceTitle1);
     ffec.classList.add(printing.serviceTitle);
 
-    ppNode.firstElementChild.lastElementChild.classList.remove(printing.serviceDesc1);
-    ppNode.firstElementChild.lastElementChild.classList.add(printing.serviceDesc);
+    ppNode.firstElementChild.lastElementChild.classList.remove(
+      printing.serviceDesc1
+    );
+    ppNode.firstElementChild.lastElementChild.classList.add(
+      printing.serviceDesc
+    );
 
     setIsSlide(!isSlide);
     setclick(false);
@@ -312,17 +327,17 @@ const Printing = () => {
       {/* bacground photo */}
       <div className={printing.bgimg}>
         <div className={printing.bgTextBox}>
-          <h1 className={printing.mainHead}>{t('printing_page.banner1')}</h1>
-          <p className={printing.mainText}>
-            {t('printing_page.banner2')}
-          </p>
+          <h1 className={printing.mainHead}>{t("printing_page.banner1")}</h1>
+          <p className={printing.mainText}>{t("printing_page.banner2")}</p>
         </div>
       </div>
       {/* our service */}
       <div className={printing.serviceBg}>
         <div className={printing.serviceBgBox}>
           <div className={printing.serviceHeadBox}>
-            <h2 className={printing.serviceHead}>{t('printing_page.ourservice')}</h2>
+            <h2 className={printing.serviceHead}>
+              {t("printing_page.ourservice")}
+            </h2>
           </div>
           <div className={printing.serviceBox}>
             <div className={printing.serviceTitleBox}>
@@ -331,35 +346,37 @@ const Printing = () => {
                 className={printing.serviceComponentBox}
                 onClick={isPrint}
               >
-                <p>{t('printing_page.os_printing_installation')}</p>
+                <p>{t("printing_page.os_printing_installation")}</p>
               </div>
               <div
                 id="design"
                 className={printing.serviceComponentBox1}
                 onClick={isDesign}
               >
-                <p>{t('printing_page.os_wayfinding')}</p>
+                <p>{t("printing_page.os_wayfinding")}</p>
               </div>
               <div
                 id="product"
                 className={printing.serviceComponentBox1}
                 onClick={isProduct}
               >
-                <p>{t('printing_page.os_promotional')}</p>
+                <p>{t("printing_page.os_promotional")}</p>
               </div>
             </div>
             <div className={printing.servicelistBoxContainer}>
               {print ? (
-                <motion.div className={printing.servicelistBox}
-                animate={{
-                  justifyContent: !slide1
-                    ? "center"
-                    : !slide2
-                    ? "center"
-                    : !slide3
-                    ? "center"
-                    : "space-between",
-                }}>
+                <motion.div
+                  className={printing.servicelistBox}
+                  animate={{
+                    justifyContent: !slide1
+                      ? "center"
+                      : !slide2
+                      ? "center"
+                      : !slide3
+                      ? "center"
+                      : "space-between",
+                  }}
+                >
                   <motion.div
                     id="container"
                     className={printing.servicelist}
@@ -374,10 +391,11 @@ const Printing = () => {
                     <div className={printing.serviceText} onClick={clickMove}>
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                      {t('printing_page.img_icon_lfp')}
+                        {t("printing_page.img_icon_lfp")}
                       </h1>
                       <p className={printing.serviceDesc}>
-                        {t('printing_page.img_icon_lfp_desc')} <br /> {t('printing_page.img_icon_lfp_desc2')}
+                        {t("printing_page.img_icon_lfp_desc")} <br />{" "}
+                        {t("printing_page.img_icon_lfp_desc2")}
                       </p>
                     </div>
                     <div
@@ -403,10 +421,11 @@ const Printing = () => {
                     <div className={printing.serviceText} onClick={clickMove}>
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                      {t('printing_page.img_icon_dps')}
+                        {t("printing_page.img_icon_dps")}
                       </h1>
                       <p className={printing.serviceDesc}>
-                        {t('printing_page.img_icon_dps_desc')} <br /> {t('printing_page.img_icon_dps_desc2')}
+                        {t("printing_page.img_icon_dps_desc")} <br />{" "}
+                        {t("printing_page.img_icon_dps_desc2")}
                       </p>
                     </div>
                     <div
@@ -432,10 +451,11 @@ const Printing = () => {
                     <div className={printing.serviceText} onClick={clickMove}>
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                      {t('printing_page.img_icon_is')}
+                        {t("printing_page.img_icon_is")}
                       </h1>
                       <p className={printing.serviceDesc}>
-                      {t('printing_page.img_icon_is_desc')} <br /> {t('printing_page.img_icon_is_desc2')}
+                        {t("printing_page.img_icon_is_desc")} <br />{" "}
+                        {t("printing_page.img_icon_is_desc2")}
                       </p>
                     </div>
                     <div
@@ -450,12 +470,11 @@ const Printing = () => {
                 </motion.div>
               ) : design ? (
                 <motion.div
-                className={printing.servicelistBox}
-                animate={{
-                  justifyContent: !slide4
-                    ? "center"
-                    : "start"
-                }}>
+                  className={printing.servicelistBox}
+                  animate={{
+                    justifyContent: !slide4 ? "center" : "start",
+                  }}
+                >
                   <motion.div
                     id="container"
                     className={printing.servicelist}
@@ -470,10 +489,11 @@ const Printing = () => {
                     <div className={printing.serviceText} onClick={clickMove}>
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                      {t('printing_page.img_icon_dsd')}
+                        {t("printing_page.img_icon_dsd")}
                       </h1>
                       <p className={printing.serviceDesc}>
-                      {t('printing_page.img_icon_dsd_desc')} <br /> {t('printing_page.img_icon_dsd_desc2')}
+                        {t("printing_page.img_icon_dsd_desc")} <br />{" "}
+                        {t("printing_page.img_icon_dsd_desc2")}
                       </p>
                     </div>
                     <div
@@ -488,12 +508,11 @@ const Printing = () => {
                 </motion.div>
               ) : (
                 <motion.div
-                className={printing.servicelistBox}
-                animate={{
-                  justifyContent: !slide5
-                    ? "center"
-                    : "start"
-                }}>
+                  className={printing.servicelistBox}
+                  animate={{
+                    justifyContent: !slide5 ? "center" : "start",
+                  }}
+                >
                   <motion.div
                     id="container"
                     className={printing.servicelist}
@@ -508,10 +527,11 @@ const Printing = () => {
                     <div className={printing.serviceText} onClick={clickMove}>
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                       {t('printing_page.img_icon_ppm')}
+                        {t("printing_page.img_icon_ppm")}
                       </h1>
                       <p className={printing.serviceDesc}>
-                       {t('printing_page.img_icon_ppm_desc')} <br /> {t('printing_page.img_icon_ppm_desc2')}
+                        {t("printing_page.img_icon_ppm_desc")} <br />{" "}
+                        {t("printing_page.img_icon_ppm_desc2")}
                       </p>
                     </div>
                     <div
@@ -593,13 +613,13 @@ const Printing = () => {
           </motion.div>
           <motion.div variants={item} className={printing.referenceText}>
             <h1 className={printing.referenceTextTitle}>
-              {t('printing_page.printing_page_option1')}
+              {t("printing_page.printing_page_option1")}
             </h1>
             <p className={printing.referenceTextStyle}>
-              {t('printing_page.printing_page_option1_desc')}
+              {t("printing_page.printing_page_option1_desc")}
             </p>
             <p className={printing.referenceTextStyle}>
-              {t('printing_page.printing_page_option1_desc2')}
+              {t("printing_page.printing_page_option1_desc2")}
             </p>
           </motion.div>
         </motion.div>
@@ -615,13 +635,13 @@ const Printing = () => {
           <motion.div variants={item} className={printing.referenceText1}>
             <div className={printing.referenceText2}>
               <h1 className={printing.referenceTextTitle}>
-                {t('printing_page.printing_page_option2')}
+                {t("printing_page.printing_page_option2")}
               </h1>
               <p className={printing.referenceTextStyle}>
-                {t('printing_page.printing_page_option2_desc')}
+                {t("printing_page.printing_page_option2_desc")}
               </p>
               <p className={printing.referenceTextStyle}>
-                {t('printing_page.printing_page_option2_desc2')}
+                {t("printing_page.printing_page_option2_desc2")}
               </p>
             </div>
           </motion.div>
@@ -656,13 +676,13 @@ const Printing = () => {
           </motion.div>
           <motion.div variants={item} className={printing.referenceText}>
             <h1 className={printing.referenceTextTitle}>
-              {t('printing_page.printing_page_option3')}
+              {t("printing_page.printing_page_option3")}
             </h1>
             <p className={printing.referenceTextStyle}>
-              {t('printing_page.printing_page_option3_desc')}
+              {t("printing_page.printing_page_option3_desc")}
             </p>
             <p className={printing.referenceTextStyle}>
-              {t('printing_page.printing_page_option3_desc')}
+              {t("printing_page.printing_page_option3_desc")}
             </p>
           </motion.div>
         </motion.div>

@@ -1,4 +1,3 @@
-
 /* homePage.module.css */
 
 /* main img */
@@ -46,6 +45,7 @@
   /* display: flex; */
   /* flex: 1; */
   /* align-items: stretch; */
+  padding-left: 0px;
   position: relative;
   /* background-size: contain;
   background-repeat: no-repeat; */
@@ -54,6 +54,21 @@
   border-bottom: 8px solid white;
   transition: background-image 0.4s ease; 
 } 
+
+.cardMobile {
+  /* display: flex; */
+  /* flex: 1; */
+  /* align-items: stretch; */
+  padding-left: 0px;
+  position: relative;
+  /* background-size: contain;
+  background-repeat: no-repeat; */
+  width: 335px;
+  height: 600px;
+  border-bottom: 8px solid white;
+  transition: background-image 0.4s ease; 
+} 
+
 .serviceContent { 
   padding: 40px 50px 40px 50px;
   /* background-color: #EFF2F9; */
@@ -67,6 +82,21 @@
   background-color: rgba(239, 242, 249, 0.8);
   backdrop-filter: blur(10px);
 }
+
+.serviceContentMobile { 
+  padding: 40px 50px 40px 50px;
+  /* background-color: #EFF2F9; */
+  /* opacity: 0.5; */
+  /* backdrop-filter: blur(20px); */
+  z-index: 1;
+  position: absolute;
+  bottom: 0%;
+  width: 335px;
+  height: 210px;
+  background-color: rgba(239, 242, 249, 0.8);
+  backdrop-filter: blur(10px);
+}
+
 .serviceTitle{
   font-family: "Noto Sans", sans-serif;
   color: #103558;
