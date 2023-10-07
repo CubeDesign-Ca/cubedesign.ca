@@ -78,7 +78,7 @@
     "banner1": "Printing",
     "banner2": "Maximize your visual impact with our professional printing and installation services, including wayfinding and promotional products.",
 
-    "ourservice": "Our Service",
+    "ourservice": "Our Services",
     "os_printing_installation": "Printing & Installation",
     "os_wayfinding": "Wayfinding Design",
     "os_promotional": "Promotional Product",
@@ -113,11 +113,13 @@
     "banner1": "Digital",
     "banner2": "Design, develop, and launch custom websites and web applications with a focus on user experience to help businesses thrive online.",
 
-    "ourservice": "Our Service",
+    "ourservice": "Our Services",
     "os_website_design" : "Website Design",
     "os_development" : "& Development",
+    "os_wd_mobile" : "Website Design & Development",
     "os_admin_dashboard" :"Admin Dashboard",
     "os_implementation" : "Implementation",
+    "os_ai_mobile" : "Admin Dashboard Implementation",
     "os_branding_design": "Branding Design",
     "os_graphic_design": "Graphic Design",
 

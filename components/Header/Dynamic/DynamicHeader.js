@@ -1,13 +1,13 @@
-import Header from '../Header'
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router';
+import Header from "../Header";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
-import ArrowIcon from '../../Icons/Arrow';
+import ArrowIcon from "../../Icons/Arrow";
 
 const DynamicHeader = () => {
-  const { t } = useTranslation('common')
+  const { t } = useTranslation("common");
   const [prev, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(false);
   const router = useRouter();
@@ -21,34 +21,62 @@ const DynamicHeader = () => {
       setVisible(visible);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [prev]);
-
 
   return (
     <header
       className={`fixed h-[95px] py-[24px] px-[150px] top-0 left-0 right-0 flex justify-center items-center shadow-lg z-10 transition-transform duration-500 bg-cube_blue text-white ${
-        visible ? 'transform translateY(0)' : 'transform -translate-y-full'}`}>
-          <Header logo={"logo_white"} title={t('company_shorthand')} >
-            <li className="flex item-center mr-8">
-              <Link href="/printing" className={`${router.pathname === '/printing' ? 'font-bold' : ''}`}>{t('dynamic_printing')}</Link>
-              <div className={`w-[10px] h-[10px] ml-[2px] ${router.pathname === '/printing' ? 'bg-cube_red' : ''}`}></div>
-            </li>
-            <li className="flex item-center mr-8">
-              <Link href="/digital" className={`${router.pathname === '/digital' ? 'font-bold' : ''}`}>{t('dynamic_digital')}</Link>
-              <div className={`w-[10px] h-[10px] ml-[2px] ${router.pathname === '/digital' ? 'bg-cube_red' : ''}`}></div>
-            </li>
-            <li className="flex items-center mr-8">
-              <Link href="/contact" className={`${router.pathname === '/contact' ? 'font-bold' : ''}`}>{t('contactus')}</Link>
-              <ArrowIcon className={`w-[15px] h-[15px] ml-[2px] ${router.pathname === '/contact' ? 'text-cube_red' : ''}`} />
-            </li>
-          </Header>
+        visible ? "transform translateY(0)" : "transform -translate-y-full"
+      }`}
+    >
+      <Header logo={"logo_white"} title={t("company_shorthand")}>
+        <li className="flex item-center mr-8 md:ml-[150px] lg:ml-[600px]">
+          <Link
+            href="/printing"
+            className={`${router.pathname === "/printing" ? "font-bold" : ""}`}
+          >
+            {t("dynamic_printing")}
+          </Link>
+          <div
+            className={`w-[10px] h-[10px] ml-[2px] ${
+              router.pathname === "/printing" ? "bg-cube_red" : ""
+            }`}
+          ></div>
+        </li>
+        <li className="flex item-center mr-8">
+          <Link
+            href="/digital"
+            className={`${router.pathname === "/digital" ? "font-bold" : ""}`}
+          >
+            {t("dynamic_digital")}
+          </Link>
+          <div
+            className={`w-[10px] h-[10px] ml-[2px] ${
+              router.pathname === "/digital" ? "bg-cube_red" : ""
+            }`}
+          ></div>
+        </li>
+        <li className="flex items-center mr-8">
+          <Link
+            href="/contact"
+            className={`${router.pathname === "/contact" ? "font-bold" : ""}`}
+          >
+            {t("contactus")}
+          </Link>
+          <ArrowIcon
+            className={`w-[15px] h-[15px] ml-[2px] ${
+              router.pathname === "/contact" ? "text-cube_red" : ""
+            }`}
+          />
+        </li>
+      </Header>
     </header>
-    );
+  );
 };
 
 export default DynamicHeader;
