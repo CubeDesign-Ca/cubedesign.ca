@@ -7,7 +7,6 @@ class ActionProvider {
   }
 
   answer = (id, t) => {
-    console.log(this.props);
     let message = null;
     if (id === "i1") {
       message = this.createClientMessage(t('chatbot.i1'));

@@ -277,7 +277,6 @@ const ContactUs = () => {
 
         e.target.className = "";
         e.target.classList.add(contact.emailInputFail);
-        console.log("hererererre")
       } else {
         if (e.target.name == "email") {
           email = true;

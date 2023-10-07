@@ -577,8 +577,8 @@ const Printing = () => {
           <SwiperSlide className={printing.slide3}></SwiperSlide>
           <SwiperSlide className={printing.slide4}></SwiperSlide>
           <SwiperSlide className={printing.slide5}></SwiperSlide>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+          <div className="swiper-button-prev"></div>
+          <div className="swiper-button-next"></div>
         </Swiper>
 
         <div className={printing.switch} data-on={isOn}>

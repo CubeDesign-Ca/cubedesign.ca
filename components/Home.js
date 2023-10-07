@@ -1,13 +1,6 @@
 import styles from "../app/homePage.module.css";
-import ChatbotIcon from "./Chatbot/ChatbotIcon";
 
 import { React, useState, useEffect } from "react";
-import Image from "next/image";
-import AnimatedBannerText from "./3D/AnimatedBannerText";
-import BrandValueCube from "./3D/BrandValueCube";
-import SecondCube from "./3D/SecondCube";
-import ThirdCube from "./3D/ThirdCube";
-import ReactDOM from "react-dom/client";
 
 import {
   Navigation,
@@ -18,6 +11,9 @@ import {
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import BrandValueCube from './3D/BrandValueCube';
+import ReactDOM from 'react-dom/client';
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -27,6 +23,8 @@ import "../app/globals.css";
 import { motion, useAnimation } from "framer-motion";
 
 import { useTranslation } from "next-i18next";
+
+import CompanyBanner from "./CompanyBanner/CompanyBanner";
 
 const Home = () => {
   const { t } = useTranslation("common");
@@ -42,27 +40,30 @@ const Home = () => {
   const CUBE3_IMG = "../images/3d_after_sales.png";
 
   const BANNER_IMG = "/images/client_all.png";
+  const COMPANY_BANNER_CONTAINER = "company_banner_container";
 
   const [isCard1Hovered, setIsCard1Hovered] = useState(false);
   const [isCard2Hovered, setIsCard2Hovered] = useState(false);
 
+  const [genCompanyBanner, setGenCompanyBanner] = useState(false);
   // Add the first cube
   const handleScroll = () => {
-    let container = document.getElementById(CUBE_CONTAINER_ID + "1");
-    if (
-      window.scrollY >= ADD_CUBE_SCROLL_Y &&
-      container.childElementCount == 0
-    ) {
-      ReactDOM.createRoot(container).render(
-        <BrandValueCube
-          prop_id="1"
-          direction={TOP}
-          img_src={CUBE1_IMG}
-          updateCurStage={updateCurStage}
-        />
-      );
+    if (window.scrollY >= ADD_CUBE_SCROLL_Y) {
+      let container = document.getElementById(CUBE_CONTAINER_ID + "1");
+      if (container.childElementCount == 0) {
+        ReactDOM.createRoot(container).render(
+          <BrandValueCube prop_id="1" direction={TOP} img_src={CUBE1_IMG} updateCurStage={updateCurStage}/>
+        );
+      }
+
+      let banner = document.getElementById(COMPANY_BANNER_CONTAINER);
+      if (banner.childElementCount == 0) {
+        ReactDOM.createRoot(banner).render(
+          <CompanyBanner img={BANNER_IMG} />
+        );
+      }
     }
-  };
+  }
 
   // Handle scroll event to add the first cube
   useEffect(() => {
@@ -73,7 +74,6 @@ const Home = () => {
   }, []);
 
   const updateCurStage = (newValue) => {
-    console.log(newValue == LEFT);
     if (newValue == LEFT) {
       let container = document.getElementById(CUBE_CONTAINER_ID + "2");
       if (container != null && container.childElementCount == 0) {
@@ -99,11 +99,6 @@ const Home = () => {
         );
       }
     }
-  };
-
-  const [isOn, setIsOn] = useState(false);
-  const toggleSwitch = () => {
-    setIsOn(!isOn);
   };
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -297,48 +292,14 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className={styles.client}>
-        <div className={styles.clientList}>
-          <Swiper
-            // install Swiper modules
-            modules={[Navigation, Pagination, A11y, Autoplay]}
-            style={{
-              height: "60px",
-            }}
-            spaceBetween={0}
-            speed={50000}
-            loop={true}
-            slidesPerView={"auto"}
-            slidesPerGroup={1}
-            navigation={{
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
-            }}
-            autoplay={{
-              delay: 0,
-              disableOnInteraction: false,
-            }}
-            onSlideNextTransitionStart={toggleSwitch}
-            onSlidePrevTransitionStart={toggleSwitch}
-            slidesOffsetBefore={150}
-            slidesOffsetAfter={250}
-          >
-            {[BANNER_IMG, BANNER_IMG, BANNER_IMG].map((image, index) => (
-              <SwiperSlide
-                key={index}
-                style={{
-                  width: "auto",
-                  margin: "0 70px",
-                }}
-              >
-                <img style={{ height: "60px" }} src={image} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+      <div id={COMPANY_BANNER_CONTAINER} className={styles.client}>
+        {/* <CompanyBanner img={BANNER_IMG}/> */}
+      </div>
+      <div className="hidden" alt="load banner imgs and this should be hidden">
+          <img src={BANNER_IMG} alt="banner img" />
       </div>
     </>
   );
-};
+}
 
 export default Home;
