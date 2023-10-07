@@ -64,22 +64,6 @@ const Home = () => {
       }
     }
   }
-    if (window.scrollY >= ADD_CUBE_SCROLL_Y) {
-      let container = document.getElementById(CUBE_CONTAINER_ID + "1");
-      if (container.childElementCount == 0) {
-        ReactDOM.createRoot(container).render(
-          <BrandValueCube prop_id="1" direction={TOP} img_src={CUBE1_IMG} updateCurStage={updateCurStage}/>
-        );
-      }
-
-      let banner = document.getElementById(COMPANY_BANNER_CONTAINER);
-      if (banner.childElementCount == 0) {
-        ReactDOM.createRoot(banner).render(
-          <CompanyBanner img={BANNER_IMG} />
-        );
-      }
-    }
-  }
 
   // Handle scroll event to add the first cube
   useEffect(() => {
@@ -316,5 +300,6 @@ const Home = () => {
       </div>
     </>
   );
+}
 
 export default Home;
