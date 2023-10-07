@@ -42,13 +42,31 @@ const Home = () => {
 
   const BANNER_IMG = "/images/client_all.png";
   const COMPANY_BANNER_CONTAINER = "company_banner_container";
+  const COMPANY_BANNER_CONTAINER = "company_banner_container";
 
   const [isCard1Hovered, setIsCard1Hovered] = useState(false);
   const [isCard2Hovered, setIsCard2Hovered] = useState(false);
 
   const [genCompanyBanner, setGenCompanyBanner] = useState(false);
+  const [genCompanyBanner, setGenCompanyBanner] = useState(false);
   // Add the first cube
   const handleScroll = () => {
+    if (window.scrollY >= ADD_CUBE_SCROLL_Y) {
+      let container = document.getElementById(CUBE_CONTAINER_ID + "1");
+      if (container.childElementCount == 0) {
+        ReactDOM.createRoot(container).render(
+          <BrandValueCube prop_id="1" direction={TOP} img_src={CUBE1_IMG} updateCurStage={updateCurStage}/>
+        );
+      }
+
+      let banner = document.getElementById(COMPANY_BANNER_CONTAINER);
+      if (banner.childElementCount == 0) {
+        ReactDOM.createRoot(banner).render(
+          <CompanyBanner img={BANNER_IMG} />
+        );
+      }
+    }
+  }
     if (window.scrollY >= ADD_CUBE_SCROLL_Y) {
       let container = document.getElementById(CUBE_CONTAINER_ID + "1");
       if (container.childElementCount == 0) {
