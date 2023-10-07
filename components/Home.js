@@ -41,12 +41,10 @@ const Home = () => {
 
   const BANNER_IMG = "/images/client_all.png";
   const COMPANY_BANNER_CONTAINER = "company_banner_container";
-  const COMPANY_BANNER_CONTAINER = "company_banner_container";
 
   const [isCard1Hovered, setIsCard1Hovered] = useState(false);
   const [isCard2Hovered, setIsCard2Hovered] = useState(false);
 
-  const [genCompanyBanner, setGenCompanyBanner] = useState(false);
   const [genCompanyBanner, setGenCompanyBanner] = useState(false);
   // Add the first cube
   const handleScroll = () => {
@@ -318,6 +316,5 @@ const Home = () => {
       </div>
     </>
   );
-};
 
 export default Home;
