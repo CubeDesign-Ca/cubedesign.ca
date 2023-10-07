@@ -1,7 +1,6 @@
 import styles from "../app/homePage.module.css";
 
 import { React, useState, useEffect } from "react";
-import BrandValueCube from "./3D/BrandValueCube";
 
 import {
   Navigation,
