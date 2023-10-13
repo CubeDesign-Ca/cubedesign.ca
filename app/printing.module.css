@@ -58,7 +58,7 @@
     flex-direction: column;
     align-items: center;
     width: 1140px;
-    height: 1156px;
+    height: 1006px;
     margin-top: 200px;
 }
 
@@ -74,7 +74,7 @@
 
 .serviceBox{
     width: 1140px;
-    height: 892px;
+    height: 742px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -339,7 +339,7 @@
     background: #103558;
     display: flex;
     align-items: center;
-    margin-top: 200px;
+    /* margin-top: 200px; */
     position: relative;
 }
 
