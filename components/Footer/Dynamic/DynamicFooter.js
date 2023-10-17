@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link';
 import JsonData from '../../JsonData';
-import PhoneIcon from '../../Icons/Phone';
 
 const DynamicFooter = () => {
   const { t } = useTranslation('common')

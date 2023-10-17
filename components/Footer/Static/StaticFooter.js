@@ -1,10 +1,5 @@
 import { useTranslation } from "next-i18next";
 import JsonData from "../../JsonData";
-import EmailIcon from "../../Icons/Email";
-import PhoneIcon from "../../Icons/Phone";
-import AddressIcon from "../../Icons/Address";
-import FacebookIcon from "../../Icons/Facebook";
-import InstagramIcon from "../../Icons/Instagram";
 
 const Footer = () => {
   const { t } = useTranslation("common");
