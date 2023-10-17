@@ -11,11 +11,11 @@ const Footer = () => {
           <div className="text-white min-w-[1140px] max-w-[1140px]">
             <div className="container mx-auto">
               <div className="flex justify-center md:justify-start">
-                <div className="flex items-top mr-6 ">
+                <div className="flex items-top mr-[70px]">
                   <img
                     src="/images/logo_white.png"
                     alt="Company Logo"
-                    className="w-12 h-12"
+                    className="w-[68px] h-[68px]"
                   />
                 </div>
                 <div className="">
@@ -24,26 +24,26 @@ const Footer = () => {
                       <div className="flex-none">
                         <img
                           src="/images/footer_location.png"
-                          className="h-[24px] w-[24px] mr-1"
+                          className="h-[24px] w-[24px] mr-[25px]"
                         />
                       </div>
                       <JsonData jsonKey="address" />
                     </div>
                     <div className="">
-                      <div className="flex justify-start mb-4 w-60 ">
+                      <div className="flex justify-start mb-4 w-[270px]">
                         <div className="flex-none">
                           <img
                             src="/images/footer_email.png"
-                            className="h-[24px] w-[24px] mr-1"
+                            className="h-[24px] w-[24px] mr-[25px]"
                           />
                         </div>
                         <JsonData jsonKey="email" />
                       </div>
-                      <div className="flex justify-start w-60 ">
+                      <div className="flex justify-start w-[270px]">
                         <div className="flex-none">
                           <img
                             src="/images/footer_phone.png"
-                            className="h-[24px] w-[24px] mr-1"
+                            className="h-[24px] w-[24px] mr-[25px]"
                           />
                         </div>
                         <JsonData jsonKey="phone" />
@@ -53,10 +53,10 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="container mx-auto mt-12 mb-8">
-              <hr className="border-gray-500" />
+            <div className="container mx-auto mt-[72px] mb-[12px]">
+              <hr className="border-white" />
             </div>
-            <div className="container mx-auto mt-4 border-t border-gray-300 flex items-center justify-center md:justify-between">
+            <div className="container mx-auto border-t border-gray-300 flex items-center justify-center md:justify-between">
               <div className="px-8 sm:px-0">
                 &copy; <JsonData jsonKey="copyright" />
               </div>
