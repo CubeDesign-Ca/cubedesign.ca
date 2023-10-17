@@ -11,8 +11,8 @@ import {
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import BrandValueCube from './3D/BrandValueCube';
-import ReactDOM from 'react-dom/client';
+import BrandValueCube from "./3D/BrandValueCube";
+import ReactDOM from "react-dom/client";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -52,18 +52,21 @@ const Home = () => {
       let container = document.getElementById(CUBE_CONTAINER_ID + "1");
       if (container.childElementCount == 0) {
         ReactDOM.createRoot(container).render(
-          <BrandValueCube prop_id="1" direction={TOP} img_src={CUBE1_IMG} updateCurStage={updateCurStage}/>
+          <BrandValueCube
+            prop_id="1"
+            direction={TOP}
+            img_src={CUBE1_IMG}
+            updateCurStage={updateCurStage}
+          />
         );
       }
 
       let banner = document.getElementById(COMPANY_BANNER_CONTAINER);
       if (banner.childElementCount == 0) {
-        ReactDOM.createRoot(banner).render(
-          <CompanyBanner img={BANNER_IMG} />
-        );
+        ReactDOM.createRoot(banner).render(<CompanyBanner img={BANNER_IMG} />);
       }
     }
-  }
+  };
 
   // Handle scroll event to add the first cube
   useEffect(() => {
@@ -107,7 +110,7 @@ const Home = () => {
     if (window.scrollY == 0) {
       setIsScrolled(false);
       setHideScrollButton(false);
-      control.start("visible");
+      // control.start("visible");
     } else {
       setHideScrollButton(true);
       setIsScrolled(true);
@@ -116,6 +119,9 @@ const Home = () => {
   };
 
   useEffect(() => {
+    if (window.scrollY == 0) {
+      control.start("visible");
+    }
     window.addEventListener("scroll", bouncingImageHandleScroll);
     return () => {
       window.removeEventListener("scroll", bouncingImageHandleScroll);
@@ -185,31 +191,6 @@ const Home = () => {
                 </div>
               </Link>
             </div>
-            <div className="flex-initial block md:hidden">
-              <Link href="/printing" legacyBehavior passHref>
-                <div
-                  className={`${styles.cardMobile} ${styles.card1}`}
-                  style={{
-                    backgroundImage: isCard1Hovered
-                      ? "url('/images/main-service-printing-mobile.jpg')"
-                      : "url('/images/main-service-printing-mobile-click.jpg')",
-                  }}
-                  onMouseEnter={() => setIsCard1Hovered(true)}
-                  onMouseLeave={() => setIsCard1Hovered(false)}
-                >
-                  <div className={styles.serviceContentMobile}>
-                    <h3 className="text-4xl md:text-2xl mb-5 text-[#103558] font-sans font-bold md:font-normal py-10 md:py-0 ">
-                      {t("home.printing")}
-                    </h3>
-                    <div className="hidden md:contents">
-                      <p className={styles.serviceDesc}>
-                        {t("home.printing_desc")}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
             <div className="flex-initial hidden md:block">
               <Link href="/digital" legacyBehavior passHref>
                 <div
@@ -229,6 +210,31 @@ const Home = () => {
                     <div className="hidden md:contents">
                       <p className={styles.serviceDesc}>
                         {t("home.digital_desc")}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+            <div className="flex-initial block md:hidden">
+              <Link href="/printing" legacyBehavior passHref>
+                <div
+                  className={`${styles.cardMobile} ${styles.card1}`}
+                  style={{
+                    backgroundImage: isCard1Hovered
+                      ? "url('/images/main-service-printing-mobile.jpg')"
+                      : "url('/images/main-service-printing-mobile-click.jpg')",
+                  }}
+                  onMouseEnter={() => setIsCard1Hovered(true)}
+                  onMouseLeave={() => setIsCard1Hovered(false)}
+                >
+                  <div className={styles.serviceContentMobile}>
+                    <h3 className="text-4xl md:text-2xl mb-5 text-[#103558] font-sans font-bold md:font-normal py-10 md:py-0 ">
+                      {t("home.printing")}
+                    </h3>
+                    <div className="hidden md:contents">
+                      <p className={styles.serviceDesc}>
+                        {t("home.printing_desc")}
                       </p>
                     </div>
                   </div>
@@ -296,10 +302,10 @@ const Home = () => {
         {/* <CompanyBanner img={BANNER_IMG}/> */}
       </div>
       <div className="hidden" alt="load banner imgs and this should be hidden">
-          <img src={BANNER_IMG} alt="banner img" />
+        <img src={BANNER_IMG} alt="banner img" />
       </div>
     </>
   );
-}
+};
 
 export default Home;

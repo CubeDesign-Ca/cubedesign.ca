@@ -63,8 +63,8 @@
   position: relative;
   /* background-size: contain;
   background-repeat: no-repeat; */
-  width: 335px;
-  height: 600px;
+  width: 285px;
+  height: 560px;
   border-bottom: 8px solid white;
   transition: background-image 0.4s ease; 
 } 
@@ -91,8 +91,10 @@
   z-index: 1;
   position: absolute;
   bottom: 0%;
-  width: 335px;
-  height: 210px;
+  width: 285px;
+  height: 160px;
+  display: flex;
+  align-items: center;
   background-color: rgba(239, 242, 249, 0.8);
   backdrop-filter: blur(10px);
 }
