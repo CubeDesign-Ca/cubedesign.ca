@@ -39,7 +39,7 @@ const DynamicFooter = () => {
           <div>
             <Link
               // className="bg-white text-cube_blue font-semibold px-[30px] py-[8px] text-[20px]"
-              className="bg-white text-cube_blue font-semibold px-[30px] py-[8px] text-[20px] border-b-5 border-solid border-cube_red"
+              className="bg-white text-cube_blue font-medium px-[30px] py-[8px] text-[20px] border-b-5 border-solid border-cube_red"
               href="/contact"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
