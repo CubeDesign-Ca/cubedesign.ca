@@ -34,7 +34,7 @@ const DynamicFooter = () => {
       <div className="container flex justify-between items-center text-white min-w-[1140px] max-w-[1140px]">
         <p className="text-lg">{t('consultus')}</p>
         <div className="flex items-center">
-          <PhoneIcon className="w-6 h-6 mr-[5px]" />
+          <img src="images/footer_phone.png" className="w-6 h-6 mr-[9px]" />
           <JsonData jsonKey="phone" /><p className="text-lg mx-[40px]"> or</p>
           <div>
             <Link

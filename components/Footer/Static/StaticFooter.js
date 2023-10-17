@@ -28,7 +28,7 @@ const Footer = () => {
                     <div className="flex justify-start w-60 ">
                       <div className="flex-none">
                         <img
-                          src="/images/footer_location_icon.png"
+                          src="/images/footer_location.png"
                           className="h-[24px] w-[24px] mr-1"
                         />
                       </div>
@@ -38,7 +38,7 @@ const Footer = () => {
                       <div className="flex justify-start mb-4 w-60 ">
                         <div className="flex-none">
                           <img
-                            src="/images/footer_email_icon.png"
+                            src="/images/footer_email.png"
                             className="h-[24px] w-[24px] mr-1"
                           />
                         </div>
@@ -47,7 +47,7 @@ const Footer = () => {
                       <div className="flex justify-start w-60 ">
                         <div className="flex-none">
                           <img
-                            src="/images/footer_phone_icon.png"
+                            src="/images/footer_phone.png"
                             className="h-[24px] w-[24px] mr-1"
                           />
                         </div>
@@ -70,7 +70,7 @@ const Footer = () => {
                   {/* Facebook icon */}
                   <a href="https://www.facebook.com">
                     <img
-                      src="/images/footer_facebook_icon.png"
+                      src="/images/footer_facebook.png"
                       className="h-[42px] w-[42px]"
                     />
                   </a>
@@ -79,7 +79,7 @@ const Footer = () => {
                   {/* Instagram icon */}
                   <a href="https://www.instagram.com">
                     <img
-                      src="/images/footer_insta_icon.png"
+                      src="/images/footer_instagram.png"
                       className="h-[42px] w-[42px]"
                     />
                   </a>
