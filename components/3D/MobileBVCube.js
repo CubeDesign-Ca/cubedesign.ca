@@ -1,15 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 import * as THREE from 'three';
-// import { Interaction } from 'three.interaction';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 function MBVCube(props) {
-  let scene, camera, renderer, cube, edges, raycaster;
-  let INTERSECTED;
+  let scene, camera, renderer, raycaster, cube;
   let mouse = new THREE.Vector2();
-  let auto = true;
-  const pointer = new THREE.Vector2();
 
   const updateBrandValue = props.update;
   const resetBrandValue = props.reset;
@@ -21,6 +17,16 @@ function MBVCube(props) {
 
   const RAD = 6.28319;
   const NINTY = 1.5708;
+
+  const LEFT = "LEFT";
+  const RIGHT = "RIGHT";
+  const TOP = "TOP";
+  const BOT = "BOTTOM";
+  const FRONT = "FRONT";
+  const BACK = "BACK";
+
+  const amtPerFrame = 0.01;
+  let runAnim = true;
 
   useEffect(() => {
     function init() {
@@ -44,15 +50,20 @@ function MBVCube(props) {
         new THREE.MeshBasicMaterial({ color: bgColor, map: loader.load(CUBE3_IMG) }), // back side
       ];
 
-      cube = new THREE.Mesh(geometry, materials)
+      const mesh = new THREE.Mesh(geometry, materials)
       camera.position.z = 5;
-
-      scene.add(cube);
 
       // Create edges
       const edgeMesh = new THREE.EdgesGeometry(geometry)
-      edges = new THREE.LineSegments(edgeMesh, new THREE.LineBasicMaterial({ color: 0x000000 }))
-      scene.add(edges);
+      const edge = new THREE.LineSegments(edgeMesh, new THREE.LineBasicMaterial({ color: 0x000000 }))
+
+      // Group mesh and edges
+      cube = new THREE.Group();
+      cube.add(mesh);
+      cube.add(edge);
+      cube.rotation.set(NINTY / 2 * 0.7, NINTY / 2, 0);
+
+      scene.add(cube);
 
       // Controller
       const controls = new OrbitControls(camera, renderer.domElement);
@@ -65,7 +76,7 @@ function MBVCube(props) {
       raycaster = new THREE.Raycaster();
 
       // Mouse click event to change the title and description
-      renderer.domElement.addEventListener("mouseup", function (e) {
+      renderer.domElement.addEventListener("click", function (e) {
         mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
         mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
 
@@ -76,100 +87,103 @@ function MBVCube(props) {
         for (let i = 0; i < intersects.length; i++) {
           if (intersects[i].object.isMesh && intersects[i].object.isObject3D) {
             let face = intersects[i].face;
-            if ((face.a == 6 && face.b == 7 && face.c == 5) || (face.a == 4 && face.b == 6 && face.c == 5) // left
-              || (face.a == 0 && face.b == 2 && face.c == 1) || (face.a == 2 && face.b == 3 && face.c == 1)) { // right
-              resetBrandValue();
-              console.log(face);
+            if ((face.a == 6 && face.b == 7 && face.c == 5) || (face.a == 4 && face.b == 6 && face.c == 5)) { // left
+              dir = LEFT;
               updateBrandValue("ONESTOP");
-            } else if ((face.a == 8 && face.b == 10 && face.c == 9) || (face.a == 10 && face.b == 11 && face.c == 9) // top
-              || (face.a == 12 && face.b == 14 && face.c == 13) || (face.a == 14 && face.b == 15 && face.c == 13)) { // bottom
-              resetBrandValue();
-              console.log(face);
+            } else if ((face.a == 0 && face.b == 2 && face.c == 1) || (face.a == 2 && face.b == 3 && face.c == 1)) { // right
+              dir = RIGHT;
+              updateBrandValue("ONESTOP");
+            } else if ((face.a == 8 && face.b == 10 && face.c == 9) || (face.a == 10 && face.b == 11 && face.c == 9)) { // top
+              dir = TOP;
               updateBrandValue("TRUSTWORTHY");
-            } else if ((face.a == 22 && face.b == 23 && face.c == 21) || (face.a == 20 && face.b == 22 && face.c == 21) // back
-              || (face.a == 16 && face.b == 18 && face.c == 17) || (face.a == 18 && face.b == 19 && face.c == 17)) { // front
-              resetBrandValue();
-              console.log(face);
+            } else if ((face.a == 12 && face.b == 14 && face.c == 13) || (face.a == 14 && face.b == 15 && face.c == 13)) { // bottom
+              dir = BOT;
+              updateBrandValue("TRUSTWORTHY");
+            } else if ((face.a == 22 && face.b == 23 && face.c == 21) || (face.a == 20 && face.b == 22 && face.c == 21)) { // back
+              dir = BACK;
+              updateBrandValue("AFTERSALES");
+            } else if ((face.a == 16 && face.b == 18 && face.c == 17) || (face.a == 18 && face.b == 19 && face.c == 17)) { // front
+              dir = FRONT;
               updateBrandValue("AFTERSALES");
             }
           }
         }
 
-        render();
-      }, false);
+        // runRot = true;
+        // if (rotateId != null) {
+        //   cancelAnimationFrame(rotateId);
+        // }
+        // rotate();
+      }, false); // end of event listener
 
-      let rotateId;
-      const rotate = () => {
-        const amtPerFrame = 0.01;
-
-        // rotateId = requestAnimationFrame(rotate);
-        if (!auto) {
-          console.log(cube.rotation.x);
-          console.log(cube.rotation.y);
-          console.log(cube.rotation.z);
-          console.log(edges.rotation.x);
-          console.log(edges.rotation.y);
-          console.log(edges.rotation.z);  
-        }
-        // console.log(cube.rotation.x);
-        // console.log(cube.rotation.y);
-        // console.log(cube.rotation.z);
-
-        // cube.rotation.x += amtPerFrame;
-        // cube.rotation.y -= amtPerFrame;
-        // cube.rotation.z += amtPerFrame;
-        // edges.rotation.x += amtPerFrame;
-        // edges.rotation.y -= amtPerFrame;
-        // edges.rotation.z += amtPerFrame;
-
-        // console.log(rotateId);
-        // rotated = true;
-        // console.log("hihi")
-        // auto = true;
-        // animate();
-
-        // const amtPerFrame = 0.01;
-        // requestAnimationFrame(rotate);
-        
-        // cube.rotation.x -= amtPerFrame;
-        // cube.rotation.y += amtPerFrame;
-        // edges.rotation.x -= amtPerFrame;
-        // edges.rotation.y += amtPerFrame;
-        render();
-        // cancelAnimationFrame(rotateId);
-      }
-
-      // Rotate the cube to be visible properly 
-      renderer.domElement.addEventListener("mouseup", function (e) {
-        auto = false;
-        if (animateId) {
-          console.log("Cancelling animate " + animateId);
-          cancelAnimationFrame(animateId);
-        }
-        if (rotateId) {
-          console.log("Cancelling rotate " + rotateId);
-          cancelAnimationFrame(rotateId);
-        }
-        rotate();
-      }, false);
+      renderer.domElement.addEventListener("mousedown", function (e) {
+        resetBrandValue();
+      });
 
       if (document.getElementById(ID) != null) {
         document.getElementById(ID).appendChild(renderer.domElement);
       }
     }
 
+    let rotateId;
+    let dir = null;
+    let runRot = false;
+    function rotate() {
+      // FRONT 0 0 0
+      // BACK 0 180 0
+      // LEFT 0 90 0
+      // RIGHT 0 -90 0
+      // TOP 90 0 0
+      // BOTTOM -90 0 0
+      if (!runRot) {
+        return;
+      }
+
+      rotateId = requestAnimationFrame(rotate);
+      if (dir == FRONT) {
+        if (cube.rotation.x < -amtPerFrame) {
+          cube.rotation.x += amtPerFrame;
+        } else if (cube.rotation.x > amtPerFrame) {
+          cube.rotation.x -= amtPerFrame;
+        } else {
+          cube.rotation.x = 0;
+        }
+
+        if (cube.rotation.y < -amtPerFrame) {
+          cube.rotation.y += amtPerFrame;
+        } else if (cube.rotation.y > amtPerFrame) {
+          cube.rotation.y -= amtPerFrame;
+        } else {
+          cube.rotation.y = 0;
+        }
+
+        if (cube.rotation.z < -amtPerFrame) {
+          cube.rotation.z += amtPerFrame;
+        } else if (cube.rotation.z > amtPerFrame) {
+          cube.rotation.z -= amtPerFrame;
+        } else {
+          cube.rotation.z = 0;
+        }
+
+        if (cube.rotation.x == 0 && cube.rotation.y == 0 && cube.rotation.z == 0) {
+          runAnim = true;
+          runRot = false;
+          cube.updateMatrixWorld(true);
+        }
+      }
+
+      render();
+    }
+
     function render() {
       renderer.render(scene, camera);
     }
 
-    let animateId;
     function animate() {
-      animateId = requestAnimationFrame(animate);
-      cube.rotation.x = NINTY / 2 * 0.7;
-      cube.rotation.y = NINTY / 2;
-
-      edges.rotation.x = NINTY / 2 * 0.7;
-      edges.rotation.y = NINTY / 2;
+      if (!runAnim) {
+        return;
+      }
+      requestAnimationFrame(animate);
       render();
     }
 

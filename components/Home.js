@@ -162,7 +162,6 @@ const Home = () => {
             <figcaption className="w-[100px]">{t("home.banner2")}</figcaption>
             <div className="">
               <img src="images/main_banner01.gif" className="h-[40px]"></img>
-              {/* <img src="images/main_banner02.gif" className="h-[40px]"></img> */}
             </div>
           </div>
         </div>

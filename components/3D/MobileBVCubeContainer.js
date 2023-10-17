@@ -1,8 +1,6 @@
-import { useEffect } from "react";
 import styles from "../../app/homePage.module.css";
 import MBVCube from './MobileBVCube';
 import { motion, useAnimation } from "framer-motion";
-
 
 function MBVCubeContainer(props) {
   const CUBE_CONTAINER_ID = props.id;
@@ -11,8 +9,8 @@ function MBVCubeContainer(props) {
   const CUBE_CLICKER_CONTAINER = "cube_clicker_parent";
   const CUBE_CLICKER = "cube_clicker";
 
-  const control = useAnimation();
-  const variant = {
+  const curtainControl = useAnimation();
+  const curtainVariant = {
     hidden: {
       opacity: 0,
       height: "0px",
@@ -25,8 +23,8 @@ function MBVCubeContainer(props) {
     },
   };
 
-  const control2 = useAnimation();
-  const variant2 = {
+  const bvControl = useAnimation();
+  const bvVariant = {
     hidden: { opacity: 0 },
     visible: {
       ease: [0.17, 0.67, 0.83, 0.67],
@@ -39,19 +37,16 @@ function MBVCubeContainer(props) {
     }
   }
 
-  const removeClicker = () => {
-    control.start("hidden");
-  }
-
-  const handleAnimationComplete = (e) => {
+  const handleAnimationComplete = () => {
     document.getElementById(CUBE_CLICKER_CONTAINER).remove();
-    updateBrandValue("ONESTOP");
   }
 
-  const resetBrandValue = (flag) => {
-    control2.start("hidden");
-    // document.getElementById("bvcube_title_motion").className = "opacity-0";
-    // document.getElementById("bvcube_desc_motion").className = "opacity-0";
+  const removeClicker = () => {
+    curtainControl.start("hidden");
+  }
+
+  const resetBrandValue = () => {
+    bvControl.start("hidden");
   }
 
   const updateBrandValue = (flag) => {
@@ -65,7 +60,7 @@ function MBVCubeContainer(props) {
       document.getElementById("bvcube_title").innerHTML = t('home.aftersales_support');
       document.getElementById("bvcube_desc").innerHTML = t('home.aftersales_support_desc');
     }
-    control2.start("visible");
+    bvControl.start("visible");
   }
 
   return (
@@ -74,9 +69,9 @@ function MBVCubeContainer(props) {
         {/* Mobile Cube starter */}
         <motion.div
           id={CUBE_CLICKER_CONTAINER}
-          animate={control}
+          animate={curtainControl}
           initial="visible"
-          variants={variant}
+          variants={curtainVariant}
           onAnimationComplete={handleAnimationComplete}
         >
           <div id={CUBE_CLICKER} className="absolute w-screen h-full backdrop-blur-sm cursor-pointer" onClick={removeClicker}>
@@ -86,16 +81,15 @@ function MBVCubeContainer(props) {
 
         {/* Brand Value Cube Container */}
         <div id={CUBE_CONTAINER_ID + "1"} className="h-[200px]">
-          <MBVCube update={updateBrandValue} reset={resetBrandValue}/>
+          <MBVCube update={updateBrandValue} reset={resetBrandValue} />
         </div>
 
         {/* Brand Value Title */}
         <motion.div
           id="bvcube_title_motion"
-          animate={control2}
+          animate={bvControl}
           initial="hidden"
-          variants={variant2}
-          // onAnimationComplete={handleAnimationComplete}
+          variants={bvVariant}
         >
           <h4 id="bvcube_title" className={styles.bvTitle}>
             {t("home.onestop_solution")}
@@ -105,10 +99,9 @@ function MBVCubeContainer(props) {
         {/* Brand Value Description */}
         <motion.div
           id="bvcube_desc_motion"
-          animate={control2}
+          animate={bvControl}
           initial="hidden"
-          variants={variant2}
-          // onAnimationComplete={handleAnimationComplete}
+          variants={bvVariant}
         >
           <p id="bvcube_desc" className="text-lg w-screen px-[50px]">
             {t("home.onestop_solution_desc")}
