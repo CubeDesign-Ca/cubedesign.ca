@@ -13,7 +13,7 @@ const DynamicFooter = () => {
   useEffect(() => {
     const handleScroll = () => {
       const cur = window.pageYOffset;
-      const visible = prev < cur && cur < (document.documentElement.scrollHeight - window.innerHeight);
+      const visible = prev < cur && cur < (document.documentElement.scrollHeight - window.innerHeight - 300);
 
       setPrevScrollPos(cur);
       setVisible(visible);
