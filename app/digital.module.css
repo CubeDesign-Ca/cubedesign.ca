@@ -46,31 +46,30 @@
 
 /* our service */
 
-/* .serviceBg {
+.serviceBg {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
 }
 
-.serviceBgBox {
+/* .serviceBgBox {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 1140px;
     height: 2006px;
     margin-top: 200px;
-}
+} */
 
 .serviceHeadBox {
     height: 124px;
-} */
+} 
 
-/* .serviceHead {
+.serviceHead {
     font-size: 32px;
     font-weight: 600;
-} */
-
+}
 
 /* .serviceBox{
     width: 1140px;
@@ -90,6 +89,13 @@
     border-bottom: 8px solid #C83832;
 } */
 
+.serviceArrow {
+    width: 35px;
+    height: 35px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+  
 .serviceComponentBox {
     width: 285px;
     height: 65px;
@@ -177,6 +183,7 @@
     background-color: #EFF2F9;
     opacity: 0.8;
     animation: fadeAnimation ease 1.4s;
+    display: flex;
 }
 
 .serviceTextLg {
@@ -187,6 +194,7 @@
     background-color: #EFF2F9;
     opacity: 0.8;
     animation: fadeAnimation ease 1.4s;
+    display: flex;
 }
 
 .serviceTextDesktop {
@@ -256,7 +264,7 @@
 
 .serviceTitle {
     color: black;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     padding-top: 10px;
     padding-left: 20px;

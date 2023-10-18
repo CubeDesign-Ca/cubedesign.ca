@@ -196,6 +196,13 @@
     width: 0px !important;
 }
 
+.serviceArrow {
+  width: 35px;
+  height: 35px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
 .serviceText {
     position: absolute;
     bottom: 0;
@@ -204,7 +211,7 @@
     background-color: #EFF2F9;
     opacity: 0.8;
     animation: fadeAnimation ease 1.4s;
-    
+    display: flex;
 }
 
 .serviceText2 {
@@ -215,6 +222,7 @@
     background-color: #EFF2F9;
     opacity: 0.8;
     animation: fadeAnimation ease 1.4s;
+    display: flex;
 }
 
 .serviceTextDesktop {
@@ -274,7 +282,7 @@
 
 .serviceTitle {
     color: black;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     padding-top: 10px;
     padding-left: 20px;
@@ -283,7 +291,7 @@
 
 .serviceTitle2 {
     color: black;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     padding-left: 20px;
     width: 100%;

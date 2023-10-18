@@ -6,8 +6,9 @@ import "swiper/css/scrollbar";
 import { React, useState, useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import printing from "../app/digital.module.css";
-
+// import printing from "../app/printing.module.css";
 import { useTranslation } from "next-i18next";
+import { IoIosArrowDown } from "react-icons/io";
 
 const Digital = () => {
   const { t } = useTranslation("common");
@@ -32,6 +33,7 @@ const Digital = () => {
   const [modalExit3, setModalExit3] = useState(true);
   const [modalExit4, setModalExit4] = useState(true);
   const [modalExit5, setModalExit5] = useState(true);
+  const [isMobile, setMobile] = useState(false);
 
   let smallPhoto;
   let bigPhoto;
@@ -57,6 +59,28 @@ const Digital = () => {
       bigTextBox = 750;
     }
   }
+
+  const handleResize = () => {
+    if (window.innerWidth < 768) {
+      setMobile(true);
+      console.log("handleresize:", isMobile);
+    } else {
+      setMobile(false);
+      console.log("handleresize:", isMobile);
+    }
+  };
+
+  useEffect(() => {
+    console.log("useEffect resize!", window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    if (window.innerWidth < 768) {
+      console.log("isMobile : true");
+      setMobile(true);
+    } else {
+      console.log("isMobile: false");
+      setMobile(false);
+    }
+  }, []);
 
   //ourservice
   const isWeb = (e) => {
@@ -325,9 +349,10 @@ const Digital = () => {
           fec.classList.remove(printing.serviceText);
         }
 
-        console.log("isModal(),w:", w);
+        console.log("isModal():", fec.getElementsByTagName("svg")[0]);
         if (w > 768) {
           fec.classList.add(printing.serviceText1);
+          fec.getElementsByTagName("svg")[0].style.display = "none";
         }
 
         target.lastElementChild.classList.remove(printing.modalExit);
@@ -368,6 +393,8 @@ const Digital = () => {
 
       ppNode.style.backgroundImage = "url('/images/Online-Service-SEO.jpg')";
       if (w < 768) {
+        console.log("exitModal:", fec.getElementsByTagName("svg")[0]);
+        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
       }
       setSlide1(!slide1);
@@ -386,6 +413,7 @@ const Digital = () => {
       ppNode.style.backgroundImage = "url('/images/Online-Service-CMS.jpg')";
 
       if (w < 768) {
+        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
       }
       setSlide2(!slide2);
@@ -404,6 +432,7 @@ const Digital = () => {
       ppNode.style.backgroundImage = "url('/images/Online-Service-OAuth.jpg')";
 
       if (w < 768) {
+        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
       }
       setSlide3(!slide3);
@@ -423,6 +452,7 @@ const Digital = () => {
         "url('/images/Online-Service-Ecommerce.jpg')";
 
       if (w < 768) {
+        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
         setModalExit1(true);
       }
@@ -430,18 +460,21 @@ const Digital = () => {
     } else if (ffec.textContent == t("digital_page.img_icon_adi")) {
       ppNode.style.backgroundImage = "url('/images/Online-Service-Admin.jpg')";
       if (w < 768) {
+        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
         setModalExit2(true);
       }
       setSlide5(!slide5);
     } else if (ffec.textContent == t("digital_page.img_icon_vid")) {
       if (w < 768) {
+        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
         setModalExit3(true);
       }
       setSlide6(!slide6);
     } else if (ffec.textContent == t("digital_page.img_icon_pd")) {
       if (w < 768) {
+        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
         setModalExit4(true);
       }
@@ -450,6 +483,7 @@ const Digital = () => {
       nes.classList.add(printing.servicelist);
     } else if (ffec.textContent == t("digital_page.img_icon_md")) {
       if (w < 768) {
+        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
         setModalExit5(true);
       }
@@ -476,7 +510,9 @@ const Digital = () => {
     ffec.classList.add(printing.serviceTitle);
 
     fec.lastElementChild.classList.remove(printing.serviceDesc1);
-    fec.lastElementChild.classList.add(printing.serviceDesc);
+    if (w > 768) {
+      fec.lastElementChild.classList.add(printing.serviceDesc);
+    }
 
     setIsSlide(!isSlide);
     setclick(false);
@@ -565,11 +601,11 @@ const Digital = () => {
             </h2>
           </div>
           {/* mobile */}
-          <div className="block md:hidden w-[400px] h-[100px] flex flex-col items-center pt-[50px]">
-            <div className="block md:hidden w-[400px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
+          <div className="block md:hidden w-[400px] h-[100px] flex flex-col pt-[50px]">
+            <div className="block md:hidden w-[360px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
               <div
                 id="printing"
-                className="block md:hidden w-[460px] h-[60px] flex items-center text-[24px] font-[400px] text-black"
+                className="block md:hidden w-[460px] h-[60px] flex items-center text-[18px] font-[400px] text-black font-semibold"
                 onClick={isWeb}
               >
                 <p>{t("digital_page.os_wd_mobile")}</p>
@@ -614,9 +650,12 @@ const Digital = () => {
                   <h1 className={printing.serviceTitle}>
                     {t("digital_page.img_icon_seo")}
                   </h1>
-                  <p className={printing.serviceDesc}>
-                    {t("digital_page.img_icon_seo_desc")}
-                  </p>
+                  <IoIosArrowDown className={printing.serviceArrow} />
+                  {!isMobile && (
+                    <p className={printing.serviceDesc}>
+                      {t("digital_page.img_icon_seo_desc")}
+                    </p>
+                  )}
                 </div>
                 <div
                   id="exit"
@@ -645,12 +684,15 @@ const Digital = () => {
                   <h1 className={printing.serviceTitle}>
                     {t("digital_page.img_icon_cms")}
                   </h1>
-                  <p className={printing.serviceDesc}>
-                    {t("digital_page.img_icon_cms_desc")}
-                    <br />
-                    <br />
-                    {t("digital_page.img_icon_cms_desc2")}
-                  </p>
+                  <IoIosArrowDown className={printing.serviceArrow} />
+                  {!isMobile && (
+                    <p className={printing.serviceDesc}>
+                      {t("digital_page.img_icon_cms_desc")}
+                      <br />
+                      <br />
+                      {t("digital_page.img_icon_cms_desc2")}
+                    </p>
+                  )}
                 </div>
                 <div
                   id="exit"
@@ -679,9 +721,12 @@ const Digital = () => {
                   <h1 className={printing.serviceTitle}>
                     {t("digital_page.img_icon_tpa")}
                   </h1>
-                  <p className={printing.serviceDesc}>
-                    {t("digital_page.img_icon_tpa_desc")}
-                  </p>
+                  <IoIosArrowDown className={printing.serviceArrow} />
+                  {!isMobile && (
+                    <p className={printing.serviceDesc}>
+                      {t("digital_page.img_icon_tpa_desc")}
+                    </p>
+                  )}
                 </div>
                 <div
                   id="exit"
@@ -710,9 +755,12 @@ const Digital = () => {
                   <h1 className={printing.serviceTitle}>
                     {t("digital_page.img_icon_eci")}
                   </h1>
-                  <p className={printing.serviceDesc}>
-                    {t("digital_page.img_icon_eci_desc")}
-                  </p>
+                  <IoIosArrowDown className={printing.serviceArrow} />
+                  {!isMobile && (
+                    <p className={printing.serviceDesc}>
+                      {t("digital_page.img_icon_eci_desc")}
+                    </p>
+                  )}
                 </div>
                 <div
                   id="exit"
@@ -725,11 +773,11 @@ const Digital = () => {
               </motion.div>
             </motion.div>
           </div>
-          <div className="block md:hidden w-[400px] h-[100px] flex flex-col items-center pt-[50px]">
-            <div className="block md:hidden w-[400px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
+          <div className="block md:hidden w-[400px] h-[100px] flex flex-col pt-[50px]">
+            <div className="block md:hidden w-[360px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
               <div
                 id="printing"
-                className="block md:hidden w-[460px] h-[60px] flex items-center text-[24px] font-[400px] text-black"
+                className="block md:hidden w-[460px] h-[60px] flex items-center text-[18px] font-[400px] text-black font-semibold"
                 onClick={isAdmin}
               >
                 <p>{t("digital_page.os_ai_mobile")}</p>
@@ -766,9 +814,12 @@ const Digital = () => {
                   <h1 className={printing.serviceTitle}>
                     {t("digital_page.img_icon_adi")}
                   </h1>
-                  <p className={printing.serviceDesc}>
-                    {t("digital_page.img_icon_adi_desc")}
-                  </p>
+                  <IoIosArrowDown className={printing.serviceArrow} />
+                  {!isMobile && (
+                    <p className={printing.serviceDesc}>
+                      {t("digital_page.img_icon_adi_desc")}
+                    </p>
+                  )}
                 </div>
                 <div
                   id="exit"
@@ -781,11 +832,11 @@ const Digital = () => {
               </motion.div>
             </motion.div>
           </div>
-          <div className="block md:hidden w-[400px] h-[100px] flex flex-col items-center pt-[50px]">
-            <div className="block md:hidden w-[400px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
+          <div className="block md:hidden w-[400px] h-[100px] flex flex-col pt-[50px]">
+            <div className="block md:hidden w-[360px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
               <div
                 id="printing"
-                className="block md:hidden w-[260px] h-[60px] flex items-center text-[24px] font-[400px] text-black"
+                className="block md:hidden w-[260px] h-[60px] flex items-center text-[18px] font-[400px] text-black font-semibold"
                 onClick={isBranding}
               >
                 <p>{t("digital_page.os_branding_design")}</p>
@@ -822,9 +873,12 @@ const Digital = () => {
                   <h1 className={printing.serviceTitle}>
                     {t("digital_page.img_icon_vid")}
                   </h1>
-                  <p className={printing.serviceDesc}>
-                    {t("digital_page.img_icon_vid_desc")}
-                  </p>
+                  <IoIosArrowDown className={printing.serviceArrow} />
+                  {!isMobile && (
+                    <p className={printing.serviceDesc}>
+                      {t("digital_page.img_icon_vid_desc")}
+                    </p>
+                  )}
                 </div>
                 <div
                   id="exit"
@@ -837,11 +891,11 @@ const Digital = () => {
               </motion.div>
             </motion.div>
           </div>
-          <div className="block md:hidden w-[400px] h-[100px] flex flex-col items-center pt-[50px]">
-            <div className="block md:hidden w-[400px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
+          <div className="block md:hidden w-[400px] h-[100px] flex flex-col pt-[50px]">
+            <div className="block md:hidden w-[360px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
               <div
                 id="printing"
-                className="block md:hidden w-[260px] h-[60px] flex items-center text-[24px] font-[400px] text-black"
+                className="block md:hidden w-[260px] h-[60px] flex items-center text-[18px] font-[400px] text-black font-semibold"
                 onClick={isGraphic}
               >
                 <p>{t("digital_page.os_graphic_design")}</p>
@@ -877,9 +931,12 @@ const Digital = () => {
                   <h1 className={printing.serviceTitle}>
                     {t("digital_page.img_icon_pd")}
                   </h1>
-                  <p className={printing.serviceDesc}>
-                    {t("digital_page.img_icon_pd_desc")}
-                  </p>
+                  <IoIosArrowDown className={printing.serviceArrow} />
+                  {!isMobile && (
+                    <p className={printing.serviceDesc}>
+                      {t("digital_page.img_icon_pd_desc")}
+                    </p>
+                  )}
                 </div>
                 <div
                   id="exit"
@@ -909,9 +966,12 @@ const Digital = () => {
                   <h1 className={printing.serviceTitle}>
                     {t("digital_page.img_icon_md")}
                   </h1>
-                  <p className={printing.serviceDesc}>
-                    {t("digital_page.img_icon_md_desc")}
-                  </p>
+                  <IoIosArrowDown className={printing.serviceArrow} />
+                  {!isMobile && (
+                    <p className={printing.serviceDesc}>
+                      {t("digital_page.img_icon_md_desc")}
+                    </p>
+                  )}
                 </div>
                 <div
                   id="exit"
@@ -932,7 +992,7 @@ const Digital = () => {
               <div
                 id="web"
                 // className={printing.serviceComponentBox}
-                className="w-[380px] h-[65px] flex items-center justify-center text-[25px] bg-[#C83832] justify-center text-[25px] font-[400px] text-white"
+                className="w-[380px] h-[65px] flex items-center justify-center text-[22px] bg-[#C83832] justify-center text-[25px] font-[400px] text-white"
                 onClick={isWeb}
               >
                 <p>
@@ -944,7 +1004,7 @@ const Digital = () => {
               <div
                 id="admin"
                 // className={printing.serviceComponentBox1}
-                className="w-[380px] h-[65px] flex items-center justify-center text-[25px]"
+                className="w-[380px] h-[65px] flex items-center justify-center text-[22px]"
                 onClick={isAdmin}
               >
                 <p>
@@ -956,7 +1016,7 @@ const Digital = () => {
               <div
                 id="branding"
                 // className={printing.serviceComponentBox1}
-                className="w-[380px] h-[65px] flex items-center justify-center text-[25px]"
+                className="w-[380px] h-[65px] flex items-center justify-center text-[22px]"
                 onClick={isBranding}
               >
                 <p>{t("digital_page.os_branding_design")}</p>
@@ -964,7 +1024,7 @@ const Digital = () => {
               <div
                 id="graphic"
                 // className={printing.serviceComponentBox1}
-                className="w-[380px] h-[65px] flex items-center justify-center text-[25px]"
+                className="w-[380px] h-[65px] flex items-center justify-center text-[22px]"
                 onClick={isGraphic}
               >
                 <p>{t("digital_page.os_graphic_design")}</p>
@@ -1288,7 +1348,7 @@ const Digital = () => {
       </div>
       {/* reference */}
       <div className="pb-[200px]">
-        <div className="flex w-[100%] w-[100%] justify-center">
+        <div className="flex w-[100%] justify-center pb-[25%] md:pb-[0%]">
           <motion.div
             ref={ref}
             variants={boxVariant}
@@ -1320,7 +1380,7 @@ const Digital = () => {
             </motion.div>
           </motion.div>
         </div>
-        <div className="flex w-[100%] w-[100%] justify-center mt-[400px] md:mt-[0px]">
+        <div className="flex w-[100%] justify-center mt-[400px] md:mt-[0px] pb-[10%] md:pb-[0%]">
           <motion.div
             ref={ref1}
             variants={boxVariant}
@@ -1354,7 +1414,7 @@ const Digital = () => {
           </motion.div>
         </div>
         <div
-          className="flex w-[100%] w-[100%] justify-center mb-[450px] md:mb-[200px]"
+          className="flex w-[100%] justify-center mb-[450px] md:mb-[200px]"
           style={{
             marginBottom: `200px`,
           }}

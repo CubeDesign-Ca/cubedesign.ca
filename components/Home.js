@@ -2,8 +2,8 @@ import styles from "../app/homePage.module.css";
 
 import { React, useState, useEffect } from "react";
 
-import DBVCubeContainer from './3D/DesktopBVCubeContainer';
-import MBVCubeContainer from './3D/MobileBVCubeContainer';
+import DBVCubeContainer from "./3D/DesktopBVCubeContainer";
+import MBVCubeContainer from "./3D/MobileBVCubeContainer";
 
 import ReactDOM from "react-dom/client";
 
@@ -57,19 +57,22 @@ const Home = () => {
     let container = document.getElementById(THREEJS_CONTAINER);
     if (window.innerWidth > MOBILE_WIDTH) {
       ReactDOM.createRoot(container).render(
-        <DBVCubeContainer id={CUBE_CONTAINER_ID} t={t}/>
+        <DBVCubeContainer id={CUBE_CONTAINER_ID} t={t} />
       );
     } else {
       ReactDOM.createRoot(container).render(
-        <MBVCubeContainer id={CUBE_CONTAINER_ID} t={t}/>
+        <MBVCubeContainer id={CUBE_CONTAINER_ID} t={t} />
       );
     }
-  }
+  };
 
   const handleScroll = () => {
     let container = document.getElementById(THREEJS_CONTAINER);
     // Render brand value cube(s)
-    if (window.scrollY >= ADD_CUBE_SCROLL_Y && container.childElementCount == 0) {
+    if (
+      window.scrollY >= ADD_CUBE_SCROLL_Y &&
+      container.childElementCount == 0
+    ) {
       renderThreeContainer();
     }
 
@@ -87,7 +90,7 @@ const Home = () => {
     } else {
       control.start("hidden");
     }
-  }
+  };
 
   // Handle scroll event to add the first cube
   useEffect(() => {
@@ -107,7 +110,10 @@ const Home = () => {
 
       renderThreeContainer();
       setIsMobile(false);
-    } else if (window.innerWidth <= MOBILE_WIDTH && container.childElementCount == 3) {
+    } else if (
+      window.innerWidth <= MOBILE_WIDTH &&
+      container.childElementCount == 3
+    ) {
       // Changing Desktop to Mobile environment and remove all children
       let container = document.getElementById(THREEJS_CONTAINER);
       while (container.lastElementChild) {
@@ -116,7 +122,7 @@ const Home = () => {
       renderThreeContainer();
       setIsMobile(true);
     }
-  };
+  }
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [hideScrollButton, setHideScrollButton] = useState(false);
@@ -140,10 +146,10 @@ const Home = () => {
     window.addEventListener("scroll", bouncingImageHandleScroll);
     setIsMobile(window.innerWidth > MOBILE_WIDTH);
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
-    }
+      window.removeEventListener("resize", handleResize);
+    };
   }, [isMobile]);
 
   const control = useAnimation();
@@ -166,11 +172,7 @@ const Home = () => {
           </div>
         </div>
 
-        <motion.div
-          animate={control}
-          initial="visible"
-          variants={variant}
-        >
+        <motion.div animate={control} initial="visible" variants={variant}>
           {/* <div className="w-[60px] h-[60px] absolute left-24 bottom-72 ml-[-30px] rounded-md	bg-[#CCD4E0] opacity-50 pl-[13px] pt-[7px]"> */}
           <div className="w-[60px] h-[60px] fixed bottom-[100px] left-12 md:left-1/2 rounded-md bg-[#CCD4E0] opacity-50 pl-[13px] pt-[7px]">
             <img className="h-[46px]" src="/images/arrow.png"></img>
