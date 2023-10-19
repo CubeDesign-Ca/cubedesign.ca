@@ -1,160 +1,303 @@
 import styles from "../app/homePage.module.css";
-import ChatbotIcon from "./Chatbot/ChatbotIcon";
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { React, useState } from "react";
+
+import { React, useState, useEffect } from "react";
+
+import DBVCubeContainer from './3D/DesktopBVCubeContainer';
+import MBVCubeContainer from './3D/MobileBVCubeContainer';
+
+import ReactDOM from "react-dom/client";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import Link from "next/link";
-import '../app/globals.css';
+import "../app/globals.css";
+import { motion, useAnimation } from "framer-motion";
+
+import { useTranslation } from "next-i18next";
+
+import CompanyBanner from "./CompanyBanner/CompanyBanner";
 
 const Home = () => {
+  const { t } = useTranslation("common");
+  const CUBE_CONTAINER_ID = "cube_container_";
+  const THREEJS_CONTAINER = "threejs_container";
+  const REMOVE_SCROLL_NOTIFICATION = 200;
+  const ADD_CUBE_SCROLL_Y = 1600;
+
+  const BANNER_IMG = "/images/client_all.png";
+  const COMPANY_BANNER_CONTAINER = "company_banner_container";
+
+  const MOBILE_WIDTH = 767;
+
   const [isCard1Hovered, setIsCard1Hovered] = useState(false);
   const [isCard2Hovered, setIsCard2Hovered] = useState(false);
-<<<<<<< HEAD
 
-=======
->>>>>>> stage
-  const [isOn, setIsOn] = useState(false);
-  const toggleSwitch = () => {
-    setIsOn(!isOn);
+  const [genCompanyBanner, setGenCompanyBanner] = useState(false);
+  // Add the first cube
+  // const handleScroll = () => {
+  //   if (window.scrollY >= ADD_CUBE_SCROLL_Y) {
+  //     let container = document.getElementById(CUBE_CONTAINER_ID + "1");
+  //     if (container.childElementCount == 0) {
+  //       ReactDOM.createRoot(container).render(
+  //         <BrandValueCube
+  //           prop_id="1"
+  //           direction={TOP}
+  //           img_src={CUBE1_IMG}
+  //           updateCurStage={updateCurStage}
+  //         />
+  //       );
+  //     }
+  //   }
+  // }
+  const [isMobile, setIsMobile] = useState(false);
+
+  const renderThreeContainer = () => {
+    let container = document.getElementById(THREEJS_CONTAINER);
+    if (window.innerWidth > MOBILE_WIDTH) {
+      ReactDOM.createRoot(container).render(
+        <DBVCubeContainer id={CUBE_CONTAINER_ID} t={t}/>
+      );
+    } else {
+      ReactDOM.createRoot(container).render(
+        <MBVCubeContainer id={CUBE_CONTAINER_ID} t={t}/>
+      );
+    }
+  }
+
+  const handleScroll = () => {
+    let container = document.getElementById(THREEJS_CONTAINER);
+    // Render brand value cube(s)
+    if (window.scrollY >= ADD_CUBE_SCROLL_Y && container.childElementCount == 0) {
+      renderThreeContainer();
+    }
+
+    // Add company banner swiper
+    if (window.scrollY >= ADD_CUBE_SCROLL_Y) {
+      let banner = document.getElementById(COMPANY_BANNER_CONTAINER);
+      if (banner.childElementCount == 0) {
+        ReactDOM.createRoot(banner).render(<CompanyBanner img={BANNER_IMG} />);
+      }
+    }
+
+    // Disable/enable scroll notification
+    if (window.scrollY < REMOVE_SCROLL_NOTIFICATION) {
+      control.start("visible");
+    } else {
+      control.start("hidden");
+    }
+  }
+
+  // Handle scroll event to add the first cube
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isMobile]);
+
+  function handleResize() {
+    let container = document.getElementById(THREEJS_CONTAINER);
+    if (window.innerWidth > MOBILE_WIDTH && container.childElementCount == 1) {
+      // Changing Mobile to Desktop environment and remove all children
+      if (container.hasChildNodes()) {
+        container.removeChild(container.lastElementChild);
+      }
+
+      renderThreeContainer();
+      setIsMobile(false);
+    } else if (window.innerWidth <= MOBILE_WIDTH && container.childElementCount == 3) {
+      // Changing Desktop to Mobile environment and remove all children
+      let container = document.getElementById(THREEJS_CONTAINER);
+      while (container.lastElementChild) {
+        container.removeChild(container.lastElementChild);
+      }
+      renderThreeContainer();
+      setIsMobile(true);
+    }
   };
+
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [hideScrollButton, setHideScrollButton] = useState(false);
+  const bouncingImageHandleScroll = () => {
+    if (window.scrollY == 0) {
+      setIsScrolled(false);
+      setHideScrollButton(false);
+      // control.start("visible");
+    } else {
+      setHideScrollButton(true);
+      setIsScrolled(true);
+      control.start("hidden");
+    }
+  };
+
+  // Window resize listener
+  useEffect(() => {
+    if (window.scrollY == 0) {
+      control.start("visible");
+    }
+    window.addEventListener("scroll", bouncingImageHandleScroll);
+    setIsMobile(window.innerWidth > MOBILE_WIDTH);
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    }
+  }, [isMobile]);
+
+  const control = useAnimation();
+  const variant = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
   return (
     <>
       {/* main img */}
       <div className={styles.imgContainer}>
-        <div className={styles.mainTitle}>
-          <figcaption>Cube Design & Communication</figcaption>
-          <figcaption>makes Poster Design</figcaption>
-        </div>
-      </div>
-      <div className={styles.container}>
-        {/* printing & digital */}
-        <div className={`${styles.mainContainer}`}>
-          <div className={`${styles.service}`}>
-            {/* printing */}
-            <Link href='/printing' legacyBehavior passHref>
-              <div
-                className={`${styles.card} ${styles.card1}`}
-                style={{ backgroundImage: isCard1Hovered ? "url('/images/main-service-printing.jpg')" : "url('/images/main-service-printing-click.jpg')" }}
-                onMouseEnter={() => setIsCard1Hovered(true)}
-                onMouseLeave={() => setIsCard1Hovered(false)}
-              >
-            
-                <div className={styles.serviceContent}>
-                  <h3 className={styles.serviceTitle}>Printing</h3>
-                  <p className={styles.serviceDesc}>
-                    Maximize your visual impact with our professional printing and installation services, including way finding and promotional products.
-                  </p>
-                </div>
-              </div>
-            </Link>
-            <Link href='/digital' legacyBehavior passHref>
-              <div
-                className={`${styles.card} ${styles.card2}`}
-                style={{ backgroundImage: isCard2Hovered ? "url('/images/main-service-digital.jpg')" : "url('/images/main-service-digital-click.jpg')" }}
-                onMouseEnter={() => setIsCard2Hovered(true)}
-                onMouseLeave={() => setIsCard2Hovered(false)}
-              >
-                <div className={styles.serviceContent}>
-                  <h3 className={styles.serviceTitle}>Digital</h3>
-                  <p className={styles.serviceDesc}>
-                    Establish your online presence with our full-service solutions tailored to enhance your business.
-                  </p>
-                </div> 
-              </div>
-            </Link>
-          </div>
-          <div className={styles.section}>
-            <h3 className={styles.bvContainerTitle}>Brand Value</h3>
-            <div className={styles.bvContainer}>
-              <div className={styles.bvCard}>
-                <h4 className={styles.bvTitle}>One-Stop Solution</h4>
-                <p className={styles.bvDesc}>
-                  One place for all your needs full-service offerings spanning offline and online realms.
-                </p>
-              </div>
-              <div className={styles.bvCard}>
-                <h4 className={styles.bvTitle}>Trustworthy &<br /> Professional Service</h4>
-                <p className={styles.bvDesc}>
-                  Reliable, professional services tailored to your needs, delivered promptly to elevate your business.
-                </p>
-              </div>
-              <div className={styles.bvCard}>
-                <h4 className={styles.bvTitle}>After-Sales Supports</h4>
-                <p className={styles.bvDesc}>
-                  Robust after-sales support, ensuring our commitment to standing by services post-delivery.
-                </p>
-              </div>
+        <div className="container text-3xl font-bold absolute left-12 sm:left-24 md:left-36 top-1/3 flex-wrap md:flex-nowrap">
+          <figcaption>{t("home.banner1")}</figcaption>
+          <div className="inline-flex">
+            <figcaption className="w-[100px]">{t("home.banner2")}</figcaption>
+            <div className="">
+              <img src="images/main_banner01.gif" className="h-[40px]"></img>
             </div>
           </div>
         </div>
 
+        <motion.div
+          animate={control}
+          initial="visible"
+          variants={variant}
+        >
+          {/* <div className="w-[60px] h-[60px] absolute left-24 bottom-72 ml-[-30px] rounded-md	bg-[#CCD4E0] opacity-50 pl-[13px] pt-[7px]"> */}
+          <div className="w-[60px] h-[60px] fixed bottom-[100px] left-12 md:left-1/2 rounded-md bg-[#CCD4E0] opacity-50 pl-[13px] pt-[7px]">
+            <img className="h-[46px]" src="/images/arrow.png"></img>
+          </div>
+        </motion.div>
       </div>
-      <div className={styles.client}>
-        <div className={styles.clientList}>
-          <Swiper
-            // install Swiper modules
-<<<<<<< HEAD
+      <div className={styles.container}>
+        {/* printing & digital */}
+        <div className={`${styles.mainContainer}`}>
+          {/* <div className={`${styles.service}`}> */}
+          <div className="flex justify-center gap-3 mb-48 ">
+            {/* printing */}
 
-=======
->>>>>>> stage
-            modules={[Navigation, Pagination, A11y, Autoplay]}
-            style={{ height: "60px" }}
-            spaceBetween={0}
-            speed={2000} // 속도 조절
-            loop={true}
-            slidesPerView={3}
-            slidesPerGroup={1}
-            navigation={{
-              // 네비게이션 적용, < >
-              nextEl: ".swiper-button-next", // 다음 버튼 클래스명
-              prevEl: ".swiper-button-prev", // 이전 버튼 클래스명
-            }}
-            autoplay={{
-              "delay": 0,
-              "disableOnInteraction": false
-            }}
-            onSlideNextTransitionStart={toggleSwitch}
-            onSlidePrevTransitionStart={toggleSwitch}
-            slidesOffsetBefore={150}
-            slidesOffsetAfter={250}
-          >
-            {[
-              "/images/client-1.png",
-              "/images/client-2.png",
-              "/images/client-3.png",
-              "/images/client-4.png",
-              "/images/client-5.png",
-              "/images/client-6.png",
-              "/images/client-8.png",
-              "/images/client-9.png",
-              "/images/client-10.png",
-              "/images/client-11.png",
-              "/images/client-12.png",
-              "/images/client-13.png",
-              "/images/client-14.png",
-              "/images/client-15.png",
-              "/images/client-16.png",
-            ].map((image, index) => (
-              <SwiperSlide
-                key={index}
-                className={styles.slide}
-<<<<<<< HEAD
-
-=======
->>>>>>> stage
-                style={{
-                  backgroundImage: `url('${image}')`,
-                  // backgroundSize: 'auto 60px',
-                  // margin: '0 5px',
-                }}
-              ></SwiperSlide>
-            ))}
-          </Swiper>
+            <div className="flex-initial hidden md:block">
+              <Link href="/printing" legacyBehavior passHref>
+                <div
+                  className={`${styles.card} ${styles.card1}`}
+                  style={{
+                    backgroundImage: isCard1Hovered
+                      ? "url('/images/main-service-printing.jpg')"
+                      : "url('/images/main-service-printing-click.jpg')",
+                  }}
+                  onMouseEnter={() => setIsCard1Hovered(true)}
+                  onMouseLeave={() => setIsCard1Hovered(false)}
+                >
+                  <div className={styles.serviceContent}>
+                    <h3 className="text-4xl md:text-2xl mb-5 text-[#103558] font-sans font-bold md:font-normal py-10 md:py-0 ">
+                      {t("home.printing")}
+                    </h3>
+                    <div className="hidden md:contents">
+                      <p className={styles.serviceDesc}>
+                        {t("home.printing_desc")}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+            <div className="flex-initial hidden md:block">
+              <Link href="/digital" legacyBehavior passHref>
+                <div
+                  className={`${styles.card} ${styles.card2}`}
+                  style={{
+                    backgroundImage: isCard2Hovered
+                      ? "url('/images/main-service-digital.jpg')"
+                      : "url('/images/main-service-digital-click.jpg')",
+                  }}
+                  onMouseEnter={() => setIsCard2Hovered(true)}
+                  onMouseLeave={() => setIsCard2Hovered(false)}
+                >
+                  <div className={styles.serviceContent}>
+                    <h3 className="text-4xl md:text-2xl mb-5 text-[#103558] font-sans font-bold md:font-normal py-10 md:py-0 ">
+                      {t("home.digital")}
+                    </h3>
+                    <div className="hidden md:contents">
+                      <p className={styles.serviceDesc}>
+                        {t("home.digital_desc")}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+            <div className="flex-initial block md:hidden">
+              <Link href="/printing" legacyBehavior passHref>
+                <div
+                  className={`${styles.cardMobile} ${styles.card1}`}
+                  style={{
+                    backgroundImage: isCard1Hovered
+                      ? "url('/images/main-service-printing-mobile.jpg')"
+                      : "url('/images/main-service-printing-mobile-click.jpg')",
+                  }}
+                  onMouseEnter={() => setIsCard1Hovered(true)}
+                  onMouseLeave={() => setIsCard1Hovered(false)}
+                >
+                  <div className={styles.serviceContentMobile}>
+                    <h3 className="text-4xl md:text-2xl mb-5 text-[#103558] font-sans font-bold md:font-normal py-10 md:py-0 ">
+                      {t("home.printing")}
+                    </h3>
+                    <div className="hidden md:contents">
+                      <p className={styles.serviceDesc}>
+                        {t("home.printing_desc")}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+            <div className="flex-initial block md:hidden">
+              <Link href="/digital" legacyBehavior passHref>
+                <div
+                  className={`${styles.cardMobile} ${styles.card2}`}
+                  style={{
+                    backgroundImage: isCard2Hovered
+                      ? "url('/images/main-service-digital-mobile.jpg')"
+                      : "url('/images/main-service-digital-mobile-click.jpg')",
+                  }}
+                  onMouseEnter={() => setIsCard2Hovered(true)}
+                  onMouseLeave={() => setIsCard2Hovered(false)}
+                >
+                  <div className={styles.serviceContentMobile}>
+                    <h3 className="text-4xl md:text-2xl mb-5 text-[#103558] font-sans font-bold md:font-normal py-10 md:py-0 ">
+                      {t("home.digital")}
+                    </h3>
+                    <div className="hidden md:contents">
+                      <p className={styles.serviceDesc}>
+                        {t("home.digital_desc")}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+          <div className={styles.section}>
+            <h3 className={styles.bvContainerTitle}>{t("home.brand_value")}</h3>
+            <div id={THREEJS_CONTAINER} className={styles.bvContainer}>
+              {/*  */}
+            </div>
+          </div>
         </div>
+      </div>
+      <div id={COMPANY_BANNER_CONTAINER} className={styles.client}>
+        {/*  */}
+      </div>
+      <div className="hidden" alt="load banner imgs and this should be hidden">
+        <img src={BANNER_IMG} alt="banner img" />
       </div>
     </>
   );
