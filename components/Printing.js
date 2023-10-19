@@ -9,7 +9,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import printing from "../app/printing.module.css";
 
+import { useTranslation } from "next-i18next";
+
 const Printing = () => {
+  const { t } = useTranslation("common");
+
   const [print, setPrint] = useState(true);
   const [design, setDesign] = useState(false);
   const [product, setProduct] = useState(false);
@@ -21,6 +25,34 @@ const Printing = () => {
   const [slide4, setSlide4] = useState(true);
   const [slide5, setSlide5] = useState(true);
   const [isSlide, setIsSlide] = useState(false);
+  const [isMobile, setMobile] = useState(false);
+  const [modalExit2, setModalExit2] = useState(false);
+  const [modalExit3, setModalExit3] = useState(false);
+
+  let smallPhoto;
+  let bigPhoto;
+  let smallPhotomobilew;
+  let smallPhotomobileh;
+  let bigPhotomobilew;
+  let bigPhotomobileh;
+  let smallTextBox;
+  let bigTextBox;
+  let w;
+
+  if (typeof window !== "undefined") {
+    w = window.innerWidth;
+
+    smallPhotomobilew = 360;
+    smallPhotomobileh = 150;
+    bigPhotomobilew = 360;
+    bigPhotomobileh = 330;
+    if (w > 1050) {
+      smallPhoto = 360;
+      bigPhoto = 1140;
+      smallTextBox = 263;
+      bigTextBox = 750;
+    }
+  }
 
   //oursercie
 
@@ -32,20 +64,18 @@ const Printing = () => {
     } else {
       target = e.target;
     }
+
     if (!print && !isclick) {
-      target.parentNode.classList.remove(printing.serviceComponentBox1);
-      target.parentNode.classList.add(printing.serviceComponentBox);
-      target.parentNode.nextElementSibling.classList.remove(
-        printing.serviceComponentBox
-      );
-      target.parentNode.nextElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
-      target.parentNode.nextElementSibling.nextElementSibling.classList.value =
-        "";
-      target.parentNode.nextElementSibling.nextElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
+      let pNode = target.parentNode;
+      pNode.classList.remove(printing.serviceComponentBox1);
+      pNode.classList.add(printing.serviceComponentBox);
+
+      let nes = pNode.nextElementSibling;
+      nes.classList.remove(printing.serviceComponentBox);
+      nes.classList.add(printing.serviceComponentBox1);
+      nes.nextElementSibling.classList.value = "";
+      nes.nextElementSibling.classList.add(printing.serviceComponentBox1);
+
       setPrint(true);
       setDesign(false);
       setProduct(false);
@@ -62,20 +92,16 @@ const Printing = () => {
     }
 
     if (!design && !isclick) {
-      target.parentNode.classList.remove(printing.serviceComponentBox1);
-      target.parentNode.classList.add(printing.serviceComponentBox);
-      target.parentNode.nextElementSibling.classList.remove(
+      let pNode = target.parentNode;
+      pNode.classList.remove(printing.serviceComponentBox1);
+      pNode.classList.add(printing.serviceComponentBox);
+      pNode.nextElementSibling.classList.remove(printing.serviceComponentBox);
+      pNode.nextElementSibling.classList.add(printing.serviceComponentBox1);
+      pNode.previousElementSibling.classList.remove(
         printing.serviceComponentBox
       );
-      target.parentNode.nextElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
-      target.parentNode.previousElementSibling.classList.remove(
-        printing.serviceComponentBox
-      );
-      target.parentNode.previousElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
+      pNode.previousElementSibling.classList.add(printing.serviceComponentBox1);
+
       setPrint(false);
       setDesign(true);
       setProduct(false);
@@ -92,17 +118,15 @@ const Printing = () => {
     }
 
     if (!product && !isclick) {
-      target.parentNode.classList.remove(printing.serviceComponentBox1);
-      target.parentNode.classList.add(printing.serviceComponentBox);
+      let pNode = target.parentNode;
+      pNode.classList.remove(printing.serviceComponentBox1);
+      pNode.classList.add(printing.serviceComponentBox);
 
-      target.parentNode.previousElementSibling.classList.value = "";
-      target.parentNode.previousElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
+      pNode.previousElementSibling.classList.value = "";
+      pNode.previousElementSibling.classList.add(printing.serviceComponentBox1);
 
-      target.parentNode.previousElementSibling.previousElementSibling.classList.value =
-        "";
-      target.parentNode.previousElementSibling.previousElementSibling.classList.add(
+      pNode.previousElementSibling.previousElementSibling.classList.value = "";
+      pNode.previousElementSibling.previousElementSibling.classList.add(
         printing.serviceComponentBox1
       );
 
@@ -115,194 +139,208 @@ const Printing = () => {
   // service list
 
   const isModal = (e) => {
+    console.log("isModal()");
     e.preventDefault();
-    
-
-      if (e.target.id == "container") {
-
-        if(!isSlide){
-          if (
-            e.target.firstElementChild.firstElementChild.textContent ==
-            "Large Format Printing"
-          ) {
-            e.target.nextElementSibling.className = "";
-          e.target.nextElementSibling.classList.add(printing.servicelistVisile);
-      
-          e.target.nextElementSibling.nextElementSibling.className = "";
-          e.target.nextElementSibling.nextElementSibling.classList.add(printing.servicelistVisile);
-    
-          e.target.style.backgroundImage =
-          "url('/images/offline-service-large-click.jpg')";
-      
-            setSlide1(!slide1)
-          } else if (
-            e.target.firstElementChild.firstElementChild.textContent ==
-            "Digital Printing Service"
-          ) {
-            e.target.nextElementSibling.className = "";
-            e.target.nextElementSibling.classList.add(printing.servicelistVisile);
-      
-            e.target.previousElementSibling.className = "";
-          e.target.previousElementSibling.classList.add(printing.servicelistVisile);
-    
-          e.target.style.backgroundImage = "url('/images/offline-service-digital-click.jpg')";
-      
-            setSlide2(!slide2)
-          } else if (
-            e.target.firstElementChild.firstElementChild.textContent ==
-            "Installation Service"
-          ) {
-            e.target.previousElementSibling.className = "";
-          e.target.previousElementSibling.classList.add(printing.servicelistVisile);
-      
-          e.target.previousElementSibling.previousElementSibling.className = "";
-          e.target.previousElementSibling.previousElementSibling.classList.add(printing.servicelistVisile);
-    
-          e.target.style.backgroundImage =
-                "url('/images/offline-service-installation-click.jpg')";
-            setSlide3(!slide3)
-          }else if( e.target.firstElementChild.firstElementChild.textContent ==
-            "Directional Signage Design"){
-              e.target.style.backgroundImage =
-              "url('/images/offline-service-wayfinding-click.jpg')";
-              setSlide4(!slide4)
-    
-          }else{
-            e.target.style.backgroundImage =
-            "url('/images/offline-service-promotional-click.jpg')";
-            setSlide5(!slide5)
+    if (e.target.id == "container") {
+      if (!isSlide) {
+        let target = e.target;
+        let fec = target.firstElementChild;
+        let nes = target.nextElementSibling;
+        let pes = target.previousElementSibling;
+        if (
+          fec.firstElementChild.textContent == t("printing_page.img_icon_lfp")
+        ) {
+          if (w < 768) {
+            fec.firstElementChild.style.display = "none";
+            fec.lastElementChild.style.display = "none";
           }
-  
-          e.target.className = "";
-        e.target.classList.add(printing.servicelist1);
 
-        e.target.firstElementChild.classList.remove(printing.serviceText);
-        e.target.firstElementChild.classList.add(printing.serviceText1);
-  
-        e.target.lastElementChild.classList.remove(printing.modalExit);
-        e.target.lastElementChild.classList.add(printing.modalExit1);
-  
-        e.target.firstElementChild.firstElementChild.classList.remove(
-          printing.serviceTitle
+          nes.className = "";
+          console.log("nes.classList:", nes.classList);
+          nes.classList.add(printing.servicelistVisile);
+
+          nes.nextElementSibling.className = "";
+          nes.nextElementSibling.classList.add(printing.servicelistVisile);
+
+          setSlide1(!slide1);
+        } else if (
+          fec.firstElementChild.textContent == t("printing_page.img_icon_dps")
+        ) {
+          nes.className = "";
+          nes.classList.add(printing.servicelistVisile);
+
+          pes.className = "";
+          pes.classList.add(printing.servicelistVisile);
+
+          if (w < 768) {
+            fec.firstElementChild.style.display = "none";
+            fec.lastElementChild.style.display = "none";
+          }
+
+          setSlide2(!slide2);
+        } else if (
+          fec.firstElementChild.textContent == t("printing_page.img_icon_is")
+        ) {
+          pes.className = "";
+          pes.classList.add(printing.servicelistVisile);
+
+          pes.previousElementSibling.className = "";
+          pes.previousElementSibling.classList.add(printing.servicelistVisile);
+
+          if (w < 768) {
+            fec.firstElementChild.style.display = "none";
+            fec.lastElementChild.style.display = "none";
+          }
+
+          setSlide3(!slide3);
+        } else if (
+          fec.firstElementChild.textContent == t("printing_page.img_icon_dsd")
+        ) {
+          if (w < 768) {
+            fec.firstElementChild.style.display = "none";
+            fec.lastElementChild.style.display = "none";
+          }
+          setModalExit2(false);
+          setSlide4(!slide4);
+        } else {
+          if (w < 768) {
+            fec.firstElementChild.style.display = "none";
+            fec.lastElementChild.style.display = "none";
+          }
+          console.log("setSlide5:", slide5);
+
+          setModalExit3(false);
+          setSlide5(!slide5);
+        }
+
+        target.className = "";
+        target.classList.add(printing.servicelist1);
+
+        fec.classList.remove(printing.serviceText);
+        fec.classList.remove(printing.serviceText2);
+
+        if (w < 768) {
+        } else {
+          fec.classList.add(printing.serviceText1);
+        }
+
+        target.lastElementChild.classList.remove(printing.modalExit);
+        target.lastElementChild.classList.add(printing.modalExit1);
+
+        fec.firstElementChild.classList.remove(printing.serviceTitle);
+        fec.firstElementChild.classList.add(printing.serviceTitle1);
+
+        fec.lastElementChild.classList.remove(printing.serviceDesc);
+
+        if (w < 768) {
+        } else {
+          fec.lastElementChild.classList.add(printing.serviceDesc1);
+        }
+        console.log(
+          "firstelementchild->textcontent2:",
+          fec.firstElementChild.lastElementChild
         );
-        e.target.firstElementChild.firstElementChild.classList.add(
-          printing.serviceTitle1
-        );
-  
-        e.target.firstElementChild.lastElementChild.classList.remove(
-          printing.serviceDesc
-        );
-        e.target.firstElementChild.lastElementChild.classList.add(
-          printing.serviceDesc1
-        );
-  
-      setclick(true);
-      setIsSlide(!isSlide);
+        setclick(true);
+        setIsSlide(!isSlide);
       }
-        
-
-      
     }
-    
-
-   
   };
 
   const exitModal = (e) => {
+    console.log("exitModal()");
     e.preventDefault();
 
-    if (
-      e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Large Format Printing"
-    ) {
-      e.target.parentNode.parentNode.nextElementSibling.className = "";
-      e.target.parentNode.parentNode.nextElementSibling.classList.add(printing.servicelist);
-  
-      e.target.parentNode.parentNode.nextElementSibling.nextElementSibling.className = "";
-      e.target.parentNode.parentNode.nextElementSibling.nextElementSibling.classList.add(printing.servicelist);
+    let ppNode = e.target.parentNode.parentNode;
+    let ffec = ppNode.firstElementChild.firstElementChild;
+    let nes = ppNode.nextElementSibling;
+    let pes = ppNode.previousElementSibling;
+    if (ffec.textContent == t("printing_page.img_icon_lfp")) {
+      nes.className = "";
+      nes.classList.add(printing.servicelist);
 
-      e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/offline-service-large.jpg')";
+      nes.nextElementSibling.className = "";
+      nes.nextElementSibling.classList.add(printing.servicelist);
 
-        setSlide1(!slide1);
-    } else if (
-      e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Digital Printing Service"
-    ) {
-       e.target.parentNode.parentNode.nextElementSibling.className = "";
-       e.target.parentNode.parentNode.nextElementSibling.classList.add(printing.servicelist);
+      if (w < 768) {
+        ffec.style.display = "block";
+      }
 
-       e.target.parentNode.parentNode.previousElementSibling.className = "";
-     e.target.parentNode.parentNode.previousElementSibling.classList.add(printing.servicelist);
+      setSlide1(!slide1);
+    } else if (ffec.textContent == t("printing_page.img_icon_dps")) {
+      nes.className = "";
+      nes.classList.add(printing.servicelist);
 
-      e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/offline-service-digital.jpg')";
-        setSlide2(!slide2);
-    } else if (
-      e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Installation Service"
-    ) {
+      pes.className = "";
+      pes.classList.add(printing.servicelist);
 
-       e.target.parentNode.parentNode.previousElementSibling.className = "";
-       e.target.parentNode.parentNode.previousElementSibling.classList.add(printing.servicelist);
-  
-       e.target.parentNode.parentNode.previousElementSibling.previousElementSibling.className = "";
-       e.target.parentNode.parentNode.previousElementSibling.previousElementSibling.classList.add(printing.servicelist);
+      if (w < 768) {
+        ffec.style.display = "block";
+      }
 
-      e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/offline-service-installation.jpg')";
-        setSlide3(!slide3);
-    } else if (
-      e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Directional Signage Design"
-    ) {
-      e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/offline-service-wayfinding.jpg')";
-        setSlide4(!slide4);
+      setSlide2(!slide2);
+    } else if (ffec.textContent == t("printing_page.img_icon_is")) {
+      pes.className = "";
+      pes.classList.add(printing.servicelist);
+
+      pes.previousElementSibling.className = "";
+      pes.previousElementSibling.classList.add(printing.servicelist);
+
+      if (w < 768) {
+        ffec.style.display = "block";
+      }
+
+      setSlide3(!slide3);
+    } else if (ffec.textContent == t("printing_page.img_icon_dsd")) {
+      if (w < 768) {
+        ffec.style.display = "block";
+      }
+      setModalExit2(true);
+      setSlide4(!slide4);
     } else {
-      e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/offline-service-promotional.jpg')";
-        setSlide5(!slide5);
+      console.log("exitModal:", ppNode, ffec);
+      if (w < 768) {
+        ffec.style.display = "block";
+      }
+      console.log("setSlide5:", slide5);
+      setSlide5(!slide5);
+      setModalExit3(true);
     }
 
-    e.target.parentNode.parentNode.className = "";
-        e.target.parentNode.parentNode.classList.add(printing.servicelist);
+    ppNode.className = "";
+    ppNode.classList.add(printing.servicelist);
 
+    if (ffec.textContent == t("printing_page.img_icon_ppm")) {
+      console.log("adding servicelist2");
+      ppNode.firstElementChild.classList.add(printing.serviceText2);
+    } else {
+      console.log("adding servicelist");
+      ppNode.firstElementChild.classList.add(printing.serviceText);
+    }
+    ppNode.firstElementChild.classList.remove(printing.serviceText1);
 
-    e.target.parentNode.parentNode.firstElementChild.classList.remove(
-      printing.serviceText1
-    );
-    e.target.parentNode.parentNode.firstElementChild.classList.add(
-      printing.serviceText
-    );
     e.target.parentNode.classList.remove(printing.modalExit1);
     e.target.parentNode.classList.add(printing.modalExit);
 
-    e.target.parentNode.parentNode.firstElementChild.firstElementChild.classList.remove(
-      printing.serviceTitle1
-    );
-    e.target.parentNode.parentNode.firstElementChild.firstElementChild.classList.add(
-      printing.serviceTitle
-    );
+    ffec.classList.remove(printing.serviceTitle1);
+    ffec.classList.add(printing.serviceTitle);
 
-    e.target.parentNode.parentNode.firstElementChild.lastElementChild.classList.remove(
+    ppNode.firstElementChild.lastElementChild.classList.remove(
       printing.serviceDesc1
     );
-    e.target.parentNode.parentNode.firstElementChild.lastElementChild.classList.add(
+    ppNode.firstElementChild.lastElementChild.classList.add(
       printing.serviceDesc
     );
-
 
     setIsSlide(!isSlide);
     setclick(false);
   };
 
   const clickMove = (e) => {
+    console.log("clickmove!");
     e.preventDefault();
     e.target.parentNode.parentNode.click();
     e.target.parentNode.click();
   };
-  //slide
 
   const rightSlide = () => {
     setSlide(false);
@@ -345,6 +383,21 @@ const Printing = () => {
   const inView1 = useInView(ref1);
   const inView2 = useInView(ref2);
 
+  const handleResize = () => {
+    if (window.innerWidth < 768) {
+      setMobile(true);
+      // console.log("handleresize:", isMobile);
+    } else {
+      setMobile(false);
+      // console.log("handleresize:", isMobile);
+    }
+  };
+
+  useEffect(() => {
+    console.log("useEffect resize!");
+    window.addEventListener("resize", handleResize);
+  }, []);
+
   useEffect(() => {
     if (inView) {
       control.start("visible");
@@ -369,68 +422,325 @@ const Printing = () => {
   return (
     <div>
       {/* bacground photo */}
-      <div className={printing.bgimg}>
-        <div className={printing.bgTextBox}>
-          <h1 className={printing.mainHead}>Printing</h1>
-          <p className={printing.mainText}>
-            Maximize your visual impact with our professional printing and
-            installation services, including wayfinding and promotional
-            products.
-          </p>
+      {/* <div className="bg-[url('/images/printing-bg-reverse.jpg')] md:bg-[url('/images/printing-bg.jpg')] h-[690px] w-[2000px] flex"> */}
+      <div className="hidden md:block">
+        <div className={printing.bgimg}>
+          <div className="absolute left-[30px] md:left-[10%] top-[430px]">
+            <h1 className={printing.mainHead}>{t("printing_page.banner1")}</h1>
+            <p className="flex flex-wrap box-content w-[300px] md:w-[550px] font-medium">
+              {t("printing_page.banner2")}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="block md:hidden">
+        <div className={printing.bgimgMobile}>
+          <div className="absolute left-[30px] md:left-[165px] top-[400px]">
+            <h1 className={printing.mainHead}>{t("printing_page.banner1")}</h1>
+            <p className="flex flex-wrap box-content w-[300px] md:w-[550px] font-medium">
+              {t("printing_page.banner2")}
+            </p>
+          </div>
         </div>
       </div>
       {/* our service */}
       <div className={printing.serviceBg}>
-        <div className={printing.serviceBgBox}>
+        {/* <div className={printing.serviceBgBox}> */}
+        <div className="flex w-[1140px] h-[1206px] md:h-[956px] flex-col mt-[200px] items-center">
           <div className={printing.serviceHeadBox}>
-            <h2 className={printing.serviceHead}>Our Service</h2>
+            <h2 className={printing.serviceHead}>
+              {t("printing_page.ourservice")}
+            </h2>
           </div>
-          <div className={printing.serviceBox}>
-            <div className={printing.serviceTitleBox}>
+          {/* mobile */}
+          <div className="block md:hidden w-[400px] h-[100px] flex flex-col items-center pt-[50px]">
+            <div className="block md:hidden w-[400px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
               <div
                 id="printing"
-                className={printing.serviceComponentBox}
+                className="block md:hidden w-[260px] h-[60px] flex items-center text-[24px] font-[400px] text-black"
                 onClick={isPrint}
               >
-                <p>Printing & Installation</p>
+                <p>{t("printing_page.os_printing_installation")}</p>
+              </div>
+            </div>
+          </div>
+          <div className="w-[400px] h-[450px] mt-[20px] block md:hidden mb-[40px]">
+            <motion.div
+              className={printing.servicelistBoxMobile}
+              animate={{
+                justifyContent: !slide1
+                  ? "center"
+                  : !slide2
+                  ? "center"
+                  : !slide3
+                  ? "center"
+                  : "space-between",
+              }}
+            >
+              <motion.div
+                id="container"
+                className="w-[360px] h-[150px] flex relative mb-[10px]"
+                style={{
+                  backgroundImage: `url('/images/offline-service-large-click.jpg')`,
+                }}
+                animate={{
+                  width: slide1 ? smallPhotomobilew : bigPhotomobilew,
+                  height: slide1 ? smallPhotomobileh : bigPhotomobileh,
+                }}
+                onClick={isModal}
+              >
+                <div className={printing.serviceText} onClick={clickMove}>
+                  {" "}
+                  <h1 className={printing.serviceTitle}>
+                    {t("printing_page.img_icon_lfp")}
+                  </h1>
+                  <p className={printing.serviceDesc}>
+                    {t("printing_page.img_icon_lfp_desc")} <br />{" "}
+                    {t("printing_page.img_icon_lfp_desc2")}
+                  </p>
+                </div>
+                <div
+                  id="exit"
+                  className={printing.modalExit}
+                  onClick={exitModal}
+                >
+                  {" "}
+                  <button className={printing.serviceExitBtn}>x</button>
+                </div>
+              </motion.div>
+              <motion.div
+                id="container"
+                className="w-[360px] h-[150px] flex relative mb-[10px]"
+                style={{
+                  backgroundImage: `url('/images/offline-service-digital-click.jpg')`,
+                }}
+                animate={{
+                  width: slide2 ? smallPhotomobilew : bigPhotomobilew,
+                  height: slide2 ? smallPhotomobileh : bigPhotomobileh,
+                }}
+                onClick={isModal}
+              >
+                <div className={printing.serviceText} onClick={clickMove}>
+                  {" "}
+                  <h1 className={printing.serviceTitle}>
+                    {t("printing_page.img_icon_dps")}
+                  </h1>
+                  <p className={printing.serviceDesc}>
+                    {t("printing_page.img_icon_dps_desc")} <br />{" "}
+                    {t("printing_page.img_icon_dps_desc2")}
+                  </p>
+                </div>
+                <div
+                  id="exit"
+                  className={printing.modalExit}
+                  onClick={exitModal}
+                >
+                  {" "}
+                  <button className={printing.serviceExitBtn}>x</button>
+                </div>
+              </motion.div>
+              <motion.div
+                id="container"
+                className="w-[360px] h-[150px] flex relative "
+                style={{
+                  backgroundImage: `url('/images/offline-service-installation-click.jpg')`,
+                }}
+                animate={{
+                  width: slide3 ? smallPhotomobilew : bigPhotomobilew,
+                  height: slide3 ? smallPhotomobileh : bigPhotomobileh,
+                }}
+                onClick={isModal}
+              >
+                <div className={printing.serviceText} onClick={clickMove}>
+                  {" "}
+                  <h1 className={printing.serviceTitle}>
+                    {t("printing_page.img_icon_is")}
+                  </h1>
+                  <p className={printing.serviceDesc}>
+                    {t("printing_page.img_icon_is_desc")} <br />{" "}
+                    {t("printing_page.img_icon_is_desc2")}
+                  </p>
+                </div>
+                <div
+                  id="exit"
+                  className={printing.modalExit}
+                  onClick={exitModal}
+                >
+                  {" "}
+                  <button className={printing.serviceExitBtn}>x</button>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+          <div className="block md:hidden w-[400px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832] ">
+            <div
+              id="printing"
+              className="block md:hidden w-[260px] h-[60px] flex items-center text-[24px] font-[400px] text-black"
+              onClick={isPrint}
+            >
+              <p>{t("printing_page.os_wayfinding")}</p>
+            </div>
+          </div>
+          {/* <div className="w-[400px] h-[150px] mt-[20px] block md:hidden mb-[40px]"> */}
+          <div
+            className={`w-[400px] ${
+              modalExit2 ? "h-[150px]" : "h-[330px]"
+            } mt-[20px] block md:hidden mb-[40px]`}
+          >
+            <motion.div
+              className={printing.servicelistBoxMobile}
+              animate={{
+                justifyContent: !slide4 ? "center" : "start",
+              }}
+            >
+              <motion.div
+                id="container"
+                className="w-[360px] h-[150px] flex relative"
+                style={{
+                  backgroundImage: `url('/images/offline-service-wayfinding-click.jpg')`,
+                }}
+                animate={{
+                  width: slide4 ? smallPhoto : bigPhoto,
+                  height: slide4 ? smallPhotomobileh : bigPhotomobileh,
+                }}
+                onClick={isModal}
+              >
+                <div className={printing.serviceText} onClick={clickMove}>
+                  {" "}
+                  <h1 className={printing.serviceTitle}>
+                    {t("printing_page.img_icon_dsd")}
+                  </h1>
+                  <p className={printing.serviceDesc}>
+                    {t("printing_page.img_icon_dsd_desc")} <br />{" "}
+                    {t("printing_page.img_icon_dsd_desc2")}
+                  </p>
+                </div>
+                <div
+                  id="exit"
+                  className={printing.modalExit}
+                  onClick={exitModal}
+                >
+                  {" "}
+                  <button className={printing.serviceExitBtn}>x</button>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+          <div className="block md:hidden w-[400px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
+            <div
+              id="printing"
+              className="block md:hidden w-[260px] h-[60px] flex items-center text-[24px] font-[400px] text-black"
+              onClick={isPrint}
+            >
+              <p>{t("printing_page.os_promotional")}</p>
+            </div>
+          </div>
+          {/* <div className="w-[400px] h-[300px] mt-[20px] block md:hidden mb-[40px] "> */}
+          <div
+            className={`w-[400px] ${
+              modalExit3 ? "h-[150px]" : "h-[330px]"
+            } mt-[20px] block md:hidden mb-[40px]`}
+          >
+            <motion.div
+              className={printing.servicelistBoxMobile}
+              animate={{
+                justifyContent: !slide5 ? "center" : "start",
+              }}
+            >
+              <motion.div
+                id="container"
+                className="w-[360px] h-[150px] flex relative "
+                style={{
+                  backgroundImage: `url('/images/offline-service-promotional-click.jpg')`,
+                }}
+                animate={{
+                  width: slide5 ? smallPhoto : bigPhoto,
+                  height: slide5 ? smallPhotomobileh : bigPhotomobileh,
+                }}
+                onClick={isModal}
+              >
+                <div className={printing.serviceText2} onClick={clickMove}>
+                  {" "}
+                  <h1 className={printing.serviceTitle2}>
+                    {t("printing_page.img_icon_ppm")}
+                  </h1>
+                  <p className={printing.serviceDesc}>
+                    {t("printing_page.img_icon_ppm_desc")} <br />{" "}
+                    {t("printing_page.img_icon_ppm_desc2")}
+                  </p>
+                </div>
+                <div
+                  id="exit"
+                  className={printing.modalExit}
+                  onClick={exitModal}
+                >
+                  {" "}
+                  <button className={printing.serviceExitBtn}>x</button>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+          {/* desktop */}
+          <div className="w-[1140px] h-[892px] flex flex-col items-center hidden md:block">
+            <div className="w-[1140px] h-[72px] flex justify-between border-b-8 border-solid border-[#C83832]">
+              <div
+                id="printing"
+                className="w-[380px] h-[65px] flex items-center justify-center text-[25px] bg-[#C83832] justify-center text-[25px] font-[400px] text-white"
+                onClick={isPrint}
+              >
+                <p>{t("printing_page.os_printing_installation")}</p>
               </div>
               <div
                 id="design"
-                className={printing.serviceComponentBox1}
+                className="w-[380px] h-[65px] flex items-center justify-center text-[25px]"
                 onClick={isDesign}
               >
-                <p> Wayfinding Design</p>
+                <p>{t("printing_page.os_wayfinding")}</p>
               </div>
               <div
                 id="product"
-                className={printing.serviceComponentBox1}
+                className="w-[380px] h-[65px] flex items-center justify-center text-[25px]"
                 onClick={isProduct}
               >
-                <p>Promotional Product</p>
+                <p>{t("printing_page.os_promotional")}</p>
               </div>
             </div>
             <div className={printing.servicelistBoxContainer}>
               {print ? (
-                <div className={printing.servicelistBox}>
+                <motion.div
+                  className={printing.servicelistBox}
+                  animate={{
+                    justifyContent: !slide1
+                      ? "center"
+                      : !slide2
+                      ? "center"
+                      : !slide3
+                      ? "center"
+                      : "space-between",
+                  }}
+                >
                   <motion.div
                     id="container"
                     className={printing.servicelist}
                     style={{
-                      backgroundImage: `url('/images/offline-service-large.jpg')`,
+                      backgroundImage: `url('/images/offline-service-large-click.jpg')`,
                     }}
                     animate={{
-                      width: slide1 ? 360 : 1140,
+                      width: slide1 ? smallPhoto : bigPhoto,
                     }}
                     onClick={isModal}
                   >
-                    <div className={printing.serviceText} onClick={clickMove}>
+                    <div
+                      className={printing.serviceTextDesktop}
+                      onClick={clickMove}
+                    >
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Large Format Printing
+                        {t("printing_page.img_icon_lfp")}
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Reliable printing services offering excellent prints and
-                        a seamless <br /> customer experience.
+                        {t("printing_page.img_icon_lfp_desc")} <br />{" "}
+                        {t("printing_page.img_icon_lfp_desc2")}
                       </p>
                     </div>
                     <div
@@ -446,21 +756,24 @@ const Printing = () => {
                     id="container"
                     className={printing.servicelist}
                     style={{
-                      backgroundImage: `url('/images/offline-service-digital.jpg')`,
+                      backgroundImage: `url('/images/offline-service-digital-click.jpg')`,
                     }}
                     animate={{
-                      width: slide2 ? 360 : 1140,
+                      width: slide2 ? smallPhoto : bigPhoto,
                     }}
                     onClick={isModal}
                   >
-                    <div className={printing.serviceText} onClick={clickMove}>
+                    <div
+                      className={printing.serviceTextDesktop}
+                      onClick={clickMove}
+                    >
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Digital Printing Service
+                        {t("printing_page.img_icon_dps")}
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Trusted printing services for top-notch prints and a
-                        hassle-free, <br /> reliables experience.
+                        {t("printing_page.img_icon_dps_desc")} <br />{" "}
+                        {t("printing_page.img_icon_dps_desc2")}
                       </p>
                     </div>
                     <div
@@ -476,21 +789,24 @@ const Printing = () => {
                     id="container"
                     className={printing.servicelist}
                     style={{
-                      backgroundImage: `url('/images/offline-service-installation.jpg')`,
+                      backgroundImage: `url('/images/offline-service-installation-click.jpg')`,
                     }}
                     animate={{
-                      width: slide3 ? 360 : 1140,
+                      width: slide3 ? smallPhoto : bigPhoto,
                     }}
                     onClick={isModal}
                   >
-                    <div className={printing.serviceText} onClick={clickMove}>
+                    <div
+                      className={printing.serviceTextDesktop}
+                      onClick={clickMove}
+                    >
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Installation Service
+                        {t("printing_page.img_icon_is")}
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Professional and reliable installation service for a
-                        hassle-free <br /> experience you can trust.
+                        {t("printing_page.img_icon_is_desc")} <br />{" "}
+                        {t("printing_page.img_icon_is_desc2")}
                       </p>
                     </div>
                     <div
@@ -502,28 +818,36 @@ const Printing = () => {
                       <button className={printing.serviceExitBtn}>x</button>
                     </div>
                   </motion.div>
-                </div>
+                </motion.div>
               ) : design ? (
-                <div className="w-full h-full flex justify-between relative">
+                <motion.div
+                  className={printing.servicelistBox}
+                  animate={{
+                    justifyContent: !slide4 ? "center" : "start",
+                  }}
+                >
                   <motion.div
                     id="container"
                     className={printing.servicelist}
                     style={{
-                      backgroundImage: `url('/images/offline-service-wayfinding.jpg')`,
+                      backgroundImage: `url('/images/offline-service-wayfinding-click.jpg')`,
                     }}
                     animate={{
-                      width: slide4 ? 360 : 1140,
+                      width: slide4 ? smallPhoto : bigPhoto,
                     }}
                     onClick={isModal}
                   >
-                    <div className={printing.serviceText} onClick={clickMove}>
+                    <div
+                      className={printing.serviceTextDesktop}
+                      onClick={clickMove}
+                    >
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Directional Signage Design
+                        {t("printing_page.img_icon_dsd")}
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Streamline navagation effortlessly with out proven and
-                        reliable <br /> wayfinding design solutions.
+                        {t("printing_page.img_icon_dsd_desc")} <br />{" "}
+                        {t("printing_page.img_icon_dsd_desc2")}
                       </p>
                     </div>
                     <div
@@ -535,28 +859,36 @@ const Printing = () => {
                       <button className={printing.serviceExitBtn}>x</button>
                     </div>
                   </motion.div>
-                </div>
+                </motion.div>
               ) : (
-                <div className="w-full h-full flex justify-between relative">
+                <motion.div
+                  className={printing.servicelistBox}
+                  animate={{
+                    justifyContent: !slide5 ? "center" : "start",
+                  }}
+                >
                   <motion.div
                     id="container"
                     className={printing.servicelist}
                     style={{
-                      backgroundImage: `url('/images/offline-service-promotional.jpg')`,
+                      backgroundImage: `url('/images/offline-service-promotional-click.jpg')`,
                     }}
                     animate={{
-                      width: slide5 ? 360 : 1140,
+                      width: slide5 ? smallPhoto : bigPhoto,
                     }}
                     onClick={isModal}
                   >
-                    <div className={printing.serviceText} onClick={clickMove}>
+                    <div
+                      className={printing.serviceTextDesktop}
+                      onClick={clickMove}
+                    >
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Promotional Product & Merchandise
+                        {t("printing_page.img_icon_ppm")}
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Bring your branding to life with our expertise,
-                        personalized <br /> approach, and creativity.
+                        {t("printing_page.img_icon_ppm_desc")} <br />{" "}
+                        {t("printing_page.img_icon_ppm_desc2")}
                       </p>
                     </div>
                     <div
@@ -568,7 +900,7 @@ const Printing = () => {
                       <button className={printing.serviceExitBtn}>x</button>
                     </div>
                   </motion.div>
-                </div>
+                </motion.div>
               )}
             </div>
           </div>
@@ -580,10 +912,10 @@ const Printing = () => {
           // install Swiper modules
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           style={{ height: "411px" }}
-          spaceBetween={50}
+          spaceBetween={isMobile ? 10 : 50}
           speed={700}
-          slidesPerView={4}
-          slidesPerGroup={4}
+          slidesPerView={isMobile ? 2 : 4}
+          slidesPerGroup={isMobile ? 2 : 4}
           navigation={{
             // 네비게이션 적용, < >
             nextEl: ".swiper-button-next", // 다음 버튼 클래스명
@@ -591,7 +923,7 @@ const Printing = () => {
           }}
           onSlideNextTransitionStart={toggleSwitch}
           onSlidePrevTransitionStart={toggleSwitch}
-          slidesOffsetBefore={150}
+          slidesOffsetBefore={isMobile ? 0 : 150}
           slidesOffsetAfter={250}
         >
           <SwiperSlide className={printing.slides}>
@@ -602,8 +934,8 @@ const Printing = () => {
           <SwiperSlide className={printing.slide3}></SwiperSlide>
           <SwiperSlide className={printing.slide4}></SwiperSlide>
           <SwiperSlide className={printing.slide5}></SwiperSlide>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+          {!isMobile && <div class="swiper-button-prev"></div>}
+          {!isMobile && <div class="swiper-button-next"></div>}
         </Swiper>
 
         <div className={printing.switch} data-on={isOn}>
@@ -620,103 +952,103 @@ const Printing = () => {
         </div>
       </div>
       {/* reference */}
-      <div className={printing.referenceBg}>
-        <motion.div
-          ref={ref}
-          variants={boxVariant}
-          initial="hidden"
-          animate={control}
-          exit="hidden"
-          className={printing.referenceBox}
-        >
-          <motion.div variants={item} className={printing.referenceImgBox}>
-            <img
-              src="/images/Offline-Insight-BrandRecall.jpg"
-              alt="react logo"
-              className={printing.referenceImg}
-            />
-          </motion.div>
-          <motion.div variants={item} className={printing.referenceText}>
-            <h1 className={printing.referenceTextTitle}>
-              Driving Higher Brand Recall
-            </h1>
-            <p className={printing.referenceTextStyle}>
-              Did you know that print advertising achieves a remarkable 77%
-              brand recall rate, surpassing digital platforms (Newsworks, 2020)?
-            </p>
-            <p className={printing.referenceTextStyle}>
-              Maximize your brand's impact through print advertising, creating a
-              lasting impression that resonates with your audience.
-            </p>
-          </motion.div>
-        </motion.div>
-      </div>
-      <div className={printing.referenceBg}>
-        <motion.div
-          ref={ref1}
-          variants={boxVariant}
-          initial="hidden"
-          animate={control1}
-          className={printing.referenceBox1}
-        >
-          <motion.div variants={item} className={printing.referenceText1}>
-            <div className={printing.referenceText2}>
-              <h1 className={printing.referenceTextTitle}>
-                Making Informed Decisions
+      <div>
+        <div className="flex w-[100%] w-[100%] justify-center">
+          <motion.div
+            ref={ref}
+            variants={boxVariant}
+            initial="hidden"
+            animate={control}
+            exit="hidden"
+            className="flex h-[600px] w-[1140px] mt-[200px] flex-col md:flex-row"
+          >
+            <motion.div variants={item} className="w-[100%] h-[100%]">
+              <img
+                src="/images/Offline-Insight-BrandRecall.jpg"
+                alt="react logo"
+                className="w-[100%] h-[100%] px-4 md:px-0 md:w-[555px] md:h-[600px]"
+              />
+            </motion.div>
+            <motion.div
+              variants={item}
+              className="flex flex-col w-[100%] pl-[24px] md:pl-[84px] justify-center"
+            >
+              <h1 className="font-semibold text-2xl md:text-3xl pb-[40px] pt-[40px]">
+                {t("printing_page.printing_page_option1")}
               </h1>
-              <p className={printing.referenceTextStyle}>
-                Did you know that 82% of consumers trust print ads the most when
-                making important purchase decisions? (Marketing Shepa survey)
+              <p className="text-xl pb-[20px] pr-[10px]">
+                {t("printing_page.printing_page_option1_desc")}
               </p>
-              <p className={printing.referenceTextStyle}>
-                Explore how print advertising builds trust, empowers
-                decision-making, and enables confident choices.
+              <p className="text-xl pb-[20px] pr-[10px]">
+                {t("printing_page.printing_page_option1_desc2")}
               </p>
-            </div>
+            </motion.div>
           </motion.div>
-          <motion.div variants={item} className={printing.referenceImgBox1}>
-            <img
-              src="/images/Offline-Insight-Decision.jpg"
-              alt="react logo"
-              className={printing.referenceImg1}
-            />
+        </div>
+        <div className="flex w-[100%] w-[100%] justify-center mt-[400px] md:mt-[0px]">
+          <motion.div
+            ref={ref1}
+            variants={boxVariant}
+            initial="hidden"
+            animate={control1}
+            className="flex h-[600px] w-[1140px] mt-[140px] md:mt-[200px] flex-col-reverse md:flex-row"
+          >
+            <motion.div
+              variants={item}
+              className="flex flex-col w-[100%] pl-[24px] md:pr-[84px] justify-center"
+            >
+              {/* <div className={printing.referenceText2}> */}
+              <h1 className="font-semibold text-2xl md:text-3xl pb-[40px] pt-[40px]">
+                {t("printing_page.printing_page_option2")}
+              </h1>
+              <p className="text-xl pb-[20px] pr-[10px]">
+                {t("printing_page.printing_page_option2_desc")}
+              </p>
+              <p className="text-xl pb-[20px] pr-[10px]">
+                {t("printing_page.printing_page_option2_desc2")}
+              </p>
+              {/* </div> */}
+            </motion.div>
+            <motion.div variants={item} className="w-[100%] h-[100%]">
+              <img
+                src="/images/Offline-Insight-Decision.jpg"
+                alt="react logo"
+                className="w-[100%] h-[100%] px-4 md:px-0 md:w-[555px] md:h-[600px]"
+              />
+            </motion.div>
           </motion.div>
-        </motion.div>
-      </div>
-      <div
-        className={printing.referenceBg}
-        style={{
-          marginBottom: `200px`,
-        }}
-      >
-        <motion.div
-          ref={ref2}
-          variants={boxVariant}
-          initial="hidden"
-          animate={control2}
-          className={printing.referenceBox1}
-        >
-          <motion.div variants={item} className={printing.referenceImgBox}>
-            <img
-              src="/images/Offline-Insight-Combination.jpg"
-              alt="react logo"
-              className={printing.referenceImg}
-            />
+        </div>
+        <div className="flex w-[100%] w-[100%] justify-center mb-[450px] md:mb-[200px]">
+          <motion.div
+            ref={ref2}
+            variants={boxVariant}
+            initial="hidden"
+            animate={control2}
+            className="flex h-[600px] w-[1140px] mt-[70px] md:mt-[200px] flex-col md:flex-row"
+          >
+            <motion.div variants={item} className="w-[100%] h-[100%]">
+              <img
+                src="/images/Offline-Insight-Combination.jpg"
+                alt="react logo"
+                className="w-[100%] h-[100%] md:w-[555px] md:h-[600px] px-4 md:px-0"
+              />
+            </motion.div>
+            <motion.div
+              variants={item}
+              className="flex flex-col w-[100%] pl-[24px] md:pl-[84px] justify-center"
+            >
+              <h1 className="font-semibold text-2xl md:text-3xl pb-[40px] pt-[40px]">
+                {t("printing_page.printing_page_option3")}
+              </h1>
+              <p className="text-xl pb-[20px] pr-[10px]">
+                {t("printing_page.printing_page_option3_desc")}
+              </p>
+              <p className="text-xl pb-[20px] pr-[10px]">
+                {t("printing_page.printing_page_option3_desc2")}
+              </p>
+            </motion.div>
           </motion.div>
-          <motion.div variants={item} className={printing.referenceText}>
-            <h1 className={printing.referenceTextTitle}>
-              An Unbeatable Combination
-            </h1>
-            <p className={printing.referenceTextStyle}>
-              Did you know that combining print and digital advertising can lead
-              to a 400% increase in effectiveness (Top Media Advertising)?
-            </p>
-            <p className={printing.referenceTextStyle}>
-              Unleash the synergy of print and digital ads, reaching a wider
-              audience for unprecedented online campaign success.
-            </p>
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

@@ -7,7 +7,11 @@ import { React, useState, useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import printing from "../app/digital.module.css";
 
+import { useTranslation } from "next-i18next";
+
 const Digital = () => {
+  const { t } = useTranslation("common");
+
   const [web, setWeb] = useState(true);
   const [admin, setAdmin] = useState(false);
   const [branding, setBranding] = useState(false);
@@ -23,16 +27,29 @@ const Digital = () => {
   const [slide7, setSlide7] = useState(true);
   const [slide8, setSlide8] = useState(true);
   const [isSlide, setIsSlide] = useState(false);
+  const [modalExit1, setModalExit1] = useState(true);
+  const [modalExit2, setModalExit2] = useState(true);
+  const [modalExit3, setModalExit3] = useState(true);
+  const [modalExit4, setModalExit4] = useState(true);
+  const [modalExit5, setModalExit5] = useState(true);
 
   let smallPhoto;
   let bigPhoto;
   let smallTextBox;
   let bigTextBox;
-  let w
+  let w;
+  let smallPhotomobilew;
+  let smallPhotomobileh;
+  let bigPhotomobilew;
+  let bigPhotomobileh;
 
   if (typeof window !== "undefined") {
     w = window.innerWidth;
 
+    smallPhotomobilew = 360;
+    smallPhotomobileh = 150;
+    bigPhotomobilew = 360;
+    bigPhotomobileh = 330;
     if (w > 1050) {
       smallPhoto = 263;
       bigPhoto = 1140;
@@ -41,10 +58,7 @@ const Digital = () => {
     }
   }
 
-
-
-  //oursercie
-
+  //ourservice
   const isWeb = (e) => {
     e.preventDefault();
     let target;
@@ -54,24 +68,17 @@ const Digital = () => {
       target = e.target;
     }
     if (!web && !isclick) {
-      target.parentNode.classList.remove(printing.serviceComponentBox1);
-      target.parentNode.classList.add(printing.serviceComponentBox);
-      target.parentNode.nextElementSibling.classList.remove(
-        printing.serviceComponentBox
-      );
-      target.parentNode.nextElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
-      target.parentNode.nextElementSibling.nextElementSibling.classList.value =
-        "";
-      target.parentNode.nextElementSibling.nextElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
-      target.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.classList.value =
-        "";
-      target.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
+      let pNode = target.parentNode;
+      let nes = pNode.nextElementSibling;
+      let nnes = nes.nextElementSibling;
+      pNode.classList.remove(printing.serviceComponentBox1);
+      pNode.classList.add(printing.serviceComponentBox);
+      nes.classList.remove(printing.serviceComponentBox);
+      nes.classList.add(printing.serviceComponentBox1);
+      nnes.classList.value = "";
+      nnes.classList.add(printing.serviceComponentBox1);
+      nnes.nextElementSibling.classList.value = "";
+      nnes.nextElementSibling.classList.add(printing.serviceComponentBox1);
       setWeb(true);
       setAdmin(false);
       setBranding(false);
@@ -89,31 +96,26 @@ const Digital = () => {
     }
 
     if (!admin && !isclick) {
-      target.parentNode.classList.remove(printing.serviceComponentBox1);
-      target.parentNode.classList.add(printing.serviceComponentBox);
-      target.parentNode.nextElementSibling.classList.remove(
+      let pNode = target.parentNode;
+      let nes = pNode.nextElementSibling;
+      pNode.classList.remove(printing.serviceComponentBox1);
+      pNode.classList.add(printing.serviceComponentBox);
+      nes.classList.remove(printing.serviceComponentBox);
+      nes.classList.add(printing.serviceComponentBox1);
+      pNode.previousElementSibling.classList.remove(
         printing.serviceComponentBox
       );
-      target.parentNode.nextElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
-      target.parentNode.previousElementSibling.classList.remove(
-        printing.serviceComponentBox
-      );
-      target.parentNode.previousElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
-      target.parentNode.nextElementSibling.nextElementSibling.classList.value =
-        "";
-      target.parentNode.nextElementSibling.nextElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
+      pNode.previousElementSibling.classList.add(printing.serviceComponentBox1);
+      nes.nextElementSibling.classList.value = "";
+      nes.nextElementSibling.classList.add(printing.serviceComponentBox1);
+
       setWeb(false);
       setAdmin(true);
       setBranding(false);
       setGraphic(false);
     }
   };
+
   const isBranding = (e) => {
     e.preventDefault();
 
@@ -125,24 +127,19 @@ const Digital = () => {
     }
 
     if (!branding && !isclick) {
-      target.parentNode.classList.remove(printing.serviceComponentBox1);
-      target.parentNode.classList.add(printing.serviceComponentBox);
+      let pNode = target.parentNode;
+      let pes = pNode.previousElementSibling;
+      pNode.classList.remove(printing.serviceComponentBox1);
+      pNode.classList.add(printing.serviceComponentBox);
 
-      target.parentNode.previousElementSibling.classList.value = "";
-      target.parentNode.previousElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
+      pes.classList.value = "";
+      pes.classList.add(printing.serviceComponentBox1);
 
-      target.parentNode.previousElementSibling.previousElementSibling.classList.value =
-        "";
-      target.parentNode.previousElementSibling.previousElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
+      pes.previousElementSibling.classList.value = "";
+      pes.previousElementSibling.classList.add(printing.serviceComponentBox1);
 
-      target.parentNode.nextElementSibling.classList.value = "";
-      target.parentNode.nextElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
+      pNode.nextElementSibling.classList.value = "";
+      pNode.nextElementSibling.classList.add(printing.serviceComponentBox1);
 
       setWeb(false);
       setAdmin(false);
@@ -162,25 +159,20 @@ const Digital = () => {
     }
 
     if (!graphic && !isclick) {
-      target.parentNode.classList.remove(printing.serviceComponentBox1);
-      target.parentNode.classList.add(printing.serviceComponentBox);
+      let pNode = target.parentNode;
+      let pes = pNode.previousElementSibling;
+      let ppes = pes.previousElementSibling;
+      pNode.classList.remove(printing.serviceComponentBox1);
+      pNode.classList.add(printing.serviceComponentBox);
 
-      target.parentNode.previousElementSibling.classList.value = "";
-      target.parentNode.previousElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
+      pes.classList.value = "";
+      pes.classList.add(printing.serviceComponentBox1);
 
-      target.parentNode.previousElementSibling.previousElementSibling.classList.value =
-        "";
-      target.parentNode.previousElementSibling.previousElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
+      ppes.classList.value = "";
+      ppes.classList.add(printing.serviceComponentBox1);
 
-      target.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.classList.value =
-        "";
-      target.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.classList.add(
-        printing.serviceComponentBox1
-      );
+      ppes.previousElementSibling.classList.value = "";
+      ppes.previousElementSibling.classList.add(printing.serviceComponentBox1);
 
       setWeb(false);
       setAdmin(false);
@@ -194,151 +186,158 @@ const Digital = () => {
   const isModal = (e) => {
     e.preventDefault();
 
-    // const box1 = document.getElementById("box1");
-
-    // box1.className = "";
-    // box1.classList.add(printing.servicelistVisile);
-
     if (e.target.id == "container") {
       if (!isSlide) {
-        if (
-          e.target.firstElementChild.firstElementChild.textContent ==
-          "Search Engine Optimization"
-        ) {
-          e.target.nextElementSibling.className = "";
-          e.target.nextElementSibling.classList.add(printing.servicelistVisile);
+        let target = e.target;
+        let fec = target.firstElementChild;
+        let ffec = fec.firstElementChild;
+        let nes = target.nextElementSibling;
+        let pes = target.previousElementSibling;
 
-          e.target.nextElementSibling.nextElementSibling.className = "";
-          e.target.nextElementSibling.nextElementSibling.classList.add(
-            printing.servicelistVisile
-          );
+        w = window.innerWidth;
 
-          e.target.nextElementSibling.nextElementSibling.nextElementSibling.className =
-            "";
-          e.target.nextElementSibling.nextElementSibling.nextElementSibling.classList.add(
-            printing.servicelistVisile
-          );
+        if (ffec.textContent == t("digital_page.img_icon_seo")) {
+          console.log("target:", target);
+          console.log("firstelementchild:", fec.firstElementChild);
 
-          e.target.style.backgroundImage =
+          let nnes = nes.nextElementSibling;
+
+          nes.className = "";
+          nes.classList.add(printing.servicelistVisile);
+
+          nnes.className = "";
+          nnes.classList.add(printing.servicelistVisile);
+
+          nnes.nextElementSibling.className = "";
+          nnes.nextElementSibling.classList.add(printing.servicelistVisile);
+
+          target.style.backgroundImage =
             "url('/images/Online-Service-SEO.jpg')";
 
+          if (w < 768) {
+            fec.firstElementChild.style.display = "none";
+            fec.lastElementChild.style.display = "none";
+          }
           setSlide1(!slide1);
-        } else if (
-          e.target.firstElementChild.firstElementChild.textContent ==
-          "Content Management System"
-        ) {
-          e.target.nextElementSibling.className = "";
-          e.target.nextElementSibling.classList.add(printing.servicelistVisile);
+        } else if (ffec.textContent == t("digital_page.img_icon_cms")) {
+          let nnes = nes.nextElementSibling;
 
-          e.target.nextElementSibling.nextElementSibling.className = "";
-          e.target.nextElementSibling.nextElementSibling.classList.add(
-            printing.servicelistVisile
-          );
+          nes.className = "";
+          nes.classList.add(printing.servicelistVisile);
 
-          e.target.previousElementSibling.className = "";
-          e.target.previousElementSibling.classList.add(
-            printing.servicelistVisile
-          );
+          nnes.className = "";
+          nnes.classList.add(printing.servicelistVisile);
 
-          e.target.style.backgroundImage =
+          pes.className = "";
+          pes.classList.add(printing.servicelistVisile);
+
+          target.style.backgroundImage =
             "url('/images/Online-Service-CMS.jpg')";
 
+          if (w < 768) {
+            fec.firstElementChild.style.display = "none";
+            fec.lastElementChild.style.display = "none";
+          }
           setSlide2(!slide2);
-        } else if (
-          e.target.firstElementChild.firstElementChild.textContent ==
-          "Third-Party Authentication"
-        ) {
-          e.target.previousElementSibling.className = "";
-          e.target.previousElementSibling.classList.add(
-            printing.servicelistVisile
-          );
+        } else if (ffec.textContent == t("digital_page.img_icon_tpa")) {
+          let ppes = pes.previousElementSibling;
 
-          e.target.previousElementSibling.previousElementSibling.className = "";
-          e.target.previousElementSibling.previousElementSibling.classList.add(
-            printing.servicelistVisile
-          );
+          pes.className = "";
+          pes.classList.add(printing.servicelistVisile);
 
-          e.target.nextElementSibling.className = "";
-          e.target.nextElementSibling.classList.add(printing.servicelistVisile);
+          ppes.className = "";
+          ppes.classList.add(printing.servicelistVisile);
 
-          e.target.style.backgroundImage =
+          nes.className = "";
+          nes.classList.add(printing.servicelistVisile);
+
+          target.style.backgroundImage =
             "url('/images/Online-Service-OAuth.jpg')";
+
+          if (w < 768) {
+            fec.firstElementChild.style.display = "none";
+            fec.lastElementChild.style.display = "none";
+          }
           setSlide3(!slide3);
-        } else if (
-          e.target.firstElementChild.firstElementChild.textContent ==
-          "E-commerce Intergration"
-        ) {
-          e.target.previousElementSibling.className = "";
-          e.target.previousElementSibling.classList.add(
-            printing.servicelistVisile
-          );
+        } else if (ffec.textContent == t("digital_page.img_icon_eci")) {
+          let ppes = pes.previousElementSibling;
 
-          e.target.previousElementSibling.previousElementSibling.className = "";
-          e.target.previousElementSibling.previousElementSibling.classList.add(
-            printing.servicelistVisile
-          );
+          pes.className = "";
+          pes.classList.add(printing.servicelistVisile);
 
-          e.target.previousElementSibling.previousElementSibling.previousElementSibling.className =
-            "";
-          e.target.previousElementSibling.previousElementSibling.previousElementSibling.classList.add(
-            printing.servicelistVisile
-          );
+          ppes.className = "";
+          ppes.classList.add(printing.servicelistVisile);
 
-          e.target.style.backgroundImage =
+          ppes.previousElementSibling.className = "";
+          ppes.previousElementSibling.classList.add(printing.servicelistVisile);
+
+          target.style.backgroundImage =
             "url('/images/Online-Service-Ecommerce.jpg')";
+
+          if (w < 768) {
+            fec.firstElementChild.style.display = "none";
+            fec.lastElementChild.style.display = "none";
+            setModalExit1(false);
+          }
           setSlide4(!slide4);
-        } else if (
-          e.target.firstElementChild.firstElementChild.textContent ==
-          "Admin Dashboard Implementation"
-        ) {
-          e.target.style.backgroundImage =
+        } else if (ffec.textContent == t("digital_page.img_icon_adi")) {
+          target.style.backgroundImage =
             "url('/images/Online-Service-Admin.jpg')";
+          if (w < 768) {
+            fec.firstElementChild.style.display = "none";
+            fec.lastElementChild.style.display = "none";
+            setModalExit2(false);
+          }
           setSlide5(!slide5);
-        } else if (
-          e.target.firstElementChild.firstElementChild.textContent ==
-          "Visual Identity Design"
-        ) {
+        } else if (ffec.textContent == t("digital_page.img_icon_vid")) {
+          if (w < 768) {
+            fec.firstElementChild.style.display = "none";
+            fec.lastElementChild.style.display = "none";
+            setModalExit3(false);
+          }
           setSlide6(!slide6);
-        } else if (
-          e.target.firstElementChild.firstElementChild.textContent ==
-          "Poster Design"
-        ) {
+        } else if (ffec.textContent == t("digital_page.img_icon_pd")) {
+          if (w < 768) {
+            fec.firstElementChild.style.display = "none";
+            fec.lastElementChild.style.display = "none";
+            setModalExit4(false);
+          }
           setSlide7(!slide7);
-          e.target.nextElementSibling.className = "";
-          e.target.nextElementSibling.classList.add(printing.servicelistVisile);
-        } else if (
-          e.target.firstElementChild.firstElementChild.textContent ==
-          "Menu Design"
-        ) {
+          nes.className = "";
+          nes.classList.add(printing.servicelistVisile);
+        } else if (ffec.textContent == t("digital_page.img_icon_md")) {
+          if (w < 768) {
+            fec.firstElementChild.style.display = "none";
+            fec.lastElementChild.style.display = "none";
+            setModalExit5(false);
+          }
           setSlide8(!slide8);
-          e.target.previousElementSibling.className = "";
-          e.target.previousElementSibling.classList.add(
-            printing.servicelistVisile
-          );
+          pes.className = "";
+          pes.classList.add(printing.servicelistVisile);
         }
 
-        e.target.className = "";
-        e.target.classList.add(printing.servicelist1);
+        target.className = "";
+        target.classList.add(printing.servicelist1);
 
-        e.target.firstElementChild.classList.remove(printing.serviceText);
-        e.target.firstElementChild.classList.add(printing.serviceText1);
+        if (ffec.textContent == t("digital_page.img_icon_adi")) {
+          fec.classList.remove(printing.serviceTextLg);
+        } else {
+          fec.classList.remove(printing.serviceText);
+        }
 
-        e.target.lastElementChild.classList.remove(printing.modalExit);
-        e.target.lastElementChild.classList.add(printing.modalExit1);
+        console.log("isModal(),w:", w);
+        if (w > 768) {
+          fec.classList.add(printing.serviceText1);
+        }
 
-        e.target.firstElementChild.firstElementChild.classList.remove(
-          printing.serviceTitle
-        );
-        e.target.firstElementChild.firstElementChild.classList.add(
-          printing.serviceTitle1
-        );
+        target.lastElementChild.classList.remove(printing.modalExit);
+        target.lastElementChild.classList.add(printing.modalExit1);
 
-        e.target.firstElementChild.lastElementChild.classList.remove(
-          printing.serviceDesc
-        );
-        e.target.firstElementChild.lastElementChild.classList.add(
-          printing.serviceDesc1
-        );
+        ffec.classList.remove(printing.serviceTitle);
+        ffec.classList.add(printing.serviceTitle1);
+
+        fec.lastElementChild.classList.remove(printing.serviceDesc);
+        fec.lastElementChild.classList.add(printing.serviceDesc1);
 
         setclick(true);
         setIsSlide(!isSlide);
@@ -349,158 +348,135 @@ const Digital = () => {
   const exitModal = (e) => {
     e.preventDefault();
 
-    if (
-      e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Search Engine Optimization"
-    ) {
-      e.target.parentNode.parentNode.nextElementSibling.className = "";
-      e.target.parentNode.parentNode.nextElementSibling.classList.add(
-        printing.servicelist
-      );
+    let pNode = e.target.parentNode;
+    let ppNode = pNode.parentNode;
+    let fec = ppNode.firstElementChild;
+    let ffec = fec.firstElementChild;
+    let nes = ppNode.nextElementSibling;
+    let pes = ppNode.previousElementSibling;
+    if (ffec.textContent == t("digital_page.img_icon_seo")) {
+      let nnes = nes.nextElementSibling;
 
-      e.target.parentNode.parentNode.nextElementSibling.nextElementSibling.className =
-        "";
-      e.target.parentNode.parentNode.nextElementSibling.nextElementSibling.classList.add(
-        printing.servicelist
-      );
+      nes.className = "";
+      nes.classList.add(printing.servicelist);
 
-      e.target.parentNode.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.className =
-        "";
-      e.target.parentNode.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.classList.add(
-        printing.servicelist
-      );
+      nnes.className = "";
+      nnes.classList.add(printing.servicelist);
 
-      e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/Online-Service-SEO.jpg')";
+      nnes.nextElementSibling.className = "";
+      nnes.nextElementSibling.classList.add(printing.servicelist);
 
+      ppNode.style.backgroundImage = "url('/images/Online-Service-SEO.jpg')";
+      if (w < 768) {
+        ffec.style.display = "block";
+      }
       setSlide1(!slide1);
-    } else if (
-      e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Content Management System"
-    ) {
-      e.target.parentNode.parentNode.nextElementSibling.className = "";
-      e.target.parentNode.parentNode.nextElementSibling.classList.add(
-        printing.servicelist
-      );
+    } else if (ffec.textContent == t("digital_page.img_icon_cms")) {
+      let nnes = nes.nextElementSibling;
 
-      e.target.parentNode.parentNode.nextElementSibling.nextElementSibling.className =
-        "";
-      e.target.parentNode.parentNode.nextElementSibling.nextElementSibling.classList.add(
-        printing.servicelist
-      );
+      nes.className = "";
+      nes.classList.add(printing.servicelist);
 
-      e.target.parentNode.parentNode.previousElementSibling.className = "";
-      e.target.parentNode.parentNode.previousElementSibling.classList.add(
-        printing.servicelist
-      );
+      nnes.className = "";
+      nnes.classList.add(printing.servicelist);
 
-      e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/Online-Service-CMS.jpg')";
+      pes.className = "";
+      pes.classList.add(printing.servicelist);
+
+      ppNode.style.backgroundImage = "url('/images/Online-Service-CMS.jpg')";
+
+      if (w < 768) {
+        ffec.style.display = "block";
+      }
       setSlide2(!slide2);
-    } else if (
-      e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Third-Party Authentication"
-    ) {
-      e.target.parentNode.parentNode.nextElementSibling.className = "";
-      e.target.parentNode.parentNode.nextElementSibling.classList.add(
-        printing.servicelist
-      );
+    } else if (ffec.textContent == t("digital_page.img_icon_tpa")) {
+      let ppes = pes.previousElementSibling;
 
-      e.target.parentNode.parentNode.previousElementSibling.className = "";
-      e.target.parentNode.parentNode.previousElementSibling.classList.add(
-        printing.servicelist
-      );
+      nes.className = "";
+      nes.classList.add(printing.servicelist);
 
-      e.target.parentNode.parentNode.previousElementSibling.previousElementSibling.className =
-        "";
-      e.target.parentNode.parentNode.previousElementSibling.previousElementSibling.classList.add(
-        printing.servicelist
-      );
+      pes.className = "";
+      pes.classList.add(printing.servicelist);
 
-      e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/Online-Service-OAuth.jpg')";
+      ppes.className = "";
+      ppes.classList.add(printing.servicelist);
+
+      ppNode.style.backgroundImage = "url('/images/Online-Service-OAuth.jpg')";
+
+      if (w < 768) {
+        ffec.style.display = "block";
+      }
       setSlide3(!slide3);
-    } else if (
-      e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "E-commerce Intergration"
-    ) {
-      e.target.parentNode.parentNode.previousElementSibling.className = "";
-      e.target.parentNode.parentNode.previousElementSibling.classList.add(
-        printing.servicelist
-      );
+    } else if (ffec.textContent == t("digital_page.img_icon_eci")) {
+      let ppes = pes.previousElementSibling;
 
-      e.target.parentNode.parentNode.previousElementSibling.previousElementSibling.className =
-        "";
-      e.target.parentNode.parentNode.previousElementSibling.previousElementSibling.classList.add(
-        printing.servicelist
-      );
+      pes.className = "";
+      pes.classList.add(printing.servicelist);
 
-      e.target.parentNode.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.className =
-        "";
-      e.target.parentNode.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.classList.add(
-        printing.servicelist
-      );
+      ppes.className = "";
+      ppes.classList.add(printing.servicelist);
 
-      e.target.parentNode.parentNode.style.backgroundImage =
+      ppes.previousElementSibling.className = "";
+      ppes.previousElementSibling.classList.add(printing.servicelist);
+
+      ppNode.style.backgroundImage =
         "url('/images/Online-Service-Ecommerce.jpg')";
+
+      if (w < 768) {
+        ffec.style.display = "block";
+        setModalExit1(true);
+      }
       setSlide4(!slide4);
-    } else if (
-      e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Admin Dashboard Implementation"
-    ) {
-      e.target.parentNode.parentNode.style.backgroundImage =
-        "url('/images/Online-Service-Admin.jpg')";
+    } else if (ffec.textContent == t("digital_page.img_icon_adi")) {
+      ppNode.style.backgroundImage = "url('/images/Online-Service-Admin.jpg')";
+      if (w < 768) {
+        ffec.style.display = "block";
+        setModalExit2(true);
+      }
       setSlide5(!slide5);
-    } else if (
-      e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Visual Identity Design"
-    ) {
+    } else if (ffec.textContent == t("digital_page.img_icon_vid")) {
+      if (w < 768) {
+        ffec.style.display = "block";
+        setModalExit3(true);
+      }
       setSlide6(!slide6);
-    } else if (
-      e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Poster Design"
-    ) {
+    } else if (ffec.textContent == t("digital_page.img_icon_pd")) {
+      if (w < 768) {
+        ffec.style.display = "block";
+        setModalExit4(true);
+      }
       setSlide7(!slide7);
-      e.target.parentNode.parentNode.nextElementSibling.className = "";
-      e.target.parentNode.parentNode.nextElementSibling.classList.add(
-        printing.servicelist
-      );
-    } else if (
-      e.target.parentNode.parentNode.firstElementChild.firstElementChild
-        .textContent == "Menu Design"
-    ) {
+      nes.className = "";
+      nes.classList.add(printing.servicelist);
+    } else if (ffec.textContent == t("digital_page.img_icon_md")) {
+      if (w < 768) {
+        ffec.style.display = "block";
+        setModalExit5(true);
+      }
       setSlide8(!slide8);
-      e.target.parentNode.parentNode.previousElementSibling.className = "";
-      e.target.parentNode.parentNode.previousElementSibling.classList.add(
-        printing.servicelist
-      );
+      pes.className = "";
+      pes.classList.add(printing.servicelist);
     }
 
-    e.target.parentNode.parentNode.className = "";
-    e.target.parentNode.parentNode.classList.add(printing.servicelist);
+    ppNode.className = "";
+    ppNode.classList.add(printing.servicelist);
 
-    e.target.parentNode.parentNode.firstElementChild.classList.remove(
-      printing.serviceText1
-    );
-    e.target.parentNode.parentNode.firstElementChild.classList.add(
-      printing.serviceText
-    );
-    e.target.parentNode.classList.remove(printing.modalExit1);
-    e.target.parentNode.classList.add(printing.modalExit);
+    fec.classList.remove(printing.serviceText1);
 
-    e.target.parentNode.parentNode.firstElementChild.firstElementChild.classList.remove(
-      printing.serviceTitle1
-    );
-    e.target.parentNode.parentNode.firstElementChild.firstElementChild.classList.add(
-      printing.serviceTitle
-    );
+    if (ffec.textContent == t("digital_page.img_icon_adi")) {
+      fec.classList.add(printing.serviceTextLg);
+    } else {
+      fec.classList.add(printing.serviceText);
+    }
 
-    e.target.parentNode.parentNode.firstElementChild.lastElementChild.classList.remove(
-      printing.serviceDesc1
-    );
-    e.target.parentNode.parentNode.firstElementChild.lastElementChild.classList.add(
-      printing.serviceDesc
-    );
+    pNode.classList.remove(printing.modalExit1);
+    pNode.classList.add(printing.modalExit);
+
+    ffec.classList.remove(printing.serviceTitle1);
+    ffec.classList.add(printing.serviceTitle);
+
+    fec.lastElementChild.classList.remove(printing.serviceDesc1);
+    fec.lastElementChild.classList.add(printing.serviceDesc);
 
     setIsSlide(!isSlide);
     setclick(false);
@@ -559,57 +535,439 @@ const Digital = () => {
   return (
     <div>
       {/* bacground photo */}
-      <div className={printing.bgimg}>
-        <div className={printing.bgTextBox}>
-          <h1 className={printing.mainHead}>Digital</h1>
-          <p className={printing.mainText}>
-            Design, develop, and launch custom websites and web applications
-            with a focus on user experience to help businesses thrive online.
-          </p>
+      <div className="hidden md:block">
+        <div className={printing.bgimg}>
+          <div className="absolute left-[30px] md:left-[10%] top-[430px]">
+            <h1 className={printing.mainHead}>{t("digital_page.banner1")}</h1>
+            <p className="flex flex-wrap box-content w-[300px] md:w-[550px] font-medium">
+              {t("digital_page.banner2")}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="block md:hidden">
+        <div className={printing.bgimgMobile}>
+          <div className="absolute left-[30px] md:left-[10%] top-[430px]">
+            <h1 className={printing.mainHead}>{t("digital_page.banner1")}</h1>
+            <p className="flex flex-wrap box-content w-[300px] md:w-[550px] font-medium">
+              {t("digital_page.banner2")}
+            </p>
+          </div>
         </div>
       </div>
       {/* our service */}
       <div className={printing.serviceBg}>
-        <div className={printing.serviceBgBox}>
+        {/* <div className={printing.serviceBgBox}> */}
+        <div className="flex w-[1140px] h-[2006px] md:h-[1106px] flex-col mt-[200px] items-center">
           <div className={printing.serviceHeadBox}>
-            <h2 className={printing.serviceHead}>Our Service</h2>
+            <h2 className={printing.serviceHead}>
+              {t("digital_page.ourservice")}
+            </h2>
           </div>
-          <div className={printing.serviceBox}>
-            <div className={printing.serviceTitleBox}>
+          {/* mobile */}
+          <div className="block md:hidden w-[400px] h-[100px] flex flex-col items-center pt-[50px]">
+            <div className="block md:hidden w-[400px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
+              <div
+                id="printing"
+                className="block md:hidden w-[460px] h-[60px] flex items-center text-[24px] font-[400px] text-black"
+                onClick={isWeb}
+              >
+                <p>{t("digital_page.os_wd_mobile")}</p>
+              </div>
+            </div>
+          </div>
+          {/* <div className="w-[400px] h-[600px] mt-[20px] block md:hidden mb-[0px]"> */}
+          <div
+            className={`w-[400px] ${
+              modalExit1 ? "h-[600px]" : "h-[780px]"
+            } mt-[20px] block md:hidden mb-[0px]`}
+          >
+            <motion.div
+              className={printing.servicelistBoxMobile}
+              animate={{
+                justifyContent: !slide1
+                  ? "center"
+                  : !slide2
+                  ? "center"
+                  : !slide3
+                  ? "center"
+                  : !slide4
+                  ? "center"
+                  : "space-between",
+              }}
+            >
+              <motion.div
+                id="container"
+                className="w-[360px] h-[150px] flex relative mb-[10px]"
+                style={{
+                  backgroundImage: `url('/images/Online-Service-SEO.jpg')`,
+                }}
+                animate={{
+                  // width: slide1 ? smallPhoto : bigPhoto,
+                  width: slide1 ? smallPhotomobilew : bigPhotomobilew,
+                  height: slide1 ? smallPhotomobileh : bigPhotomobileh,
+                }}
+                onClick={isModal}
+              >
+                <div className={printing.serviceText} onClick={clickMove}>
+                  {" "}
+                  <h1 className={printing.serviceTitle}>
+                    {t("digital_page.img_icon_seo")}
+                  </h1>
+                  <p className={printing.serviceDesc}>
+                    {t("digital_page.img_icon_seo_desc")}
+                  </p>
+                </div>
+                <div
+                  id="exit"
+                  className={printing.modalExit}
+                  onClick={exitModal}
+                >
+                  {" "}
+                  <button className={printing.serviceExitBtn}>x</button>
+                </div>
+              </motion.div>
+              <motion.div
+                id="container"
+                className="w-[360px] h-[150px] flex relative mb-[10px]"
+                style={{
+                  backgroundImage: `url('/images/Online-Service-CMS.jpg')`,
+                }}
+                animate={{
+                  // width: slide2 ? smallPhoto : bigPhoto,
+                  width: slide2 ? smallPhotomobilew : bigPhotomobilew,
+                  height: slide2 ? smallPhotomobileh : bigPhotomobileh,
+                }}
+                onClick={isModal}
+              >
+                <div className={printing.serviceText} onClick={clickMove}>
+                  {" "}
+                  <h1 className={printing.serviceTitle}>
+                    {t("digital_page.img_icon_cms")}
+                  </h1>
+                  <p className={printing.serviceDesc}>
+                    {t("digital_page.img_icon_cms_desc")}
+                    <br />
+                    <br />
+                    {t("digital_page.img_icon_cms_desc2")}
+                  </p>
+                </div>
+                <div
+                  id="exit"
+                  className={printing.modalExit}
+                  onClick={exitModal}
+                >
+                  {" "}
+                  <button className={printing.serviceExitBtn}>x</button>
+                </div>
+              </motion.div>
+              <motion.div
+                id="container"
+                className="w-[360px] h-[150px] flex relative mb-[10px]"
+                style={{
+                  backgroundImage: `url('/images/Online-Service-OAuth.jpg')`,
+                }}
+                animate={{
+                  // width: slide3 ? smallPhoto : bigPhoto,
+                  width: slide3 ? smallPhotomobilew : bigPhotomobilew,
+                  height: slide3 ? smallPhotomobileh : bigPhotomobileh,
+                }}
+                onClick={isModal}
+              >
+                <div className={printing.serviceText} onClick={clickMove}>
+                  {" "}
+                  <h1 className={printing.serviceTitle}>
+                    {t("digital_page.img_icon_tpa")}
+                  </h1>
+                  <p className={printing.serviceDesc}>
+                    {t("digital_page.img_icon_tpa_desc")}
+                  </p>
+                </div>
+                <div
+                  id="exit"
+                  className={printing.modalExit}
+                  onClick={exitModal}
+                >
+                  {" "}
+                  <button className={printing.serviceExitBtn}>x</button>
+                </div>
+              </motion.div>
+              <motion.div
+                id="container"
+                className="w-[360px] h-[150px] flex relative"
+                style={{
+                  backgroundImage: `url('/images/Online-Service-Ecommerce.jpg')`,
+                }}
+                animate={{
+                  // width: slide4 ? smallPhoto : bigPhoto,
+                  width: slide4 ? smallPhotomobilew : bigPhotomobilew,
+                  height: slide4 ? smallPhotomobileh : bigPhotomobileh,
+                }}
+                onClick={isModal}
+              >
+                <div className={printing.serviceText} onClick={clickMove}>
+                  {" "}
+                  <h1 className={printing.serviceTitle}>
+                    {t("digital_page.img_icon_eci")}
+                  </h1>
+                  <p className={printing.serviceDesc}>
+                    {t("digital_page.img_icon_eci_desc")}
+                  </p>
+                </div>
+                <div
+                  id="exit"
+                  className={printing.modalExit}
+                  onClick={exitModal}
+                >
+                  {" "}
+                  <button className={printing.serviceExitBtn}>x</button>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+          <div className="block md:hidden w-[400px] h-[100px] flex flex-col items-center pt-[50px]">
+            <div className="block md:hidden w-[400px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
+              <div
+                id="printing"
+                className="block md:hidden w-[460px] h-[60px] flex items-center text-[24px] font-[400px] text-black"
+                onClick={isAdmin}
+              >
+                <p>{t("digital_page.os_ai_mobile")}</p>
+              </div>
+            </div>
+          </div>
+          {/* <div className="w-[400px] h-[150px] mt-[20px] block md:hidden mb-[40px]"> */}
+          <div
+            className={`w-[400px] ${
+              modalExit2 ? "h-[150px]" : "h-[330px]"
+            } mt-[20px] block md:hidden mb-[0px]`}
+          >
+            <motion.div
+              className={printing.servicelistBox}
+              animate={{
+                justifyContent: !slide5 ? "start" : "start",
+              }}
+            >
+              <motion.div
+                id="container"
+                className="w-[360px] h-[150px] flex relative"
+                style={{
+                  backgroundImage: `url('/images/Online-Service-Admin.jpg')`,
+                }}
+                animate={{
+                  // width: slide5 ? smallPhoto : bigPhoto,
+                  width: slide5 ? smallPhotomobilew : bigPhotomobilew,
+                  height: slide5 ? smallPhotomobileh : bigPhotomobileh,
+                }}
+                onClick={isModal}
+              >
+                <div className={printing.serviceTextLg} onClick={clickMove}>
+                  {" "}
+                  <h1 className={printing.serviceTitle}>
+                    {t("digital_page.img_icon_adi")}
+                  </h1>
+                  <p className={printing.serviceDesc}>
+                    {t("digital_page.img_icon_adi_desc")}
+                  </p>
+                </div>
+                <div
+                  id="exit"
+                  className={printing.modalExit}
+                  onClick={exitModal}
+                >
+                  {" "}
+                  <button className={printing.serviceExitBtn}>x</button>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+          <div className="block md:hidden w-[400px] h-[100px] flex flex-col items-center pt-[50px]">
+            <div className="block md:hidden w-[400px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
+              <div
+                id="printing"
+                className="block md:hidden w-[260px] h-[60px] flex items-center text-[24px] font-[400px] text-black"
+                onClick={isBranding}
+              >
+                <p>{t("digital_page.os_branding_design")}</p>
+              </div>
+            </div>
+          </div>
+          {/* <div className="w-[400px] h-[150px] mt-[20px] block md:hidden mb-[40px]"> */}
+          <div
+            className={`w-[400px] ${
+              modalExit3 ? "h-[150px]" : "h-[330px]"
+            } mt-[20px] block md:hidden mb-[0px]`}
+          >
+            <motion.div
+              className={printing.servicelistBox}
+              animate={{
+                justifyContent: !slide6 ? "start" : "start",
+              }}
+            >
+              <motion.div
+                id="container"
+                className="w-[360px] h-[150px] flex relative"
+                style={{
+                  backgroundImage: `url('/images/Online-Service-Branding.jpg')`,
+                }}
+                animate={{
+                  // width: slide6 ? smallPhoto : bigPhoto,
+                  width: slide6 ? smallPhotomobilew : bigPhotomobilew,
+                  height: slide6 ? smallPhotomobileh : bigPhotomobileh,
+                }}
+                onClick={isModal}
+              >
+                <div className={printing.serviceText} onClick={clickMove}>
+                  {" "}
+                  <h1 className={printing.serviceTitle}>
+                    {t("digital_page.img_icon_vid")}
+                  </h1>
+                  <p className={printing.serviceDesc}>
+                    {t("digital_page.img_icon_vid_desc")}
+                  </p>
+                </div>
+                <div
+                  id="exit"
+                  className={printing.modalExit}
+                  onClick={exitModal}
+                >
+                  {" "}
+                  <button className={printing.serviceExitBtn}>x</button>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+          <div className="block md:hidden w-[400px] h-[100px] flex flex-col items-center pt-[50px]">
+            <div className="block md:hidden w-[400px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
+              <div
+                id="printing"
+                className="block md:hidden w-[260px] h-[60px] flex items-center text-[24px] font-[400px] text-black"
+                onClick={isGraphic}
+              >
+                <p>{t("digital_page.os_graphic_design")}</p>
+              </div>
+            </div>
+          </div>
+          <div className="w-[400px] h-[300px] mt-[20px] block md:hidden mb-[40px]">
+            <motion.div
+              className={printing.servicelistBoxMobile}
+              animate={{
+                justifyContent: !slide7
+                  ? "center"
+                  : !slide8
+                  ? "center"
+                  : "start",
+              }}
+            >
+              <motion.div
+                id="container"
+                className="w-[360px] h-[150px] flex relative"
+                style={{
+                  backgroundImage: `url('/images/Online-Service-Poster.jpg')`,
+                }}
+                animate={{
+                  // width: slide7 ? smallPhoto : bigPhoto,
+                  width: slide7 ? smallPhotomobilew : bigPhotomobilew,
+                  height: slide7 ? smallPhotomobileh : bigPhotomobileh,
+                }}
+                onClick={isModal}
+              >
+                <div className={printing.serviceText} onClick={clickMove}>
+                  {" "}
+                  <h1 className={printing.serviceTitle}>
+                    {t("digital_page.img_icon_pd")}
+                  </h1>
+                  <p className={printing.serviceDesc}>
+                    {t("digital_page.img_icon_pd_desc")}
+                  </p>
+                </div>
+                <div
+                  id="exit"
+                  className={printing.modalExit}
+                  onClick={exitModal}
+                >
+                  {" "}
+                  <button className={printing.serviceExitBtn}>x</button>
+                </div>
+              </motion.div>
+              <motion.div
+                id="container"
+                className="w-[360px] h-[150px] flex relative"
+                style={{
+                  backgroundImage: `url('/images/Online-Service-Menu.jpg')`,
+                  // marginLeft: "20px",
+                }}
+                animate={{
+                  // width: slide8 ? smallPhoto : bigPhoto,
+                  width: slide8 ? smallPhotomobilew : bigPhotomobilew,
+                  height: slide8 ? smallPhotomobileh : bigPhotomobileh,
+                }}
+                onClick={isModal}
+              >
+                <div className={printing.serviceText} onClick={clickMove}>
+                  {" "}
+                  <h1 className={printing.serviceTitle}>
+                    {t("digital_page.img_icon_md")}
+                  </h1>
+                  <p className={printing.serviceDesc}>
+                    {t("digital_page.img_icon_md_desc")}
+                  </p>
+                </div>
+                <div
+                  id="exit"
+                  className={printing.modalExit}
+                  onClick={exitModal}
+                >
+                  {" "}
+                  <button className={printing.serviceExitBtn}>x</button>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+          {/* desktop */}
+          {/* <div className={printing.serviceBox}> */}
+          <div className="w-[1140px] h-[892px] flex flex-col items-center hidden md:block">
+            {/* <div className={printing.serviceTitleBox}> */}
+            <div className="w-[1140px] h-[72px] flex justify-between border-b-8 border-solid border-[#C83832]">
               <div
                 id="web"
-                className={printing.serviceComponentBox}
+                // className={printing.serviceComponentBox}
+                className="w-[380px] h-[65px] flex items-center justify-center text-[25px] bg-[#C83832] justify-center text-[25px] font-[400px] text-white"
                 onClick={isWeb}
               >
                 <p>
-                  Website Design
-                  <br />& Development
+                  {t("digital_page.os_website_design")}
+                  <br />
+                  {t("digital_page.os_development")}
                 </p>
               </div>
               <div
                 id="admin"
-                className={printing.serviceComponentBox1}
+                // className={printing.serviceComponentBox1}
+                className="w-[380px] h-[65px] flex items-center justify-center text-[25px]"
                 onClick={isAdmin}
               >
                 <p>
-                  Admin Dashboard
+                  {t("digital_page.os_admin_dashboard")}
                   <br />
-                  Implementation
+                  {t("digital_page.os_implementation")}
                 </p>
               </div>
               <div
                 id="branding"
-                className={printing.serviceComponentBox1}
+                // className={printing.serviceComponentBox1}
+                className="w-[380px] h-[65px] flex items-center justify-center text-[25px]"
                 onClick={isBranding}
               >
-                <p>Branding Design</p>
+                <p>{t("digital_page.os_branding_design")}</p>
               </div>
               <div
                 id="graphic"
-                className={printing.serviceComponentBox1}
+                // className={printing.serviceComponentBox1}
+                className="w-[380px] h-[65px] flex items-center justify-center text-[25px]"
                 onClick={isGraphic}
               >
-                <p>Graphic Design</p>
+                <p>{t("digital_page.os_graphic_design")}</p>
               </div>
             </div>
             <div className={printing.servicelistBoxContainer}>
@@ -640,17 +998,15 @@ const Digital = () => {
                     onClick={isModal}
                   >
                     <div
-                      className={printing.serviceText}
+                      className={printing.serviceTextDesktop}
                       onClick={clickMove}
                     >
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Search Engine Optimization
+                        {t("digital_page.img_icon_seo")}
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Enhance your website's visibility and increase traffic
-                        by improving its ranking in search results, including
-                        keyword research.
+                        {t("digital_page.img_icon_seo_desc")}
                       </p>
                     </div>
                     <div
@@ -674,20 +1030,18 @@ const Digital = () => {
                     onClick={isModal}
                   >
                     <div
-                      className={printing.serviceText}
+                      className={printing.serviceTextDesktop}
                       onClick={clickMove}
                     >
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Content Management System
+                        {t("digital_page.img_icon_cms")}
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Easily manage your website's content with integrated
-                        Content Management System, designed to empower
-                        non-technical users.
+                        {t("digital_page.img_icon_cms_desc")}
                         <br />
                         <br />
-                        *Wix. Shopify, WordPress, Webflow, etc.
+                        {t("digital_page.img_icon_cms_desc2")}
                       </p>
                     </div>
                     <div
@@ -711,15 +1065,15 @@ const Digital = () => {
                     onClick={isModal}
                   >
                     <div
-                      className={printing.serviceText}
-                      onClick={clickMove}>
+                      className={printing.serviceTextDesktop}
+                      onClick={clickMove}
+                    >
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Third-Party Authentication
+                        {t("digital_page.img_icon_tpa")}
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Make logging in easier and secure by using third-party
-                        authentication(OAuth) to verify user identity.
+                        {t("digital_page.img_icon_tpa_desc")}
                       </p>
                     </div>
                     <div
@@ -743,17 +1097,15 @@ const Digital = () => {
                     onClick={isModal}
                   >
                     <div
-                      className={printing.serviceText}
-                      onClick={clickMove}>
+                      className={printing.serviceTextDesktop}
+                      onClick={clickMove}
+                    >
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        E-commerce Intergration
+                        {t("digital_page.img_icon_eci")}
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Add online shopping capabilities to your website,
-                        streamlining online transactions and generating revenue
-                        through features such as payment gateways and shopping
-                        carts.
+                        {t("digital_page.img_icon_eci_desc")}
                       </p>
                     </div>
                     <div
@@ -768,12 +1120,11 @@ const Digital = () => {
                 </motion.div>
               ) : admin ? (
                 <motion.div
-                className={printing.servicelistBox}
-                animate={{
-                  justifyContent: !slide5
-                    ? "center"
-                    : "start"
-                }}>
+                  className={printing.servicelistBox}
+                  animate={{
+                    justifyContent: !slide5 ? "center" : "start",
+                  }}
+                >
                   <motion.div
                     id="container"
                     className={printing.servicelist}
@@ -786,18 +1137,15 @@ const Digital = () => {
                     onClick={isModal}
                   >
                     <div
-                      className={printing.serviceText}
+                      className={printing.serviceTextDesktop}
                       onClick={clickMove}
                     >
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Admin Dashboard Implementation
+                        {t("digital_page.img_icon_adi")}
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Improve website management with a centralized Admin
-                        Dashboard, allowing easy management of user accounts,
-                        content, and analytics for better workflow and
-                        decision-making.
+                        {t("digital_page.img_icon_adi_desc")}
                       </p>
                     </div>
                     <div
@@ -812,12 +1160,11 @@ const Digital = () => {
                 </motion.div>
               ) : branding ? (
                 <motion.div
-                className={printing.servicelistBox}
-                animate={{
-                  justifyContent: !slide6
-                    ? "center"
-                    : "start"
-                }}>
+                  className={printing.servicelistBox}
+                  animate={{
+                    justifyContent: !slide6 ? "center" : "start",
+                  }}
+                >
                   <motion.div
                     id="container"
                     className={printing.servicelist}
@@ -830,16 +1177,15 @@ const Digital = () => {
                     onClick={isModal}
                   >
                     <div
-                      className={printing.serviceText}
-                      onClick={clickMove}>
+                      className={printing.serviceTextDesktop}
+                      onClick={clickMove}
+                    >
                       {" "}
                       <h1 className={printing.serviceTitle}>
-                        Visual Identity Design
+                        {t("digital_page.img_icon_vid")}
                       </h1>
                       <p className={printing.serviceDesc}>
-                        Build recognition and credibility for your business by
-                        creating a unique visual identity through branding
-                        design.
+                        {t("digital_page.img_icon_vid_desc")}
                       </p>
                     </div>
                     <div
@@ -854,14 +1200,15 @@ const Digital = () => {
                 </motion.div>
               ) : (
                 <motion.div
-                className={printing.servicelistBox}
-                animate={{
-                  justifyContent: !slide7
+                  className={printing.servicelistBox}
+                  animate={{
+                    justifyContent: !slide7
                       ? "center"
                       : !slide8
                       ? "center"
                       : "start",
-                }}>
+                  }}
+                >
                   <motion.div
                     id="container"
                     className={printing.servicelist}
@@ -874,14 +1221,15 @@ const Digital = () => {
                     onClick={isModal}
                   >
                     <div
-                      className={printing.serviceText}
-                      onClick={clickMove}>
+                      className={printing.serviceTextDesktop}
+                      onClick={clickMove}
+                    >
                       {" "}
-                      <h1 className={printing.serviceTitle}>Poster Design</h1>
+                      <h1 className={printing.serviceTitle}>
+                        {t("digital_page.img_icon_pd")}
+                      </h1>
                       <p className={printing.serviceDesc}>
-                        Capture attention and convey your message with our
-                        visually stunning poster design services, tailored to
-                        meet your unique needs and objectives.
+                        {t("digital_page.img_icon_pd_desc")}
                       </p>
                     </div>
                     <div
@@ -906,14 +1254,15 @@ const Digital = () => {
                     onClick={isModal}
                   >
                     <div
-                      className={printing.serviceText}
-                      onClick={clickMove}>
+                      className={printing.serviceTextDesktop}
+                      onClick={clickMove}
+                    >
                       {" "}
-                      <h1 className={printing.serviceTitle}>Menu Design</h1>
+                      <h1 className={printing.serviceTitle}>
+                        {t("digital_page.img_icon_md")}
+                      </h1>
                       <p className={printing.serviceDesc}>
-                        Design an attractive and user-friendly menu that
-                        highlights your offerings, making it easy for customers
-                        to select and order their desired products or services.
+                        {t("digital_page.img_icon_md_desc")}
                       </p>
                     </div>
                     <div
@@ -938,105 +1287,108 @@ const Digital = () => {
         </h1>
       </div>
       {/* reference */}
-      <div className={printing.referenceBg}>
-        <motion.div
-          ref={ref}
-          variants={boxVariant}
-          initial="hidden"
-          animate={control}
-          exit="hidden"
-          className={printing.referenceBox}
-        >
-          <motion.div variants={item} className={printing.referenceImgBox}>
-            <img
-              src="/images/Online-Insight-Elevating.jpg"
-              alt="react logo"
-              className={printing.referenceImg}
-            />
-          </motion.div>
-          <motion.div variants={item} className={printing.referenceText}>
-            <h1 className={printing.referenceTextTitle}>
-              Elevating Conversions through Superior User Experience
-            </h1>
-            <p className={printing.referenceTextStyle}>
-              Did you know that a superior user experience has the potential to
-              generate a 400% higher conversion rate (Forrester)?
-            </p>
-            <p className={printing.referenceTextStyle}>
-              Boost conversions with a user-centric website that delivers
-              optimized functionality, guiding visitors towards desired actions.
-            </p>
-          </motion.div>
-        </motion.div>
-      </div>
-      <div className={printing.referenceBg}>
-        <motion.div
-          ref={ref1}
-          variants={boxVariant}
-          initial="hidden"
-          animate={control1}
-          className={printing.referenceBox1}
-        >
-          <motion.div variants={item} className={printing.referenceText1}>
-            <div className={printing.referenceText2}>
-              <h1 className={printing.referenceTextTitle}>
-                Building Trust through Website Design
+      <div className="pb-[200px]">
+        <div className="flex w-[100%] w-[100%] justify-center">
+          <motion.div
+            ref={ref}
+            variants={boxVariant}
+            initial="hidden"
+            animate={control}
+            exit="hidden"
+            className="flex h-[600px] w-[1140px] mt-[200px] flex-col md:flex-row"
+          >
+            <motion.div variants={item} className="w-[100%] h-[100%]">
+              <img
+                src="/images/Online-Insight-Elevating.jpg"
+                alt="react logo"
+                className="w-[100%] h-[100%] px-4 md:px-0 md:w-[555px] md:h-[600px]"
+              />
+            </motion.div>
+            <motion.div
+              variants={item}
+              className="flex flex-col w-[100%] pl-[24px] md:pl-[84px] justify-center"
+            >
+              <h1 className="font-semibold text-2xl md:text-3xl pb-[40px] pt-[40px]">
+                {t("digital_page.digital_page_option1")}
               </h1>
-              <p className={printing.referenceTextStyle}>
-                Did you know that 75% of consumers judge a company's credibility
-                based on its website design? (Kinesis)
+              <p className="text-xl pb-[20px] pr-[10px]">
+                {t("digital_page.digital_page_option1_desc")}
               </p>
-              <p className={printing.referenceTextStyle}>
-                Create a visually appealing and credible website, making a
-                positive and lasting impression with professionalism and
-                authenticity.
+              <p className="text-xl pb-[20px] pr-[10px]">
+                {t("digital_page.digital_page_option1_desc2")}
               </p>
-            </div>
+            </motion.div>
           </motion.div>
-          <motion.div variants={item} className={printing.referenceImgBox1}>
-            <img
-              src="/images/Online-Insight-Building.jpg"
-              alt="react logo"
-              className={printing.referenceImg1}
-            />
+        </div>
+        <div className="flex w-[100%] w-[100%] justify-center mt-[400px] md:mt-[0px]">
+          <motion.div
+            ref={ref1}
+            variants={boxVariant}
+            initial="hidden"
+            animate={control1}
+            className="flex h-[600px] w-[1140px] mt-[140px] md:mt-[200px] flex-col-reverse md:flex-row"
+          >
+            <motion.div
+              variants={item}
+              className="flex flex-col w-[100%] pl-[24px] md:pr-[84px] justify-center"
+            >
+              {/* <div className={printing.referenceText2}> */}
+              <h1 className="font-semibold text-2xl md:text-3xl pb-[40px] pt-[40px]">
+                {t("digital_page.digital_page_option2")}
+              </h1>
+              <p className="text-xl pb-[20px] pr-[10px]">
+                {t("digital_page.digital_page_option2_desc")}
+              </p>
+              <p className="text-xl pb-[20px] pr-[10px]">
+                {t("digital_page.digital_page_option2_desc2")}
+              </p>
+              {/* </div> */}
+            </motion.div>
+            <motion.div variants={item} className="w-[100%] h-[100%]">
+              <img
+                src="/images/Online-Insight-Building.jpg"
+                alt="react logo"
+                className="w-[100%] h-[100%] px-4 md:px-0 md:w-[555px] md:h-[600px]"
+              />
+            </motion.div>
           </motion.div>
-        </motion.div>
-      </div>
-      <div
-        className={printing.referenceBg}
-        style={{
-          marginBottom: `200px`,
-        }}
-      >
-        <motion.div
-          ref={ref2}
-          variants={boxVariant}
-          initial="hidden"
-          animate={control2}
-          className={printing.referenceBox1}
+        </div>
+        <div
+          className="flex w-[100%] w-[100%] justify-center mb-[450px] md:mb-[200px]"
+          style={{
+            marginBottom: `200px`,
+          }}
         >
-          <motion.div variants={item} className={printing.referenceImgBox}>
-            <img
-              src="/images/Online-Insight-Fueling.jpg"
-              alt="react logo"
-              className={printing.referenceImg}
-            />
+          <motion.div
+            ref={ref2}
+            variants={boxVariant}
+            initial="hidden"
+            animate={control2}
+            className="flex h-[600px] w-[1140px] mt-[70px] md:mt-[200px] flex-col md:flex-row"
+          >
+            <motion.div variants={item} className="w-[100%] h-[100%]">
+              <img
+                src="/images/Online-Insight-Fueling.jpg"
+                alt="react logo"
+                className="w-[100%] h-[100%] md:w-[555px] md:h-[600px] px-4 md:px-0"
+              />
+            </motion.div>
+            <motion.div
+              variants={item}
+              className="flex flex-col w-[100%] pl-[24px] md:pl-[84px] justify-center"
+            >
+              <h1 className="font-semibold text-2xl md:text-3xl pb-[40px] pt-[40px]">
+                {t("digital_page.digital_page_option3")}
+              </h1>
+              <p className="text-xl pb-[20px] pr-[10px]">
+                {t("digital_page.digital_page_option3_desc")}
+              </p>
+              <p className="text-xl pb-[20px] pr-[10px]">
+                {t("digital_page.digital_page_option3_desc2")}
+              </p>
+            </motion.div>
           </motion.div>
-          <motion.div variants={item} className={printing.referenceText}>
-            <h1 className={printing.referenceTextTitle}>
-              Fueling Growth through Strategic Branding
-            </h1>
-            <p className={printing.referenceTextStyle}>
-              Did you know that branding is considered critical for driving
-              growth by 77% of marketing leaders (B2B Marketing Leaders Report)?
-            </p>
-            <p className={printing.referenceTextStyle}>
-              Differentiate and grow your business with our strategic branding
-              solutions that define a unique value proposition, fostering
-              long-term loyalty.
-            </p>
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

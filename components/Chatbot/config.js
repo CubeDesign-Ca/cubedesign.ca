@@ -1,27 +1,21 @@
 import React from "react";
-import { createChatBotMessage } from "react-chatbot-kit";
-
-import Options from "./Options/Options";
 import BotAvatar from "./BotAvatar";
 
-import CustomMessage from './CustomMessage';
+const toggleChatbot = () => {
+  if (document.getElementById("chatbot_icon") != null) {
+    document.getElementById("chatbot_icon").click();
+  }
+}
 
 const config = {
   botName: "Chatbot",
   customComponents: {
-    header: () => <div style={{ background: 'rgba(36, 71, 129, 0.3)', padding: "15px", height: '70px' }}>
-      <img src='/images/logo_white.png' className='w-[40px] h-[40px]' />
+    header: () => <div className="flex justify-between bg-opacity-30 bg-chatbot_bar p-4 h-[70px]">
+        <img src='/images/logo_white.png' className='w-[40px] h-[40px]' />
+        <img src='/images/Chatbot_Undo.png' className='w-[60px] h-[40px] cursor-pointer' onClick={toggleChatbot}/>
       </div>,
     botAvatar: (props) => <BotAvatar {...props} />,
-    // botChatMessage: (props) => <div />,
   },
-  initialMessages: [
-    // createChatBotMessage(`Hi, there! Having a hard time to find what you need? Let me help you!`, {
-    // }),
-    // createChatBotMessage(`Please select you are interested!`, {
-    //   widget: "options",
-    // }),
-  ],
   customStyles: {
     // Overrides the chatbot message styles
     botMessageBox: {
@@ -33,16 +27,6 @@ const config = {
       backgroundColor: "black",
     },
   },
-  customMessages: {
-    custom: (props) => <CustomMessage {...props} />,
-  },
-
-  widgets: [
-    {
-      widgetName: "options",
-      widgetFunc: (props) => <Options {...props} />,
-    },
-  ],
 };
 
 export default config;

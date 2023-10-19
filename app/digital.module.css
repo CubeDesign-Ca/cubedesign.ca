@@ -10,6 +10,18 @@
     justify-content: center;
 }
 
+.bgimgMobile {
+    width: 100%;
+    height: 690px;
+    background-image: url('/images/Online-Main_Banner(2000x690_ EAEBED)-reverse.jpg');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: right;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
 .bgTextBox{
     height: 100%;
     width: 1140px;
@@ -34,49 +46,49 @@
 
 /* our service */
 
-.serviceBg {
+/* .serviceBg {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
 }
 
-.serviceBgBox{
+.serviceBgBox {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 1140px;
-    height: 1006px;
+    height: 2006px;
     margin-top: 200px;
 }
 
 .serviceHeadBox {
     height: 124px;
-}
+} */
 
-.serviceHead {
+/* .serviceHead {
     font-size: 32px;
     font-weight: 600;
-}
+} */
 
 
-.serviceBox{
+/* .serviceBox{
     width: 1140px;
     height: 742px;
     display: flex;
     flex-direction: column;
     align-items: center;
     
-}
+} */
 
-.serviceTitleBox {
+/* .serviceTitleBox {
     width: 1140px;
     height: 72px;
     display: flex;
     justify-content: space-between;
 
     border-bottom: 8px solid #C83832;
-}
+} */
 
 .serviceComponentBox {
     width: 285px;
@@ -160,13 +172,46 @@
 .serviceText {
     position: absolute;
     bottom: 0;
+    width: 360px;
+    height: 50px;
+    background-color: #EFF2F9;
+    opacity: 0.8;
+    animation: fadeAnimation ease 1.4s;
+}
+
+.serviceTextLg {
+    position: absolute;
+    bottom: 0;
+    width: 360px;
+    height: 70px;
+    background-color: #EFF2F9;
+    opacity: 0.8;
+    animation: fadeAnimation ease 1.4s;
+}
+
+.serviceTextDesktop {
+    position: absolute;
+    bottom: 0;
+    width: 263px;
+    height:180px;
+    background-color: #EFF2F9;
+    display: flex;
+    opacity: 0.8;
+    animation: fadeAnimation ease 1.4s;
+    flex-flow: column;
+    padding-top: 50px;
+}
+
+/* .serviceTextbackup {
+    position: absolute;
+    bottom: 0;
     width: 263px;
     height: 180px;
     background-color: #EFF2F9;
     opacity: 0.8;
     animation: fadeAnimation ease 1.4s;
+} */
 
-}
 
 @keyframes fadeAnimation {
     0% {
@@ -200,13 +245,22 @@
 }
 
 
-.serviceTitle {
+/* .serviceTitle {
     color: black;
     font-size: 20px;
     font-weight: 500;
     padding-top: 50px;
     padding-left: 40px;
     width: 60%;
+} */
+
+.serviceTitle {
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 10px;
+    padding-left: 20px;
+    width: 100%;
 }
 
 .serviceTitle1 {
