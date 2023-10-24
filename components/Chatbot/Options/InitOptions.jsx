@@ -21,14 +21,17 @@ const Options = (props) => {
       },
     },
   }
+
   useEffect(() => {  
     control.start("visible");
   }, []);
+
   const buttonsMarkup = options.map((option) => (
     <motion.div
       animate={control}
       initial="hidden"
       variants={variant}
+      className={`${option.imgFlag ? "options_1x2" : "options_1x1"}`}
     >
       <button key={option.id} 
         onClick={(e) => {

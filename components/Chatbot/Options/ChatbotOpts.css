@@ -13,6 +13,14 @@
   to { opacity: 1; }
 }
 
+.options_1x2 {
+  flex: 1 0 40%;
+}
+
+.options_1x1 {
+  flex: 1 0 80%;
+}
+
 .react-chatbot-kit-chat-bot-message-container {
   margin: 20px 0 !important;
   animation: fadein 1s normal forwards ease-in-out;
