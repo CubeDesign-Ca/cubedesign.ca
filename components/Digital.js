@@ -349,9 +349,9 @@ const Digital = () => {
           fec.classList.remove(printing.serviceText);
         }
 
-        console.log("isModal():", fec.getElementsByTagName("svg")[0]);
         if (w > 768) {
           fec.classList.add(printing.serviceText1);
+        } else {
           fec.getElementsByTagName("svg")[0].style.display = "none";
         }
 
@@ -393,7 +393,6 @@ const Digital = () => {
 
       ppNode.style.backgroundImage = "url('/images/Online-Service-SEO.jpg')";
       if (w < 768) {
-        console.log("exitModal:", fec.getElementsByTagName("svg")[0]);
         fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
       }
