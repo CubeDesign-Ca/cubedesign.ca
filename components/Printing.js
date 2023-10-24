@@ -477,7 +477,7 @@ const Printing = () => {
       {/* our service */}
       <div className={printing.serviceBg}>
         {/* <div className={printing.serviceBgBox}> */}
-        <div className="flex w-[1140px] h-[1206px] md:h-[956px] flex-col mt-[200px] items-center">
+        <div className="flex w-[1140px] h-[1406px] md:h-[956px] flex-col mt-[200px] items-center">
           {/* <div
           className={`flex w-[1140px] ${
             isModalOpen ? "h-[1386px]" : "h-[1206px]"
@@ -503,7 +503,7 @@ const Printing = () => {
           <div
             className={`w-[400px] ${
               modalExit1 ? "h-[450px]" : "h-[630px]"
-            } mt-[20px] block md:hidden mb-[40px]`}
+            } mt-[20px] block md:hidden mb-[0px]`}
           >
             <motion.div
               className={printing.servicelistBoxMobile}
@@ -621,7 +621,7 @@ const Printing = () => {
               </motion.div>
             </motion.div>
           </div>
-          <div className="block md:hidden w-[400px] h-[100px] flex flex-col">
+          <div className="block md:hidden w-[400px] h-[100px] flex flex-col pt-[50px]">
             <div className="block md:hidden w-[360px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832] ">
               <div
                 id="printing"
@@ -636,7 +636,7 @@ const Printing = () => {
           <div
             className={`w-[400px] ${
               modalExit2 ? "h-[150px]" : "h-[330px]"
-            } mt-[20px] block md:hidden mb-[40px]`}
+            } mt-[20px] block md:hidden mb-[0px]`}
           >
             <motion.div
               className={printing.servicelistBoxMobile}
@@ -680,7 +680,7 @@ const Printing = () => {
               </motion.div>
             </motion.div>
           </div>
-          <div className="block md:hidden w-[400px] h-[100px] flex flex-col">
+          <div className="block md:hidden w-[400px] h-[100px] flex flex-col pt-[50px]">
             <div className="block md:hidden w-[360px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
               <div
                 id="printing"
@@ -695,7 +695,7 @@ const Printing = () => {
           <div
             className={`w-[400px] ${
               modalExit3 ? "h-[150px]" : "h-[330px]"
-            } mt-[20px] block md:hidden mb-[40px]`}
+            } mt-[20px] block md:hidden mb-[0px]`}
           >
             <motion.div
               className={printing.servicelistBoxMobile}
