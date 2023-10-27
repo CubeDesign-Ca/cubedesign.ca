@@ -46,6 +46,17 @@
   text-align: left;
 }
 
+.react-chatbot-kit-user-chat-message-arrow {
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid #4E698A;
+  position: absolute;
+  right: -7px;
+  top: 13px;  
+}
+
 .react-chatbot-kit-chat-bot-message {
   width: 100% !important;
   margin-right: 35px;
