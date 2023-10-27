@@ -425,7 +425,7 @@ const Printing = () => {
       {/* <div className="bg-[url('/images/printing-bg-reverse.jpg')] md:bg-[url('/images/printing-bg.jpg')] h-[690px] w-[2000px] flex"> */}
       <div className="hidden md:block">
         <div className={printing.bgimg}>
-          <div className="absolute left-[30px] md:left-[10%] top-[430px]">
+          <div className={printing.bgTextBox}>
             <h1 className={printing.mainHead}>{t("printing_page.banner1")}</h1>
             <p className="flex flex-wrap box-content w-[300px] md:w-[550px] font-medium">
               {t("printing_page.banner2")}
@@ -505,7 +505,7 @@ const Printing = () => {
                   onClick={exitModal}
                 >
                   {" "}
-                  <button className={printing.serviceExitBtn}>x</button>
+                  <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                 </div>
               </motion.div>
               <motion.div
@@ -536,7 +536,7 @@ const Printing = () => {
                   onClick={exitModal}
                 >
                   {" "}
-                  <button className={printing.serviceExitBtn}>x</button>
+                  <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                 </div>
               </motion.div>
               <motion.div
@@ -567,7 +567,7 @@ const Printing = () => {
                   onClick={exitModal}
                 >
                   {" "}
-                  <button className={printing.serviceExitBtn}>x</button>
+                  <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                 </div>
               </motion.div>
             </motion.div>
@@ -621,7 +621,7 @@ const Printing = () => {
                   onClick={exitModal}
                 >
                   {" "}
-                  <button className={printing.serviceExitBtn}>x</button>
+                  <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                 </div>
               </motion.div>
             </motion.div>
@@ -675,7 +675,7 @@ const Printing = () => {
                   onClick={exitModal}
                 >
                   {" "}
-                  <button className={printing.serviceExitBtn}>x</button>
+                  <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                 </div>
               </motion.div>
             </motion.div>
@@ -749,7 +749,7 @@ const Printing = () => {
                       onClick={exitModal}
                     >
                       {" "}
-                      <button className={printing.serviceExitBtn}>x</button>
+                      <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                     </div>
                   </motion.div>
                   <motion.div
@@ -782,7 +782,7 @@ const Printing = () => {
                       onClick={exitModal}
                     >
                       {" "}
-                      <button className={printing.serviceExitBtn}>x</button>
+                      <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                     </div>
                   </motion.div>
                   <motion.div
@@ -815,7 +815,7 @@ const Printing = () => {
                       onClick={exitModal}
                     >
                       {" "}
-                      <button className={printing.serviceExitBtn}>x</button>
+                      <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -856,7 +856,7 @@ const Printing = () => {
                       onClick={exitModal}
                     >
                       {" "}
-                      <button className={printing.serviceExitBtn}>x</button>
+                      <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -897,7 +897,7 @@ const Printing = () => {
                       onClick={exitModal}
                     >
                       {" "}
-                      <button className={printing.serviceExitBtn}>x</button>
+                      <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -971,7 +971,7 @@ const Printing = () => {
             </motion.div>
             <motion.div
               variants={item}
-              className="flex flex-col w-[100%] pl-[24px] md:pl-[84px] justify-center"
+              className="flex flex-col w-[100%] pl-[24px] md:pl-[100px] justify-center"
             >
               <h1 className="font-semibold text-2xl md:text-3xl pb-[40px] pt-[40px]">
                 {t("printing_page.printing_page_option1")}
@@ -995,7 +995,7 @@ const Printing = () => {
           >
             <motion.div
               variants={item}
-              className="flex flex-col w-[100%] pl-[24px] md:pr-[84px] justify-center"
+              className="flex flex-col w-[100%] pl-[24px] md:pr-[100px] justify-center"
             >
               {/* <div className={printing.referenceText2}> */}
               <h1 className="font-semibold text-2xl md:text-3xl pb-[40px] pt-[40px]">
@@ -1035,7 +1035,7 @@ const Printing = () => {
             </motion.div>
             <motion.div
               variants={item}
-              className="flex flex-col w-[100%] pl-[24px] md:pl-[84px] justify-center"
+              className="flex flex-col w-[100%] pl-[24px] md:pl-[100px] justify-center"
             >
               <h1 className="font-semibold text-2xl md:text-3xl pb-[40px] pt-[40px]">
                 {t("printing_page.printing_page_option3")}

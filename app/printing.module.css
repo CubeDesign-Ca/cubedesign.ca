@@ -247,6 +247,7 @@
     background-color: #EFF2F9;
     padding-left: 75px;
     padding-top: 60px;
+    padding-right: 116px;
     opacity: 0.8;
     animation: fadeInAnimation ease 2s;
 }
@@ -330,12 +331,14 @@
 
 .serviceExitBtn:hover {
     opacity: 1;
+    cursor: pointer;
 }
 
 
 .galleryBackground {
     width: 100%;
     height: 411px;
+    margin-top: 50px;
     background: #103558;
     display: flex;
     align-items: center;
@@ -555,3 +558,4 @@
 
 
 }
+

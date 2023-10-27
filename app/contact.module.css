@@ -63,6 +63,11 @@ font-weight: 400;
 
 /* error */
 
+.serviceErrorBox{
+        display: flex;
+        flex-direction: row;
+}
+
 .errorHidden{
     visibility: hidden;
 }
@@ -410,3 +415,440 @@ justify-content: space-between;
     border-radius: 6px;
 
 }
+
+
+@media (max-width: 800px) {
+    .emailFormBox{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .contactBox{
+    margin-top: 90px;
+    }
+    
+    .mainBox{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 120px;
+    }
+    .firstBox{
+        
+        width: 393px;
+        height: 124px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .firstBoxText{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 276px;
+        height: 54px;
+        font-size: 28px;
+        font-weight: 600;
+        border: 1px solid #D9D9D9;
+        margin-left: 16px;
+    
+    }
+    .secondBox{
+     display: flex;
+     flex-direction: column;
+     width: 393px;
+     height: 100%;
+     justify-content: space-between;
+    }
+    
+    .secondLeftBox{
+    display: flex;
+    flex-direction: column;
+    width: 393px;
+    height: 100%;
+    margin-bottom: 70px;
+    margin-left: 16px;
+    }
+    
+    .secondLeftBoxText{
+    font-size: 20px;
+    font-weight: bold;
+    
+    }
+    
+    .secondLeftBoxText1{
+    font-size: 16px;
+    font-weight: 400;
+    }
+    
+    /* error */
+    
+    .serviceErrorBox{
+        display: flex;
+        flex-direction: row;
+    }
+    .errorHidden{
+        height: 0px;
+        visibility: hidden;
+    }
+    .errorVisible{
+        margin-left: 5px;
+        font-size: 16px;
+        color: #C83832;
+    }
+    .errorLogo{
+        width: 22px;
+        height: 21px;
+        position: absolute;
+        top: 25%;
+        right: 2%;
+        visibility: hidden;
+    }
+    
+    .errorLogo1{
+        width: 22px;
+        height: 21px;
+        position: absolute;
+        top: 25%;
+        right: 2%;
+        visibility: visible;
+    }
+    
+    .serviceError{
+        margin-left: 10px;
+        width: 22px;
+        height: 0px;
+        visibility: hidden;
+    }
+    
+    .serviceError1{
+        margin-left: 10px;
+        width: 22px;
+        height: 21px;
+        visibility: visible;
+    }
+    
+    /* emailTitle */
+    .emailText{
+        font-size: 20px;
+        font-weight: bold;
+        margin-left: 16px;
+        margin-bottom: 20px;
+        }
+    
+    
+    
+    /* service */
+    
+    .servicelogoBox{
+        width: 100%;
+        height: 100%;
+        display: block;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 0px;
+    }
+    .serviceText{
+        width: 100%;
+        font-size: 18px;
+        font-weight: 500;
+        margin-left: 16px;
+    }
+    
+    .serviceBox{
+        display: flex;
+        width: 361px;
+        justify-content: space-between;
+        margin-bottom: 0px;
+        margin-left: 16px;
+    }
+    
+    .serviceImg{
+        max-width: 85px;
+        height: 100%;
+    }
+    
+    /* name */
+    
+
+    
+    .nameText{
+        font-size: 18px;
+        font-weight: 400;
+    }
+    
+    
+    .nameBox{
+        display: flex;
+        width: 361px;
+        justify-content: space-between;
+        height: 100%;
+        margin-left: 16px;
+    }
+    
+    .nameInputBox{
+        position: relative;
+    }
+    .nameInput{
+        width: 176px;
+        height: 55px;
+        background-color: #F9F9F9;
+        border-bottom: 5px solid #D9D9D9;
+        outline: none;
+    }
+    
+    .nameInputType{
+        width: 176px;
+        height: 55px;
+        background-color: #F9F9F9;
+        border-bottom: 5px solid #ABBEDB;
+        outline: none;
+    }
+    
+    .nameInputSuccess{
+        width: 176px;
+        height: 55px;
+        background-color: #F9F9F9;
+        border-bottom: 5px solid #213453;
+        outline: none;
+    }
+    
+    .nameInputFail{
+        width: 176px;
+        height: 55px;
+        background-color: #F9F9F9;
+        border-bottom: 5px solid #C83832;
+        outline: none;
+    }
+    
+    .lastnameBox{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    
+    
+    
+    
+    
+    /* email */
+    
+    
+    
+    
+    
+    
+    
+    .emailbox{
+        display: flex;
+        flex-direction: column;
+        height: 110px;
+        margin-left: 16px;
+    }
+    
+    .emailInput{
+        width: 361px;
+        height: 55px;
+        outline: none;
+        background-color: #F9F9F9;
+        border-bottom: 5px solid #D9D9D9;
+    }
+    
+    .emailInputType{
+        width: 361px;
+        height: 55px;
+        background-color: #F9F9F9;
+        border-bottom: 5px solid #ABBEDB;
+        outline: none;
+    }
+    
+    .emailInputSuccess{
+        width: 361px;
+        height: 55px;
+        background-color: #F9F9F9;
+        border-bottom: 5px solid #213453;
+        outline: none;
+    }
+    
+    .emailInputFail{
+        width: 361px;
+        height: 55px;
+        background-color: #F9F9F9;
+        border-bottom: 5px solid #C83832;
+        outline: none;
+    }
+    
+    
+    
+    
+    /* text */
+    
+    
+    
+    
+    .textBox{
+        display: flex;
+        flex-direction: column;
+        margin-left: 16px;
+    }
+    .textWordsBox{
+        display: flex;
+        justify-content: space-between;
+        margin-right: 16px;
+    }
+    
+    .textWordsCountBox{
+        display: flex;
+        flex-direction: row;
+        
+        font-size: 16px;
+        font-weight: 400;
+    }
+    
+    
+    
+    .textInput{
+        width: 361px;
+        height: 180px;
+        background-color: #F9F9F9;
+        outline: none;
+        padding-left: 10px;
+        padding-top: 15px;
+        margin-bottom: 7px;
+    }
+    
+    .textLabel{
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 30px;
+    }
+    .submitBox{
+        
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    .submitBtn{
+        margin-left: 16px;
+        width: 361px;
+        height: 55px;
+        font-size: 24px;
+        font-weight: 500;
+        background-color: #D9D9D9;
+    }
+    .submitBtn1{
+        width: 360px;
+        height: 55px;
+        font-size: 24px;
+        font-weight: 500;
+        background-color: #103558;
+        color: #FFFFFF;
+    }
+    
+    .submitIcon{
+        width: 35px;
+        height: 35px;
+        visibility: hidden;
+        margin-bottom: 10px;
+    }
+    .submitIcon1{
+        width: 35px;
+        height: 35px;
+        visibility: visible;
+        margin-bottom: 10px;
+    }
+    .submitScreenBox{
+        position:absolute;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        height:100vh;
+        width:100%;
+        z-index: 100;
+        background-color: rgba(16, 53,88, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+    }
+    
+    .submitScreenBox1{
+        position:absolute;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        height:150vh;
+        width:100%;
+        z-index: 100;
+        background-color: rgba(16, 53, 88, 0.8);
+        display: flex;
+        justify-content: center;
+        visibility: visible;
+    }
+    
+    .submitScreen{
+        position: fixed;
+        top: 35%;
+        width: 361px;
+        height: 240px;
+        background-color: rgba(255,255,255, 1);
+        display: flex;
+        flex-direction: column;
+        border-radius: 15px;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+    }
+    
+    .submitScreen1{
+        position: fixed;
+        top: 35%;
+        width: 361px;
+        height: 240px;
+        background-color: rgba(255,255,255, 1);
+        display: flex;
+        flex-direction: column;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+        visibility: visible;
+    }
+    .submitText{
+        width: 62%;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 20px;
+        visibility: hidden;
+    }
+    .submitText1{
+        width: 62%;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 20px;
+        visibility: visible;
+    }
+    
+    .confirmBtnBox{
+    width: 260px;
+    display: flex;
+    justify-content: space-between;
+    }
+    
+    .confirmBtn{
+        width: 120px;
+        height: 35px;
+        font-size: 15px;
+        background-color: #103558;
+        color: white;
+        border-radius: 4px;
+    
+    }
+  }

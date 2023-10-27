@@ -46,7 +46,7 @@
 
 /* our service */
 
-/* .serviceBg {
+.serviceBg {
     width: 100%;
     height: 100%;
     display: flex;
@@ -64,31 +64,31 @@
 
 .serviceHeadBox {
     height: 124px;
-} */
+} 
 
-/* .serviceHead {
+.serviceHead {
     font-size: 32px;
     font-weight: 600;
-} */
+} 
 
 
-/* .serviceBox{
+ .serviceBox{
     width: 1140px;
     height: 742px;
     display: flex;
     flex-direction: column;
     align-items: center;
     
-} */
+} 
 
-/* .serviceTitleBox {
+.serviceTitleBox {
     width: 1140px;
     height: 72px;
     display: flex;
     justify-content: space-between;
 
     border-bottom: 8px solid #C83832;
-} */
+}
 
 .serviceComponentBox {
     width: 285px;
@@ -99,6 +99,7 @@
     justify-content: center;
     color: white;
     font-size: 22px;
+    text-align: center;
     font-weight: 500;
     transition: linear 0.25s;
 
@@ -131,6 +132,8 @@
     position: relative;
 }
 
+
+
 .servicelistBox1 {
     width: 100%;
     height: 100%;
@@ -155,6 +158,7 @@
     background-size: cover;
     transition: 0.4s ease-out;
     background-position: center; 
+    
 }
 
 
@@ -167,6 +171,7 @@
 .servicelistVisile{
     visibility: hidden;
     width: 0px !important;
+    margin-right: 0px !important;
 }
 
 .serviceText {
@@ -230,7 +235,7 @@
     background-color: #EFF2F9;
     padding-left: 75px;
     padding-top: 60px;
-    padding-right: 40px;
+    padding-right: 116px;
     opacity: 0.8;
     animation: fadeInAnimation ease 2s;
     }
@@ -304,6 +309,7 @@
 
 .serviceExitBtn:hover {
     opacity: 1;
+    cursor: pointer;
 }
 
 
