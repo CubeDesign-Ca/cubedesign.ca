@@ -71,7 +71,6 @@ const Digital = () => {
   };
 
   useEffect(() => {
-    console.log("useEffect resize!", window.innerWidth);
     window.addEventListener("resize", handleResize);
     if (window.innerWidth < 768) {
       console.log("isMobile : true");

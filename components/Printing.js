@@ -183,12 +183,13 @@ const Printing = () => {
         } else if (
           fec.firstElementChild.textContent == t("printing_page.img_icon_is")
         ) {
+          console.log("pes1:", pes);
           pes.className = "";
           pes.classList.add(printing.servicelistVisile);
 
           pes.previousElementSibling.className = "";
           pes.previousElementSibling.classList.add(printing.servicelistVisile);
-
+          console.log("pes2:", pes);
           if (w < 768) {
             fec.firstElementChild.style.display = "none";
             fec.lastElementChild.style.display = "none";
@@ -209,7 +210,6 @@ const Printing = () => {
             fec.firstElementChild.style.display = "none";
             fec.lastElementChild.style.display = "none";
           }
-          console.log("setSlide5:", slide5);
 
           setModalExit3(false);
           setSlide5(!slide5);
@@ -233,7 +233,6 @@ const Printing = () => {
         fec.firstElementChild.classList.remove(printing.serviceTitle);
         fec.firstElementChild.classList.add(printing.serviceTitle1);
 
-        // console.log("fec!", fec.getElementsByTagName("svg")[0]);
         fec.lastElementChild.classList.remove(printing.serviceDesc);
 
         if (w < 768) {
@@ -307,12 +306,10 @@ const Printing = () => {
       setModalExit2(true);
       setSlide4(!slide4);
     } else {
-      console.log("exitModal:", ppNode, ffec);
       if (w < 768) {
         fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
       }
-      console.log("setSlide5:", slide5);
       setSlide5(!slide5);
       setModalExit3(true);
     }
@@ -321,10 +318,8 @@ const Printing = () => {
     ppNode.classList.add(printing.servicelist);
 
     if (ffec.textContent == t("printing_page.img_icon_ppm")) {
-      console.log("adding servicelist2");
       ppNode.firstElementChild.classList.add(printing.serviceText2);
     } else {
-      console.log("adding servicelist");
       ppNode.firstElementChild.classList.add(printing.serviceText);
     }
     ppNode.firstElementChild.classList.remove(printing.serviceText1);
@@ -339,7 +334,6 @@ const Printing = () => {
       printing.serviceDesc1
     );
 
-    console.log("here3?", ppNode.firstElementChild);
     if (w > 768) {
       ppNode.firstElementChild.lastElementChild.classList.add(
         printing.serviceDesc
@@ -351,10 +345,14 @@ const Printing = () => {
   };
 
   const clickMove = (e) => {
-    console.log("clickmove!");
     e.preventDefault();
+    console.log(
+      "e.target.parentNode.parentNode:",
+      e.target.parentNode.parentNode
+    );
+    console.log("e.target.parentNode:", e.target.parentNode);
     e.target.parentNode.parentNode.click();
-    e.target.parentNode.click();
+    if (!isMobile) e.target.parentNode.click();
   };
 
   const rightSlide = () => {
@@ -409,7 +407,6 @@ const Printing = () => {
   };
 
   useEffect(() => {
-    console.log("useEffect resize!");
     window.addEventListener("resize", handleResize);
     if (window.innerWidth < 768) {
       setMobile(true);
@@ -440,12 +437,8 @@ const Printing = () => {
     visible: { opacity: 1 },
   };
 
-  console.log("isMobile?:", isMobile);
-
   useEffect(() => {
-    console.log("useEffect for setIsModalOpen called");
     if (modalExit1 || modalExit2 || modalExit3 == false) {
-      console.log("setIsModalOpen to true");
       setIsModalOpen(true);
     }
   }, [modalExit1, modalExit2, modalExit3]);
