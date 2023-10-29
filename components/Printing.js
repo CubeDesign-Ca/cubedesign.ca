@@ -155,45 +155,45 @@ const Printing = () => {
           if (w < 768) {
             fec.firstElementChild.style.display = "none";
             fec.lastElementChild.style.display = "none";
+          } else {
+            nes.className = "";
+            nes.classList.add(printing.servicelistVisile);
+            nes.nextElementSibling.className = "";
+            nes.nextElementSibling.classList.add(printing.servicelistVisile);
           }
 
-          nes.className = "";
-          console.log("nes.classList:", nes.classList);
-          nes.classList.add(printing.servicelistVisile);
-
-          nes.nextElementSibling.className = "";
-          nes.nextElementSibling.classList.add(printing.servicelistVisile);
           setModalExit1(false);
           setSlide1(!slide1);
         } else if (
           fec.firstElementChild.textContent == t("printing_page.img_icon_dps")
         ) {
-          nes.className = "";
-          nes.classList.add(printing.servicelistVisile);
-
-          pes.className = "";
-          pes.classList.add(printing.servicelistVisile);
-
           if (w < 768) {
             fec.firstElementChild.style.display = "none";
             fec.lastElementChild.style.display = "none";
+          } else {
+            nes.className = "";
+            nes.classList.add(printing.servicelistVisile);
+            pes.className = "";
+            pes.classList.add(printing.servicelistVisile);
           }
+
           setModalExit1(false);
           setSlide2(!slide2);
         } else if (
           fec.firstElementChild.textContent == t("printing_page.img_icon_is")
         ) {
-          console.log("pes1:", pes);
-          pes.className = "";
-          pes.classList.add(printing.servicelistVisile);
-
-          pes.previousElementSibling.className = "";
-          pes.previousElementSibling.classList.add(printing.servicelistVisile);
-          console.log("pes2:", pes);
           if (w < 768) {
             fec.firstElementChild.style.display = "none";
             fec.lastElementChild.style.display = "none";
+          } else {
+            pes.className = "";
+            pes.classList.add(printing.servicelistVisile);
+            pes.previousElementSibling.className = "";
+            pes.previousElementSibling.classList.add(
+              printing.servicelistVisile
+            );
           }
+
           setModalExit1(false);
           setSlide3(!slide3);
         } else if (
@@ -203,6 +203,7 @@ const Printing = () => {
             fec.firstElementChild.style.display = "none";
             fec.lastElementChild.style.display = "none";
           }
+
           setModalExit2(false);
           setSlide4(!slide4);
         } else {
@@ -239,10 +240,6 @@ const Printing = () => {
         } else {
           fec.lastElementChild.classList.add(printing.serviceDesc1);
         }
-        console.log(
-          "firstelementchild->textcontent2:",
-          fec.firstElementChild.lastElementChild
-        );
         setclick(true);
         setIsSlide(!isSlide);
       }

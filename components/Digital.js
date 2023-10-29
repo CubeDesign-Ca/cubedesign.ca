@@ -220,88 +220,83 @@ const Digital = () => {
         w = window.innerWidth;
 
         if (ffec.textContent == t("digital_page.img_icon_seo")) {
-          console.log("target:", target);
-          console.log("firstelementchild:", fec.firstElementChild);
-
           let nnes = nes.nextElementSibling;
 
-          nes.className = "";
-          nes.classList.add(printing.servicelistVisile);
-
-          nnes.className = "";
-          nnes.classList.add(printing.servicelistVisile);
-
-          nnes.nextElementSibling.className = "";
-          nnes.nextElementSibling.classList.add(printing.servicelistVisile);
+          if (w < 768) {
+            fec.firstElementChild.style.display = "none";
+            fec.lastElementChild.style.display = "none";
+          } else {
+            nes.className = "";
+            nes.classList.add(printing.servicelistVisile);
+            nnes.className = "";
+            nnes.classList.add(printing.servicelistVisile);
+            nnes.nextElementSibling.className = "";
+            nnes.nextElementSibling.classList.add(printing.servicelistVisile);
+          }
 
           target.style.backgroundImage =
             "url('/images/Online-Service-SEO.jpg')";
 
-          if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
-          }
           setSlide1(!slide1);
         } else if (ffec.textContent == t("digital_page.img_icon_cms")) {
           let nnes = nes.nextElementSibling;
 
-          nes.className = "";
-          nes.classList.add(printing.servicelistVisile);
-
-          nnes.className = "";
-          nnes.classList.add(printing.servicelistVisile);
-
-          pes.className = "";
-          pes.classList.add(printing.servicelistVisile);
+          if (w < 768) {
+            fec.firstElementChild.style.display = "none";
+            fec.lastElementChild.style.display = "none";
+          } else {
+            nes.className = "";
+            nes.classList.add(printing.servicelistVisile);
+            nnes.className = "";
+            nnes.classList.add(printing.servicelistVisile);
+            pes.className = "";
+            pes.classList.add(printing.servicelistVisile);
+          }
 
           target.style.backgroundImage =
             "url('/images/Online-Service-CMS.jpg')";
 
-          if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
-          }
           setSlide2(!slide2);
         } else if (ffec.textContent == t("digital_page.img_icon_tpa")) {
           let ppes = pes.previousElementSibling;
 
-          pes.className = "";
-          pes.classList.add(printing.servicelistVisile);
-
-          ppes.className = "";
-          ppes.classList.add(printing.servicelistVisile);
-
-          nes.className = "";
-          nes.classList.add(printing.servicelistVisile);
+          if (w < 768) {
+            fec.firstElementChild.style.display = "none";
+            fec.lastElementChild.style.display = "none";
+          } else {
+            pes.className = "";
+            pes.classList.add(printing.servicelistVisile);
+            ppes.className = "";
+            ppes.classList.add(printing.servicelistVisile);
+            nes.className = "";
+            nes.classList.add(printing.servicelistVisile);
+          }
 
           target.style.backgroundImage =
             "url('/images/Online-Service-OAuth.jpg')";
 
-          if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
-          }
           setSlide3(!slide3);
         } else if (ffec.textContent == t("digital_page.img_icon_eci")) {
           let ppes = pes.previousElementSibling;
-
-          pes.className = "";
-          pes.classList.add(printing.servicelistVisile);
-
-          ppes.className = "";
-          ppes.classList.add(printing.servicelistVisile);
-
-          ppes.previousElementSibling.className = "";
-          ppes.previousElementSibling.classList.add(printing.servicelistVisile);
-
-          target.style.backgroundImage =
-            "url('/images/Online-Service-Ecommerce.jpg')";
 
           if (w < 768) {
             fec.firstElementChild.style.display = "none";
             fec.lastElementChild.style.display = "none";
             setModalExit1(false);
+          } else {
+            pes.className = "";
+            pes.classList.add(printing.servicelistVisile);
+            ppes.className = "";
+            ppes.classList.add(printing.servicelistVisile);
+            ppes.previousElementSibling.className = "";
+            ppes.previousElementSibling.classList.add(
+              printing.servicelistVisile
+            );
           }
+
+          target.style.backgroundImage =
+            "url('/images/Online-Service-Ecommerce.jpg')";
+
           setSlide4(!slide4);
         } else if (ffec.textContent == t("digital_page.img_icon_adi")) {
           target.style.backgroundImage =
@@ -324,19 +319,21 @@ const Digital = () => {
             fec.firstElementChild.style.display = "none";
             fec.lastElementChild.style.display = "none";
             setModalExit4(false);
+          } else {
+            nes.className = "";
+            nes.classList.add(printing.servicelistVisile);
           }
           setSlide7(!slide7);
-          nes.className = "";
-          nes.classList.add(printing.servicelistVisile);
         } else if (ffec.textContent == t("digital_page.img_icon_md")) {
           if (w < 768) {
             fec.firstElementChild.style.display = "none";
             fec.lastElementChild.style.display = "none";
             setModalExit5(false);
+          } else {
+            pes.className = "";
+            pes.classList.add(printing.servicelistVisile);
           }
           setSlide8(!slide8);
-          pes.className = "";
-          pes.classList.add(printing.servicelistVisile);
         }
 
         target.className = "";
@@ -381,6 +378,11 @@ const Digital = () => {
     if (ffec.textContent == t("digital_page.img_icon_seo")) {
       let nnes = nes.nextElementSibling;
 
+      if (w < 768) {
+        fec.getElementsByTagName("svg")[0].style.display = "block";
+        ffec.style.display = "block";
+      }
+
       nes.className = "";
       nes.classList.add(printing.servicelist);
 
@@ -391,13 +393,15 @@ const Digital = () => {
       nnes.nextElementSibling.classList.add(printing.servicelist);
 
       ppNode.style.backgroundImage = "url('/images/Online-Service-SEO.jpg')";
+
+      setSlide1(!slide1);
+    } else if (ffec.textContent == t("digital_page.img_icon_cms")) {
+      let nnes = nes.nextElementSibling;
+
       if (w < 768) {
         fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
       }
-      setSlide1(!slide1);
-    } else if (ffec.textContent == t("digital_page.img_icon_cms")) {
-      let nnes = nes.nextElementSibling;
 
       nes.className = "";
       nes.classList.add(printing.servicelist);
@@ -410,13 +414,14 @@ const Digital = () => {
 
       ppNode.style.backgroundImage = "url('/images/Online-Service-CMS.jpg')";
 
+      setSlide2(!slide2);
+    } else if (ffec.textContent == t("digital_page.img_icon_tpa")) {
+      let ppes = pes.previousElementSibling;
+
       if (w < 768) {
         fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
       }
-      setSlide2(!slide2);
-    } else if (ffec.textContent == t("digital_page.img_icon_tpa")) {
-      let ppes = pes.previousElementSibling;
 
       nes.className = "";
       nes.classList.add(printing.servicelist);
@@ -429,13 +434,15 @@ const Digital = () => {
 
       ppNode.style.backgroundImage = "url('/images/Online-Service-OAuth.jpg')";
 
-      if (w < 768) {
-        fec.getElementsByTagName("svg")[0].style.display = "block";
-        ffec.style.display = "block";
-      }
       setSlide3(!slide3);
     } else if (ffec.textContent == t("digital_page.img_icon_eci")) {
       let ppes = pes.previousElementSibling;
+
+      if (w < 768) {
+        fec.getElementsByTagName("svg")[0].style.display = "block";
+        ffec.style.display = "block";
+        setModalExit1(true);
+      }
 
       pes.className = "";
       pes.classList.add(printing.servicelist);
@@ -449,11 +456,6 @@ const Digital = () => {
       ppNode.style.backgroundImage =
         "url('/images/Online-Service-Ecommerce.jpg')";
 
-      if (w < 768) {
-        fec.getElementsByTagName("svg")[0].style.display = "block";
-        ffec.style.display = "block";
-        setModalExit1(true);
-      }
       setSlide4(!slide4);
     } else if (ffec.textContent == t("digital_page.img_icon_adi")) {
       ppNode.style.backgroundImage = "url('/images/Online-Service-Admin.jpg')";
@@ -519,7 +521,7 @@ const Digital = () => {
   const clickMove = (e) => {
     e.preventDefault();
     e.target.parentNode.parentNode.click();
-    e.target.parentNode.click();
+    if (!isMobile) e.target.parentNode.click();
   };
   const control = useAnimation();
   const control1 = useAnimation();
