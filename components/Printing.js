@@ -153,8 +153,8 @@ const Printing = () => {
           fec.firstElementChild.textContent == t("printing_page.img_icon_lfp")
         ) {
           if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
+            // fec.firstElementChild.style.display = "none";
+            // fec.lastElementChild.style.display = "none";
           } else {
             nes.className = "";
             nes.classList.add(printing.servicelistVisile);
@@ -168,8 +168,8 @@ const Printing = () => {
           fec.firstElementChild.textContent == t("printing_page.img_icon_dps")
         ) {
           if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
+            // fec.firstElementChild.style.display = "none";
+            // fec.lastElementChild.style.display = "none";
           } else {
             nes.className = "";
             nes.classList.add(printing.servicelistVisile);
@@ -183,8 +183,8 @@ const Printing = () => {
           fec.firstElementChild.textContent == t("printing_page.img_icon_is")
         ) {
           if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
+            // fec.firstElementChild.style.display = "none";
+            // fec.lastElementChild.style.display = "none";
           } else {
             pes.className = "";
             pes.classList.add(printing.servicelistVisile);
@@ -200,16 +200,16 @@ const Printing = () => {
           fec.firstElementChild.textContent == t("printing_page.img_icon_dsd")
         ) {
           if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
+            // fec.firstElementChild.style.display = "none";
+            // fec.lastElementChild.style.display = "none";
           }
 
           setModalExit2(false);
           setSlide4(!slide4);
         } else {
           if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
+            // fec.firstElementChild.style.display = "none";
+            // fec.lastElementChild.style.display = "none";
           }
 
           setModalExit3(false);
@@ -219,27 +219,26 @@ const Printing = () => {
         target.className = "";
         target.classList.add(printing.servicelist1);
 
-        fec.classList.remove(printing.serviceText);
-        fec.classList.remove(printing.serviceText2);
+        if (w > 768) {
+          fec.classList.remove(printing.serviceText);
+          fec.classList.remove(printing.serviceText2);
+
+          fec.firstElementChild.classList.remove(printing.serviceTitle);
+          fec.firstElementChild.classList.add(printing.serviceTitle1);
+        }
 
         if (w < 768) {
-          fec.getElementsByTagName("svg")[0].style.display = "none";
+          // fec.getElementsByTagName("svg")[0].style.display = "none";
         } else {
           fec.classList.add(printing.serviceText1);
+          fec.lastElementChild.classList.add(printing.serviceDesc1);
         }
 
         target.lastElementChild.classList.remove(printing.modalExit);
         target.lastElementChild.classList.add(printing.modalExit1);
 
-        fec.firstElementChild.classList.remove(printing.serviceTitle);
-        fec.firstElementChild.classList.add(printing.serviceTitle1);
-
         fec.lastElementChild.classList.remove(printing.serviceDesc);
 
-        if (w < 768) {
-        } else {
-          fec.lastElementChild.classList.add(printing.serviceDesc1);
-        }
         setclick(true);
         setIsSlide(!isSlide);
       }

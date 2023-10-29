@@ -223,8 +223,8 @@ const Digital = () => {
           let nnes = nes.nextElementSibling;
 
           if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
+            // fec.firstElementChild.style.display = "none";
+            // fec.lastElementChild.style.display = "none";
           } else {
             nes.className = "";
             nes.classList.add(printing.servicelistVisile);
@@ -242,8 +242,8 @@ const Digital = () => {
           let nnes = nes.nextElementSibling;
 
           if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
+            // fec.firstElementChild.style.display = "none";
+            // fec.lastElementChild.style.display = "none";
           } else {
             nes.className = "";
             nes.classList.add(printing.servicelistVisile);
@@ -261,8 +261,8 @@ const Digital = () => {
           let ppes = pes.previousElementSibling;
 
           if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
+            // fec.firstElementChild.style.display = "none";
+            // fec.lastElementChild.style.display = "none";
           } else {
             pes.className = "";
             pes.classList.add(printing.servicelistVisile);
@@ -280,8 +280,8 @@ const Digital = () => {
           let ppes = pes.previousElementSibling;
 
           if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
+            // fec.firstElementChild.style.display = "none";
+            // fec.lastElementChild.style.display = "none";
             setModalExit1(false);
           } else {
             pes.className = "";
@@ -302,22 +302,22 @@ const Digital = () => {
           target.style.backgroundImage =
             "url('/images/Online-Service-Admin.jpg')";
           if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
+            // fec.firstElementChild.style.display = "none";
+            // fec.lastElementChild.style.display = "none";
             setModalExit2(false);
           }
           setSlide5(!slide5);
         } else if (ffec.textContent == t("digital_page.img_icon_vid")) {
           if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
+            // fec.firstElementChild.style.display = "none";
+            // fec.lastElementChild.style.display = "none";
             setModalExit3(false);
           }
           setSlide6(!slide6);
         } else if (ffec.textContent == t("digital_page.img_icon_pd")) {
           if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
+            // fec.firstElementChild.style.display = "none";
+            // fec.lastElementChild.style.display = "none";
             setModalExit4(false);
           } else {
             nes.className = "";
@@ -326,8 +326,8 @@ const Digital = () => {
           setSlide7(!slide7);
         } else if (ffec.textContent == t("digital_page.img_icon_md")) {
           if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
+            // fec.firstElementChild.style.display = "none";
+            // fec.lastElementChild.style.display = "none";
             setModalExit5(false);
           } else {
             pes.className = "";
@@ -340,22 +340,20 @@ const Digital = () => {
         target.classList.add(printing.servicelist1);
 
         if (ffec.textContent == t("digital_page.img_icon_adi")) {
-          fec.classList.remove(printing.serviceTextLg);
         } else {
-          fec.classList.remove(printing.serviceText);
         }
 
         if (w > 768) {
+          fec.classList.remove(printing.serviceText);
           fec.classList.add(printing.serviceText1);
-        } else {
-          fec.getElementsByTagName("svg")[0].style.display = "none";
+          fec.classList.remove(printing.serviceTextLg);
+
+          ffec.classList.remove(printing.serviceTitle);
+          ffec.classList.add(printing.serviceTitle1);
         }
 
         target.lastElementChild.classList.remove(printing.modalExit);
         target.lastElementChild.classList.add(printing.modalExit1);
-
-        ffec.classList.remove(printing.serviceTitle);
-        ffec.classList.add(printing.serviceTitle1);
 
         fec.lastElementChild.classList.remove(printing.serviceDesc);
         fec.lastElementChild.classList.add(printing.serviceDesc1);
