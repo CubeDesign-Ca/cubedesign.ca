@@ -342,10 +342,6 @@ const Digital = () => {
         target.className = "";
         target.classList.add(printing.servicelist1);
 
-        if (ffec.textContent == t("digital_page.img_icon_adi")) {
-        } else {
-        }
-
         if (w > 768) {
           fec.classList.remove(printing.serviceText);
           fec.classList.add(printing.serviceText1);
@@ -353,14 +349,29 @@ const Digital = () => {
 
           ffec.classList.remove(printing.serviceTitle);
           ffec.classList.add(printing.serviceTitle1);
+        } else {
+          if (
+            fec.firstElementChild.textContent == t("digital_page.img_icon_adi")
+          ) {
+            fec.classList.remove(printing.serviceTextLg);
+            fec.classList.add(printing.serviceTextM);
+
+            fec.lastElementChild.classList.add(printing.serviceDescM);
+          } else {
+            fec.classList.remove(printing.serviceText);
+            fec.classList.add(printing.serviceTextM);
+
+            fec.lastElementChild.classList.add(printing.serviceDescM);
+          }
         }
 
         target.lastElementChild.classList.remove(printing.modalExit);
         target.lastElementChild.classList.add(printing.modalExit1);
 
         fec.lastElementChild.classList.remove(printing.serviceDesc);
-        fec.lastElementChild.classList.add(printing.serviceDesc1);
+        if (w > 768) fec.lastElementChild.classList.add(printing.serviceDesc1);
 
+        fec.getElementsByTagName("svg")[0].style.display = "none";
         setclick(true);
         setIsSlide(!isSlide);
       }
@@ -516,7 +527,27 @@ const Digital = () => {
     fec.lastElementChild.classList.remove(printing.serviceDesc1);
     if (w > 768) {
       fec.lastElementChild.classList.add(printing.serviceDesc);
+    } else {
+      if (fec.firstElementChild.textContent == t("digital_page.img_icon_adi")) {
+        ppNode.firstElementChild.classList.remove(printing.serviceTextM);
+        ppNode.firstElementChild.classList.add(printing.serviceTextLg);
+
+        ppNode.firstElementChild.lastElementChild.classList.remove(
+          printing.serviceDescM
+        );
+      } else {
+        ppNode.firstElementChild.classList.remove(printing.serviceTextM);
+        ppNode.firstElementChild.classList.add(printing.serviceText);
+
+        ppNode.firstElementChild.lastElementChild.classList.remove(
+          printing.serviceDescM
+        );
+      }
     }
+
+    ppNode.firstElementChild.lastElementChild.classList.add(
+      printing.serviceDesc
+    );
 
     setIsSlide(!isSlide);
     setclick(false);
@@ -525,7 +556,7 @@ const Digital = () => {
   const clickMove = (e) => {
     e.preventDefault();
     e.target.parentNode.parentNode.click();
-    if (!isMobile) e.target.parentNode.click();
+    if (w > 768) e.target.parentNode.click();
   };
   const control = useAnimation();
   const control1 = useAnimation();
@@ -655,7 +686,7 @@ const Digital = () => {
                     {t("digital_page.img_icon_seo")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
-                  {!isMobile && (
+                  {true && (
                     <p className={printing.serviceDesc}>
                       {t("digital_page.img_icon_seo_desc")}
                     </p>
@@ -689,7 +720,7 @@ const Digital = () => {
                     {t("digital_page.img_icon_cms")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
-                  {!isMobile && (
+                  {true && (
                     <p className={printing.serviceDesc}>
                       {t("digital_page.img_icon_cms_desc")}
                       <br />
@@ -726,7 +757,7 @@ const Digital = () => {
                     {t("digital_page.img_icon_tpa")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
-                  {!isMobile && (
+                  {true && (
                     <p className={printing.serviceDesc}>
                       {t("digital_page.img_icon_tpa_desc")}
                     </p>
@@ -760,7 +791,7 @@ const Digital = () => {
                     {t("digital_page.img_icon_eci")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
-                  {!isMobile && (
+                  {true && (
                     <p className={printing.serviceDesc}>
                       {t("digital_page.img_icon_eci_desc")}
                     </p>
@@ -819,7 +850,7 @@ const Digital = () => {
                     {t("digital_page.img_icon_adi")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
-                  {!isMobile && (
+                  {true && (
                     <p className={printing.serviceDesc}>
                       {t("digital_page.img_icon_adi_desc")}
                     </p>
@@ -878,7 +909,7 @@ const Digital = () => {
                     {t("digital_page.img_icon_vid")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
-                  {!isMobile && (
+                  {true && (
                     <p className={printing.serviceDesc}>
                       {t("digital_page.img_icon_vid_desc")}
                     </p>
@@ -936,7 +967,7 @@ const Digital = () => {
                     {t("digital_page.img_icon_pd")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
-                  {!isMobile && (
+                  {true && (
                     <p className={printing.serviceDesc}>
                       {t("digital_page.img_icon_pd_desc")}
                     </p>
@@ -971,7 +1002,7 @@ const Digital = () => {
                     {t("digital_page.img_icon_md")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
-                  {!isMobile && (
+                  {true && (
                     <p className={printing.serviceDesc}>
                       {t("digital_page.img_icon_md_desc")}
                     </p>

@@ -186,6 +186,18 @@
     display: flex;
 }
 
+.serviceTextM {
+    position: absolute;
+    bottom: 0;
+    width: 360px;
+    height: 170px;
+    background-color: #EFF2F9;
+    opacity: 0.8;
+    animation: fadeAnimation ease 1.4s;
+    display: flex;
+    flex-flow: column;
+}
+
 .serviceTextLg {
     position: absolute;
     bottom: 0;
@@ -209,17 +221,6 @@
     flex-flow: column;
     padding-top: 50px;
 }
-
-/* .serviceTextbackup {
-    position: absolute;
-    bottom: 0;
-    width: 263px;
-    height: 180px;
-    background-color: #EFF2F9;
-    opacity: 0.8;
-    animation: fadeAnimation ease 1.4s;
-} */
-
 
 @keyframes fadeAnimation {
     0% {
@@ -252,16 +253,6 @@
          }
 }
 
-
-/* .serviceTitle {
-    color: black;
-    font-size: 20px;
-    font-weight: 500;
-    padding-top: 50px;
-    padding-left: 40px;
-    width: 60%;
-} */
-
 .serviceTitle {
     color: black;
     font-size: 18px;
@@ -278,6 +269,7 @@
 }
 
 .serviceDesc {
+    display: none;
     visibility: hidden;
     opacity: 0;
 }
@@ -289,6 +281,12 @@
     font-weight: 500;
 }
 
+.serviceDescM {
+    visibility: visible;
+    opacity: 1;
+    padding-left: 20px;
+    padding-top: 10px;    
+}
 
 .modalExit {
     opacity: 0;

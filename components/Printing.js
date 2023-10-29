@@ -222,23 +222,33 @@ const Printing = () => {
         if (w > 768) {
           fec.classList.remove(printing.serviceText);
           fec.classList.remove(printing.serviceText2);
+          fec.classList.add(printing.serviceText1);
 
           fec.firstElementChild.classList.remove(printing.serviceTitle);
           fec.firstElementChild.classList.add(printing.serviceTitle1);
-        }
 
-        if (w < 768) {
-          // fec.getElementsByTagName("svg")[0].style.display = "none";
-        } else {
-          fec.classList.add(printing.serviceText1);
           fec.lastElementChild.classList.add(printing.serviceDesc1);
+        } else {
+          if (
+            fec.firstElementChild.textContent == t("printing_page.img_icon_ppm")
+          ) {
+            fec.classList.remove(printing.serviceText2);
+            fec.classList.add(printing.serviceTextM);
+
+            fec.lastElementChild.classList.add(printing.serviceDescM);
+          } else {
+            fec.classList.remove(printing.serviceText);
+            fec.classList.add(printing.serviceTextM);
+
+            fec.lastElementChild.classList.add(printing.serviceDescM);
+          }
         }
 
         target.lastElementChild.classList.remove(printing.modalExit);
         target.lastElementChild.classList.add(printing.modalExit1);
 
         fec.lastElementChild.classList.remove(printing.serviceDesc);
-
+        fec.getElementsByTagName("svg")[0].style.display = "none";
         setclick(true);
         setIsSlide(!isSlide);
       }
@@ -324,17 +334,41 @@ const Printing = () => {
     e.target.parentNode.classList.add(printing.modalExit);
 
     ffec.classList.remove(printing.serviceTitle1);
-    ffec.classList.add(printing.serviceTitle);
-
-    ppNode.firstElementChild.lastElementChild.classList.remove(
-      printing.serviceDesc1
-    );
+    if (
+      w < 768 &&
+      fec.firstElementChild.textContent == t("printing_page.img_icon_ppm")
+    ) {
+      ffec.classList.add(printing.serviceTitle2);
+    } else {
+      ffec.classList.add(printing.serviceTitle);
+    }
 
     if (w > 768) {
-      ppNode.firstElementChild.lastElementChild.classList.add(
-        printing.serviceDesc
+      ppNode.firstElementChild.lastElementChild.classList.remove(
+        printing.serviceDesc1
       );
+    } else {
+      if (
+        fec.firstElementChild.textContent == t("printing_page.img_icon_ppm")
+      ) {
+        ppNode.firstElementChild.classList.remove(printing.serviceTextM);
+        ppNode.firstElementChild.classList.add(printing.serviceText2);
+
+        ppNode.firstElementChild.lastElementChild.classList.remove(
+          printing.serviceDescM
+        );
+      } else {
+        ppNode.firstElementChild.classList.remove(printing.serviceTextM);
+        ppNode.firstElementChild.classList.add(printing.serviceText);
+
+        ppNode.firstElementChild.lastElementChild.classList.remove(
+          printing.serviceDescM
+        );
+      }
     }
+    ppNode.firstElementChild.lastElementChild.classList.add(
+      printing.serviceDesc
+    );
 
     setIsSlide(!isSlide);
     setclick(false);
@@ -519,12 +553,11 @@ const Printing = () => {
                 onClick={isModal}
               >
                 <div className={printing.serviceText} onClick={clickMove}>
-                  {" "}
                   <h1 className={printing.serviceTitle}>
                     {t("printing_page.img_icon_lfp")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
-                  {!isMobile && (
+                  {true && (
                     <p className={printing.serviceDesc}>
                       {t("printing_page.img_icon_lfp_desc")} <br />{" "}
                       {t("printing_page.img_icon_lfp_desc2")}
@@ -558,7 +591,7 @@ const Printing = () => {
                     {t("printing_page.img_icon_dps")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
-                  {!isMobile && (
+                  {true && (
                     <p className={printing.serviceDesc}>
                       {t("printing_page.img_icon_dps_desc")} <br />{" "}
                       {t("printing_page.img_icon_dps_desc2")}
@@ -592,7 +625,7 @@ const Printing = () => {
                     {t("printing_page.img_icon_is")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
-                  {!isMobile && (
+                  {true && (
                     <p className={printing.serviceDesc}>
                       {t("printing_page.img_icon_is_desc")} <br />{" "}
                       {t("printing_page.img_icon_is_desc2")}
@@ -651,7 +684,7 @@ const Printing = () => {
                     {t("printing_page.img_icon_dsd")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
-                  {!isMobile && (
+                  {true && (
                     <p className={printing.serviceDesc}>
                       {t("printing_page.img_icon_dsd_desc")} <br />{" "}
                       {t("printing_page.img_icon_dsd_desc2")}
@@ -710,7 +743,7 @@ const Printing = () => {
                     {t("printing_page.img_icon_ppm")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
-                  {!isMobile && (
+                  {true && (
                     <p className={printing.serviceDesc}>
                       {t("printing_page.img_icon_ppm_desc")} <br />{" "}
                       {t("printing_page.img_icon_ppm_desc2")}
