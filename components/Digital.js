@@ -237,6 +237,7 @@ const Digital = () => {
           target.style.backgroundImage =
             "url('/images/Online-Service-SEO.jpg')";
 
+          setModalExit1(false);
           setSlide1(!slide1);
         } else if (ffec.textContent == t("digital_page.img_icon_cms")) {
           let nnes = nes.nextElementSibling;
@@ -256,6 +257,7 @@ const Digital = () => {
           target.style.backgroundImage =
             "url('/images/Online-Service-CMS.jpg')";
 
+          setModalExit1(false);
           setSlide2(!slide2);
         } else if (ffec.textContent == t("digital_page.img_icon_tpa")) {
           let ppes = pes.previousElementSibling;
@@ -275,6 +277,7 @@ const Digital = () => {
           target.style.backgroundImage =
             "url('/images/Online-Service-OAuth.jpg')";
 
+          setModalExit1(false);
           setSlide3(!slide3);
         } else if (ffec.textContent == t("digital_page.img_icon_eci")) {
           let ppes = pes.previousElementSibling;
@@ -282,7 +285,6 @@ const Digital = () => {
           if (w < 768) {
             // fec.firstElementChild.style.display = "none";
             // fec.lastElementChild.style.display = "none";
-            setModalExit1(false);
           } else {
             pes.className = "";
             pes.classList.add(printing.servicelistVisile);
@@ -297,6 +299,7 @@ const Digital = () => {
           target.style.backgroundImage =
             "url('/images/Online-Service-Ecommerce.jpg')";
 
+          setModalExit1(false);
           setSlide4(!slide4);
         } else if (ffec.textContent == t("digital_page.img_icon_adi")) {
           target.style.backgroundImage =
@@ -392,6 +395,7 @@ const Digital = () => {
 
       ppNode.style.backgroundImage = "url('/images/Online-Service-SEO.jpg')";
 
+      setModalExit1(true);
       setSlide1(!slide1);
     } else if (ffec.textContent == t("digital_page.img_icon_cms")) {
       let nnes = nes.nextElementSibling;
@@ -412,6 +416,7 @@ const Digital = () => {
 
       ppNode.style.backgroundImage = "url('/images/Online-Service-CMS.jpg')";
 
+      setModalExit1(true);
       setSlide2(!slide2);
     } else if (ffec.textContent == t("digital_page.img_icon_tpa")) {
       let ppes = pes.previousElementSibling;
@@ -432,6 +437,7 @@ const Digital = () => {
 
       ppNode.style.backgroundImage = "url('/images/Online-Service-OAuth.jpg')";
 
+      setModalExit1(true);
       setSlide3(!slide3);
     } else if (ffec.textContent == t("digital_page.img_icon_eci")) {
       let ppes = pes.previousElementSibling;
@@ -439,7 +445,6 @@ const Digital = () => {
       if (w < 768) {
         fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
-        setModalExit1(true);
       }
 
       pes.className = "";
@@ -454,6 +459,7 @@ const Digital = () => {
       ppNode.style.backgroundImage =
         "url('/images/Online-Service-Ecommerce.jpg')";
 
+      setModalExit1(true);
       setSlide4(!slide4);
     } else if (ffec.textContent == t("digital_page.img_icon_adi")) {
       ppNode.style.backgroundImage = "url('/images/Online-Service-Admin.jpg')";
