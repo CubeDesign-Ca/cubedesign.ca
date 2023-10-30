@@ -248,7 +248,8 @@ const Printing = () => {
         target.lastElementChild.classList.add(printing.modalExit1);
 
         fec.lastElementChild.classList.remove(printing.serviceDesc);
-        fec.getElementsByTagName("svg")[0].style.display = "none";
+        if (w < 768) fec.getElementsByTagName("svg")[0].style.display = "none";
+
         setclick(true);
         setIsSlide(!isSlide);
       }

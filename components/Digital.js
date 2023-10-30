@@ -370,8 +370,8 @@ const Digital = () => {
 
         fec.lastElementChild.classList.remove(printing.serviceDesc);
         if (w > 768) fec.lastElementChild.classList.add(printing.serviceDesc1);
+        else fec.getElementsByTagName("svg")[0].style.display = "none";
 
-        fec.getElementsByTagName("svg")[0].style.display = "none";
         setclick(true);
         setIsSlide(!isSlide);
       }
