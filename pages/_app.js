@@ -2,8 +2,12 @@ import { appWithTranslation, useTranslation } from "next-i18next";
 import Head from "next/head";
 import "../pages/styles.css";
 import StaticHeader from "../components/Header/Static/StaticHeader";
+import DynamicMenu from '../components/Header/Dynamic/DynamicMenu';
 import StaticFooter from "../components/Footer/Static/StaticFooter";
 import ChatbotButton from "../components/Chatbot/ChatbotIcon";
+import React from "react";
+
+import { ContextProvider } from "../components/Context";
 
 const MyApp = ({ Component, pageProps }) => {
   const { t } = useTranslation("common");
@@ -18,7 +22,10 @@ const MyApp = ({ Component, pageProps }) => {
         />
         <link rel="icon" href="/images/favicon.ico" /> {}
       </Head>
-      <StaticHeader />
+      <ContextProvider>
+        <DynamicMenu />
+        <StaticHeader />
+      </ContextProvider>
       <Component {...pageProps} />
       <StaticFooter />
       <ChatbotButton />

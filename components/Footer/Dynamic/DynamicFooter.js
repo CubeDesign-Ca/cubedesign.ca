@@ -45,7 +45,7 @@ const DynamicFooter = () => {
             >
               {t('contactus')}
             </Link>
-            {isHovered && <div className="absolute w-[169px] bottom-[12px] h-[5px] bg-cube_red z-2">
+            {isHovered && <div className="absolute w-[162px] bottom-[12px] h-[5px] bg-cube_red z-2">
 
             </div>}
             

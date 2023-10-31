@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="bg-cube_blue h-footer_h flex justify-center items-center">
       <div className="flex">
         <div className="">
-          <div className="text-white min-w-[1140px] max-w-[1140px]">
+          <div className="text-white md:min-w-[1140px] max-w-[1140px]">
             <div className="container mx-auto">
               <div className="flex justify-center md:justify-start">
                 <div className="flex items-top mr-[70px]">
@@ -56,8 +56,8 @@ const Footer = () => {
             <div className="container mx-auto mt-[72px] mb-[12px]">
               <hr className="border-white" />
             </div>
-            <div className="container mx-auto border-t border-gray-300 flex items-center justify-center md:justify-between">
-              <div className="px-8 sm:px-0">
+            <div className="container mx-auto border-t border-gray-300 flex items-center justify-between md:justify-between">
+              <div className="px-0">
                 &copy; <JsonData jsonKey="copyright" />
               </div>
               <div className="flex justify-start">

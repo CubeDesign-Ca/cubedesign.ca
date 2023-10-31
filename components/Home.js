@@ -142,6 +142,7 @@ const Home = () => {
 
     window.addEventListener('resize', handleResize);
     return () => {
+      window.removeEventListener("scroll", bouncingImageHandleScroll);
       window.removeEventListener('resize', handleResize);
     }
   }, [isMobile]);
@@ -156,12 +157,16 @@ const Home = () => {
     <>
       {/* main img */}
       <div className={styles.imgContainer}>
-        <div className="container text-3xl font-bold absolute left-12 sm:left-24 md:left-36 top-1/3 flex-wrap md:flex-nowrap">
-          <figcaption>{t("home.banner1")}</figcaption>
-          <div className="inline-flex">
-            <figcaption className="w-[100px]">{t("home.banner2")}</figcaption>
-            <div className="">
-              <img src="images/main_banner01.gif" className="h-[40px]"></img>
+        <div className="absolute top-[243px] left-0 right-0 md:flex justify-center items-center z-10">
+          <div className="center px-[5px] md:display-flex md:container xl:min-w-[1140px] xl:max-w-[1140px]">
+            <div className="container text-3xl font-bold top-1/3 flex-wrap md:flex-nowrap">
+              <figcaption>{t("home.banner1")}</figcaption>
+              <div className="inline-flex">
+                <figcaption className="w-[100px] mt-[17px]">{t("home.banner2")}</figcaption>
+                <div className="mt-[17px]">
+                  <img src="/images/main_banner01.gif" className="min-w-[517px] h-[40px]"></img>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -171,9 +176,10 @@ const Home = () => {
           initial="visible"
           variants={variant}
         >
-          {/* <div className="w-[60px] h-[60px] absolute left-24 bottom-72 ml-[-30px] rounded-md	bg-[#CCD4E0] opacity-50 pl-[13px] pt-[7px]"> */}
-          <div className="w-[60px] h-[60px] fixed bottom-[100px] left-12 md:left-1/2 rounded-md bg-[#CCD4E0] opacity-50 pl-[13px] pt-[7px]">
-            <img className="h-[46px]" src="/images/arrow.png"></img>
+          <div className="fixed h-[95px] py-[24px] bottom-10 left-0 right-0 md:flex justify-center items-center z-10">
+            <div className="center md:display-flex md:container font-white w-screen xl:min-w-[1140px] xl:max-w-[1140px]">
+              <img className="h-[46px] w-[60px]" src="/images/main_arrow.svg"></img>
+            </div>
           </div>
         </motion.div>
       </div>
