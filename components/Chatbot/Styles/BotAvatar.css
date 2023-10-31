@@ -5,6 +5,13 @@
   height: 30px;
   min-width: 40px;
   display: flex;
+  margin-left: 0px;
+  position: absolute;
+  z-index: 99;
+}
+
+.modal-cube-chatbot {
+  transition: 0.3s
 }
 
 .react-chatbot-kit-chat-container {
@@ -20,17 +27,24 @@
   height: 70px !important;
 }
 
-.react-chatbot-kit-chat-message-container {
-  height: 530px !important;
-  overflow-x: hidden !important;
+@media only screen and (max-width: 767px) {
+  .react-chatbot-kit-chat-message-container {
+    height: 90vh !important;
+    overflow-x: hidden !important;
+    padding: 20px !important;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .react-chatbot-kit-chat-message-container {
+    height: 530px !important;
+    overflow-x: hidden !important;
+    padding: 20px !important;
+  }
 }
 
 .react-chatbot-kit-chat-input-container {
   display: none !important;
-}
-
-.react-chatbot-kit-chat-message-container {
-  padding: 30px !important;
 }
 
 .react-chatbot-kit-chat-bot-message {
