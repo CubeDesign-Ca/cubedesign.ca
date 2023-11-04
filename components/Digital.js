@@ -394,14 +394,17 @@ const Digital = () => {
         ffec.style.display = "block";
       }
 
-      nes.className = "";
-      nes.classList.add(printing.servicelist);
+      nes.className =
+        "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+      //nes.classList.add(printing.servicelist);
 
-      nnes.className = "";
-      nnes.classList.add(printing.servicelist);
+      nnes.className =
+        "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+      //nnes.classList.add(printing.servicelist);
 
-      nnes.nextElementSibling.className = "";
-      nnes.nextElementSibling.classList.add(printing.servicelist);
+      nnes.nextElementSibling.className =
+        "w-[360px] h-[150px] flex relative bg-cover bg-center";
+      //nnes.nextElementSibling.classList.add(printing.servicelist);
 
       ppNode.style.backgroundImage = "url('/images/Online-Service-SEO.jpg')";
 
@@ -415,14 +418,16 @@ const Digital = () => {
         ffec.style.display = "block";
       }
 
-      nes.className = "";
-      nes.classList.add(printing.servicelist);
+      nes.className =
+        "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+      //nes.classList.add(printing.servicelist);
 
-      nnes.className = "";
-      nnes.classList.add(printing.servicelist);
+      nnes.className = "w-[360px] h-[150px] flex relative bg-cover bg-center";
+      //nnes.classList.add(printing.servicelist);
 
-      pes.className = "";
-      pes.classList.add(printing.servicelist);
+      pes.className =
+        "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+      //pes.classList.add(printing.servicelist);
 
       ppNode.style.backgroundImage = "url('/images/Online-Service-CMS.jpg')";
 
@@ -436,14 +441,16 @@ const Digital = () => {
         ffec.style.display = "block";
       }
 
-      nes.className = "";
-      nes.classList.add(printing.servicelist);
+      nes.className = "w-[360px] h-[150px] flex relative bg-cover bg-center";
+      //nes.classList.add(printing.servicelist);
 
-      pes.className = "";
-      pes.classList.add(printing.servicelist);
+      pes.className =
+        "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+      //pes.classList.add(printing.servicelist);
 
-      ppes.className = "";
-      ppes.classList.add(printing.servicelist);
+      ppes.className =
+        "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+      //ppes.classList.add(printing.servicelist);
 
       ppNode.style.backgroundImage = "url('/images/Online-Service-OAuth.jpg')";
 
@@ -457,14 +464,17 @@ const Digital = () => {
         ffec.style.display = "block";
       }
 
-      pes.className = "";
-      pes.classList.add(printing.servicelist);
+      pes.className =
+        "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+      //pes.classList.add(printing.servicelist);
 
-      ppes.className = "";
-      ppes.classList.add(printing.servicelist);
+      ppes.className =
+        "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+      //ppes.classList.add(printing.servicelist);
 
-      ppes.previousElementSibling.className = "";
-      ppes.previousElementSibling.classList.add(printing.servicelist);
+      ppes.previousElementSibling.className =
+        "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+      //ppes.previousElementSibling.classList.add(printing.servicelist);
 
       ppNode.style.backgroundImage =
         "url('/images/Online-Service-Ecommerce.jpg')";
@@ -493,8 +503,8 @@ const Digital = () => {
         setModalExit4(true);
       }
       setSlide7(!slide7);
-      nes.className = "";
-      nes.classList.add(printing.servicelist);
+      nes.className = "w-[360px] h-[150px] flex relative bg-cover bg-center";
+      //nes.classList.add(printing.servicelist);
     } else if (ffec.textContent == t("digital_page.img_icon_md")) {
       if (w < 768) {
         fec.getElementsByTagName("svg")[0].style.display = "block";
@@ -502,12 +512,22 @@ const Digital = () => {
         setModalExit4(true);
       }
       setSlide8(!slide8);
-      pes.className = "";
-      pes.classList.add(printing.servicelist);
+      pes.className =
+        "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+      //pes.classList.add(printing.servicelist);
     }
 
-    ppNode.className = "";
-    ppNode.classList.add(printing.servicelist);
+    if (
+      ffec.textContent == t("digital_page.img_icon_eci") ||
+      ffec.textContent == t("digital_page.img_icon_adi") ||
+      ffec.textContent == t("digital_page.img_icon_vid") ||
+      ffec.textContent == t("digital_page.img_icon_md")
+    )
+      ppNode.className = "w-[360px] h-[150px] flex relative bg-cover bg-center";
+    else
+      ppNode.className =
+        "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+    //ppNode.classList.add(printing.servicelist);
 
     fec.classList.remove(printing.serviceText1);
 

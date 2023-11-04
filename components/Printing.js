@@ -266,25 +266,27 @@ const Printing = () => {
     let nes = ppNode.nextElementSibling;
     let pes = ppNode.previousElementSibling;
     if (ffec.textContent == t("printing_page.img_icon_lfp")) {
-      nes.className = "";
-      nes.classList.add(printing.servicelist);
+      nes.className =
+        "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+      //nes.classList.add(printing.servicelist);
 
-      nes.nextElementSibling.className = "";
-      nes.nextElementSibling.classList.add(printing.servicelist);
+      nes.nextElementSibling.className =
+        "w-[360px] h-[150px] flex relative bg-cover bg-center";
+      //nes.nextElementSibling.classList.add(printing.servicelist);
 
       if (w < 768) {
-        console.log("here2!:", fec);
         fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
       }
       setModalExit1(true);
       setSlide1(!slide1);
     } else if (ffec.textContent == t("printing_page.img_icon_dps")) {
-      nes.className = "";
-      nes.classList.add(printing.servicelist);
+      nes.className = "w-[360px] h-[150px] flex relative bg-cover bg-center";
+      //nes.classList.add(printing.servicelist);
 
-      pes.className = "";
-      pes.classList.add(printing.servicelist);
+      pes.className =
+        "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+      //pes.classList.add(printing.servicelist);
 
       if (w < 768) {
         fec.getElementsByTagName("svg")[0].style.display = "block";
@@ -293,11 +295,13 @@ const Printing = () => {
       setModalExit1(true);
       setSlide2(!slide2);
     } else if (ffec.textContent == t("printing_page.img_icon_is")) {
-      pes.className = "";
-      pes.classList.add(printing.servicelist);
+      pes.className =
+        "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+      //pes.classList.add(printing.servicelist);
 
-      pes.previousElementSibling.className = "";
-      pes.previousElementSibling.classList.add(printing.servicelist);
+      pes.previousElementSibling.className =
+        "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+      //pes.previousElementSibling.classList.add(printing.servicelist);
 
       if (w < 768) {
         fec.getElementsByTagName("svg")[0].style.display = "block";
@@ -321,8 +325,16 @@ const Printing = () => {
       setModalExit3(true);
     }
 
-    ppNode.className = "";
-    ppNode.classList.add(printing.servicelist);
+    if (
+      ffec.textContent == t("printing_page.img_icon_is") ||
+      ffec.textContent == t("printing_page.img_icon_dsd") ||
+      ffec.textContent == t("printing_page.img_icon_ppm")
+    )
+      ppNode.className = "w-[360px] h-[150px] flex relative bg-cover bg-center";
+    else
+      ppNode.className =
+        "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+    //ppNode.classList.add(printing.servicelist);
 
     if (ffec.textContent == t("printing_page.img_icon_ppm")) {
       ppNode.firstElementChild.classList.add(printing.serviceText2);

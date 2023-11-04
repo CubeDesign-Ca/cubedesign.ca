@@ -157,6 +157,10 @@
     position: relative;
 }
 
+.disabled {
+    pointer-events: none;  
+}
+
 .servicelistBox1 {
     width: 100%;
     height: 100%;
