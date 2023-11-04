@@ -186,18 +186,13 @@
     background-size: cover;
     transition: 0.4s ease-out;
     background-position: center;
+    margin-bottom: 10px;
 }
 
-
-.servicelist:hover {
-    border-bottom: 8px solid #C83832;
-}
-
-
-
-.servicelistVisile{
-    visibility: hidden;
-    width: 0px !important;
+.titleBody {
+  width: 360px;
+  display: flex;
+  flex-direction: row;
 }
 
 .serviceArrow {
@@ -205,6 +200,24 @@
   height: 35px;
   margin-top: 10px;
   margin-right: 10px;
+  float: right;
+}
+  
+.serviceArrowUp {
+  width: 35px;
+  height: 35px;
+  margin-top: 10px;
+  margin-right: 10px;
+  float: right;
+}
+
+.servicelist:hover {
+    border-bottom: 8px solid #C83832;
+}
+
+.servicelistVisile{
+    visibility: hidden;
+    width: 0px !important;
 }
 
 .serviceText {
@@ -346,8 +359,8 @@
 
 .modalExit1 {
     position: absolute;
-    top: 40px;
-    right: 60px;
+    top: 20px;
+    right: 20px;
     z-index: 10;
 }
 

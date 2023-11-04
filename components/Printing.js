@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import printing from "../app/printing.module.css";
 import { useTranslation } from "next-i18next";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 const Printing = () => {
   const { t } = useTranslation("common");
