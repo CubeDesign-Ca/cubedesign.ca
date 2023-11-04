@@ -102,6 +102,7 @@ const Printing = () => {
       pNode.previousElementSibling.classList.remove(
         printing.serviceComponentBox
       );
+      pNode.previousElementSibling.classList.value = "";
       pNode.previousElementSibling.classList.add(printing.serviceComponentBox1);
 
       setPrint(false);

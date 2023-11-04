@@ -124,9 +124,8 @@ const Digital = () => {
       pNode.classList.add(printing.serviceComponentBox);
       nes.classList.remove(printing.serviceComponentBox);
       nes.classList.add(printing.serviceComponentBox1);
-      pNode.previousElementSibling.classList.remove(
-        printing.serviceComponentBox
-      );
+      pNode.previousElementSibling.classList.value = "";
+      //pNode.previousElementSibling.classList.remove(printing.serviceComponentBox);
       pNode.previousElementSibling.classList.add(printing.serviceComponentBox1);
       nes.nextElementSibling.classList.value = "";
       nes.nextElementSibling.classList.add(printing.serviceComponentBox1);
