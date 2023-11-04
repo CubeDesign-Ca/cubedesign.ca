@@ -32,7 +32,6 @@ const Digital = () => {
   const [modalExit2, setModalExit2] = useState(true);
   const [modalExit3, setModalExit3] = useState(true);
   const [modalExit4, setModalExit4] = useState(true);
-  const [modalExit5, setModalExit5] = useState(true);
   const [isMobile, setMobile] = useState(false);
 
   let smallPhoto;
@@ -331,7 +330,7 @@ const Digital = () => {
           if (w < 768) {
             // fec.firstElementChild.style.display = "none";
             // fec.lastElementChild.style.display = "none";
-            setModalExit5(false);
+            setModalExit4(false);
           } else {
             pes.className = "";
             pes.classList.add(printing.servicelistVisile);
@@ -500,7 +499,7 @@ const Digital = () => {
       if (w < 768) {
         fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
-        setModalExit5(true);
+        setModalExit4(true);
       }
       setSlide8(!slide8);
       pes.className = "";
@@ -937,20 +936,24 @@ const Digital = () => {
               </div>
             </div>
           </div>
-          <div className="w-[400px] h-[300px] mt-[20px] block md:hidden mb-[40px]">
+          <div
+            className={`w-[400px] ${
+              modalExit4 ? "h-[310px]" : "h-[490px]"
+            } mt-[20px] block md:hidden mb-[40px]`}
+          >
             <motion.div
               className={printing.servicelistBoxMobile}
               animate={{
                 justifyContent: !slide7
-                  ? "center"
+                  ? "space-between"
                   : !slide8
-                  ? "center"
-                  : "start",
+                  ? "space-between"
+                  : "space-between",
               }}
             >
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative"
+                className="w-[360px] h-[150px] flex relative mb-[10px]"
                 style={{
                   backgroundImage: `url('/images/Online-Service-Poster.jpg')`,
                 }}
