@@ -668,7 +668,7 @@ const Digital = () => {
             >
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative mb-[10px]"
+                className="w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/Online-Service-SEO.jpg')`,
                 }}
@@ -702,7 +702,7 @@ const Digital = () => {
               </motion.div>
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative mb-[10px]"
+                className="w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/Online-Service-CMS.jpg')`,
                 }}
@@ -739,7 +739,7 @@ const Digital = () => {
               </motion.div>
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative mb-[10px]"
+                className="w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/Online-Service-OAuth.jpg')`,
                 }}
@@ -773,7 +773,7 @@ const Digital = () => {
               </motion.div>
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative"
+                className="w-[360px] h-[150px] flex relative bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/Online-Service-Ecommerce.jpg')`,
                 }}
@@ -832,7 +832,7 @@ const Digital = () => {
             >
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative"
+                className="w-[360px] h-[150px] flex relative bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/Online-Service-Admin.jpg')`,
                 }}
@@ -891,7 +891,7 @@ const Digital = () => {
             >
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative"
+                className="w-[360px] h-[150px] flex relative bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/Online-Service-Branding.jpg')`,
                 }}
@@ -953,7 +953,7 @@ const Digital = () => {
             >
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative mb-[10px]"
+                className="w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/Online-Service-Poster.jpg')`,
                 }}
@@ -987,7 +987,7 @@ const Digital = () => {
               </motion.div>
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative"
+                className="w-[360px] h-[150px] flex relative bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/Online-Service-Menu.jpg')`,
                   // marginLeft: "20px",

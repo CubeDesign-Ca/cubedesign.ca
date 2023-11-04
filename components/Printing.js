@@ -543,7 +543,7 @@ const Printing = () => {
             >
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative mb-[10px]"
+                className="w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/offline-service-large-click.jpg')`,
                 }}
@@ -576,7 +576,7 @@ const Printing = () => {
               </motion.div>
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative mb-[10px]"
+                className="w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/offline-service-digital-click.jpg')`,
                 }}
@@ -610,7 +610,7 @@ const Printing = () => {
               </motion.div>
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative "
+                className="w-[360px] h-[150px] flex relative bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/offline-service-installation-click.jpg')`,
                 }}
@@ -669,7 +669,7 @@ const Printing = () => {
             >
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative"
+                className="w-[360px] h-[150px] flex relative bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/offline-service-wayfinding-click.jpg')`,
                 }}
@@ -728,7 +728,7 @@ const Printing = () => {
             >
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative "
+                className="w-[360px] h-[150px] flex relative bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/offline-service-promotional-click.jpg')`,
                 }}
