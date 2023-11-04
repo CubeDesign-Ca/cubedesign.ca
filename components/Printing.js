@@ -501,7 +501,7 @@ const Printing = () => {
       {/* our service */}
       <div className={printing.serviceBg}>
         {/* <div className={printing.serviceBgBox}> */}
-        <div className="flex w-[1140px] h-[1406px] md:h-[956px] flex-col mt-[200px] items-center">
+        <div className="flex w-[1140px] h-[1506px] md:h-[956px] flex-col mt-[200px] items-center">
           {/* <div
           className={`flex w-[1140px] ${
             isModalOpen ? "h-[1386px]" : "h-[1206px]"
@@ -526,18 +526,18 @@ const Printing = () => {
           </div>
           <div
             className={`w-[400px] ${
-              modalExit1 ? "h-[450px]" : "h-[630px]"
+              modalExit1 ? "h-[470px]" : "h-[650px]"
             } mt-[20px] block md:hidden mb-[0px]`}
           >
             <motion.div
               className={printing.servicelistBoxMobile}
               animate={{
                 justifyContent: !slide1
-                  ? "center"
+                  ? "space-between"
                   : !slide2
-                  ? "center"
+                  ? "space-between"
                   : !slide3
-                  ? "center"
+                  ? "space-between"
                   : "space-between",
               }}
             >

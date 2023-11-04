@@ -137,6 +137,15 @@
     position: relative;
 }
 
+.servicelistBoxMobile {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
 .servicelistBox1 {
     width: 100%;
     height: 100%;

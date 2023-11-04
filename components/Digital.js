@@ -629,7 +629,7 @@ const Digital = () => {
       {/* our service */}
       <div className={printing.serviceBg}>
         {/* <div className={printing.serviceBgBox}> */}
-        <div className="flex w-[1140px] h-[2006px] md:h-[1106px] flex-col mt-[200px] items-center">
+        <div className="flex w-[1140px] h-[2256px] md:h-[1106px] flex-col mt-[200px] items-center">
           <div className={printing.serviceHeadBox}>
             <h2 className={printing.serviceHead}>
               {t("digital_page.ourservice")}
@@ -650,20 +650,20 @@ const Digital = () => {
           {/* <div className="w-[400px] h-[600px] mt-[20px] block md:hidden mb-[0px]"> */}
           <div
             className={`w-[400px] ${
-              modalExit1 ? "h-[600px]" : "h-[780px]"
+              modalExit1 ? "h-[630px]" : "h-[810px]"
             } mt-[20px] block md:hidden mb-[0px]`}
           >
             <motion.div
               className={printing.servicelistBoxMobile}
               animate={{
                 justifyContent: !slide1
-                  ? "center"
+                  ? "space-between"
                   : !slide2
-                  ? "center"
+                  ? "space-between"
                   : !slide3
-                  ? "center"
+                  ? "space-between"
                   : !slide4
-                  ? "center"
+                  ? "space-between"
                   : "space-between",
               }}
             >
