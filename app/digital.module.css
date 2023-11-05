@@ -203,6 +203,18 @@
     flex-flow: column;
 }
 
+.serviceTextMXLarge {
+    position: absolute;
+    bottom: 0;
+    width: 360px;
+    height: 220px;
+    background-color: #EFF2F9;
+    opacity: 0.8;
+    animation: fadeAnimation ease 1.4s;
+    display: flex;
+    flex-flow: column;
+}
+
 .serviceTextLg {
     position: absolute;
     bottom: 0;
@@ -300,6 +312,7 @@
     opacity: 1;
     padding-left: 20px;
     padding-top: 10px;    
+    width: 310px;
 }
 
 .modalExit {
@@ -324,6 +337,14 @@
 .modalExitMLarge {
     position: absolute;
     top: 140px;
+    right: 0px;
+    z-index: 10;
+    opacity: 0;
+}
+
+.modalExitMXLarge {
+    position: absolute;
+    top: 120px;
     right: 0px;
     z-index: 10;
     opacity: 0;

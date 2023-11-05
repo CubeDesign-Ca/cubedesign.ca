@@ -338,6 +338,13 @@ const Digital = () => {
             fec.classList.add(printing.serviceTextMLarge);
 
             fec.lastElementChild.classList.add(printing.serviceDescM);
+          } else if (
+            fec.firstElementChild.textContent == t("digital_page.img_icon_cms")
+          ) {
+            fec.classList.remove(printing.serviceText);
+            fec.classList.add(printing.serviceTextMXLarge);
+
+            fec.lastElementChild.classList.add(printing.serviceDescM);
           } else {
             fec.classList.remove(printing.serviceText);
             fec.classList.add(printing.serviceTextM);
@@ -352,6 +359,10 @@ const Digital = () => {
             fec.firstElementChild.textContent == t("digital_page.img_icon_adi")
           ) {
             target.lastElementChild.classList.add(printing.modalExitMLarge);
+          } else if (
+            fec.firstElementChild.textContent == t("digital_page.img_icon_cms")
+          ) {
+            target.lastElementChild.classList.add(printing.modalExitMXLarge);
           } else {
             target.lastElementChild.classList.add(printing.modalExitM);
           }
@@ -563,6 +574,8 @@ const Digital = () => {
     if (w < 768) {
       if (ffec.textContent == t("digital_page.img_icon_adi")) {
         pNode.classList.remove(printing.modalExitMLarge);
+      } else if (ffec.textContent == t("digital_page.img_icon_cms")) {
+        pNode.classList.remove(printing.modalExitMXLarge);
       } else {
         pNode.classList.remove(printing.modalExitM);
       }
@@ -581,6 +594,15 @@ const Digital = () => {
       if (fec.firstElementChild.textContent == t("digital_page.img_icon_adi")) {
         ppNode.firstElementChild.classList.remove(printing.serviceTextMLarge);
         ppNode.firstElementChild.classList.add(printing.serviceTextLg);
+
+        ppNode.firstElementChild.lastElementChild.classList.remove(
+          printing.serviceDescM
+        );
+      } else if (
+        fec.firstElementChild.textContent == t("digital_page.img_icon_cms")
+      ) {
+        ppNode.firstElementChild.classList.remove(printing.serviceTextMXLarge);
+        ppNode.firstElementChild.classList.add(printing.serviceText);
 
         ppNode.firstElementChild.lastElementChild.classList.remove(
           printing.serviceDescM
