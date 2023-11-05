@@ -197,15 +197,15 @@
 }
 
 .serviceArrow {
-  width: 35px;
-  height: 35px;
+  width: 30.8px;
+  height: 30.8px;
   margin-top: 10px;
   margin-right: 10px;
   float: right;
 }
   
 .serviceArrowUp {
-  width: 35px;
+  width: 30.8px;
   height: 30.8px;
   margin-top: 10px;
   margin-right: 10px;
@@ -241,6 +241,18 @@
     bottom: 0;
     width: 360px;
     height: 130px;
+    background-color: #EFF2F9;
+    opacity: 0.8;
+    animation: fadeAnimation ease 1.4s;
+    display: flex;
+    flex-flow: column;
+}
+
+.serviceTextMLarge {
+    position: absolute;
+    bottom: 0;
+    width: 360px;
+    height: 150px;
     background-color: #EFF2F9;
     opacity: 0.8;
     animation: fadeAnimation ease 1.4s;
@@ -328,6 +340,7 @@
     color: black;
     font-size: 18px;
     font-weight: 600;
+    padding-top: 10px;
     padding-left: 20px;
     width: 319.2px;
 }
@@ -372,6 +385,14 @@
 .modalExitM {
     position: absolute;
     top: 200px;
+    right: 0px;
+    z-index: 10;
+    opacity: 0;
+}
+
+.modalExitMLarge {
+    position: absolute;
+    top: 180px;
     right: 0px;
     z-index: 10;
     opacity: 0;

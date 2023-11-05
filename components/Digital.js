@@ -335,7 +335,7 @@ const Digital = () => {
             fec.firstElementChild.textContent == t("digital_page.img_icon_adi")
           ) {
             fec.classList.remove(printing.serviceTextLg);
-            fec.classList.add(printing.serviceTextM);
+            fec.classList.add(printing.serviceTextMLarge);
 
             fec.lastElementChild.classList.add(printing.serviceDescM);
           } else {
@@ -348,7 +348,13 @@ const Digital = () => {
 
         target.lastElementChild.classList.remove(printing.modalExit);
         if (w < 768) {
-          target.lastElementChild.classList.add(printing.modalExitM);
+          if (
+            fec.firstElementChild.textContent == t("digital_page.img_icon_adi")
+          ) {
+            target.lastElementChild.classList.add(printing.modalExitMLarge);
+          } else {
+            target.lastElementChild.classList.add(printing.modalExitM);
+          }
         } else {
           target.lastElementChild.classList.add(printing.modalExit1);
         }
@@ -555,7 +561,11 @@ const Digital = () => {
     }
 
     if (w < 768) {
-      pNode.classList.remove(printing.modalExitM);
+      if (ffec.textContent == t("digital_page.img_icon_adi")) {
+        pNode.classList.remove(printing.modalExitMLarge);
+      } else {
+        pNode.classList.remove(printing.modalExitM);
+      }
     } else {
       pNode.classList.remove(printing.modalExit1);
     }
@@ -569,7 +579,7 @@ const Digital = () => {
       fec.lastElementChild.classList.add(printing.serviceDesc);
     } else {
       if (fec.firstElementChild.textContent == t("digital_page.img_icon_adi")) {
-        ppNode.firstElementChild.classList.remove(printing.serviceTextM);
+        ppNode.firstElementChild.classList.remove(printing.serviceTextMLarge);
         ppNode.firstElementChild.classList.add(printing.serviceTextLg);
 
         ppNode.firstElementChild.lastElementChild.classList.remove(
@@ -882,7 +892,7 @@ const Digital = () => {
               >
                 <div className={printing.serviceTextLg} onClick={clickMove}>
                   {" "}
-                  <h1 className={printing.serviceTitle}>
+                  <h1 className={printing.serviceTitle2}>
                     {t("digital_page.img_icon_adi")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />

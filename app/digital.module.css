@@ -63,14 +63,14 @@
 }
 
 .serviceArrow {
-    width: 35px;
-    height: 35px;
+    width: 30.8px;
+    height: 30.8px;
     margin-top: 10px;
     margin-right: 10px;
 }
 
 .serviceArrowUp {
-    width: 35px;
+    width: 30.8px;
     height: 30.8px;
     margin-top: 10px;
     margin-right: 10px;
@@ -191,6 +191,18 @@
     flex-flow: column;
 }
 
+.serviceTextMLarge {
+    position: absolute;
+    bottom: 0;
+    width: 360px;
+    height: 200px;
+    background-color: #EFF2F9;
+    opacity: 0.8;
+    animation: fadeAnimation ease 1.4s;
+    display: flex;
+    flex-flow: column;
+}
+
 .serviceTextLg {
     position: absolute;
     bottom: 0;
@@ -261,6 +273,15 @@
     margin-bottom: 20px;
 }
 
+.serviceTitle2 {
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+    padding-top: 10px;
+    padding-left: 20px;
+    width: 319.2px;
+}
+
 .serviceDesc {
     display: none;
     visibility: hidden;
@@ -295,6 +316,14 @@
 .modalExitM {
     position: absolute;
     top: 160px;
+    right: 0px;
+    z-index: 10;
+    opacity: 0;
+}
+
+.modalExitMLarge {
+    position: absolute;
+    top: 140px;
     right: 0px;
     z-index: 10;
     opacity: 0;

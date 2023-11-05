@@ -217,7 +217,7 @@ const Printing = () => {
             fec.firstElementChild.textContent == t("printing_page.img_icon_ppm")
           ) {
             fec.classList.remove(printing.serviceText2);
-            fec.classList.add(printing.serviceTextM);
+            fec.classList.add(printing.serviceTextMLarge);
 
             fec.lastElementChild.classList.add(printing.serviceDescM);
           } else {
@@ -230,6 +230,11 @@ const Printing = () => {
 
         target.lastElementChild.classList.remove(printing.modalExit);
         if (w < 768) {
+          if (
+            fec.firstElementChild.textContent == t("printing_page.img_icon_ppm")
+          ) {
+            target.lastElementChild.classList.add(printing.modalExitMLarge);
+          }
           target.lastElementChild.classList.add(printing.modalExitM);
         } else {
           target.lastElementChild.classList.add(printing.modalExit1);
@@ -355,6 +360,9 @@ const Printing = () => {
     ppNode.firstElementChild.classList.remove(printing.serviceText1);
 
     if (w < 768) {
+      if (ffec.textContent == t("printing_page.img_icon_ppm")) {
+        e.target.parentNode.classList.remove(printing.modalExitMLarge);
+      }
       e.target.parentNode.classList.remove(printing.modalExitM);
     } else {
       e.target.parentNode.classList.remove(printing.modalExit1);
@@ -379,7 +387,7 @@ const Printing = () => {
       if (
         fec.firstElementChild.textContent == t("printing_page.img_icon_ppm")
       ) {
-        ppNode.firstElementChild.classList.remove(printing.serviceTextM);
+        ppNode.firstElementChild.classList.remove(printing.serviceTextMLarge);
         ppNode.firstElementChild.classList.add(printing.serviceText2);
 
         ppNode.firstElementChild.lastElementChild.classList.remove(
