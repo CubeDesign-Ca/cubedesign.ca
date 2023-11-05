@@ -142,7 +142,6 @@ const Printing = () => {
   // service list
 
   const isModal = (e) => {
-    console.log("isModal()");
     e.preventDefault();
     if (e.target.id == "container") {
       if (!isSlide) {
@@ -154,8 +153,6 @@ const Printing = () => {
           fec.firstElementChild.textContent == t("printing_page.img_icon_lfp")
         ) {
           if (w < 768) {
-            // fec.firstElementChild.style.display = "none";
-            // fec.lastElementChild.style.display = "none";
           } else {
             nes.className = "";
             nes.classList.add(printing.servicelistVisile);
@@ -169,8 +166,6 @@ const Printing = () => {
           fec.firstElementChild.textContent == t("printing_page.img_icon_dps")
         ) {
           if (w < 768) {
-            // fec.firstElementChild.style.display = "none";
-            // fec.lastElementChild.style.display = "none";
           } else {
             nes.className = "";
             nes.classList.add(printing.servicelistVisile);
@@ -184,8 +179,6 @@ const Printing = () => {
           fec.firstElementChild.textContent == t("printing_page.img_icon_is")
         ) {
           if (w < 768) {
-            // fec.firstElementChild.style.display = "none";
-            // fec.lastElementChild.style.display = "none";
           } else {
             pes.className = "";
             pes.classList.add(printing.servicelistVisile);
@@ -200,19 +193,9 @@ const Printing = () => {
         } else if (
           fec.firstElementChild.textContent == t("printing_page.img_icon_dsd")
         ) {
-          if (w < 768) {
-            // fec.firstElementChild.style.display = "none";
-            // fec.lastElementChild.style.display = "none";
-          }
-
           setModalExit2(false);
           setSlide4(!slide4);
         } else {
-          if (w < 768) {
-            // fec.firstElementChild.style.display = "none";
-            // fec.lastElementChild.style.display = "none";
-          }
-
           setModalExit3(false);
           setSlide5(!slide5);
         }
@@ -246,10 +229,17 @@ const Printing = () => {
         }
 
         target.lastElementChild.classList.remove(printing.modalExit);
-        target.lastElementChild.classList.add(printing.modalExit1);
+        if (w < 768) {
+          target.lastElementChild.classList.add(printing.modalExitM);
+        } else {
+          target.lastElementChild.classList.add(printing.modalExit1);
+        }
 
         fec.lastElementChild.classList.remove(printing.serviceDesc);
-        if (w < 768) fec.getElementsByTagName("svg")[0].style.display = "none";
+        if (w < 768) {
+          fec.getElementsByTagName("svg")[0].style.display = "none";
+          fec.getElementsByTagName("svg")[1].style.display = "block";
+        }
 
         setclick(true);
         setIsSlide(!isSlide);
@@ -258,7 +248,6 @@ const Printing = () => {
   };
 
   const exitModal = (e) => {
-    console.log("exitModal()");
     e.preventDefault();
 
     let ppNode = e.target.parentNode.parentNode;
@@ -266,18 +255,16 @@ const Printing = () => {
     let ffec = ppNode.firstElementChild.firstElementChild;
     let nes = ppNode.nextElementSibling;
     let pes = ppNode.previousElementSibling;
+
     if (ffec.textContent == t("printing_page.img_icon_lfp")) {
       if (w < 768) {
-        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
 
         nes.className =
           "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
-        //nes.classList.add(printing.servicelist);
 
         nes.nextElementSibling.className =
           "w-[360px] h-[150px] flex relative bg-cover bg-center";
-        //nes.nextElementSibling.classList.add(printing.servicelist);
       } else {
         nes.className = "";
         nes.classList.add(printing.servicelist);
@@ -290,15 +277,12 @@ const Printing = () => {
       setSlide1(!slide1);
     } else if (ffec.textContent == t("printing_page.img_icon_dps")) {
       if (w < 768) {
-        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
 
         nes.className = "w-[360px] h-[150px] flex relative bg-cover bg-center";
-        //nes.classList.add(printing.servicelist);
 
         pes.className =
           "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
-        //pes.classList.add(printing.servicelist);
       } else {
         nes.className = "";
         nes.classList.add(printing.servicelist);
@@ -311,16 +295,13 @@ const Printing = () => {
       setSlide2(!slide2);
     } else if (ffec.textContent == t("printing_page.img_icon_is")) {
       if (w < 768) {
-        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
 
         pes.className =
           "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
-        //pes.classList.add(printing.servicelist);
 
         pes.previousElementSibling.className =
           "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
-        //pes.previousElementSibling.classList.add(printing.servicelist);
       } else {
         pes.className = "";
         pes.classList.add(printing.servicelist);
@@ -333,21 +314,24 @@ const Printing = () => {
       setSlide3(!slide3);
     } else if (ffec.textContent == t("printing_page.img_icon_dsd")) {
       if (w < 768) {
-        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
       }
+
       setModalExit2(true);
       setSlide4(!slide4);
     } else {
       if (w < 768) {
-        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
       }
+
       setSlide5(!slide5);
       setModalExit3(true);
     }
 
     if (w < 768) {
+      fec.getElementsByTagName("svg")[0].style.display = "block";
+      fec.getElementsByTagName("svg")[1].style.display = "none";
+
       if (
         ffec.textContent == t("printing_page.img_icon_is") ||
         ffec.textContent == t("printing_page.img_icon_dsd") ||
@@ -358,7 +342,6 @@ const Printing = () => {
       else
         ppNode.className =
           "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
-      //ppNode.classList.add(printing.servicelist);
     } else {
       ppNode.className = "";
       ppNode.classList.add(printing.servicelist);
@@ -371,7 +354,11 @@ const Printing = () => {
     }
     ppNode.firstElementChild.classList.remove(printing.serviceText1);
 
-    e.target.parentNode.classList.remove(printing.modalExit1);
+    if (w < 768) {
+      e.target.parentNode.classList.remove(printing.modalExitM);
+    } else {
+      e.target.parentNode.classList.remove(printing.modalExit1);
+    }
     e.target.parentNode.classList.add(printing.modalExit);
 
     ffec.classList.remove(printing.serviceTitle1);
@@ -473,7 +460,6 @@ const Printing = () => {
       console.log("handleresize:", isMobile);
     } else {
       setMobile(false);
-      // console.log("handleresize:", isMobile);
     }
   };
 
@@ -517,7 +503,6 @@ const Printing = () => {
   return (
     <div>
       {/* bacground photo */}
-      {/* <div className="bg-[url('/images/printing-bg-reverse.jpg')] md:bg-[url('/images/printing-bg.jpg')] h-[690px] w-[2000px] flex"> */}
       <div className="hidden md:block">
         <div className={printing.bgimg}>
           <div className="absolute left-[30px] md:left-[10%] top-[430px]">
@@ -542,11 +527,6 @@ const Printing = () => {
       <div className={printing.serviceBg}>
         {/* <div className={printing.serviceBgBox}> */}
         <div className="flex w-[1140px] h-[1506px] md:h-[956px] flex-col mt-[200px] items-center">
-          {/* <div
-          className={`flex w-[1140px] ${
-            isModalOpen ? "h-[1386px]" : "h-[1206px]"
-          } md:h-[956px] flex-col mt-[200px] items-center`}
-        > */}
           <div className={printing.serviceHeadBox}>
             <h2 className={printing.serviceHead}>
               {t("printing_page.ourservice")}
@@ -598,6 +578,7 @@ const Printing = () => {
                     {t("printing_page.img_icon_lfp")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
+                  <IoIosArrowUp className={printing.serviceArrowUp} />
                   {true && (
                     <p className={printing.serviceDesc}>
                       {t("printing_page.img_icon_lfp_desc")} <br />{" "}
@@ -632,6 +613,7 @@ const Printing = () => {
                     {t("printing_page.img_icon_dps")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
+                  <IoIosArrowUp className={printing.serviceArrowUp} />
                   {true && (
                     <p className={printing.serviceDesc}>
                       {t("printing_page.img_icon_dps_desc")} <br />{" "}
@@ -666,6 +648,7 @@ const Printing = () => {
                     {t("printing_page.img_icon_is")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
+                  <IoIosArrowUp className={printing.serviceArrowUp} />
                   {true && (
                     <p className={printing.serviceDesc}>
                       {t("printing_page.img_icon_is_desc")} <br />{" "}
@@ -695,7 +678,6 @@ const Printing = () => {
               </div>
             </div>
           </div>
-          {/* <div className="w-[400px] h-[150px] mt-[20px] block md:hidden mb-[40px]"> */}
           <div
             className={`w-[400px] ${
               modalExit2 ? "h-[150px]" : "h-[330px]"
@@ -725,6 +707,7 @@ const Printing = () => {
                     {t("printing_page.img_icon_dsd")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
+                  <IoIosArrowUp className={printing.serviceArrowUp} />
                   {true && (
                     <p className={printing.serviceDesc}>
                       {t("printing_page.img_icon_dsd_desc")} <br />{" "}
@@ -754,7 +737,6 @@ const Printing = () => {
               </div>
             </div>
           </div>
-          {/* <div className="w-[400px] h-[300px] mt-[20px] block md:hidden mb-[40px] "> */}
           <div
             className={`w-[400px] ${
               modalExit3 ? "h-[150px]" : "h-[330px]"
@@ -784,6 +766,7 @@ const Printing = () => {
                     {t("printing_page.img_icon_ppm")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
+                  <IoIosArrowUp className={printing.serviceArrowUp} />
                   {true && (
                     <p className={printing.serviceDesc}>
                       {t("printing_page.img_icon_ppm_desc")} <br />{" "}

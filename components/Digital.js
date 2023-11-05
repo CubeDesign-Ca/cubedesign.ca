@@ -6,9 +6,8 @@ import "swiper/css/scrollbar";
 import { React, useState, useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import printing from "../app/digital.module.css";
-// import printing from "../app/printing.module.css";
 import { useTranslation } from "next-i18next";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 const Digital = () => {
   const { t } = useTranslation("common");
@@ -221,8 +220,6 @@ const Digital = () => {
           let nnes = nes.nextElementSibling;
 
           if (w < 768) {
-            // fec.firstElementChild.style.display = "none";
-            // fec.lastElementChild.style.display = "none";
           } else {
             nes.className = "";
             nes.classList.add(printing.servicelistVisile);
@@ -241,8 +238,6 @@ const Digital = () => {
           let nnes = nes.nextElementSibling;
 
           if (w < 768) {
-            // fec.firstElementChild.style.display = "none";
-            // fec.lastElementChild.style.display = "none";
           } else {
             nes.className = "";
             nes.classList.add(printing.servicelistVisile);
@@ -261,8 +256,6 @@ const Digital = () => {
           let ppes = pes.previousElementSibling;
 
           if (w < 768) {
-            // fec.firstElementChild.style.display = "none";
-            // fec.lastElementChild.style.display = "none";
           } else {
             pes.className = "";
             pes.classList.add(printing.servicelistVisile);
@@ -281,8 +274,6 @@ const Digital = () => {
           let ppes = pes.previousElementSibling;
 
           if (w < 768) {
-            // fec.firstElementChild.style.display = "none";
-            // fec.lastElementChild.style.display = "none";
           } else {
             pes.className = "";
             pes.classList.add(printing.servicelistVisile);
@@ -303,22 +294,16 @@ const Digital = () => {
           target.style.backgroundImage =
             "url('/images/Online-Service-Admin.jpg')";
           if (w < 768) {
-            // fec.firstElementChild.style.display = "none";
-            // fec.lastElementChild.style.display = "none";
             setModalExit2(false);
           }
           setSlide5(!slide5);
         } else if (ffec.textContent == t("digital_page.img_icon_vid")) {
           if (w < 768) {
-            // fec.firstElementChild.style.display = "none";
-            // fec.lastElementChild.style.display = "none";
             setModalExit3(false);
           }
           setSlide6(!slide6);
         } else if (ffec.textContent == t("digital_page.img_icon_pd")) {
           if (w < 768) {
-            // fec.firstElementChild.style.display = "none";
-            // fec.lastElementChild.style.display = "none";
             setModalExit4(false);
           } else {
             nes.className = "";
@@ -327,8 +312,6 @@ const Digital = () => {
           setSlide7(!slide7);
         } else if (ffec.textContent == t("digital_page.img_icon_md")) {
           if (w < 768) {
-            // fec.firstElementChild.style.display = "none";
-            // fec.lastElementChild.style.display = "none";
             setModalExit4(false);
           } else {
             pes.className = "";
@@ -364,11 +347,18 @@ const Digital = () => {
         }
 
         target.lastElementChild.classList.remove(printing.modalExit);
-        target.lastElementChild.classList.add(printing.modalExit1);
+        if (w < 768) {
+          target.lastElementChild.classList.add(printing.modalExitM);
+        } else {
+          target.lastElementChild.classList.add(printing.modalExit1);
+        }
 
         fec.lastElementChild.classList.remove(printing.serviceDesc);
         if (w > 768) fec.lastElementChild.classList.add(printing.serviceDesc1);
-        else fec.getElementsByTagName("svg")[0].style.display = "none";
+        else {
+          fec.getElementsByTagName("svg")[0].style.display = "none";
+          fec.getElementsByTagName("svg")[1].style.display = "block";
+        }
 
         setclick(true);
         setIsSlide(!isSlide);
@@ -389,20 +379,16 @@ const Digital = () => {
       let nnes = nes.nextElementSibling;
 
       if (w < 768) {
-        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
 
         nes.className =
           "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
-        //nes.classList.add(printing.servicelist);
 
         nnes.className =
           "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
-        //nnes.classList.add(printing.servicelist);
 
         nnes.nextElementSibling.className =
           "w-[360px] h-[150px] flex relative bg-cover bg-center";
-        //nnes.nextElementSibling.classList.add(printing.servicelist);
       } else {
         nes.className = "";
         nes.classList.add(printing.servicelist);
@@ -422,19 +408,15 @@ const Digital = () => {
       let nnes = nes.nextElementSibling;
 
       if (w < 768) {
-        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
 
         nes.className =
           "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
-        //nes.classList.add(printing.servicelist);
 
         nnes.className = "w-[360px] h-[150px] flex relative bg-cover bg-center";
-        //nnes.classList.add(printing.servicelist);
 
         pes.className =
           "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
-        //pes.classList.add(printing.servicelist);
       } else {
         nes.className = "";
         nes.classList.add(printing.servicelist);
@@ -454,19 +436,15 @@ const Digital = () => {
       let ppes = pes.previousElementSibling;
 
       if (w < 768) {
-        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
 
         nes.className = "w-[360px] h-[150px] flex relative bg-cover bg-center";
-        //nes.classList.add(printing.servicelist);
 
         pes.className =
           "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
-        //pes.classList.add(printing.servicelist);
 
         ppes.className =
           "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
-        //ppes.classList.add(printing.servicelist);
       } else {
         nes.className = "";
         nes.classList.add(printing.servicelist);
@@ -486,20 +464,16 @@ const Digital = () => {
       let ppes = pes.previousElementSibling;
 
       if (w < 768) {
-        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
 
         pes.className =
           "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
-        //pes.classList.add(printing.servicelist);
 
         ppes.className =
           "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
-        //ppes.classList.add(printing.servicelist);
 
         ppes.previousElementSibling.className =
           "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
-        //ppes.previousElementSibling.classList.add(printing.servicelist);
       } else {
         pes.className = "";
         pes.classList.add(printing.servicelist);
@@ -519,26 +493,22 @@ const Digital = () => {
     } else if (ffec.textContent == t("digital_page.img_icon_adi")) {
       ppNode.style.backgroundImage = "url('/images/Online-Service-Admin.jpg')";
       if (w < 768) {
-        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
         setModalExit2(true);
       }
       setSlide5(!slide5);
     } else if (ffec.textContent == t("digital_page.img_icon_vid")) {
       if (w < 768) {
-        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
         setModalExit3(true);
       }
       setSlide6(!slide6);
     } else if (ffec.textContent == t("digital_page.img_icon_pd")) {
       if (w < 768) {
-        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
         setModalExit4(true);
 
         nes.className = "w-[360px] h-[150px] flex relative bg-cover bg-center";
-        //nes.classList.add(printing.servicelist);
       } else {
         nes.className = "";
         nes.classList.add(printing.servicelist);
@@ -547,7 +517,6 @@ const Digital = () => {
       setSlide7(!slide7);
     } else if (ffec.textContent == t("digital_page.img_icon_md")) {
       if (w < 768) {
-        fec.getElementsByTagName("svg")[0].style.display = "block";
         ffec.style.display = "block";
         setModalExit4(true);
       } else {
@@ -559,6 +528,8 @@ const Digital = () => {
     }
 
     if (w < 768) {
+      fec.getElementsByTagName("svg")[0].style.display = "block";
+      fec.getElementsByTagName("svg")[1].style.display = "none";
       if (
         ffec.textContent == t("digital_page.img_icon_eci") ||
         ffec.textContent == t("digital_page.img_icon_adi") ||
@@ -570,7 +541,6 @@ const Digital = () => {
       else
         ppNode.className =
           "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
-      //ppNode.classList.add(printing.servicelist);
     } else {
       ppNode.className = "";
       ppNode.classList.add(printing.servicelist);
@@ -584,7 +554,11 @@ const Digital = () => {
       fec.classList.add(printing.serviceText);
     }
 
-    pNode.classList.remove(printing.modalExit1);
+    if (w < 768) {
+      pNode.classList.remove(printing.modalExitM);
+    } else {
+      pNode.classList.remove(printing.modalExit1);
+    }
     pNode.classList.add(printing.modalExit);
 
     ffec.classList.remove(printing.serviceTitle1);
@@ -694,7 +668,6 @@ const Digital = () => {
       </div>
       {/* our service */}
       <div className={printing.serviceBg}>
-        {/* <div className={printing.serviceBgBox}> */}
         <div className="flex w-[1140px] h-[2256px] md:h-[1106px] flex-col mt-[200px] items-center">
           <div className={printing.serviceHeadBox}>
             <h2 className={printing.serviceHead}>
@@ -713,7 +686,6 @@ const Digital = () => {
               </div>
             </div>
           </div>
-          {/* <div className="w-[400px] h-[600px] mt-[20px] block md:hidden mb-[0px]"> */}
           <div
             className={`w-[400px] ${
               modalExit1 ? "h-[630px]" : "h-[810px]"
@@ -740,7 +712,6 @@ const Digital = () => {
                   backgroundImage: `url('/images/Online-Service-SEO.jpg')`,
                 }}
                 animate={{
-                  // width: slide1 ? smallPhoto : bigPhoto,
                   width: slide1 ? smallPhotomobilew : bigPhotomobilew,
                   height: slide1 ? smallPhotomobileh : bigPhotomobileh,
                 }}
@@ -752,6 +723,7 @@ const Digital = () => {
                     {t("digital_page.img_icon_seo")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
+                  <IoIosArrowUp className={printing.serviceArrowUp} />
                   {true && (
                     <p className={printing.serviceDesc}>
                       {t("digital_page.img_icon_seo_desc")}
@@ -774,7 +746,6 @@ const Digital = () => {
                   backgroundImage: `url('/images/Online-Service-CMS.jpg')`,
                 }}
                 animate={{
-                  // width: slide2 ? smallPhoto : bigPhoto,
                   width: slide2 ? smallPhotomobilew : bigPhotomobilew,
                   height: slide2 ? smallPhotomobileh : bigPhotomobileh,
                 }}
@@ -786,6 +757,7 @@ const Digital = () => {
                     {t("digital_page.img_icon_cms")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
+                  <IoIosArrowUp className={printing.serviceArrowUp} />
                   {true && (
                     <p className={printing.serviceDesc}>
                       {t("digital_page.img_icon_cms_desc")}
@@ -811,7 +783,6 @@ const Digital = () => {
                   backgroundImage: `url('/images/Online-Service-OAuth.jpg')`,
                 }}
                 animate={{
-                  // width: slide3 ? smallPhoto : bigPhoto,
                   width: slide3 ? smallPhotomobilew : bigPhotomobilew,
                   height: slide3 ? smallPhotomobileh : bigPhotomobileh,
                 }}
@@ -823,6 +794,7 @@ const Digital = () => {
                     {t("digital_page.img_icon_tpa")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
+                  <IoIosArrowUp className={printing.serviceArrowUp} />
                   {true && (
                     <p className={printing.serviceDesc}>
                       {t("digital_page.img_icon_tpa_desc")}
@@ -845,7 +817,6 @@ const Digital = () => {
                   backgroundImage: `url('/images/Online-Service-Ecommerce.jpg')`,
                 }}
                 animate={{
-                  // width: slide4 ? smallPhoto : bigPhoto,
                   width: slide4 ? smallPhotomobilew : bigPhotomobilew,
                   height: slide4 ? smallPhotomobileh : bigPhotomobileh,
                 }}
@@ -857,6 +828,7 @@ const Digital = () => {
                     {t("digital_page.img_icon_eci")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
+                  <IoIosArrowUp className={printing.serviceArrowUp} />
                   {true && (
                     <p className={printing.serviceDesc}>
                       {t("digital_page.img_icon_eci_desc")}
@@ -885,7 +857,6 @@ const Digital = () => {
               </div>
             </div>
           </div>
-          {/* <div className="w-[400px] h-[150px] mt-[20px] block md:hidden mb-[40px]"> */}
           <div
             className={`w-[400px] ${
               modalExit2 ? "h-[150px]" : "h-[330px]"
@@ -904,7 +875,6 @@ const Digital = () => {
                   backgroundImage: `url('/images/Online-Service-Admin.jpg')`,
                 }}
                 animate={{
-                  // width: slide5 ? smallPhoto : bigPhoto,
                   width: slide5 ? smallPhotomobilew : bigPhotomobilew,
                   height: slide5 ? smallPhotomobileh : bigPhotomobileh,
                 }}
@@ -916,6 +886,7 @@ const Digital = () => {
                     {t("digital_page.img_icon_adi")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
+                  <IoIosArrowUp className={printing.serviceArrowUp} />
                   {true && (
                     <p className={printing.serviceDesc}>
                       {t("digital_page.img_icon_adi_desc")}
@@ -944,7 +915,6 @@ const Digital = () => {
               </div>
             </div>
           </div>
-          {/* <div className="w-[400px] h-[150px] mt-[20px] block md:hidden mb-[40px]"> */}
           <div
             className={`w-[400px] ${
               modalExit3 ? "h-[150px]" : "h-[330px]"
@@ -963,7 +933,6 @@ const Digital = () => {
                   backgroundImage: `url('/images/Online-Service-Branding.jpg')`,
                 }}
                 animate={{
-                  // width: slide6 ? smallPhoto : bigPhoto,
                   width: slide6 ? smallPhotomobilew : bigPhotomobilew,
                   height: slide6 ? smallPhotomobileh : bigPhotomobileh,
                 }}
@@ -975,6 +944,7 @@ const Digital = () => {
                     {t("digital_page.img_icon_vid")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
+                  <IoIosArrowUp className={printing.serviceArrowUp} />
                   {true && (
                     <p className={printing.serviceDesc}>
                       {t("digital_page.img_icon_vid_desc")}
@@ -1025,7 +995,6 @@ const Digital = () => {
                   backgroundImage: `url('/images/Online-Service-Poster.jpg')`,
                 }}
                 animate={{
-                  // width: slide7 ? smallPhoto : bigPhoto,
                   width: slide7 ? smallPhotomobilew : bigPhotomobilew,
                   height: slide7 ? smallPhotomobileh : bigPhotomobileh,
                 }}
@@ -1037,6 +1006,7 @@ const Digital = () => {
                     {t("digital_page.img_icon_pd")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
+                  <IoIosArrowUp className={printing.serviceArrowUp} />
                   {true && (
                     <p className={printing.serviceDesc}>
                       {t("digital_page.img_icon_pd_desc")}
@@ -1057,10 +1027,8 @@ const Digital = () => {
                 className="w-[360px] h-[150px] flex relative bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/Online-Service-Menu.jpg')`,
-                  // marginLeft: "20px",
                 }}
                 animate={{
-                  // width: slide8 ? smallPhoto : bigPhoto,
                   width: slide8 ? smallPhotomobilew : bigPhotomobilew,
                   height: slide8 ? smallPhotomobileh : bigPhotomobileh,
                 }}
@@ -1072,6 +1040,7 @@ const Digital = () => {
                     {t("digital_page.img_icon_md")}
                   </h1>
                   <IoIosArrowDown className={printing.serviceArrow} />
+                  <IoIosArrowUp className={printing.serviceArrowUp} />
                   {true && (
                     <p className={printing.serviceDesc}>
                       {t("digital_page.img_icon_md_desc")}

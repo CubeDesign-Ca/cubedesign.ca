@@ -206,17 +206,21 @@
   
 .serviceArrowUp {
   width: 35px;
-  height: 35px;
+  height: 30.8px;
   margin-top: 10px;
   margin-right: 10px;
   float: right;
+  display: none;
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }
 
 .servicelist:hover {
     border-bottom: 8px solid #C83832;
 }
 
-.servicelistVisile{
+.servicelistVisile {
     visibility: hidden;
     width: 0px !important;
 }
@@ -325,7 +329,7 @@
     font-size: 18px;
     font-weight: 600;
     padding-left: 20px;
-    width: 100%;
+    width: 319.2px;
 }
 
 .serviceTitle1 {
@@ -363,6 +367,14 @@
     top: 20px;
     right: 20px;
     z-index: 10;
+}
+
+.modalExitM {
+    position: absolute;
+    top: 200px;
+    right: 0px;
+    z-index: 10;
+    opacity: 0;
 }
 
 .serviceExitBtn {

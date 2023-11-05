@@ -53,15 +53,6 @@
     justify-content: center;
 }
 
-/* .serviceBgBox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 1140px;
-    height: 2006px;
-    margin-top: 200px;
-} */
-
 .serviceHeadBox {
     height: 124px;
 } 
@@ -71,29 +62,23 @@
     font-weight: 600;
 }
 
-/* .serviceBox{
-    width: 1140px;
-    height: 742px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-} */
-
-/* .serviceTitleBox {
-    width: 1140px;
-    height: 72px;
-    display: flex;
-    justify-content: space-between;
-
-    border-bottom: 8px solid #C83832;
-} */
-
 .serviceArrow {
     width: 35px;
     height: 35px;
     margin-top: 10px;
     margin-right: 10px;
+}
+
+.serviceArrowUp {
+    width: 35px;
+    height: 30.8px;
+    margin-top: 10px;
+    margin-right: 10px;
+    float: right;
+    display: none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }
   
 .serviceComponentBox {
@@ -119,15 +104,12 @@
     font-size: 22px;
 }
 
-
-
 .servicelistBoxContainer {
     width: 1140px;
     height: 650px;
     margin-top: 20px;
     /* 20px */
 }
-
 
 .servicelistBox {
     width: 100%;
@@ -153,6 +135,7 @@
     justify-content: center;
     position: relative;
 }
+
 .servicelist {
     position: relative;
     width: 263px;
@@ -309,6 +292,14 @@
     z-index: 10;
 }
 
+.modalExitM {
+    position: absolute;
+    top: 160px;
+    right: 0px;
+    z-index: 10;
+    opacity: 0;
+}
+
 .serviceExitBtn {
     width: 35px;
     height: 35px;
@@ -321,7 +312,6 @@
 .serviceExitBtn:hover {
     opacity: 1;
 }
-
 
 .galleryBackground {
     width: 100%;
