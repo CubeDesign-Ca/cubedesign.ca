@@ -488,15 +488,14 @@ justify-content: space-between;
     .serviceErrorBox{
         display: flex;
         flex-direction: row;
+        width: 50px;
     }
     .errorHidden{
         height: 0px;
         visibility: hidden;
     }
     .errorVisible{
-        margin-left: 5px;
-        font-size: 16px;
-        color: #C83832;
+        display: none;
     }
     .errorLogo{
         width: 22px;
@@ -515,6 +514,8 @@ justify-content: space-between;
         right: 2%;
         visibility: visible;
     }
+
+ 
     
     .serviceError{
         margin-left: 10px;
@@ -545,13 +546,13 @@ justify-content: space-between;
     .servicelogoBox{
         width: 100%;
         height: 100%;
-        display: block;
+        display: flex;
         flex-direction: row;
         align-items: center;
-        margin-bottom: 0px;
+        margin-bottom: 5px;
     }
     .serviceText{
-        width: 100%;
+        width: 280px;
         font-size: 18px;
         font-weight: 500;
         margin-left: 16px;
@@ -585,8 +586,9 @@ justify-content: space-between;
         display: flex;
         width: 361px;
         justify-content: space-between;
-        height: 100%;
+        height: 95px;
         margin-left: 16px;
+        margin-top: 30px;
     }
     
     .nameInputBox{
@@ -645,8 +647,9 @@ justify-content: space-between;
     .emailbox{
         display: flex;
         flex-direction: column;
-        height: 110px;
+        height: 95px;
         margin-left: 16px;
+        width: 361px;
     }
     
     .emailInput{
@@ -723,7 +726,7 @@ justify-content: space-between;
     .textLabel{
         font-size: 18px;
         font-weight: 500;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
     .submitBox{
         
