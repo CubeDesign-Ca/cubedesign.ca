@@ -3,11 +3,11 @@
 /* main img */
 .imgContainer {
   width: 100%;
-  height: 1090px;
+  height: 100vh;
   background-image: url('/images/Home-main_banner(2000x1090_CFE2EB).jpg');
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-position: center;
+  background-position: right;
   background-size: cover;
   margin-bottom: 200px;
 }

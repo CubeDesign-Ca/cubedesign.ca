@@ -182,7 +182,7 @@ function DBVCube(props) {
     }
   }
 
-  const handleAnimationComplete = () => {
+  const handleAnimationStart = () => {
     setTimeout(function () {
       if (document.getElementById(ID) != null) {
         document.getElementById(ID)
@@ -202,7 +202,7 @@ function DBVCube(props) {
         animate={control}
         initial="hidden"
         variants={variant}
-        onAnimationComplete={handleAnimationComplete}
+        onAnimationStart={handleAnimationStart}
       >
         <div id={ID} className="w-[200px] h-[200px]" ></div>
       </motion.div>
