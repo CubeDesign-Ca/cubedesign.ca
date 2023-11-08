@@ -157,6 +157,10 @@
     position: relative;
 }
 
+.disabled {
+    pointer-events: none;  
+}
+
 .servicelistBox1 {
     width: 100%;
     height: 100%;
@@ -174,6 +178,7 @@
     transition: 0.4s ease-out;
     background-position: center;
 }
+
 .servicelist1 {
     position: relative;
     width: 360px;
@@ -182,25 +187,42 @@
     background-size: cover;
     transition: 0.4s ease-out;
     background-position: center;
+    margin-bottom: 10px;
 }
 
+.titleBody {
+  width: 360px;
+  display: flex;
+  flex-direction: row;
+}
+
+.serviceArrow {
+  width: 30.8px;
+  height: 30.8px;
+  margin-top: 10px;
+  margin-right: 10px;
+  float: right;
+}
+  
+.serviceArrowUp {
+  width: 30.8px;
+  height: 30.8px;
+  margin-top: 10px;
+  margin-right: 10px;
+  float: right;
+  display: none;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
 
 .servicelist:hover {
     border-bottom: 8px solid #C83832;
 }
 
-
-
-.servicelistVisile{
+.servicelistVisile {
     visibility: hidden;
     width: 0px !important;
-}
-
-.serviceArrow {
-  width: 35px;
-  height: 35px;
-  margin-top: 10px;
-  margin-right: 10px;
 }
 
 .serviceText {
@@ -212,6 +234,30 @@
     opacity: 0.8;
     animation: fadeAnimation ease 1.4s;
     display: flex;
+}
+
+.serviceTextM {
+    position: absolute;
+    bottom: 0;
+    width: 360px;
+    height: 130px;
+    background-color: #EFF2F9;
+    opacity: 0.8;
+    animation: fadeAnimation ease 1.4s;
+    display: flex;
+    flex-flow: column;
+}
+
+.serviceTextMLarge {
+    position: absolute;
+    bottom: 0;
+    width: 360px;
+    height: 150px;
+    background-color: #EFF2F9;
+    opacity: 0.8;
+    animation: fadeAnimation ease 1.4s;
+    display: flex;
+    flex-flow: column;
 }
 
 .serviceText2 {
@@ -238,15 +284,6 @@
     padding-top: 50px;
 }
 
-@keyframes fadeAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0.8;
-     }
-}
-
 .serviceText1 {
     position: absolute;
     bottom: 0;
@@ -257,6 +294,16 @@
     padding-top: 60px;
     opacity: 0.8;
     animation: fadeInAnimation ease 2s;
+}
+
+
+@keyframes fadeAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.8;
+     }
 }
 
 .serviceText1mobile {
@@ -293,8 +340,9 @@
     color: black;
     font-size: 18px;
     font-weight: 600;
+    padding-top: 10px;
     padding-left: 20px;
-    width: 100%;
+    width: 319.2px;
 }
 
 .serviceTitle1 {
@@ -304,6 +352,7 @@
 }
 
 .serviceDesc {
+    display: none;
     visibility: hidden;
     opacity: 0;
 }
@@ -315,6 +364,13 @@
     font-weight: 500;
 }
 
+.serviceDescM {
+    visibility: visible;
+    opacity: 1;
+    padding-left: 20px;
+    padding-top: 10px;    
+    width: 310px;
+}
 
 .modalExit {
     opacity: 0;
@@ -322,9 +378,25 @@
 
 .modalExit1 {
     position: absolute;
-    top: 40px;
-    right: 60px;
+    top: 20px;
+    right: 20px;
     z-index: 10;
+}
+
+.modalExitM {
+    position: absolute;
+    top: 200px;
+    right: 0px;
+    z-index: 10;
+    opacity: 0;
+}
+
+.modalExitMLarge {
+    position: absolute;
+    top: 180px;
+    right: 0px;
+    z-index: 10;
+    opacity: 0;
 }
 
 .serviceExitBtn {
