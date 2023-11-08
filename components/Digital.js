@@ -331,7 +331,7 @@ const Digital = () => {
           ffec.classList.remove(printing.serviceTitle);
           ffec.classList.add(printing.serviceTitle1);
 
-          console.log("steve:", fec.lastElementChild);
+          //textBoxSize issue
           fec.lastElementChild.classList.remove(printing.serviceDescM);
         } else {
           if (

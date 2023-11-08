@@ -213,7 +213,7 @@ const Printing = () => {
 
           fec.lastElementChild.classList.add(printing.serviceDesc1);
 
-          //UI issue
+          //textBoxSize issue
           fec.lastElementChild.classList.remove(printing.serviceDescM);
         } else {
           if (
