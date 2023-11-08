@@ -212,6 +212,9 @@ const Printing = () => {
           fec.firstElementChild.classList.add(printing.serviceTitle1);
 
           fec.lastElementChild.classList.add(printing.serviceDesc1);
+
+          //UI issue
+          fec.lastElementChild.classList.remove(printing.serviceDescM);
         } else {
           if (
             fec.firstElementChild.textContent == t("printing_page.img_icon_ppm")

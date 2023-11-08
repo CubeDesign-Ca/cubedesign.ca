@@ -330,6 +330,9 @@ const Digital = () => {
 
           ffec.classList.remove(printing.serviceTitle);
           ffec.classList.add(printing.serviceTitle1);
+
+          console.log("steve:", fec.lastElementChild);
+          fec.lastElementChild.classList.remove(printing.serviceDescM);
         } else {
           if (
             fec.firstElementChild.textContent == t("digital_page.img_icon_adi")
