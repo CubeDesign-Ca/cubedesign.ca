@@ -85,7 +85,7 @@ const DynamicMenu = () => {
                         <div className="flex justify-start">
                             <div className="mr-6">
                             {/* Facebook icon */}
-                            <a href="https://www.facebook.com">
+                            <a href="https://www.facebook.com/cubedesignca/">
                                 <img
                                 src="/images/footer_facebook.png"
                                 className="h-[42px] w-[42px]"
@@ -94,7 +94,7 @@ const DynamicMenu = () => {
                             </div>
                             <div>
                             {/* Instagram icon */}
-                            <a href="https://www.instagram.com">
+                            <a href="https://www.instagram.com/cubedesignca/">
                                 <img
                                 src="/images/footer_instagram.png"
                                 className="h-[42px] w-[42px]"
