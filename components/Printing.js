@@ -8,8 +8,8 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import printing from "../app/printing.module.css";
-
 import { useTranslation } from "next-i18next";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 const Printing = () => {
   const { t } = useTranslation("common");
@@ -26,8 +26,10 @@ const Printing = () => {
   const [slide5, setSlide5] = useState(true);
   const [isSlide, setIsSlide] = useState(false);
   const [isMobile, setMobile] = useState(false);
-  const [modalExit2, setModalExit2] = useState(false);
-  const [modalExit3, setModalExit3] = useState(false);
+  const [modalExit1, setModalExit1] = useState(true);
+  const [modalExit2, setModalExit2] = useState(true);
+  const [modalExit3, setModalExit3] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   let smallPhoto;
   let bigPhoto;
@@ -100,6 +102,7 @@ const Printing = () => {
       pNode.previousElementSibling.classList.remove(
         printing.serviceComponentBox
       );
+      pNode.previousElementSibling.classList.value = "";
       pNode.previousElementSibling.classList.add(printing.serviceComponentBox1);
 
       setPrint(false);
@@ -139,7 +142,6 @@ const Printing = () => {
   // service list
 
   const isModal = (e) => {
-    console.log("isModal()");
     e.preventDefault();
     if (e.target.id == "container") {
       if (!isSlide) {
@@ -151,64 +153,49 @@ const Printing = () => {
           fec.firstElementChild.textContent == t("printing_page.img_icon_lfp")
         ) {
           if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
+          } else {
+            nes.className = "";
+            nes.classList.add(printing.servicelistVisile);
+            nes.nextElementSibling.className = "";
+            nes.nextElementSibling.classList.add(printing.servicelistVisile);
           }
 
-          nes.className = "";
-          console.log("nes.classList:", nes.classList);
-          nes.classList.add(printing.servicelistVisile);
-
-          nes.nextElementSibling.className = "";
-          nes.nextElementSibling.classList.add(printing.servicelistVisile);
-
+          setModalExit1(false);
           setSlide1(!slide1);
         } else if (
           fec.firstElementChild.textContent == t("printing_page.img_icon_dps")
         ) {
-          nes.className = "";
-          nes.classList.add(printing.servicelistVisile);
-
-          pes.className = "";
-          pes.classList.add(printing.servicelistVisile);
-
           if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
+          } else {
+            nes.className = "";
+            nes.classList.add(printing.servicelistVisile);
+            pes.className = "";
+            pes.classList.add(printing.servicelistVisile);
           }
 
+          setModalExit1(false);
           setSlide2(!slide2);
         } else if (
           fec.firstElementChild.textContent == t("printing_page.img_icon_is")
         ) {
-          pes.className = "";
-          pes.classList.add(printing.servicelistVisile);
-
-          pes.previousElementSibling.className = "";
-          pes.previousElementSibling.classList.add(printing.servicelistVisile);
-
           if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
+          } else {
+            pes.className = "";
+            pes.classList.add(printing.servicelistVisile);
+            pes.previousElementSibling.className = "";
+            pes.previousElementSibling.classList.add(
+              printing.servicelistVisile
+            );
           }
 
+          setModalExit1(false);
           setSlide3(!slide3);
         } else if (
           fec.firstElementChild.textContent == t("printing_page.img_icon_dsd")
         ) {
-          if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
-          }
           setModalExit2(false);
           setSlide4(!slide4);
         } else {
-          if (w < 768) {
-            fec.firstElementChild.style.display = "none";
-            fec.lastElementChild.style.display = "none";
-          }
-          console.log("setSlide5:", slide5);
-
           setModalExit3(false);
           setSlide5(!slide5);
         }
@@ -216,30 +203,52 @@ const Printing = () => {
         target.className = "";
         target.classList.add(printing.servicelist1);
 
-        fec.classList.remove(printing.serviceText);
-        fec.classList.remove(printing.serviceText2);
-
-        if (w < 768) {
-        } else {
+        if (w > 768) {
+          fec.classList.remove(printing.serviceText);
+          fec.classList.remove(printing.serviceText2);
           fec.classList.add(printing.serviceText1);
+
+          fec.firstElementChild.classList.remove(printing.serviceTitle);
+          fec.firstElementChild.classList.add(printing.serviceTitle1);
+
+          fec.lastElementChild.classList.add(printing.serviceDesc1);
+
+          //textBoxSize issue
+          fec.lastElementChild.classList.remove(printing.serviceDescM);
+        } else {
+          if (
+            fec.firstElementChild.textContent == t("printing_page.img_icon_ppm")
+          ) {
+            fec.classList.remove(printing.serviceText2);
+            fec.classList.add(printing.serviceTextMLarge);
+
+            fec.lastElementChild.classList.add(printing.serviceDescM);
+          } else {
+            fec.classList.remove(printing.serviceText);
+            fec.classList.add(printing.serviceTextM);
+
+            fec.lastElementChild.classList.add(printing.serviceDescM);
+          }
         }
 
         target.lastElementChild.classList.remove(printing.modalExit);
-        target.lastElementChild.classList.add(printing.modalExit1);
-
-        fec.firstElementChild.classList.remove(printing.serviceTitle);
-        fec.firstElementChild.classList.add(printing.serviceTitle1);
+        if (w < 768) {
+          if (
+            fec.firstElementChild.textContent == t("printing_page.img_icon_ppm")
+          ) {
+            target.lastElementChild.classList.add(printing.modalExitMLarge);
+          }
+          target.lastElementChild.classList.add(printing.modalExitM);
+        } else {
+          target.lastElementChild.classList.add(printing.modalExit1);
+        }
 
         fec.lastElementChild.classList.remove(printing.serviceDesc);
-
         if (w < 768) {
-        } else {
-          fec.lastElementChild.classList.add(printing.serviceDesc1);
+          fec.getElementsByTagName("svg")[0].style.display = "none";
+          fec.getElementsByTagName("svg")[1].style.display = "block";
         }
-        console.log(
-          "firstelementchild->textcontent2:",
-          fec.firstElementChild.lastElementChild
-        );
+
         setclick(true);
         setIsSlide(!isSlide);
       }
@@ -247,86 +256,155 @@ const Printing = () => {
   };
 
   const exitModal = (e) => {
-    console.log("exitModal()");
     e.preventDefault();
 
     let ppNode = e.target.parentNode.parentNode;
+    let fec = ppNode.firstElementChild;
     let ffec = ppNode.firstElementChild.firstElementChild;
     let nes = ppNode.nextElementSibling;
     let pes = ppNode.previousElementSibling;
+
     if (ffec.textContent == t("printing_page.img_icon_lfp")) {
-      nes.className = "";
-      nes.classList.add(printing.servicelist);
-
-      nes.nextElementSibling.className = "";
-      nes.nextElementSibling.classList.add(printing.servicelist);
-
       if (w < 768) {
         ffec.style.display = "block";
+
+        nes.className =
+          "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+
+        nes.nextElementSibling.className =
+          "w-[360px] h-[150px] flex relative bg-cover bg-center";
+      } else {
+        nes.className = "";
+        nes.classList.add(printing.servicelist);
+
+        nes.nextElementSibling.className = "";
+        nes.nextElementSibling.classList.add(printing.servicelist);
       }
 
+      setModalExit1(true);
       setSlide1(!slide1);
     } else if (ffec.textContent == t("printing_page.img_icon_dps")) {
-      nes.className = "";
-      nes.classList.add(printing.servicelist);
-
-      pes.className = "";
-      pes.classList.add(printing.servicelist);
-
       if (w < 768) {
         ffec.style.display = "block";
+
+        nes.className = "w-[360px] h-[150px] flex relative bg-cover bg-center";
+
+        pes.className =
+          "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+      } else {
+        nes.className = "";
+        nes.classList.add(printing.servicelist);
+
+        pes.className = "";
+        pes.classList.add(printing.servicelist);
       }
 
+      setModalExit1(true);
       setSlide2(!slide2);
     } else if (ffec.textContent == t("printing_page.img_icon_is")) {
-      pes.className = "";
-      pes.classList.add(printing.servicelist);
-
-      pes.previousElementSibling.className = "";
-      pes.previousElementSibling.classList.add(printing.servicelist);
-
       if (w < 768) {
         ffec.style.display = "block";
+
+        pes.className =
+          "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+
+        pes.previousElementSibling.className =
+          "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+      } else {
+        pes.className = "";
+        pes.classList.add(printing.servicelist);
+
+        pes.previousElementSibling.className = "";
+        pes.previousElementSibling.classList.add(printing.servicelist);
       }
 
+      setModalExit1(true);
       setSlide3(!slide3);
     } else if (ffec.textContent == t("printing_page.img_icon_dsd")) {
       if (w < 768) {
         ffec.style.display = "block";
       }
+
       setModalExit2(true);
       setSlide4(!slide4);
     } else {
-      console.log("exitModal:", ppNode, ffec);
       if (w < 768) {
         ffec.style.display = "block";
       }
-      console.log("setSlide5:", slide5);
+
       setSlide5(!slide5);
       setModalExit3(true);
     }
 
-    ppNode.className = "";
-    ppNode.classList.add(printing.servicelist);
+    if (w < 768) {
+      fec.getElementsByTagName("svg")[0].style.display = "block";
+      fec.getElementsByTagName("svg")[1].style.display = "none";
+
+      if (
+        ffec.textContent == t("printing_page.img_icon_is") ||
+        ffec.textContent == t("printing_page.img_icon_dsd") ||
+        ffec.textContent == t("printing_page.img_icon_ppm")
+      )
+        ppNode.className =
+          "w-[360px] h-[150px] flex relative bg-cover bg-center";
+      else
+        ppNode.className =
+          "w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center";
+    } else {
+      ppNode.className = "";
+      ppNode.classList.add(printing.servicelist);
+    }
 
     if (ffec.textContent == t("printing_page.img_icon_ppm")) {
-      console.log("adding servicelist2");
       ppNode.firstElementChild.classList.add(printing.serviceText2);
     } else {
-      console.log("adding servicelist");
       ppNode.firstElementChild.classList.add(printing.serviceText);
     }
     ppNode.firstElementChild.classList.remove(printing.serviceText1);
 
-    e.target.parentNode.classList.remove(printing.modalExit1);
+    if (w < 768) {
+      if (ffec.textContent == t("printing_page.img_icon_ppm")) {
+        e.target.parentNode.classList.remove(printing.modalExitMLarge);
+      }
+      e.target.parentNode.classList.remove(printing.modalExitM);
+    } else {
+      e.target.parentNode.classList.remove(printing.modalExit1);
+    }
     e.target.parentNode.classList.add(printing.modalExit);
 
     ffec.classList.remove(printing.serviceTitle1);
-    ffec.classList.add(printing.serviceTitle);
+    if (
+      w < 768 &&
+      fec.firstElementChild.textContent == t("printing_page.img_icon_ppm")
+    ) {
+      ffec.classList.add(printing.serviceTitle2);
+    } else {
+      ffec.classList.add(printing.serviceTitle);
+    }
 
-    ppNode.firstElementChild.lastElementChild.classList.remove(
-      printing.serviceDesc1
-    );
+    if (w > 768) {
+      ppNode.firstElementChild.lastElementChild.classList.remove(
+        printing.serviceDesc1
+      );
+    } else {
+      if (
+        fec.firstElementChild.textContent == t("printing_page.img_icon_ppm")
+      ) {
+        ppNode.firstElementChild.classList.remove(printing.serviceTextMLarge);
+        ppNode.firstElementChild.classList.add(printing.serviceText2);
+
+        ppNode.firstElementChild.lastElementChild.classList.remove(
+          printing.serviceDescM
+        );
+      } else {
+        ppNode.firstElementChild.classList.remove(printing.serviceTextM);
+        ppNode.firstElementChild.classList.add(printing.serviceText);
+
+        ppNode.firstElementChild.lastElementChild.classList.remove(
+          printing.serviceDescM
+        );
+      }
+    }
     ppNode.firstElementChild.lastElementChild.classList.add(
       printing.serviceDesc
     );
@@ -336,10 +414,14 @@ const Printing = () => {
   };
 
   const clickMove = (e) => {
-    console.log("clickmove!");
     e.preventDefault();
+    console.log(
+      "e.target.parentNode.parentNode:",
+      e.target.parentNode.parentNode
+    );
+    console.log("e.target.parentNode:", e.target.parentNode);
     e.target.parentNode.parentNode.click();
-    e.target.parentNode.click();
+    if (!isMobile) e.target.parentNode.click();
   };
 
   const rightSlide = () => {
@@ -386,16 +468,19 @@ const Printing = () => {
   const handleResize = () => {
     if (window.innerWidth < 768) {
       setMobile(true);
-      // console.log("handleresize:", isMobile);
+      console.log("handleresize:", isMobile);
     } else {
       setMobile(false);
-      // console.log("handleresize:", isMobile);
     }
   };
 
   useEffect(() => {
-    console.log("useEffect resize!");
     window.addEventListener("resize", handleResize);
+    if (window.innerWidth < 768) {
+      setMobile(true);
+    } else {
+      setMobile(false);
+    }
   }, []);
 
   useEffect(() => {
@@ -419,10 +504,16 @@ const Printing = () => {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
   };
+
+  useEffect(() => {
+    if (modalExit1 || modalExit2 || modalExit3 == false) {
+      setIsModalOpen(true);
+    }
+  }, [modalExit1, modalExit2, modalExit3]);
+
   return (
     <div>
       {/* bacground photo */}
-      {/* <div className="bg-[url('/images/printing-bg-reverse.jpg')] md:bg-[url('/images/printing-bg.jpg')] h-[690px] w-[2000px] flex"> */}
       <div className="hidden md:block">
         <div className={printing.bgimg}>
           <div className={printing.bgTextBox}>
@@ -446,40 +537,44 @@ const Printing = () => {
       {/* our service */}
       <div className={printing.serviceBg}>
         {/* <div className={printing.serviceBgBox}> */}
-        <div className="flex w-[1140px] h-[1206px] md:h-[956px] flex-col mt-[200px] items-center">
+        <div className="flex w-[1140px] h-[1506px] md:h-[956px] flex-col mt-[200px] items-center">
           <div className={printing.serviceHeadBox}>
             <h2 className={printing.serviceHead}>
               {t("printing_page.ourservice")}
             </h2>
           </div>
           {/* mobile */}
-          <div className="block md:hidden w-[400px] h-[100px] flex flex-col items-center pt-[50px]">
-            <div className="block md:hidden w-[400px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
+          <div className="block md:hidden w-[400px] h-[100px] flex flex-col pt-[50px]">
+            <div className="block md:hidden w-[360px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
               <div
                 id="printing"
-                className="block md:hidden w-[260px] h-[60px] flex items-center text-[24px] font-[400px] text-black"
+                className="block md:hidden w-[260px] h-[60px] flex items-center text-[18px] font-[400px] text-black font-semibold"
                 onClick={isPrint}
               >
                 <p>{t("printing_page.os_printing_installation")}</p>
               </div>
             </div>
           </div>
-          <div className="w-[400px] h-[450px] mt-[20px] block md:hidden mb-[40px]">
+          <div
+            className={`w-[400px] ${
+              modalExit1 ? "h-[470px]" : "h-[650px]"
+            } mt-[20px] block md:hidden mb-[0px]`}
+          >
             <motion.div
               className={printing.servicelistBoxMobile}
               animate={{
                 justifyContent: !slide1
-                  ? "center"
+                  ? "space-between"
                   : !slide2
-                  ? "center"
+                  ? "space-between"
                   : !slide3
-                  ? "center"
+                  ? "space-between"
                   : "space-between",
               }}
             >
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative mb-[10px]"
+                className="w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/offline-service-large-click.jpg')`,
                 }}
@@ -490,14 +585,17 @@ const Printing = () => {
                 onClick={isModal}
               >
                 <div className={printing.serviceText} onClick={clickMove}>
-                  {" "}
                   <h1 className={printing.serviceTitle}>
                     {t("printing_page.img_icon_lfp")}
                   </h1>
-                  <p className={printing.serviceDesc}>
-                    {t("printing_page.img_icon_lfp_desc")} <br />{" "}
-                    {t("printing_page.img_icon_lfp_desc2")}
-                  </p>
+                  <IoIosArrowDown className={printing.serviceArrow} />
+                  <IoIosArrowUp className={printing.serviceArrowUp} />
+                  {true && (
+                    <p className={printing.serviceDesc}>
+                      {t("printing_page.img_icon_lfp_desc")} <br />{" "}
+                      {t("printing_page.img_icon_lfp_desc2")}
+                    </p>
+                  )}
                 </div>
                 <div
                   id="exit"
@@ -510,7 +608,7 @@ const Printing = () => {
               </motion.div>
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative mb-[10px]"
+                className="w-[360px] h-[150px] flex relative mb-[10px] bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/offline-service-digital-click.jpg')`,
                 }}
@@ -525,10 +623,14 @@ const Printing = () => {
                   <h1 className={printing.serviceTitle}>
                     {t("printing_page.img_icon_dps")}
                   </h1>
-                  <p className={printing.serviceDesc}>
-                    {t("printing_page.img_icon_dps_desc")} <br />{" "}
-                    {t("printing_page.img_icon_dps_desc2")}
-                  </p>
+                  <IoIosArrowDown className={printing.serviceArrow} />
+                  <IoIosArrowUp className={printing.serviceArrowUp} />
+                  {true && (
+                    <p className={printing.serviceDesc}>
+                      {t("printing_page.img_icon_dps_desc")} <br />{" "}
+                      {t("printing_page.img_icon_dps_desc2")}
+                    </p>
+                  )}
                 </div>
                 <div
                   id="exit"
@@ -541,7 +643,7 @@ const Printing = () => {
               </motion.div>
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative "
+                className="w-[360px] h-[150px] flex relative bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/offline-service-installation-click.jpg')`,
                 }}
@@ -556,10 +658,14 @@ const Printing = () => {
                   <h1 className={printing.serviceTitle}>
                     {t("printing_page.img_icon_is")}
                   </h1>
-                  <p className={printing.serviceDesc}>
-                    {t("printing_page.img_icon_is_desc")} <br />{" "}
-                    {t("printing_page.img_icon_is_desc2")}
-                  </p>
+                  <IoIosArrowDown className={printing.serviceArrow} />
+                  <IoIosArrowUp className={printing.serviceArrowUp} />
+                  {true && (
+                    <p className={printing.serviceDesc}>
+                      {t("printing_page.img_icon_is_desc")} <br />{" "}
+                      {t("printing_page.img_icon_is_desc2")}
+                    </p>
+                  )}
                 </div>
                 <div
                   id="exit"
@@ -572,20 +678,21 @@ const Printing = () => {
               </motion.div>
             </motion.div>
           </div>
-          <div className="block md:hidden w-[400px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832] ">
-            <div
-              id="printing"
-              className="block md:hidden w-[260px] h-[60px] flex items-center text-[24px] font-[400px] text-black"
-              onClick={isPrint}
-            >
-              <p>{t("printing_page.os_wayfinding")}</p>
+          <div className="block md:hidden w-[400px] h-[100px] flex flex-col pt-[50px]">
+            <div className="block md:hidden w-[360px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832] ">
+              <div
+                id="printing"
+                className="block md:hidden w-[260px] h-[60px] flex items-center text-[18px] font-[400px] text-black font-semibold"
+                onClick={isPrint}
+              >
+                <p>{t("printing_page.os_wayfinding")}</p>
+              </div>
             </div>
           </div>
-          {/* <div className="w-[400px] h-[150px] mt-[20px] block md:hidden mb-[40px]"> */}
           <div
             className={`w-[400px] ${
               modalExit2 ? "h-[150px]" : "h-[330px]"
-            } mt-[20px] block md:hidden mb-[40px]`}
+            } mt-[20px] block md:hidden mb-[0px]`}
           >
             <motion.div
               className={printing.servicelistBoxMobile}
@@ -595,7 +702,7 @@ const Printing = () => {
             >
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative"
+                className="w-[360px] h-[150px] flex relative bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/offline-service-wayfinding-click.jpg')`,
                 }}
@@ -610,10 +717,14 @@ const Printing = () => {
                   <h1 className={printing.serviceTitle}>
                     {t("printing_page.img_icon_dsd")}
                   </h1>
-                  <p className={printing.serviceDesc}>
-                    {t("printing_page.img_icon_dsd_desc")} <br />{" "}
-                    {t("printing_page.img_icon_dsd_desc2")}
-                  </p>
+                  <IoIosArrowDown className={printing.serviceArrow} />
+                  <IoIosArrowUp className={printing.serviceArrowUp} />
+                  {true && (
+                    <p className={printing.serviceDesc}>
+                      {t("printing_page.img_icon_dsd_desc")} <br />{" "}
+                      {t("printing_page.img_icon_dsd_desc2")}
+                    </p>
+                  )}
                 </div>
                 <div
                   id="exit"
@@ -626,20 +737,21 @@ const Printing = () => {
               </motion.div>
             </motion.div>
           </div>
-          <div className="block md:hidden w-[400px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
-            <div
-              id="printing"
-              className="block md:hidden w-[260px] h-[60px] flex items-center text-[24px] font-[400px] text-black"
-              onClick={isPrint}
-            >
-              <p>{t("printing_page.os_promotional")}</p>
+          <div className="block md:hidden w-[400px] h-[100px] flex flex-col pt-[50px]">
+            <div className="block md:hidden w-[360px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
+              <div
+                id="printing"
+                className="block md:hidden w-[260px] h-[60px] flex items-center text-[18px] font-[400px] text-black font-semibold"
+                onClick={isPrint}
+              >
+                <p>{t("printing_page.os_promotional")}</p>
+              </div>
             </div>
           </div>
-          {/* <div className="w-[400px] h-[300px] mt-[20px] block md:hidden mb-[40px] "> */}
           <div
             className={`w-[400px] ${
               modalExit3 ? "h-[150px]" : "h-[330px]"
-            } mt-[20px] block md:hidden mb-[40px]`}
+            } mt-[20px] block md:hidden mb-[0px]`}
           >
             <motion.div
               className={printing.servicelistBoxMobile}
@@ -649,7 +761,7 @@ const Printing = () => {
             >
               <motion.div
                 id="container"
-                className="w-[360px] h-[150px] flex relative "
+                className="w-[360px] h-[150px] flex relative bg-cover bg-center"
                 style={{
                   backgroundImage: `url('/images/offline-service-promotional-click.jpg')`,
                 }}
@@ -664,10 +776,14 @@ const Printing = () => {
                   <h1 className={printing.serviceTitle2}>
                     {t("printing_page.img_icon_ppm")}
                   </h1>
-                  <p className={printing.serviceDesc}>
-                    {t("printing_page.img_icon_ppm_desc")} <br />{" "}
-                    {t("printing_page.img_icon_ppm_desc2")}
-                  </p>
+                  <IoIosArrowDown className={printing.serviceArrow} />
+                  <IoIosArrowUp className={printing.serviceArrowUp} />
+                  {true && (
+                    <p className={printing.serviceDesc}>
+                      {t("printing_page.img_icon_ppm_desc")} <br />{" "}
+                      {t("printing_page.img_icon_ppm_desc2")}
+                    </p>
+                  )}
                 </div>
                 <div
                   id="exit"
@@ -685,21 +801,21 @@ const Printing = () => {
             <div className="w-[1140px] h-[72px] flex justify-between border-b-8 border-solid border-[#C83832]">
               <div
                 id="printing"
-                className="w-[380px] h-[65px] flex items-center justify-center text-[25px] bg-[#C83832] justify-center text-[25px] font-[400px] text-white"
+                className="w-[380px] h-[65px] flex items-center justify-center text-[22px] bg-[#C83832] justify-center text-[25px] font-[400px] text-white"
                 onClick={isPrint}
               >
                 <p>{t("printing_page.os_printing_installation")}</p>
               </div>
               <div
                 id="design"
-                className="w-[380px] h-[65px] flex items-center justify-center text-[25px]"
+                className="w-[380px] h-[65px] flex items-center justify-center text-[22px]"
                 onClick={isDesign}
               >
                 <p>{t("printing_page.os_wayfinding")}</p>
               </div>
               <div
                 id="product"
-                className="w-[380px] h-[65px] flex items-center justify-center text-[25px]"
+                className="w-[380px] h-[65px] flex items-center justify-center text-[22px]"
                 onClick={isProduct}
               >
                 <p>{t("printing_page.os_promotional")}</p>
@@ -953,14 +1069,14 @@ const Printing = () => {
       </div>
       {/* reference */}
       <div>
-        <div className="flex w-[100%] w-[100%] justify-center">
+        <div className="flex h-[100%] w-[100%] justify-center pb-[20%] md:pb-[0%]">
           <motion.div
             ref={ref}
             variants={boxVariant}
             initial="hidden"
             animate={control}
             exit="hidden"
-            className="flex h-[600px] w-[1140px] mt-[200px] flex-col md:flex-row"
+            className="flex h-[600px] w-[1140px] mt-[200px] flex flex-col md:flex-row"
           >
             <motion.div variants={item} className="w-[100%] h-[100%]">
               <img
@@ -985,13 +1101,13 @@ const Printing = () => {
             </motion.div>
           </motion.div>
         </div>
-        <div className="flex w-[100%] w-[100%] justify-center mt-[400px] md:mt-[0px]">
+        <div className="flex h-[100%] w-[100%] justify-center mt-[400px] pb-[10%] md:pb-[0%] md:mt-[0px]">
           <motion.div
             ref={ref1}
             variants={boxVariant}
             initial="hidden"
             animate={control1}
-            className="flex h-[600px] w-[1140px] mt-[140px] md:mt-[200px] flex-col-reverse md:flex-row"
+            className="flex h-[600px] w-[1140px] mt-[140px] md:mt-[200px] flex flex-col-reverse md:flex-row"
           >
             <motion.div
               variants={item}
@@ -1018,7 +1134,7 @@ const Printing = () => {
             </motion.div>
           </motion.div>
         </div>
-        <div className="flex w-[100%] w-[100%] justify-center mb-[450px] md:mb-[200px]">
+        <div className="flex h-[100%] w-[100%] justify-center mb-[450px] md:mb-[200px]">
           <motion.div
             ref={ref2}
             variants={boxVariant}

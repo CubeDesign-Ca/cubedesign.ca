@@ -53,15 +53,6 @@
     justify-content: center;
 }
 
-.serviceBgBox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 1140px;
-    height: 2006px;
-    margin-top: 200px;
-}
-
 .serviceHeadBox {
     height: 124px;
 } 
@@ -69,27 +60,28 @@
 .serviceHead {
     font-size: 32px;
     font-weight: 600;
-} 
 
-
- .serviceBox{
-    width: 1140px;
-    height: 742px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-} 
-
-.serviceTitleBox {
-    width: 1140px;
-    height: 72px;
-    display: flex;
-    justify-content: space-between;
-
-    border-bottom: 8px solid #C83832;
 }
 
+.serviceArrow {
+    width: 30.8px;
+    height: 30.8px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.serviceArrowUp {
+    width: 30.8px;
+    height: 30.8px;
+    margin-top: 10px;
+    margin-right: 10px;
+    float: right;
+    display: none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+  
 .serviceComponentBox {
     width: 285px;
     height: 65px;
@@ -114,15 +106,12 @@
     font-size: 22px;
 }
 
-
-
 .servicelistBoxContainer {
     width: 1140px;
     height: 650px;
     margin-top: 20px;
     /* 20px */
 }
-
 
 .servicelistBox {
     width: 100%;
@@ -133,6 +122,15 @@
 }
 
 
+.servicelistBoxMobile {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
 
 .servicelistBox1 {
     width: 100%;
@@ -141,6 +139,7 @@
     justify-content: center;
     position: relative;
 }
+
 .servicelist {
     position: relative;
     width: 263px;
@@ -158,7 +157,7 @@
     background-size: cover;
     transition: 0.4s ease-out;
     background-position: center; 
-    
+    margin-bottom: 10px;
 }
 
 
@@ -182,6 +181,43 @@
     background-color: #EFF2F9;
     opacity: 0.8;
     animation: fadeAnimation ease 1.4s;
+    display: flex;
+}
+
+.serviceTextM {
+    position: absolute;
+    bottom: 0;
+    width: 360px;
+    height: 170px;
+    background-color: #EFF2F9;
+    opacity: 0.8;
+    animation: fadeAnimation ease 1.4s;
+    display: flex;
+    flex-flow: column;
+}
+
+.serviceTextMLarge {
+    position: absolute;
+    bottom: 0;
+    width: 360px;
+    height: 200px;
+    background-color: #EFF2F9;
+    opacity: 0.8;
+    animation: fadeAnimation ease 1.4s;
+    display: flex;
+    flex-flow: column;
+}
+
+.serviceTextMXLarge {
+    position: absolute;
+    bottom: 0;
+    width: 360px;
+    height: 220px;
+    background-color: #EFF2F9;
+    opacity: 0.8;
+    animation: fadeAnimation ease 1.4s;
+    display: flex;
+    flex-flow: column;
 }
 
 .serviceTextLg {
@@ -192,6 +228,7 @@
     background-color: #EFF2F9;
     opacity: 0.8;
     animation: fadeAnimation ease 1.4s;
+    display: flex;
 }
 
 .serviceTextDesktop {
@@ -206,17 +243,6 @@
     flex-flow: column;
     padding-top: 50px;
 }
-
-/* .serviceTextbackup {
-    position: absolute;
-    bottom: 0;
-    width: 263px;
-    height: 180px;
-    background-color: #EFF2F9;
-    opacity: 0.8;
-    animation: fadeAnimation ease 1.4s;
-} */
-
 
 @keyframes fadeAnimation {
     0% {
@@ -249,19 +275,9 @@
          }
 }
 
-
-/* .serviceTitle {
-    color: black;
-    font-size: 20px;
-    font-weight: 500;
-    padding-top: 50px;
-    padding-left: 40px;
-    width: 60%;
-} */
-
 .serviceTitle {
     color: black;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     padding-top: 10px;
     padding-left: 20px;
@@ -274,7 +290,17 @@
     margin-bottom: 20px;
 }
 
+.serviceTitle2 {
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+    padding-top: 10px;
+    padding-left: 20px;
+    width: 319.2px;
+}
+
 .serviceDesc {
+    display: none;
     visibility: hidden;
     opacity: 0;
 }
@@ -286,6 +312,13 @@
     font-weight: 500;
 }
 
+.serviceDescM {
+    visibility: visible;
+    opacity: 1;
+    padding-left: 20px;
+    padding-top: 10px;    
+    width: 310px;
+}
 
 .modalExit {
     opacity: 0;
@@ -296,6 +329,30 @@
     top: 40px;
     right: 60px;
     z-index: 10;
+}
+
+.modalExitM {
+    position: absolute;
+    top: 160px;
+    right: 0px;
+    z-index: 10;
+    opacity: 0;
+}
+
+.modalExitMLarge {
+    position: absolute;
+    top: 140px;
+    right: 0px;
+    z-index: 10;
+    opacity: 0;
+}
+
+.modalExitMXLarge {
+    position: absolute;
+    top: 120px;
+    right: 0px;
+    z-index: 10;
+    opacity: 0;
 }
 
 .serviceExitBtn {
@@ -311,7 +368,6 @@
     opacity: 1;
     cursor: pointer;
 }
-
 
 .galleryBackground {
     width: 100%;

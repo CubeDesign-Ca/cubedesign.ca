@@ -3,7 +3,7 @@ import "./Styles/BotAvatar.css";
 
 // overwrite the existing avatart
 const BotAvatar = () => {
-  return <div className="chatbot-avatar">  </div>;
+  return <div className="chatbot-avatar"> </div>;
 };
 
 export default BotAvatar;

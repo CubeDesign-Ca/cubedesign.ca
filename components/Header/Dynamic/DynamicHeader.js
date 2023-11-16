@@ -30,12 +30,12 @@ const DynamicHeader = () => {
 
   return (
     <header
-      className={`fixed h-[95px] py-[24px] px-[150px] top-0 left-0 right-0 flex justify-center items-center shadow-lg z-10 transition-transform duration-500 bg-cube_blue text-white ${
+      className={`hidden fixed h-[95px] py-[24px] top-0 left-0 right-0 md:flex justify-center items-center shadow-lg z-10 transition-transform duration-500 bg-cube_blue text-white ${
         visible ? "transform translateY(0)" : "transform -translate-y-full"
       }`}
     >
       <Header logo={"logo_white"} title={t("company_shorthand")}>
-        <li className="flex item-center mr-8 md:ml-[150px] lg:ml-[600px]">
+        <li className="hidden md:flex item-center mr-8">
           <Link
             href="/printing"
             className={`${router.pathname === "/printing" ? "font-bold" : ""}`}
@@ -48,7 +48,7 @@ const DynamicHeader = () => {
             }`}
           ></div>
         </li>
-        <li className="flex item-center mr-8">
+        <li className="hidden md:flex item-center mr-8">
           <Link
             href="/digital"
             className={`${router.pathname === "/digital" ? "font-bold" : ""}`}
@@ -61,7 +61,7 @@ const DynamicHeader = () => {
             }`}
           ></div>
         </li>
-        <li className="flex items-center mr-8">
+        <li className="hidden md:flex items-center mr-8">
           <Link
             href="/contact"
             className={`${router.pathname === "/contact" ? "font-bold" : ""}`}
