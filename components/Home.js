@@ -201,6 +201,7 @@ const Home = () => {
                 <div
                   className={`${styles.card} ${styles.card1}`}
                   style={{
+                    cursor: "pointer",
                     backgroundImage: isCard1Hovered
                       ? "url('/images/main-service-printing.jpg')"
                       : "url('/images/main-service-printing-click.jpg')",
@@ -226,6 +227,7 @@ const Home = () => {
                 <div
                   className={`${styles.card} ${styles.card2}`}
                   style={{
+                    cursor: "pointer",
                     backgroundImage: isCard2Hovered
                       ? "url('/images/main-service-digital.jpg')"
                       : "url('/images/main-service-digital-click.jpg')",
