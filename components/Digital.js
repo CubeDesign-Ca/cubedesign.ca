@@ -683,7 +683,7 @@ const Digital = () => {
       {/* bacground photo */}
       <div className="hidden md:block">
         <div className={printing.bgimg}>
-          <div className="absolute left-[30px] md:left-[10%] top-[430px]">
+          <div className="absolute center md:display-flex md:container xl:w-[1140px] top-[430px]">
             <h1 className={printing.mainHead}>{t("digital_page.banner1")}</h1>
             <p className="flex flex-wrap box-content w-[300px] md:w-[550px] font-medium">
               {t("digital_page.banner2")}
