@@ -33,18 +33,20 @@ const DynamicFooter = () => {
       <div className="container flex justify-between items-center text-white min-w-[1140px] max-w-[1140px]">
         <p className="text-lg">{t('consultus')}</p>
         <div className="flex items-center">
-          <img src="images/footer_phone.png" className="w-6 h-6 mr-[9px]" />
-          <JsonData jsonKey="phone" /><p className="text-lg mx-[40px]"> or</p>
-          <div>
-            <Link
-              // className="bg-white text-cube_blue font-semibold px-[30px] py-[8px] text-[20px]"
-              className="bg-white text-cube_blue font-medium px-[30px] py-[8px] text-[20px] border-b-5 border-solid border-cube_red"
-              href="/contact"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              {t('contactus')}
-            </Link>
+          <img src="../images/footer_phone.png" className="w-6 h-6 mr-[9px]" />
+          <JsonData jsonKey="phone" />
+          <p className="text-lg mx-[40px]"> or</p>
+          <div className="w-[162px]">
+            <div className="bg-white px-[30px] py-[8px] text-center w-full">
+              <Link
+                className="text-cube_blue font-medium text-[20px] border-b-5 border-solid border-cube_red"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                href="/contact"
+              >
+                {t('contactus')}
+              </Link>
+            </div>
             {isHovered && <div className="absolute w-[162px] bottom-[12px] h-[5px] bg-cube_red z-2">
 
             </div>}

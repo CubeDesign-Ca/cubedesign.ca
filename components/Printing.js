@@ -798,7 +798,7 @@ const Printing = () => {
             </motion.div>
           </div>
           {/* desktop */}
-          <div className="w-[1140px] h-[892px] flex flex-col items-center hidden md:block">
+          <div className="w-[1140px] h-[892px] flex flex-col items-center hidden md:block cursor-pointer">
             <div className="w-[1140px] h-[72px] flex justify-between border-b-8 border-solid border-[#C83832]">
               <div
                 id="printing"

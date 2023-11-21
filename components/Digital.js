@@ -1097,7 +1097,7 @@ const Digital = () => {
           </div>
           {/* desktop */}
           {/* <div className={printing.serviceBox}> */}
-          <div className="w-[1140px] h-[892px] flex flex-col items-center hidden md:block">
+          <div className="w-[1140px] h-[892px] flex flex-col items-center hidden md:block cursor-pointer">
             {/* <div className={printing.serviceTitleBox}> */}
             <div className="w-[1140px] h-[72px] flex justify-between border-b-8 border-solid border-[#C83832]">
               <div
