@@ -10,6 +10,21 @@ import { useTranslation } from 'next-i18next'
 import JsonData from './JsonData';
 
 const ContactUs = () => {
+
+let submitLogo;
+let w;
+  if (typeof window !== "undefined") {
+    w = window.innerWidth;
+
+   
+    
+    if (w > 800) {
+      submitLogo = "Contact-Submit icon";
+      
+    }else{
+      submitLogo = "Contact-Submit icon-blue";
+    }
+  }
   const { t } = useTranslation('common')
 
   const router = useRouter();
@@ -434,7 +449,8 @@ const ContactUs = () => {
               <form ref={form} onSubmit={sendEmail} id="myForm">
                 <div className={contact.servicelogoBox}>
                   <p className={contact.serviceText}>{t('contact_page.selection')}</p>
-                  <img
+                  
+                  <div className={contact.serviceErrorBox}><img
                     src="/images/contact-error.png"
                     alt="error logo"
                     className={contact.serviceError}
@@ -442,7 +458,7 @@ const ContactUs = () => {
                   />
                   <p className={contact.errorHidden}>
                     {t('contact_page.selection2')}
-                  </p>
+                  </p></div>
                 </div>
                 <div className={contact.serviceBox} required>
                   <div>
@@ -601,7 +617,7 @@ const ContactUs = () => {
       <div id="submitBox" onClick={submitConfirm} className={contact.submitScreenBox}>
         <div id="submitScreen" className={contact.submitScreen}>
           <img
-            src="/images/Contact-Submit icon.png"
+            src={`/images/${submitLogo}.png`}
             alt="error logo"
             className={contact.submitIcon}
             id="submitImg"

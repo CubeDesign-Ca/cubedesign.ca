@@ -683,6 +683,7 @@ const Digital = () => {
       {/* bacground photo */}
       <div className="hidden md:block">
         <div className={printing.bgimg}>
+          {/* <div className={printing.bgTextBox}> */}
           <div className="absolute center md:display-flex md:container xl:w-[1140px] top-[430px]">
             <h1 className={printing.mainHead}>{t("digital_page.banner1")}</h1>
             <p className="flex flex-wrap box-content w-[300px] md:w-[550px] font-medium">
@@ -703,6 +704,7 @@ const Digital = () => {
       </div>
       {/* our service */}
       <div className={printing.serviceBg}>
+
         <div className="flex w-[1140px] h-[2256px] md:h-[1106px] flex-col mt-[200px] items-center">
           <div className={printing.serviceHeadBox}>
             <h2 className={printing.serviceHead}>
@@ -771,7 +773,7 @@ const Digital = () => {
                   onClick={exitModal}
                 >
                   {" "}
-                  <button className={printing.serviceExitBtn}>x</button>
+                  <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                 </div>
               </motion.div>
               <motion.div
@@ -808,7 +810,7 @@ const Digital = () => {
                   onClick={exitModal}
                 >
                   {" "}
-                  <button className={printing.serviceExitBtn}>x</button>
+                  <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                 </div>
               </motion.div>
               <motion.div
@@ -842,7 +844,7 @@ const Digital = () => {
                   onClick={exitModal}
                 >
                   {" "}
-                  <button className={printing.serviceExitBtn}>x</button>
+                  <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                 </div>
               </motion.div>
               <motion.div
@@ -876,7 +878,7 @@ const Digital = () => {
                   onClick={exitModal}
                 >
                   {" "}
-                  <button className={printing.serviceExitBtn}>x</button>
+                  <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                 </div>
               </motion.div>
             </motion.div>
@@ -934,7 +936,7 @@ const Digital = () => {
                   onClick={exitModal}
                 >
                   {" "}
-                  <button className={printing.serviceExitBtn}>x</button>
+                  <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                 </div>
               </motion.div>
             </motion.div>
@@ -992,7 +994,7 @@ const Digital = () => {
                   onClick={exitModal}
                 >
                   {" "}
-                  <button className={printing.serviceExitBtn}>x</button>
+                  <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                 </div>
               </motion.div>
             </motion.div>
@@ -1054,7 +1056,7 @@ const Digital = () => {
                   onClick={exitModal}
                 >
                   {" "}
-                  <button className={printing.serviceExitBtn}>x</button>
+                  <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                 </div>
               </motion.div>
               <motion.div
@@ -1088,7 +1090,7 @@ const Digital = () => {
                   onClick={exitModal}
                 >
                   {" "}
-                  <button className={printing.serviceExitBtn}>x</button>
+                  <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                 </div>
               </motion.div>
             </motion.div>
@@ -1101,6 +1103,7 @@ const Digital = () => {
               <div
                 id="web"
                 // className={printing.serviceComponentBox}
+
                 className="w-[380px] h-[65px] flex items-center justify-center text-[22px] bg-[#C83832] justify-center text-[25px] font-[400px] text-white"
                 onClick={isWeb}
               >
@@ -1184,7 +1187,7 @@ const Digital = () => {
                       onClick={exitModal}
                     >
                       {" "}
-                      <button className={printing.serviceExitBtn}>x</button>
+                      <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                     </div>
                   </motion.div>
                   <motion.div
@@ -1219,7 +1222,7 @@ const Digital = () => {
                       onClick={exitModal}
                     >
                       {" "}
-                      <button className={printing.serviceExitBtn}>x</button>
+                      <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                     </div>
                   </motion.div>
                   <motion.div
@@ -1251,7 +1254,7 @@ const Digital = () => {
                       onClick={exitModal}
                     >
                       {" "}
-                      <button className={printing.serviceExitBtn}>x</button>
+                      <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                     </div>
                   </motion.div>
                   <motion.div
@@ -1283,7 +1286,7 @@ const Digital = () => {
                       onClick={exitModal}
                     >
                       {" "}
-                      <button className={printing.serviceExitBtn}>x</button>
+                      <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -1323,7 +1326,7 @@ const Digital = () => {
                       onClick={exitModal}
                     >
                       {" "}
-                      <button className={printing.serviceExitBtn}>x</button>
+                      <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -1363,7 +1366,7 @@ const Digital = () => {
                       onClick={exitModal}
                     >
                       {" "}
-                      <button className={printing.serviceExitBtn}>x</button>
+                      <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -1383,6 +1386,7 @@ const Digital = () => {
                     className={printing.servicelist}
                     style={{
                       backgroundImage: `url('/images/Online-Service-Poster.jpg')`,
+                      marginRight: "20px",
                     }}
                     animate={{
                       width: slide7 ? smallPhoto : bigPhoto,
@@ -1407,7 +1411,7 @@ const Digital = () => {
                       onClick={exitModal}
                     >
                       {" "}
-                      <button className={printing.serviceExitBtn}>x</button>
+                      <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                     </div>
                   </motion.div>
                   <motion.div
@@ -1415,7 +1419,7 @@ const Digital = () => {
                     className={printing.servicelist}
                     style={{
                       backgroundImage: `url('/images/Online-Service-Menu.jpg')`,
-                      marginLeft: "20px",
+                      marginLeft: "0px",
                     }}
                     animate={{
                       width: slide8 ? smallPhoto : bigPhoto,
@@ -1440,7 +1444,7 @@ const Digital = () => {
                       onClick={exitModal}
                     >
                       {" "}
-                      <button className={printing.serviceExitBtn}>x</button>
+                      <img src="/images/Sevice category-x icon.svg" className={printing.serviceExitBtn}></img>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -1475,7 +1479,7 @@ const Digital = () => {
             </motion.div>
             <motion.div
               variants={item}
-              className="flex flex-col w-[100%] pl-[24px] md:pl-[84px] justify-center"
+              className="flex flex-col w-[100%] pl-[24px] md:pl-[100px] justify-center"
             >
               <h1 className="font-semibold text-2xl md:text-3xl pb-[40px] pt-[40px]">
                 {t("digital_page.digital_page_option1")}
@@ -1499,7 +1503,7 @@ const Digital = () => {
           >
             <motion.div
               variants={item}
-              className="flex flex-col w-[100%] pl-[24px] md:pr-[84px] justify-center"
+              className="flex flex-col w-[100%] pl-[24px] md:pr-[100px] justify-center"
             >
               {/* <div className={printing.referenceText2}> */}
               <h1 className="font-semibold text-2xl md:text-3xl pb-[40px] pt-[40px]">
@@ -1544,7 +1548,7 @@ const Digital = () => {
             </motion.div>
             <motion.div
               variants={item}
-              className="flex flex-col w-[100%] pl-[24px] md:pl-[84px] justify-center"
+              className="flex flex-col w-[100%] pl-[24px] md:pl-[100px] justify-center"
             >
               <h1 className="font-semibold text-2xl md:text-3xl pb-[40px] pt-[40px]">
                 {t("digital_page.digital_page_option3")}
