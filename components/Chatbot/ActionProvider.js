@@ -74,9 +74,11 @@ class ActionProvider {
         widget: "printing2a",
       });
     } else if (id === "p2a") {
-      message = this.createClientMessage(t("chatbot.p2a"), {
-        // need to update
-        widget: "printing2a",
+      message = this.createClientMessage(t("chatbot.p2a"));
+      message = this.createChatBotMessage(t("chatbot.please_contact"));
+      this.addMessageToState(message);
+      message = this.createChatBotMessage(t("chatbot.go_contact"), {
+        widget: "printing1a1",
       });
     } else if (id === "p2b") {
       message = this.createClientMessage(t("chatbot.backThe"));
@@ -92,9 +94,11 @@ class ActionProvider {
         widget: "printing3a",
       });
     } else if (id === "p3a") {
-      message = this.createClientMessage(t("chatbot.p3a"), {
-        // need to update
-        widget: "printing3a",
+      message = this.createClientMessage(t("chatbot.p3a"));
+      message = this.createChatBotMessage(t("chatbot.please_contact"));
+      this.addMessageToState(message);
+      message = this.createChatBotMessage(t("chatbot.go_contact"), {
+        widget: "printing1a1",
       });
     } else if (id === "p3b") {
       message = this.createClientMessage(t("chatbot.backThe"));
