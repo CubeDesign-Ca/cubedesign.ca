@@ -16,7 +16,8 @@ module.exports = {
       spacing: {
         footer_lmargin: "150px",
         footer_tmargin: "100px",
-        footer_h: "398px",
+        footer_h: "418px",
+        m_footer_h: "448px",
         footer_logo_w: "68px",
         footer_logo_h: "68px",
         footer_h_gap: "34px",
