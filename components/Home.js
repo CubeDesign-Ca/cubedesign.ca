@@ -170,7 +170,7 @@ const Home = () => {
               <div className="inline-flex">
                 <figcaption className="w-[100px] mt-[17px]">{t("home.banner2")}</figcaption>
                 <div className="mt-[17px]">
-                  <img src="/images/main_banner02.gif" className="min-w-[517px] h-[40px]"></img>
+                  <img src="/images/main_banner02.gif" className="md:min-w-[517px] h-[40px]"></img>
                 </div>
               </div>
             </div>
