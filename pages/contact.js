@@ -5,7 +5,6 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 const ContactUsPage = () => {
   return (
     <div>
-      
       <ContactUs />
     </div>
   );

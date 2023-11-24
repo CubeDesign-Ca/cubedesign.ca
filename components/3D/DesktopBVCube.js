@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { motion, useAnimation } from 'framer-motion';
 
-function BrandValueCube(props) {
+function DBVCube(props) {
   let scene, camera, renderer, cube, edges;
   let auto = true;
   let fixAnim = true;
@@ -24,42 +24,42 @@ function BrandValueCube(props) {
 
   useEffect(() => {
     function init() {
-        scene = new THREE.Scene();
-        camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
-        renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
-        renderer.setClearColor( 0x000000, 0 );
-        renderer.setSize(200, 200);
-    
-        // Create shape
-        const geometry = new THREE.BoxGeometry(3, 3, 3);
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setClearColor(0x000000, 0);
+      renderer.setSize(200, 200);
 
-        const loader = new THREE.TextureLoader();
-        const bgColor = 0xFFFFFF;
-        const cubeMaterials = [
-            new THREE.MeshBasicMaterial({ color : bgColor }), // right side
-            (DIR == LEFT ? new THREE.MeshBasicMaterial({ color: bgColor, map: loader.load(props.img_src)}) : new THREE.MeshBasicMaterial({ color : bgColor })), // left side
-            (DIR == TOP ? new THREE.MeshBasicMaterial({ color: bgColor, map: loader.load(props.img_src)}) : new THREE.MeshBasicMaterial({ color : bgColor })), // top side
-            new THREE.MeshBasicMaterial({ color : bgColor }), // bottom side
-            (DIR == RIGHT ? new THREE.MeshBasicMaterial({ color: bgColor, map: loader.load(props.img_src)}) : new THREE.MeshBasicMaterial({ color : bgColor })), // front side
-            new THREE.MeshBasicMaterial({ color : bgColor }), // back side
-        ];
+      // Create shape
+      const geometry = new THREE.BoxGeometry(3, 3, 3);
 
-        cube = new THREE.Mesh(geometry, cubeMaterials)
-        camera.position.z = 5;
+      const loader = new THREE.TextureLoader();
+      const bgColor = 0xFFFFFF;
+      const cubeMaterials = [
+        new THREE.MeshBasicMaterial({ color: bgColor }), // right side
+        (DIR == LEFT ? new THREE.MeshBasicMaterial({ color: bgColor, map: loader.load(props.img_src) }) : new THREE.MeshBasicMaterial({ color: bgColor })), // left side
+        (DIR == TOP ? new THREE.MeshBasicMaterial({ color: bgColor, map: loader.load(props.img_src) }) : new THREE.MeshBasicMaterial({ color: bgColor })), // top side
+        new THREE.MeshBasicMaterial({ color: bgColor }), // bottom side
+        (DIR == RIGHT ? new THREE.MeshBasicMaterial({ color: bgColor, map: loader.load(props.img_src) }) : new THREE.MeshBasicMaterial({ color: bgColor })), // front side
+        new THREE.MeshBasicMaterial({ color: bgColor }), // back side
+      ];
 
-        scene.add(cube);
+      cube = new THREE.Mesh(geometry, cubeMaterials)
+      camera.position.z = 5;
 
-        // Create edges
-        const edgeMesh = new THREE.EdgesGeometry(geometry)
-        edges = new THREE.LineSegments(edgeMesh, new THREE.LineBasicMaterial({ color:0x000000 }))
-        scene.add(edges);
+      scene.add(cube);
 
-        if (document.getElementById(ID) != null) {
-          document.getElementById(ID).appendChild(renderer.domElement);
-          document.getElementById(ID).addEventListener("click", function () { fix(); }, false);
-        }
+      // Create edges
+      const edgeMesh = new THREE.EdgesGeometry(geometry)
+      edges = new THREE.LineSegments(edgeMesh, new THREE.LineBasicMaterial({ color: 0x000000 }))
+      scene.add(edges);
+
+      if (document.getElementById(ID) != null) {
+        document.getElementById(ID).appendChild(renderer.domElement);
+        document.getElementById(ID).addEventListener("click", function () { fix(); }, false);
+      }
     }
-    
+
     function fix() {
       if (auto) {
         auto = false;
@@ -161,14 +161,14 @@ function BrandValueCube(props) {
       }
       renderer.render(scene, camera);
     }
-    
+
     if (cube == null) {
       init();
       animate();
       control.start("visible");
     }
   }, []);
-  
+
   const variant = {
     hidden: { opacity: 0 },
     visible: {
@@ -176,38 +176,38 @@ function BrandValueCube(props) {
       opacity: 1,
       transition: {
         duration: 1,
-        delay:0.3,
+        delay: 0.3,
         staggerChildren: 0.8,
       }
     }
   }
 
-  const handleAnimationComplete = () => {
-      setTimeout(function() {
-        if (document.getElementById(ID) != null) {
-          document.getElementById(ID)
+  const handleAnimationStart = () => {
+    setTimeout(function () {
+      if (document.getElementById(ID) != null) {
+        document.getElementById(ID)
           .dispatchEvent(new MouseEvent('click', {
             bubbles: true,
             cancelable: true,
             view: window,
           }));
-        }
-      }, 500);
+      }
+    }, 500);
   };
 
   return (
     <div className="flex justify-center items-center">
       <motion.div
-          ref={divRef}
-          animate={control}
-          initial="hidden"
-          variants={variant}
-          onAnimationComplete={handleAnimationComplete}
-           >
+        ref={divRef}
+        animate={control}
+        initial="hidden"
+        variants={variant}
+        onAnimationStart={handleAnimationStart}
+      >
         <div id={ID} className="w-[200px] h-[200px]" ></div>
       </motion.div>
     </div>
   );
 }
 
-export default BrandValueCube;
+export default DBVCube;

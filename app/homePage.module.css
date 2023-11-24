@@ -1,14 +1,13 @@
-
 /* homePage.module.css */
 
 /* main img */
 .imgContainer {
   width: 100%;
-  height: 1090px;
+  height: 100vh;
   background-image: url('/images/Home-main_banner(2000x1090_CFE2EB).jpg');
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-position: center;
+  background-position: right;
   background-size: cover;
   margin-bottom: 200px;
 }
@@ -46,6 +45,7 @@
   /* display: flex; */
   /* flex: 1; */
   /* align-items: stretch; */
+  padding-left: 0px;
   position: relative;
   /* background-size: contain;
   background-repeat: no-repeat; */
@@ -54,6 +54,21 @@
   border-bottom: 8px solid white;
   transition: background-image 0.4s ease; 
 } 
+
+.cardMobile {
+  /* display: flex; */
+  /* flex: 1; */
+  /* align-items: stretch; */
+  padding-left: 0px;
+  position: relative;
+  /* background-size: contain;
+  background-repeat: no-repeat; */
+  width: 285px;
+  height: 560px;
+  border-bottom: 8px solid white;
+  transition: background-image 0.4s ease; 
+} 
+
 .serviceContent { 
   padding: 40px 50px 40px 50px;
   /* background-color: #EFF2F9; */
@@ -67,6 +82,23 @@
   background-color: rgba(239, 242, 249, 0.8);
   backdrop-filter: blur(10px);
 }
+
+.serviceContentMobile { 
+  padding: 40px 50px 40px 50px;
+  /* background-color: #EFF2F9; */
+  /* opacity: 0.5; */
+  /* backdrop-filter: blur(20px); */
+  z-index: 1;
+  position: absolute;
+  bottom: 0%;
+  width: 285px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(239, 242, 249, 0.8);
+  backdrop-filter: blur(10px);
+}
+
 .serviceTitle{
   font-family: "Noto Sans", sans-serif;
   color: #103558;
