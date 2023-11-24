@@ -182,9 +182,9 @@ const Home = () => {
           initial="visible"
           variants={variant}
         >
-          <div className="fixed h-[95px] py-[24px] bottom-10 left-0 right-0 md:flex justify-center items-center z-10">
+          <div className="absolute h-[95px] py-[24px] bottom-10 left-0 right-0 md:flex justify-center items-center z-10">
             <div className="center md:display-flex md:container font-white w-screen xl:min-w-[1140px] xl:max-w-[1140px]">
-              <img className="h-[46px] w-[60px]" src="/images/main_arrow.svg"></img>
+              <img className="h-[46px] w-[46px]" src="/images/main_arrow.svg"></img>
             </div>
           </div>
         </motion.div>
