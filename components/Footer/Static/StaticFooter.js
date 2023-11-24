@@ -19,7 +19,7 @@ const Footer = () => {
                   />
                 </div>
                 <div className="text-[16px]">
-                  <div className="mr-[200px] md:mr-8 flex flex-col md:flex-row-reverse">
+                  <div className="md:mr-8 flex flex-col md:flex-row-reverse">
                     <div className="flex justify-start max-w-[270px] md:w-60 mb-[15px] md:mb-[0px]">
                       <div className="flex-none">
                         <img
