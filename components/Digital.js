@@ -712,7 +712,7 @@ const Digital = () => {
             </h2>
           </div>
           {/* mobile */}
-          <div className="block md:hidden w-[400px] h-[100px] flex flex-col pt-[50px]">
+          <div className="block md:hidden w-[400px] h-[100px] flex flex-col pt-[50px] items-center">
             <div className="block md:hidden w-[360px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
               <div
                 id="printing"
@@ -724,7 +724,7 @@ const Digital = () => {
             </div>
           </div>
           <div
-            className={`w-[400px] ${
+            className={`pl-[20px] w-[400px] ${
               modalExit1 ? "h-[630px]" : "h-[810px]"
             } mt-[20px] block md:hidden mb-[0px]`}
           >
@@ -883,7 +883,7 @@ const Digital = () => {
               </motion.div>
             </motion.div>
           </div>
-          <div className="block md:hidden w-[400px] h-[100px] flex flex-col pt-[50px]">
+          <div className="block md:hidden w-[400px] h-[100px] flex flex-col pt-[50px] items-center">
             <div className="block md:hidden w-[360px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
               <div
                 id="printing"
@@ -895,7 +895,7 @@ const Digital = () => {
             </div>
           </div>
           <div
-            className={`w-[400px] ${
+            className={`pl-[20px] w-[400px] ${
               modalExit2 ? "h-[150px]" : "h-[330px]"
             } mt-[20px] block md:hidden mb-[0px]`}
           >
@@ -941,7 +941,7 @@ const Digital = () => {
               </motion.div>
             </motion.div>
           </div>
-          <div className="block md:hidden w-[400px] h-[100px] flex flex-col pt-[50px]">
+          <div className="block md:hidden w-[400px] h-[100px] flex flex-col pt-[50px] items-center">
             <div className="block md:hidden w-[360px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
               <div
                 id="printing"
@@ -953,7 +953,7 @@ const Digital = () => {
             </div>
           </div>
           <div
-            className={`w-[400px] ${
+            className={`pl-[20px] w-[400px] ${
               modalExit3 ? "h-[150px]" : "h-[330px]"
             } mt-[20px] block md:hidden mb-[0px]`}
           >
@@ -999,7 +999,7 @@ const Digital = () => {
               </motion.div>
             </motion.div>
           </div>
-          <div className="block md:hidden w-[400px] h-[100px] flex flex-col pt-[50px]">
+          <div className="block md:hidden w-[400px] h-[100px] flex flex-col pt-[50px] items-center">
             <div className="block md:hidden w-[360px] h-[60px] flex justify-start border-b-8 border-solid border-[#C83832]">
               <div
                 id="printing"
@@ -1011,7 +1011,7 @@ const Digital = () => {
             </div>
           </div>
           <div
-            className={`w-[400px] ${
+            className={`pl-[20px] w-[400px] ${
               modalExit4 ? "h-[310px]" : "h-[490px]"
             } mt-[20px] block md:hidden mb-[40px]`}
           >
